@@ -116,7 +116,7 @@
 };
 
 #nop 捡垃圾卖钱;
-#alias {sda}{#class sda read bot/sda.tt};
+#alias {sda} {#class sda read bot/sda.tt};
 #alias {sdx} {#class sda kill};
 
 #nop 洗澡从家里开始;
@@ -240,5 +240,9 @@
 #nop 学习技能;
 #alias xgb {#class xsk read bot/xsk.tt;#var shifu %1;say 丐帮弟子向师傅求教};
 #alias xth {#class xsk read bot/xsk.tt;#var shifu %1;say 桃花弟子向师傅求教};
+
+#nop 举石锁
+#alias ssa {#class shisuo read bot/shisuo.tt; get suo};
+#alias ssx {#class shisuo kill};
 
 #class ali close;

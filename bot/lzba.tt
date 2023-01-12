@@ -15,11 +15,13 @@ draw armor;
 draw head;
 draw surcoat;
 draw boots;
+draw cloth;
+draw sword
 wield all;
 sethere fds;
 #delay 1 {gt kd;
 #delay 3 {wear all;
-#delay 1 {drop xue;drop shoes;wear all;
+#delay 1 {remove cloth; drop xue;drop shoes;wear all;wield sword
 #class lzba kill;
 }}}}};
 

@@ -12,6 +12,10 @@
   do 2 xue $shi for $gong 50;
   exert regenerate;
 };
+#alias {gsleep} {
+  s;sleep;
+}
+
 
 #act {^你和师父切磋了%*消耗了大量潜能} {skx;dza};
 #act {^你的潜能已经发挥到极限} {skx;dza};
@@ -20,9 +24,14 @@
 
 #act {^你的%*进步了} {verify $gong};
 
-#act {你略一凝神，精神看起来好多了。} {skaa};
+#act {你略一凝神，精神看起来好多了。} {dazuo max};
+#act {^你现在精不够，无法控制内息的流动！} {yun regenerate};
+#act {（你的内力已经枯竭，不能施用内功。）} {skaa};
+#act {^你今天太累了，结果什么也没学到。} {gsleep};
+#act {^你现在气血严重不足，无法满足打坐最小要求。} {gsleep};
+#act {^你运功完毕} {skaa};
 
-#act {^你的内力不够。} {sleep};
+#act {^你的内力不够。} {skaa};
 
 #act {^你一觉醒来} {
   #if {"$mymenpai"=="桃花岛"} {
@@ -34,8 +43,10 @@
    #else {
           eat liang;
          #delay 1 {drink jiudai;
+         #delay 1 {n; 
          #delay 1 {skaa;
-     }}};
+
+     }}}};
 };
 
 #act {^这里不是你能睡的地方！} {
@@ -44,8 +55,9 @@
         #delay 2 {sleep;
    }}};
    #else {
-         sleep;
-    };
+        #delay 1 {s;
+        #delay 2 {sleep;
+    }}};
 };
 
 #gag {^这里不是你能睡的地方！};

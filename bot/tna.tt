@@ -14,6 +14,7 @@
 #act {你现在精不足，无法修行精力！} {exert regenerate;#delay 2 {tunaa}};
 
 #act {你的内力不够} {sleep};
+#act {你的内力已经枯竭，不能施用内功。} {sleep};
 
 #act {你刚在三分钟内睡过} {
 #delay 15 {sleep};

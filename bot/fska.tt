@@ -13,13 +13,16 @@
 #alias {gosleep} {
     eat liang;
     #delay 1 {drink jiudai;
+    #delay 1 {s;
     #delay 1 {sleep;
-}}};
+}}}};
+
 #alias {gofsk} {
      eat liang;
     #delay 1 {drink jiudai;
     #delay 1 {fskaa;
-}}};
+    #delay 1 {n;
+}}}};
 
 #var {skill} {parry};
 #var {lw-or-lx} {lw};

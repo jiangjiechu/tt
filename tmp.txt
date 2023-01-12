@@ -1,0 +1,10 @@
+
+
+#action {你缓缓举起石锁，再缓缓放下。} {ju};
+#action {你正忙着呢。} {#delay 2 ju};
+#action {你捡起一具石锁。} {ju};
+#action {你至少要把石锁拿起来再举吧？} {get suo};
+#action {你觉得自己已经把身体练得很棒了，可以去找郭大侠从军了。} {#class shisuo kill};
+
+
+#gag {^$};

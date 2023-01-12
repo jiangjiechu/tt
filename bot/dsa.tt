@@ -10,8 +10,12 @@
 #act {^{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {dsaa};
 #act {^你的精神太差，读不下去了。$} {exert regenerate};
 #act {^你的内力不够。} {
-   eat liang;
-	#delay 1 {drink jiudai;#delay 1 {sleep}};
+   do 10 eat liang;
+	#delay 1 {do 10 drink jiudai;#delay 1 {sleep}};
+};
+#act {你的内力已经枯竭，不能施用内功。} {
+   do 10 eat liang;
+	#delay 1 {do 10 drink jiudai;#delay 1 {sleep}};
 };
 
 #gag {^你已经很累了，歇歇再读吧，身体要紧};

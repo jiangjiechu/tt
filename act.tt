@@ -47,11 +47,35 @@
 #action {^http://fullme.pkuxkx.net/robot.php?filename=%1} {
   #var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
   #nop mxp;
-  #nop #system sh bot/fullme.sh %1;
+  #system sh bot/fullme.sh %1;
 };
 
 #act {^http://fullme.pkuxkx.com/robot.php?filename=%1} {
 	#var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
   #nop mxp;
-  #nop #system sh bot/fullme.sh %1;
+  #system sh bot/fullme.sh %1;
 };
+
+#nop ==个人信息==sc,sk查看刷新;
+#alias {xy.home} {enter $myid};
+#var mymenpai {};
+#var myid {};
+#var mygender {};
+#var mydodgelv 0;
+#act {^┌───人物详情───────────────────────┐$}
+{
+    #class tmp open;
+    #act {^│%!s%* %*(%*)%!s│$} {#var myid @lower{%%3}};
+    #act {│门派：%*%!s│$} {#var mymenpai %%1};
+    #act {^│年龄：%*岁%!s│} {#var myage @ctd{%%1}};
+    #act {^│性别：%*性%!s│} {#var mygender %%1};
+    #act {^└───────────────┴─────北大侠客行────┘$} {#class tmp kill};
+    #class tmp close;
+};
+
+#act {^┌───%!*项基本知识────┬─────┐$} 
+{
+    #line oneshot #act {^│  基本轻功%!s│%d.%d%!s│$} {#var mydodgelv @int{%%1}};
+};
+
+#nop ==个人信息结束=;
