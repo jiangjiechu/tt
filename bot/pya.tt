@@ -1,0 +1,20 @@
+#nop 配药;
+#class pya open;
+
+#tic {pya} {#untic pya;pyaa} {2};
+#alias {pyaa} {ask ping about 工作};
+#alias {pyd} {give yao to ping;#delay 1 {pyaa}};
+#alias {pyp} {peiyao};
+#alias {pyf} {ask ping about 失败;pyx};
+
+#act {^平一指说%*$} {
+   #delay 2 {
+   n;pyp
+}};
+
+#nop #act {}{};
+
+#act {^不知过了多久，你终于把药配完。$} {
+  #delay 2 {s;pyd}
+};
+#class pya close;

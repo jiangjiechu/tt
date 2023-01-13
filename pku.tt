@@ -1,10 +1,10 @@
-#nop ╠╠╢Сою©мппа╛╫спео╒;
+#nop О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╒;
 #nop #event {SCREEN RESIZE} {#split};
 #split;
-#nop ╪сть prompt ╡Е╪Ч;
+#nop О©╫О©╫О©╫О©╫ prompt О©╫О©╫О©╫;
 #read {plugin/prompt.tin};
-#nop фТсц GMCP;
+#nop О©╫О©╫О©╫О©╫ GMCP;
 #read {gmcp.tt};
-#nop ╢╢╫╗╩А╩╟;
+#nop О©╫О©╫О©╫О©╫О©╫А╩╟;
 #ses pku mud.pkuxkx.net 8080;
 

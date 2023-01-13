@@ -13,19 +13,17 @@
 #alias {gosleep} {
     eat liang;
     #delay 1 {drink jiudai;
-    #delay 1 {s;
     #delay 1 {sleep;
-}}}};
+}}};
 
 #alias {gofsk} {
      eat liang;
     #delay 1 {drink jiudai;
     #delay 1 {fskaa;
-    #delay 1 {n;
-}}}};
+}}};
 
 #var {skill} {parry};
-#var {lw-or-lx} {lw};
+#var {lw-or-lx} {lx};
 #var {wait-for-sleep} {false};
 
 #alias {fskaa} {
@@ -43,10 +41,11 @@
 #action {你现在精力充沛。$END}  {${lw-or-lx}};
 #action {你现在气力充沛。$END}  {${lw-or-lx}};
 
-#action {你的内力不够。$END}    {#if { "${wait-for-sleep}" == "false" } {gosleep}};
+#action {你的内力不够%*$|你的内力已经枯竭%*$|你的体力不够%*$|你现在气血虚浮%*$}    {#if { "${wait-for-sleep}" == "false" } {gosleep}};
 
-#action {{^你刚在三分钟内睡过一觉|^你精血不足}}   {#delay 15 sleep; #if { "${lw-or-lx}" == "lx" } {#var wait-for-sleep {true}; lian $skill 50}};
+#action {{^你刚在三分钟内睡过一觉|^你刚刚睡过一觉|^你精血不足}}   {#delay 15 sleep; #if { "${lw-or-lx}" == "lx" } {#var wait-for-sleep {true}; #delay 2 {lian $skill 50}}};
 #action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {gofsk; #var wait-for-sleep {false}};
+#action {你慢慢的睁开眼睛%*$}        {gofsk; #var wait-for-sleep {false}};
 
 #action {^你需要提高基本功，不然练得再多也没有用。$END}  {#var lw-or-lx {lw}};
 #action {^你的基本%*的级别还没有%*的级别高} {#var lw-or-lx {lw}};
@@ -56,6 +55,9 @@
 #nop #action {~^%*你的「%1」进步了！%*$END} {};
 #gag {走了过来};
 #gag {往%*离开};
+#gag {^水平%*$}
+#gag {^英雄%*$}
+#gag {^风云%*$}
 #gag {略一凝神，精神看起来好多了。};
 #gag {你现在过于疲倦,无法静下心来领悟功夫！};
 #gag {^> $};

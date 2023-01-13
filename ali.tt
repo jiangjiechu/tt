@@ -150,6 +150,10 @@
 #nop 天珠;
 #alias {tza} {#class tza read bot/tza.tt};
 #alias {tzx} {#class tza kill;#untic tza1};
+ 
+#nop 配药;
+#alias {pya} {#class pya read bot/pya.tt};
+#alias {pyx} {#class pya kill;};
 
 #nop 投名状;
 #alias {tma} {#class tma read bot/tma.tt};
@@ -214,6 +218,14 @@
 };
 #alias {skx} {#class ska kill};
 
+#nop skill学习;
+#alias yska {
+    #class yska read bot/yska.tt;
+    #var shi %1;
+    #var gong %2;
+};
+#alias {yskx} {#class yska kill};
+ 
 #nop 丐帮门忠;
 #alias gbpa {#class gba read bot/gba.tt;ask peng about quest};
 #nop 半自动丐帮左全;

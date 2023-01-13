@@ -9,9 +9,12 @@
 } {2};
 
 #alias {skaa} {
-  do 2 xue $shi for $gong 50;
-  exert regenerate;
+  xue $shi for $gong 50;
 };
+#alias {skab} {
+  do 7 xue $shi for $gong 50;
+};
+
 #alias {gsleep} {
   s;sleep;
 }
@@ -21,17 +24,28 @@
 #act {^你的潜能已经发挥到极限} {skx;dza};
 
 #act {^你刚在三分钟内睡过} {#delay 15 sleep};
+#act {^你刚刚睡过一觉} {#delay 15 sleep};
 
-#act {^你的%*进步了} {verify $gong};
+#act {^你的%*进步了} {skbrief $gong};
 
 #act {你略一凝神，精神看起来好多了。} {dazuo max};
 #act {^你现在精不够，无法控制内息的流动！} {yun regenerate};
-#act {（你的内力已经枯竭，不能施用内功。）} {skaa};
-#act {^你今天太累了，结果什么也没学到。} {gsleep};
-#act {^你现在气血严重不足，无法满足打坐最小要求。} {gsleep};
+#act {你的内力已经枯竭，不能施用内功。} {
+  skab
+};
+#act {你今天太累了，结果什么也没有学到。} {
+  do 3 eat liang;
+  #delay 1 {do 3 drink jiudai;};
+  #delay 1 {gsleep;};
+};
+#act {你洗完了澡，变得楚楚动人，身上散发出阵阵的香气。}{ wear all; s;w;n; skaa};
+
+#act {你听了%*的指导，似乎有些心得。}{#delay 3 {yun regenerate}};
+ 
+#act {^你现在气血严重不足，无法满足打坐最小要求。} {skaa};
 #act {^你运功完毕} {skaa};
 
-#act {^你的内力不够。} {skaa};
+#act {^你的内力不够。} {skab};
 
 #act {^你一觉醒来} {
   #if {"$mymenpai"=="桃花岛"} {
@@ -41,9 +55,10 @@
         #delay 1 {skaa;
     }}}}};
    #else {
-          eat liang;
+         eat liang;
+
          #delay 1 {drink jiudai;
-         #delay 1 {n; 
+         #delay 1 {n;
          #delay 1 {skaa;
 
      }}}};
@@ -63,5 +78,9 @@
 #gag {^这里不是你能睡的地方！};
 #gag {走了过来};
 #gag {往%*离开};
+#gag {水平%*};
+#gag {风云%*};
+#gag {你已经吃%*}
+#gag {你已经喝%*}
 
 #class ska close;
