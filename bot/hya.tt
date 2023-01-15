@@ -1,0 +1,61 @@
+#class hya open;
+
+#tic {hya} {#untic hya;hyaa} {2};
+#alias {hyaa} {ask sha mi about job};
+#alias {gout} {s;s;s;sd};
+#alias {gin} {nu;n;n;n};
+
+#act {沙弥说道：%1家里很有钱，你到%2向他化缘(huayuan)重塑佛祖金身吧。} {
+  gout;
+  #tic {hya1} {#echo {%c%h} {light yellow} {化缘目标在%2的%1处}} {15}
+};
+
+#act {沙弥说道：%1前些日子在我寺捐了很多香火钱，你到%2把这本佛经送(song)给他吧。} {
+  gout;
+  #tic {hya2} {#echo {%c%h} {light yellow} {送经目标在%2的%1处}} {15}
+};
+
+#act {沙弥(Sha mi)告诉你：你可以到我这里接到新手任务。} {
+  dzx;
+  out;
+  #delay 2 {hyaa}
+};
+#act {你刚刚才来过，歇息一会吧。} {
+  enter;
+  dza
+}
+#act {你的内力增加了！！} {
+  dzx;
+  out;
+  #delay 2 {hyaa}
+}
+
+#act {%1看着你，似乎想问什么，但又欲言又止。} {
+  #VARIABLE {milu} {%1};
+  id here;
+  #act {$milu%%*= %%2,%%*} {
+    #VARIABLE {mubiao} {%%2};
+    ask $mubiao about lost;
+  };
+  #delay 1 {ask $mubiao about lead}
+};
+
+#act {%1说道：「是啊，我本要去%2，结果迷路，不知道你能不能带我去？」} {
+  #tic {hya3} {#echo {%c%h} {light yellow} {%1迷路了，目标在%2处}} {15}
+};
+
+
+#act {你的任务失败}{
+   #untic hya1;
+   #untic hya2;
+   #untic hya3;
+   hyx};
+
+#act {你被奖励了} {
+  #untic hya1;
+  #untic hya2;
+  #untic hya3;
+  hyx};
+
+#class hya close;
+

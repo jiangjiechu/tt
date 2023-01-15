@@ -127,6 +127,10 @@
 #alias {cja} {#class cja read bot/cja.tt};
 #alias {cjx} {#class cja kill};
 
+#nop 抄经;
+#alias {cha1} {#class cha1 read bot/cha1.tt};
+#alias {chx1} {#class cha1 kill};
+
 #nop 万安塔;
 #alias {wata} {#class wata read bot/wata.tt};
 #alias {watx} {#class wata kill};
@@ -256,5 +260,9 @@
 #nop 举石锁
 #alias ssa {#class shisuo read bot/shisuo.tt; get suo};
 #alias ssx {#class shisuo kill};
+
+#nop 化缘
+#alias hya {#class hya read bot/hya.tt;};
+#alias hyx {#class hya kill};
 
 #class ali close;

@@ -1,0 +1,29 @@
+#class cha1 open;
+
+#tic {cha1} {#untic cha1;chaa} {2};
+#nop 有定位的地方开始;
+#alias {chaa} {ask sengren about job};
+#alias {chad} {ask sengren about done};
+#alias {rp1 %1} {#var num %1;#showme $num};
+
+#act {云游僧人说道：记住你的工号：}{
+    #delay 1 {node walk sms_sjy; 
+    #delay 3 {write jing;sc }}
+};
+
+#act {你默写良久，终于抄完了%*} {
+    node walk sjy_sms;
+    #delay 2 {chad}
+};
+
+#act {云游僧人说道：%*很好！%*} {
+    #delay 2 {chaa}
+};
+#act {云游僧人说道：%*报上你的口令！%*} {
+    report $num;
+    #UNVARIABLE {num};
+};
+
+#class cha1 close;
+
+

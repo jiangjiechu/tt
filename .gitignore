@@ -2,3 +2,8 @@
 *log
 refer
 refer/*
+.vscode
+*.jpg
+*.png
+tmp.*
+*.txt
