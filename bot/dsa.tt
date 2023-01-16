@@ -56,8 +56,8 @@
 #nop #act {你正专心阅读%*} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 #nop #act {你从身上拿出} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
-#act {^你研读了%*似乎有点心得。} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
-#act {^你思索着小说中关于%*，对%*有一些新的理解。$} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
+#nop #act {^你研读了%*似乎有点心得。} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
+#nop #act {^你思索着小说中关于%*，对%*有一些新的理解。$} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
 #act {你的%*火候} {cunbook};
 #act {你的%*等级已经高于} {cunbook};

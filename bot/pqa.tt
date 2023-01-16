@@ -1,0 +1,81 @@
+#class pqa open;
+#var lei 0;
+#var kujie 0;
+#var count 0;
+
+#tic {report} {sk} 50;
+#tic {pqab} {pqaa} 4;
+#alias {pqaa} {
+  climb wall;
+}
+
+
+
+#nop #action {你%*忙着呢。} {#delay 2 pqaa};
+#action {你现在气力充沛。} {dazuo max};
+#act {你%*站了起来} {#delay 1 {tuna max}};
+
+#act {你吐纳完毕} {
+  #if {$count < 20} {
+    #echo {climbing $count times};
+    #math {count} {$count + 1};
+  };
+  #else {
+    #var count 0;
+    eat liang;
+    #delay 1 {drink}
+  };
+  yun jing;
+  dazuo max;
+};
+#act {你%*站了起来} {
+  tuna max;
+};
+#act {你吐纳完毕} {dazuo max};
+#act {你现在{内力|精力}接近圆满状态。} {
+  dazuo max;
+};
+
+#act {你的内力不够。} {
+  #var kujie 1;
+  pqaa;
+};
+
+#act {你的内力已经枯竭，不能施用内功。} {
+  #var kujie 1;
+  pqaa;
+};
+
+#act {^慢慢地你%*} {
+  gout;
+  #delay 1 {pqaa}
+};
+#act {^你一觉醒来%*} {
+  gout;
+  #delay 1 {pqaa}
+};
+
+#alias gsleep {
+  hp;
+  n;e;
+  give 2 silver to xiao er;
+  #delay 1 {
+  up;enter;
+  dazuo max
+  }
+}
+
+#alias gout {
+  out;d;w;s;
+}
+
+#gag {^这里不是你能睡的地方！};
+#gag {走了过来};
+#gag {走了进去};
+#gag {往%*离开};
+#gag {了来%*};
+#gag {本仙%*};
+#gag {你已经吃%*}
+#gag {你已经喝%*}
+
+#class pqa close;

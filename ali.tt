@@ -238,6 +238,10 @@
 #alias gbx {#class gba kill;#untic gbq1;#untic gbq2;#untic gbq3};
 #nop ∞Î◊‘∂Øÿ§∞Ô¬≥”–Ω≈;
 
+#nop ÿ§∞Ô√≈÷“;
+#alias hsa {#class hsa read bot/hsa.tt;ask ning about quest};
+#alias hsx {#class hsa kill;#untic hsq1;#untic hsq2;#untic hsq3};
+
 #nop ∆∆’Û;
 #alias {pza} {#class pza read bot/pza.tt};
 #alias {pzx} {#class pza kill};
@@ -264,5 +268,13 @@
 #nop ªØ‘µ
 #alias hya {#class hya read bot/hya.tt;};
 #alias hyx {#class hya kill};
+
+#nop ≈¿ ˜
+#alias psa {#class psa read bot/psa.tt;climb tree};
+#alias psx {#class psa kill};
+
+#nop ≈¿«Ω
+#alias pqa {#class pqa read bot/pqa.tt;dazuo max};
+#alias pqx {#class pqa kill;#untic pqab;#untic report};
 
 #class ali close;
