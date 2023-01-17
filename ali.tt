@@ -277,4 +277,20 @@
 #alias pqa {#class pqa read bot/pqa.tt;dazuo max};
 #alias pqx {#class pqa kill;#untic pqab;#untic report};
 
+#nop Æ¾µõ
+#alias pda {#class pda read bot/pda.tt;};
+#alias pda {#class pda kill};
+
+#nop ±±Ú¤
+#alias tra {
+  #class tra read bot/tra.tt;
+  unwield all;
+  bei none;
+  jifa dodge none;
+  jifa parry none;
+  fight gujia
+}
+#alias trx {
+  #class trx kill;
+}
 #class ali close;
