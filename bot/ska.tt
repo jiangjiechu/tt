@@ -15,21 +15,22 @@
 } {2};
 
 #alias {skaaa} {
-  xue $shi for $gong 10;
+  xue $shi for $gong 50;
 };
 #alias {skab} {
-  do 7 xue $shi for $gong 10;
+  do 7 xue $shi for $gong 50;
 };
 
 #alias {gsleep} {
-  n;n;enter;
+  #nop e;enter;
+  e;s;
   hp;
   #delay 1 {sleep}
 };
 
 
-#act {^你和师父切磋了%*消耗了大量潜能} {skx;dza};
-#act {^你的潜能已经发挥到极限} {skx;dza};
+#act {^你和师父切磋了%*消耗了大量潜能} {skx;e;s;dza};
+#act {^你的潜能已经发挥到极限} {skx;e;s;dza};
 
 #act {^你刚在三分钟内睡过} {#delay 15 sleep};
 #act {^你刚刚睡过一觉} {#delay 15 sleep};
@@ -71,7 +72,7 @@
          eat liang;
 
          #delay 1 {drink jiudai;
-         #delay 1 {out;s;s;
+         #delay 1 {n;w;
          #delay 1 {skaaa;
 
      }}}};
@@ -88,7 +89,7 @@
          eat liang;
 
          #delay 1 {drink jiudai;
-         #delay 1 {out;s;s;
+         #delay 1 {n;w;
          #delay 1 {skaaa;
 
      }}}};
@@ -110,7 +111,7 @@
 #gag {往%*离开};
 #gag {了来%*};
 #gag {本仙%*};
-#gag {你已经吃%*}
-#gag {你已经喝%*}
+#gag {你已经吃%*};
+#gag {你已经喝%*};
 
 #class ska close;

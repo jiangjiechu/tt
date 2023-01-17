@@ -1,0 +1,21 @@
+#class tra open;
+#alias trab {
+	jifa dodge tiannan-bufa;
+	jifa parry liumai-shenjian;
+};
+
+#alias xi {
+	yun maxsuck $obj;
+}
+
+
+#gag {^这里不是你能睡的地方！};
+#gag {走了过来};
+#gag {走了进去};
+#gag {往%*离开};
+#gag {了来%*};
+#gag {本仙%*};
+#gag {你已经吃%*}
+#gag {你已经喝%*}
+
+#class tra close;

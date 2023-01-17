@@ -1,0 +1,21 @@
+#class pda open;
+
+#tic {pdaa} {#untic pdaa;pingdiao} {2}
+#nop #tic {moral} {sc} {20}
+#act {你凭吊完毕%*} {
+	pingdiao
+}
+#act {你感觉你的正气%*} {
+	sc
+}
+
+#gag {^这里不是你能睡的地方！};
+#gag {走了过来};
+#gag {走了进去};
+#gag {往%*离开};
+#gag {了来%*};
+#gag {本仙%*};
+#gag {你已经吃%*}
+#gag {你已经喝%*}
+
+#class pda close;

@@ -8,7 +8,7 @@
 
 #act {你现在内力接近圆满状态。} {dazuo 10};
 
-#act {你%*站了起来} {eat liang;#delay 1 {drink jiudai;#delay 1 {dzaa}}};
+#act {你%*站了起来} {eat liang;#delay 1 {drink ;#delay 1 {dzaa}}};
 
 #act {你的内力增加了！！}  {hpbrief;dzaa};
 
@@ -40,7 +40,7 @@
 
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
 #delay 1 {eat liang;
-#delay 1 {drink jiudai;
+#delay 1 {drink ;
 #delay 1 {dzaa};
 }}};
 

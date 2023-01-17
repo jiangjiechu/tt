@@ -1,9 +1,11 @@
 #class dsa open;
 #var lei 0
+#var kujie 0
+#var faint 0
 
 #nop #tic {dsa}{dsaa}{77};
 
-#tic {dsaa}{#echo {%c%h} {light yellow}{【指令格式:dsa [书名]进行读书，i2查看书id。】};#show <afa> 开始读书...;#untic dsaa;dsaa} {1};
+#tic {dsaa}{#echo {%c%h} {light yellow}{【指令格式:dsa [书名] [次数]进行读书，i2查看书id。】};#show <afa> 开始读书...;#untic dsaa;dsaa} {1};
 
 #nop #gag {^你思索着小说中关于%*，对%*有一些新的理解。$};
 #nop #gag {^你现在过于疲倦，无法专心下来研读新知。};
@@ -12,51 +14,56 @@
 #act {^{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {dsaa};
 
 #act {^你已经很累了，歇歇再读吧，身体要紧} {
-	hp;
-    do 2 eat liang;
-    #delay 2 {do 2 drink;
-	#delay 2 {
-	sleep
-}}};
+	#if {$faint==1} { gsleep };
+	#else {
+		#var faint 1;
+		dsaa;
+	}
+};
 #act {^你现在过于疲倦，无法专心下来研读新知。} {
-	hp;
-    do 2 eat liang;
-    #delay 2 {do 2 drink;
-	#delay 2 {
-	sleep
-}}};
+	#if {$faint==1} { gsleep };
+	#else {
+		#var faint 1;
+		dsaa
+	}
+};
 
 #act {^你的精神太差，读不下去了。$} {
-	hp;
-    do 2 eat liang;
-    #delay 2 {do 2 drink;
-	#delay 2 {
-	sleep
-}}};
+	#if {$faint==1} { gsleep };
+	#else {
+		#var faint 1;
+	}
+};
+
+#act {你的内力不够。} {
+	#if {$kujie==0} {
+		#var kujie 1;
+		dsaa;
+	};
+};
 #act {你的内力已经枯竭，不能施用内功。} {
-    do 2 eat liang;
-    #delay 2 {do 2 drink;
-	#delay 2 {
-	sleep
-}}};
-#act {^你的内力不够} {
-    do 2 eat liang;
-    #delay 2 {do 2 drink;
-	#delay 2 {
-	sleep
-}}};
+	#var kujie 1;
+	dsaa;
+};
 #act {^你现在气血严重不足，无法满足打坐最小要求。} {
 	#var lei 1;
 	dsaa;
 };
 
+#act {你现在精不够，无法控制内息的流动} {exert regenerate};
 
 
-#nop #act {你正专心看着一本厚厚的小说。} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
+#act {你正专心看着一本厚厚的小说。} { 
+	#if {"$kujie"=="0"} {exert regenerate}; 
+	#elseif {"$faint"=="0"} { dsaa};
+};
 #nop #act {你正专心阅读%*} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 #nop #act {你从身上拿出} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
-#nop #act {^你研读了%*似乎有点心得。} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
+#act {^你研读了%*似乎有点心得。} { 
+	#if {"$kujie"=="0"} {exert regenerate}; 
+	#elseif {"$faint"=="0"} {dsaa};
+};
 #nop #act {^你思索着小说中关于%*，对%*有一些新的理解。$} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
 #act {你的%*火候} {cunbook};
@@ -71,18 +78,38 @@
 #act {柜子里已经塞了太多的东西了} {put $book in bag};
 #act {这里没有这样东西。} {dsx;#show <faa>读书已停止，请随身携带包袱再运行dsa。<099>};
 
-#act {你刚在三分钟内睡过一觉} { #delay {15} {sleep}; };
-#act {^你刚刚睡过一觉} {#delay 15 sleep};
+#act {你刚在三分钟内睡过一觉} { #delay {5} {sleep}; };
+#act {^你刚刚睡过一觉} {#delay 5 sleep};
 
 #nop #act {你略一凝神，精神看起来好多了。} {#ticker dushu {#unticker dushu;dsaa} {3}};
 #nop #act {你现在精力充沛。} {#ticker dushu {#unticker dushu;dsaa} {3}};
-#act {你略一凝神，精神看起来好多了。} {dazuo max};
+#act {你略一凝神，精神看起来好多了。} {
+	#if {$lei==0} {dazuo max};
+	#else {dsaa}
+};
 #act {你现在精力充沛。} {dazuo max};
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
-	#var lei 0;
+	suxing;
 	dsaa};
 
-#act {^慢慢地你%*} { dsaa };
+#act {^慢慢地你%*} { 
+	suxing;
+	dsaa
+};
+
+#alias {suxing} {
+	#var lei 0;
+	#var kujie 0;
+	#var faint 0;
+}
+
+#alias {gsleep} {
+	hp;
+    eat liang;
+    #delay 2 {drink;
+	#delay 2 {
+	sleep
+}}};
 
 #alias cunbook
 {
@@ -102,19 +129,19 @@
 {
 	#if {"$book"=="基础梵文"}
 	{
-		read shu 5;
+		read shu $num;
 	};
 	#elseif {"$book"=="shediao"}
 	{
-		read zhuan 5;
+		read zhuan $num;
 	};
  	#elseif {"$book"=="tianlong"}
 	{
-		read tianlong 10;
+		read tianlong $num;
 	};
 	#else
 	{
-		study $book for 5;
+		study $book for $num;
 	};
 };
 
