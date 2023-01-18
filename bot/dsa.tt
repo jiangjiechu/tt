@@ -105,8 +105,8 @@
 
 #alias {gsleep} {
 	hp;
-    eat liang;
-    #delay 2 {drink;
+    do 2 eat liang;
+    #delay 2 {do 2 drink;
 	#delay 2 {
 	sleep
 }}};

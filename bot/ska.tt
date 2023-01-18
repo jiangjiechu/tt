@@ -1,10 +1,5 @@
 #class ska open;
 #var lei 0
-#var gonglist{
-  {1} {yiyang-zhi}
-  {2} {duanjia-jian}
-  {3} {tiannan-bufa}
-}
 
 #tic {ska} {skaaa} {77};
 #tic {skaa} {
@@ -15,18 +10,23 @@
 } {2};
 
 #alias {skaaa} {
-  xue $shi for $gong 50;
+  xue $shi for $gong $num;
 };
 #alias {skab} {
-  do 7 xue $shi for $gong 50;
+  do 7 xue $shi for $gong $num;
 };
 
 #alias {gsleep} {
   #nop e;enter;
-  e;s;
+  #if {$shi==kurong} {e;enter;};
+  #elseif {$shi==yue} {e;s};
   hp;
   #delay 1 {sleep}
 };
+#alias gout {
+  #if {$shi==kurong} { out;w };
+  #elseif {$shi==yue} { n;w };
+}
 
 
 #act {^你和师父切磋了%*消耗了大量潜能} {skx;e;s;dza};
@@ -44,7 +44,7 @@
 #act {你今天太累了，结果什么也没有学到。} {
   #var {lei} {1};
   do 3 eat liang;
-  #delay 1 {do 3 drink jiudai;};
+  #delay 1 {do 3 drink;};
   #delay 1 {gsleep;};
 };
 #act {你洗完了澡，变得楚楚动人，身上散发出阵阵的香气。}{ wear all; s;w;n; skaaa};
@@ -62,49 +62,18 @@
 
 #act {^慢慢地你%*} {
   #var lei 0;
-  #if {"$mymenpai"=="桃花岛"} {
-        #delay 1 {w;s;w;w;
-        #delay 2 {eat liang;
-        #delay 1 {drink jiudai;
-        #delay 1 {skaaa;
-    }}}}};
-   #else {
-         eat liang;
-
-         #delay 1 {drink jiudai;
-         #delay 1 {n;w;
-         #delay 1 {skaaa;
-
-     }}}};
-};
+  gout;
+  do 2 eat liang;
+  #delay 1 {do 2 drink;
+  #delay 1 {skaaa;
+}}};
 #act {^你一觉醒来%*} {
   #var lei 0;
-  #if {"$mymenpai"=="桃花岛"} {
-        #delay 1 {w;s;w;w;
-        #delay 2 {eat liang;
-        #delay 1 {drink jiudai;
-        #delay 1 {skaaa;
-    }}}}};
-   #else {
-         eat liang;
-
-         #delay 1 {drink jiudai;
-         #delay 1 {n;w;
-         #delay 1 {skaaa;
-
-     }}}};
-};
-
-#act {^这里不是你能睡的地方！} {
-   #if {"$mymenpai"=="桃花岛"} {
-        #delay 1 {e;e;n;e;
-        #delay 2 {sleep;
-   }}};
-   #else {
-        #delay 1 {s;
-        #delay 2 {sleep;
-    }}};
-};
+  gout;
+  do 2 eat liang;
+  #delay 1 {do 2 drink;
+  #delay 1 {skaaa;
+}}};
 
 #gag {^这里不是你能睡的地方！};
 #gag {走了过来};

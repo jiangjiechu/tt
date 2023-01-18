@@ -12,13 +12,13 @@
 
 #alias {gosleep} {
     eat liang;
-    #delay 1 {drink jiudai;
+    #delay 1 {drink ;
     #delay 1 {sleep;
 }}};
 
 #alias {gofsk} {
      eat liang;
-    #delay 1 {drink jiudai;
+    #delay 1 {drink ;
     #delay 1 {fskaa;
 }}};
 
@@ -41,7 +41,7 @@
 #action {你现在精力充沛。$END}  {${lw-or-lx}};
 #action {你现在气力充沛。$END}  {${lw-or-lx}};
 
-#action {你的内力不够%*$|你的内力已经枯竭%*$|你的体力不够%*$|你现在气血虚浮%*$}    {#if { "${wait-for-sleep}" == "false" } {gosleep}};
+#action {%*{你的内力不够|你的内力已经枯竭|你的体力不够|你现在气血虚浮}%*$}    {#if { "${wait-for-sleep}" == "false" } {gosleep}};
 
 #action {{^你刚在三分钟内睡过一觉|^你刚刚睡过一觉|^你精血不足}}   {#delay 15 sleep; #if { "${lw-or-lx}" == "lx" } {#var wait-for-sleep {true}; #delay 2 {lian $skill 50}}};
 #action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {gofsk; #var wait-for-sleep {false}};

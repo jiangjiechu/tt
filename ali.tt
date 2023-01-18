@@ -191,7 +191,7 @@
 #alias {nfuli} {pick guo;eat guo;up;ask lver about 月饼;#delay {5} {answer 咸月饼;eat yuebing;d}};
 
 #nop 读书说文解字射雕等;
-#alias {dsa} {#class dsa read bot/dsa.tt;#var book %1};
+#alias {dsa} {#class dsa read bot/dsa.tt;#var book %1; #var num %2};
 #alias {dsx} {#class dsa kill};
 
 #nop 自动吐纳;
@@ -219,6 +219,7 @@
     #class ska read bot/ska.tt;
     #var shi %1;
     #var gong %2;
+    #var num %3
 };
 #alias {skx} {#class ska kill};
 

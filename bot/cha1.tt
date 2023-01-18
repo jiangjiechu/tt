@@ -12,9 +12,13 @@
 };
 
 #act {你默写良久，终于抄完了%*} {
+    do 2 eat liang;
+    #delay 1 {
+    do 2 drink;
+    #delay 1 {
     node walk sjy_sms;
     #delay 2 {chad}
-};
+}}};
 
 #act {云游僧人说道：%*很好！%*} {
     #delay 2 {chaa}
