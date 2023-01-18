@@ -283,14 +283,26 @@
 
 #nop 北冥
 #alias tra {
+  #var obj {%1};
+  set skip_combat 3;
   #class tra read bot/tra.tt;
   unwield all;
   bei none;
   jifa dodge none;
   jifa parry none;
-  fight gujia
+  fight $obj
 }
 #alias trx {
   #class trx kill;
+}
+
+#nop 过江过河
+#alias gj {
+  ask shao gong about 过江;
+  enter
+}
+#alias gh {
+  ask shao gong about 过河;
+  enter
 }
 #class ali close;

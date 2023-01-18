@@ -1,4 +1,10 @@
 #class tra open;
+#unact {你动作似乎开始有点不太灵光，但是仍然有条不紊};
+#unact {你看起来可能有些累了};
+#unact {你似乎十分疲惫，看来需要好好休息了};
+#unact {你气喘嘘嘘，看起来状况并不太好};
+#unact {你看起来已经力不从心了};
+
 #alias trab {
 	jifa dodge tiannan-bufa;
 	jifa parry liumai-shenjian;
@@ -8,6 +14,28 @@
 	yun maxsuck $obj;
 }
 
+#alias o1 {
+	s;s;sd;sd;sd;
+	e;e;e;
+	#delay 1 {
+		e;
+		walk suzhou;
+	}
+}
+
+#alias o2 {
+	s;s;ne;
+}
+
+#alias i1 {
+	sw;n;n;
+	#delay 1 {
+		walk guiyun;
+	}
+}
+#alias i2 {
+	w;w;w;w;nu;nu;nu;n;n
+}
 
 #gag {^这里不是你能睡的地方！};
 #gag {走了过来};

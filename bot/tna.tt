@@ -21,8 +21,8 @@
 };
 
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
-#delay 1 {eat liang;
-#delay 1 {drink jiudai;
+#delay 1 {do 10 eat liang;
+#delay 1 {do 10 drink;
 #delay 1 {tunaa};
 }}};
 
