@@ -5,10 +5,10 @@
 #alias  {sxd} {ask yue about finish};
 #alias  {sxf} {ask yue about fail};
 
-#act {岳不群对你道：%*交给%1。} {
+#act {岳不群%*道：%*交给%1。} {
   #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {15}
 };
-#act {岳不群说道：%*送到%1。} {
+#act {岳不群%*道：%*送到%1。} {
   #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {15}
 };
 

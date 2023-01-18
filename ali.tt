@@ -140,7 +140,7 @@
 #alias {tlx} {#class tla kill};
 
 #nop full skills;
-#alias {fska} {#class fska read bot/fska.tt};
+#alias {fska} {#class fska read bot/fska.tt;#var lw-or-lx %1; #var skill %2};
 #alias {fskx} {#class fska kill};
 
 #nop Ä½ÈÝ£»
@@ -304,6 +304,10 @@
 }
 #alias gh {
   ask shao gong about ¹ýºÓ;
+  enter
+}
+#alias yb {
+  yell boat;
   enter
 }
 #class ali close;

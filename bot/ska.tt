@@ -1,5 +1,7 @@
 #class ska open;
-#var lei 0
+#var lei 0;
+#var kujie 0;
+#var faint 0;
 
 #tic {ska} {skaaa} {77};
 #tic {skaa} {
@@ -9,23 +11,27 @@
      skaaa;
 } {2};
 
+#alias suxing {
+  #var lei 0;
+  #var kujie 0;
+  #var faint 0;
+}
 #alias {skaaa} {
   xue $shi for $gong $num;
 };
-#alias {skab} {
-  do 7 xue $shi for $gong $num;
-};
 
 #alias {gsleep} {
-  #nop e;enter;
-  #if {$shi==kurong} {e;enter;};
-  #elseif {$shi==yue} {e;s};
+  #if {"$shi"=="kurong"} {
+    east;
+    enter
+  };
+  #elseif {"$shi"=="yue"} {e;s};
   hp;
   #delay 1 {sleep}
 };
 #alias gout {
-  #if {$shi==kurong} { out;w };
-  #elseif {$shi==yue} { n;w };
+  #if {"$shi"=="kurong"} { out;#delay 1 {w} };
+  #elseif {"$shi"=="yue"} { n;w };
 }
 
 
@@ -37,38 +43,57 @@
 
 #act {^你的%*进步了} {skbrief $gong};
 
-#act {你略一凝神，精神看起来好多了。} {dazuo max};
+#act {你略一凝神，精神看起来好多了。} {
+	#if {$lei==0} {dazuo max};
+	#else {skaaa}
+};
+#act {你现在精力充沛。} {
+	#if {$lei==0} {dazuo max};
+	#else {skaaa}
+};
+#act {你的内力不够。} {
+  #if {$kujie==0}{
+    #var kujie 1;
+    skaaa
+  }
+};
 #act {你的内力已经枯竭，不能施用内功。} {
-  skaaa
+  #if {$kujie==0}{
+    #var kujie 1;
+    skaaa
+  }
 };
 #act {你今天太累了，结果什么也没有学到。} {
-  #var {lei} {1};
-  do 3 eat liang;
-  #delay 1 {do 3 drink;};
-  #delay 1 {gsleep;};
+  #if {$faint==0} {
+    #var faint 1;
+    do 3 eat liang;
+    #delay 1 {do 3 drink;};
+    #delay 1 {gsleep;};
+  };
 };
 #act {你洗完了澡，变得楚楚动人，身上散发出阵阵的香气。}{ wear all; s;w;n; skaaa};
 
 #act {你听了%*的指导，%*似乎有些心得。}{
-  #if {"$lei" != "1"} {
-    #delay 1 {yun regenerate}
-}};
+  #if {$kujie == 0} { yun regenerate};
+  #else {skaaa}
+};
  
-#act {^你现在气血严重不足，无法满足打坐最小要求。} {skaaa};
+#act {^你现在气血严重不足，无法满足打坐最小要求。} {
+  #var lei 1;
+  skaaa};
 #act {^你现在精不够，无法控制内息的流动！} {skaaa};
 #act {^你运功完毕} {skaaa};
 
 #act {^你的内力不够。} {skaaa};
 
 #act {^慢慢地你%*} {
-  #var lei 0;
-  gout;
+  suxing;
   do 2 eat liang;
   #delay 1 {do 2 drink;
   #delay 1 {skaaa;
 }}};
 #act {^你一觉醒来%*} {
-  #var lei 0;
+  suxing;
   gout;
   do 2 eat liang;
   #delay 1 {do 2 drink;
