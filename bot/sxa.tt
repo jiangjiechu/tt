@@ -20,14 +20,21 @@
 #act {你伸手向怀中一摸，发现密函已经不翼而飞！} {
   #var wait wait;stopwalk;jiali max;yun powerup};
 
+#act {%*没有 powerup 这个功能。} {
+  yun ku;
+}
+
 #act {看起来%1想杀死你} {#var sxss %1;#var wait wait; stopwalk;jiali max;yun powerup};
 #act {$sxss死了} {#delay 2 {get all from corpse}};
-#act {多谢多谢} {dazuo max};
 
 #act {你的任务失败}{
    #untic sxa1;#untic sxa2;sxx};
 
-#act {你被奖励了} {#untic sxa1;#untic sxa2;sxx};
+#act {你被奖励了} {#untic sxa1;#untic sxa2;sxx;hfa;
+  #tic {hfxx} {#untic hfxx; hfx;
+  #show <afa> 可以送信了！
+} {100}
+};
 
 #class sxa close;
 

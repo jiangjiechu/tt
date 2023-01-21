@@ -4,45 +4,41 @@
 #var kujie 0;
 #var qixu 0;
 #var i 1;
-#var num 50;
 #tic {fskaa} {
     #show <afa>¿ªÊ¼fsk...;
     #untic fskaa;
     prepare;
 } {2};
 #list skills create {
-    hunyuan-zhang;
-    huashan-jianfa;
-    poyu-quan;
-    huashan-shenfa;
+    yiyang-zhi;
+    liumai-shenjian;
+    tiannan-bufa;
+    duanjia-jian;
 }
 
 
 #alias prepare {
 
-    #if {"$skills[$i]"=="hunyuan-zhang"} {
+    #if {"$skills[$i]"=="liumai-shenjian"} {
+        #var skill parry;
+        jifa sword liumai-shenjian;
+        jifa parry liumai-shenjian;
+        #var num 50;
+    };
+    #elseif {"$skills[$i]"=="yiyang-zhi"} {
         #var skill parry;
         unwield all;
-        bei none;
-        jifa strike hunyuan-zhang;
-        bei hunyuan-zhang;
-        jifa parry hunyuan-zhang;
+        jifa parry yiyang-zhi;
+        #var num 50;
     };
-    #elseif {"$skills[$i]"=="huashan-jianfa"} {
-        #var skill parry;
-        wield sword;
-        jifa parry huashan-jianfa;
-    };
-    #elseif {"$skills[$i]"=="poyu-quan"} {
-        #var skill parry;
-        unwield all;
-        bei none;
-        jifa cuff poyu-quan;
-        bei poyu-quan;
-        jifa parry poyu-quan;
-    };
-    #elseif {"$skills[$i]"=="huashan-shenfa"} {
+    #elseif {"$skills[$i]"=="tiannan-bufa"} {
         #var skill dodge;
+        #var num 50;
+    };
+    #elseif {"$skills[$i]"=="duanjia-jian"} {
+        #var skill parry;
+        wield dao;
+        #var num 50;
     }
     lx;
 }

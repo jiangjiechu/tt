@@ -36,7 +36,7 @@
 
 #act {对你说道：你去把%1(%2)给我干掉，提他的脑袋来见我。$} {
   #var task_type 2;
-  helpme find %};
+  helpme find %;
  #tic {tma1} {#echo {%c%h} {light yellow} {杀掉%1%2,然后cts。}} {15};
 };
 

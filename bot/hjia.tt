@@ -1,0 +1,48 @@
+#class hja open;
+#var period 0;
+#var num 0;
+
+#act {本雪往南落荒而逃了} {
+	#if {$period == 3} {
+		halt;
+		#delay 1 {
+			yun lifeheal jia;
+		};
+		#var period 0;
+	};
+	#else {
+		#show <afa> 次数：$period;
+		#math period {$period + 1};
+	}
+};
+#act {战斗中无法运功疗伤} {
+	#delay 1 {
+		yun lifeheal jia;
+	};
+}
+#act {%*白骨架吐出一口瘀血%*} {
+	#show <afa> 治疗了$num 次;
+	#if {$num < 2} {
+		#math num {$num + 1};
+		#delay 2 {
+			yun lifeheal jia;
+		}
+	};
+	#else {
+		#var num 0;
+		#echo {开始打坐！};
+		#delay {2} {
+			de;
+			#delay {1} {
+			dazuo max;
+
+			}
+		}
+
+}}
+#act {你正忙着呢。} {
+	delay 2 {dazuo max};
+}
+
+
+#class hja close;

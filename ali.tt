@@ -25,6 +25,11 @@
 #alias {p.lt} {perform strike.leiting};
 #alias {p.x} {perform strike.xiao};
 #alias {p.s} {perform strike.sanhui};
+#alias {p.jz} {perform huashan-jianfa.jianzhang}
+#alias {p.qf} {perform liumai-shenjian.qifa}
+#alias {p.fx} {perform yiyang-zhi.fuxue}
+
+
 #alias {dm} {dazuo max};
 #alias {tm} {tuna max};
 #alias {seq %0} {showequip %0};
@@ -32,7 +37,7 @@
 #alias {gx %0} {get %0 from box};
 #alias {px %0} {put %0 in box};
 #alias {hbf} {set hpbrief long,report;hpbrief}
-#alias {de} {do 10 drink jiudai;do 10 eat liang};
+#alias {de} {do 10 drink;do 10 eat liang};
 #alias {cq %0} {ask %0 about cancelquest};
 #alias {cf %0} {ask %0 about fail};
 #alias {ls} {look};
@@ -140,8 +145,13 @@
 #alias {tlx} {#class tla kill};
 
 #nop full skills;
-#alias {fska} {#class fska read bot/fska.tt;#var lw-or-lx %1; #var skill %2};
+#alias {fska} {#class fska read bot/fska.tt;#var lw-or-lx %1; #var skill %2; #var num %3};
 #alias {fskx} {#class fska kill};
+
+#nop full skill list;
+#alias {fsksa} {#class fsksa read bot/fsksa.tt;prepare};
+#alias {fsksx} {#class fsksa kill};
+
 
 #nop 慕容；
 #alias {mra} {#class mra read bot/mra.tt};
@@ -239,9 +249,13 @@
 #alias gbx {#class gba kill;#untic gbq1;#untic gbq2;#untic gbq3};
 #nop 半自动丐帮鲁有脚;
 
-#nop 丐帮门忠;
+#nop 华山门忠;
 #alias hsa {#class hsa read bot/hsa.tt;ask ning about quest};
 #alias hsx {#class hsa kill;#untic hsq1;#untic hsq2;#untic hsq3};
+
+#nop 天龙寺门忠;
+#alias tlsa {#class tlsa read bot/tlsa.tt;ask benchen about quest};
+#alias tlsx {#class tlsa kill;#untic tlsq1;#untic tlsq2;#untic tlsq3};
 
 #nop 破阵;
 #alias {pza} {#class pza read bot/pza.tt};
@@ -280,34 +294,54 @@
 
 #nop 凭吊
 #alias pda {#class pda read bot/pda.tt;};
-#alias pda {#class pda kill};
+#alias pdx {#class pda kill};
 
 #nop 北冥
 #alias tra {
   #var obj {%1};
-  set skip_combat 3;
+  set skip_combat 2;
   #class tra read bot/tra.tt;
   unwield all;
+  jifa finger none;
   bei none;
   jifa dodge none;
   jifa parry none;
   fight $obj
-}
+};
 #alias trx {
-  #class trx kill;
-}
+  set skip_combat 1;
+  #class tra kill;
+};
 
 #nop 过江过河
 #alias gj {
   ask shao gong about 过江;
   enter
-}
+};
 #alias gh {
   ask shao gong about 过河;
   enter
-}
+};
 #alias yb {
   yell boat;
   enter
-}
+};
+
+#nop 自动恢复
+#alias hfa {#class hfa read bot/hfa.tt};
+#alias hfx {
+     #class hfa kill;
+     halt;
+     do 10 eat liang;
+     #delay 1 {do 10 drink}
+};
+
+#nop full skills for tuixue;
+#alias {txa} {#class fska read bot/txa.tt;#var lw-or-lx lx; #var skill parry};
+#alias {txx} {#class fska kill};
+
+#nop heal gujia
+#alias hjia {#class hjia read bot/hjia.tt};
+#alias hjix {#class hjia kill};
+
 #class ali close;

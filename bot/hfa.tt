@@ -1,0 +1,33 @@
+#class hfa open;
+#var done 0
+
+
+#tic {hfaa} {
+      #untic hfaa;
+      #show <afa> 开始恢复.....;
+      hfaa} {1};
+
+#alias {hfaa} {dazuo max};
+
+#action {你深深吸了几口气，脸色看起来好多了。}  {
+  dazuo max};
+
+#act {你%*站了起来} {
+  yun recover
+};
+#act {你现在内力接近圆满状态。} {
+  #if {$done==0} {yun recover};
+  #var done 1;
+};
+#action {你现在气力充沛。}  {
+  #if {$done==0} {dazuo max};
+  #else {
+     #show <afa> 恢复完成！！！;
+     #var done 0;
+     hfx;
+
+  }
+};
+
+
+#class hfa close;

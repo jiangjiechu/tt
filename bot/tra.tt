@@ -1,41 +1,75 @@
 #class tra open;
-#unact {你动作似乎开始有点不太灵光，但是仍然有条不紊};
-#unact {你看起来可能有些累了};
-#unact {你似乎十分疲惫，看来需要好好休息了};
-#unact {你气喘嘘嘘，看起来状况并不太好};
-#unact {你看起来已经力不从心了};
+#var battle 0;
+#var lock 0;
+#var finish 0;
 
 #alias trab {
 	jifa dodge tiannan-bufa;
-	jifa parry liumai-shenjian;
+	jifa parry yiyang-zhi;
 };
 
 #alias xi {
 	yun maxsuck $obj;
+};
+#alias taopao {
+	s;
 }
 
-#alias o1 {
-	s;s;sd;sd;sd;
-	e;e;e;
-	#delay 1 {
-		e;
-		walk suzhou;
+#act {看起来白骨架想杀死你} {
+	#var battle 1;
+	#var lock 1;
+	#delay 2 {xi}
+};
+#act {（你上一个动作还没有完成，不能施用内功。）} {
+	#delay 1 {xi}
+};
+
+#act {你觉得白骨架的丹元自手掌源源涌入身来} {
+	#var sucess 1;
+	#delay 5 {taopao};
+};
+
+#act {可是他看破了你的企图，机灵地溜了开去。} {
+	#var sucess 0;
+	#delay 5 {taopao};
+}
+#act {^%*只能对战斗中的对手使用。$} {
+	#delay 1 {xi};
+}
+
+#act {你的动作还没有完成，不能移动。} {
+	#delay 1 {taopao}
+};
+#act {你刚刚吸取过丹元} {
+	#delay 1 {taopao}
+};
+#act {你逃跑失败} {
+	#delay 1 {taopao};
+};
+#act {^%*二个骷髅(Kulou)%*$} {
+	#var battle 0;
+	#var lock 0;
+	#if {$finish==0} {
+		do 2 eat liang;
+		#delay 1 {
+		do 2 drink;
+		#delay 3 {n}}};
+	#else {trx;tna}
+};
+#act {^%*白骨架(Gu jia)%*$} {
+	#if {$lock==0} {
+		#var lock 1;
+		#delay 1 {l};
+	};
+	#elseif {$battle==0} {
+		#delay 1 {taopao};
 	}
-}
+};
 
-#alias o2 {
-	s;s;ne;
-}
+#act {^%*你无法从他体内吸取丹元！$} {
+	#var finish 1;
+};
 
-#alias i1 {
-	sw;n;n;
-	#delay 1 {
-		walk guiyun;
-	}
-}
-#alias i2 {
-	w;w;w;w;nu;nu;nu;n;n
-}
 
 #gag {^这里不是你能睡的地方！};
 #gag {走了过来};

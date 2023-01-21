@@ -1,0 +1,47 @@
+#class fsksa open;
+#var i 0;
+#list skills create {
+    hunyuan-zhang;
+    huashan-jianfa;
+    poyu-quan;
+};
+
+#nop full skills;
+#alias {fska} {#class fska read bot/fska.tt;#var lw-or-lx %1; #var skill %2; #var num %3};
+#alias {fskx} {#class fska kill};
+
+#alias prepare {
+    fskx;
+    #if {$skills[$i]==hunyuan-zhang} {
+        unwield all;
+        jifa parry hunyuan-zhang;
+        fska lx parry 20;
+    };
+    #elseif {$skills[$i]==huashan-jianfa} {
+        wield dao;
+        jifa parry huashan-jianfa;
+        fska lx parry 50;
+    };
+    #elseif {$skills[$i]==huashan-shenfa} {
+        unwield all;
+        jifa parry poyu-quan;
+        fska lx parry 20;
+    };
+}
+
+#action {你需要提高基本功，不然练得再多也没有用。}  {
+    #math i {$i+1};
+    #if {$i > 3} {tna};
+    #else {
+        prepare;
+    }
+};
+#action {你的基本%*的级别还没有%*的级别高} {
+    #math i {$i+1};
+    #if {$i > 3} {tna};
+    #else {
+        prepare;
+    }
+};
+
+#class fsksa close;

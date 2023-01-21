@@ -3,13 +3,21 @@
 #tic {tna} {tunaa} {77};
 #alias {tunaa} {tuna max};
 
-#act {你现在精力接近圆满状态。}{hpbrief;tuna 10};
+#act {你现在精力接近圆满状态。}{hpbrief;
+#delay 1 {do 10 eat liang;
+#delay 1 {do 10 drink;
+#delay 1 {tuna 10
+}}}};
 
 #act {你的精力上限增加了！！}{hpbrief};
 
 #act {你的精力修为已经达到了瓶颈，精力最大值为基本内功技能的15倍。} {#untic tna;tnx;};
 
-#act {你吐纳完毕} {tunaa};
+#act {你吐纳完毕} {yun regenerate};
+#act {你略一凝神，精神看起来好多了。} {
+    tunaa;
+};
+#act {你现在精力充沛。} {tunaa};
 
 #act {你现在精不足，无法修行精力！} {exert regenerate;#delay 2 {tunaa}};
 
