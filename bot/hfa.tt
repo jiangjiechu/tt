@@ -13,11 +13,12 @@
   dazuo max};
 
 #act {你%*站了起来} {
-  yun recover
+  #delay 10 {
+    yun recover
+  }
 };
 #act {你现在内力接近圆满状态。} {
-  #if {$done==0} {yun recover};
-  #var done 1;
+  hfx;
 };
 #action {你现在气力充沛。}  {
   #if {$done==0} {dazuo max};

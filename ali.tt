@@ -28,6 +28,7 @@
 #alias {p.jz} {perform huashan-jianfa.jianzhang}
 #alias {p.qf} {perform liumai-shenjian.qifa}
 #alias {p.fx} {perform yiyang-zhi.fuxue}
+#alias {p.al} {perform duanjia-jian.ailao}
 
 
 #alias {dm} {dazuo max};
@@ -299,13 +300,14 @@
 #nop ±±Ú¤
 #alias tra {
   #var obj {%1};
-  set skip_combat 2;
+  set skip_combat 1;
   #class tra read bot/tra.tt;
   unwield all;
   jifa finger none;
   bei none;
   jifa dodge none;
   jifa parry none;
+  jiali 0;
   fight $obj
 };
 #alias trx {
@@ -344,4 +346,7 @@
 #alias hjia {#class hjia read bot/hjia.tt};
 #alias hjix {#class hjia kill};
 
+#nop yubi
+#alias yba {#class yba read bot/yba.tt};
+#alias ybx {#class yba kill};
 #class ali close;

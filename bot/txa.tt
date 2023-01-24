@@ -10,10 +10,10 @@
     prepare;
 } {2};
 #list skills create {
-    yiyang-zhi;
-    liumai-shenjian;
     tiannan-bufa;
     duanjia-jian;
+    yiyang-zhi;
+    liumai-shenjian;
 }
 
 
@@ -38,6 +38,7 @@
     #elseif {"$skills[$i]"=="duanjia-jian"} {
         #var skill parry;
         wield dao;
+        jifa parry duanjia-jian;
         #var num 50;
     }
     lx;

@@ -1,0 +1,99 @@
+#class yba open;
+#var i 0;
+#var lei 0;
+#var kujie 0;
+
+#ali gsleep {
+  skbrief literate;
+  s;e;n;
+  eat liang;
+  #delay 1 {drink};
+  sleep
+}
+#ali gout {
+  s;w;n
+}
+#ali ybaa {
+	#if {$i > 100} {
+		#var i 0;
+		skbrief sword;
+		do 10 eat liang;
+		#delay 1 {
+		do 10 drink;
+		#delay 1 {
+		ybaa}}
+	};
+	#else {
+		#math i {$i+1};
+		#show <afa> 第$i 次...;
+		watch yubi
+}}
+#tic {ybaa} {#show <afa>开始参悟玉璧。<099>;#untic ybaa;watch yubi} {2};
+
+#nop #tic {yba} {watch yubi}{77};
+
+#act {^{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {ybaa};
+
+
+#act {你太累了，歇歇再读吧。} {
+	#if {$lei==0} { yun regenerate};
+	#else {
+		#delay 10 { ybaa}
+	}
+};
+#act {你精力不够，无法领悟残局。} {
+	#if {$lei==0} { yun regenerate};
+	#else {
+		#delay 10 { ybaa}
+	}
+};
+#act {你的内力不够。} {
+	#var kuije 1;
+};
+#act {你的内力已经枯竭，不能施用内功。} {
+	#var kujie 1;
+};
+#act {^你现在气血严重不足，无法满足打坐最小要求。} {
+	#var lei 1;
+};
+
+#act {^你现在内力接近圆满状态。} {
+	ybaa;
+}
+
+
+#act {你对着玉壁研究了一会,似乎有些心得。} {
+	ybaa;
+};
+
+#act {你略一凝神，精神看起来好多了。} {
+	dazuo max;
+};
+#act {你现在精力充沛。} {
+	#if {$lei==0} {dazuo max};
+	#else {ybaa}
+};
+#act {你一觉醒来，精神抖擞地活动了几下手脚。} {
+	suxing;
+    gout;
+	ybaa};
+
+#act {^慢慢地你%*} { 
+	suxing;
+    gout;
+	ybaa
+};
+
+#alias {suxing} {
+	#var lei 0;
+	#var kujie 0;
+}
+
+#act {^你刚刚睡过一觉} {#delay 5 sleep};
+#act {你刚在三分钟内睡过一觉} {
+  #delay 5 sleep
+};
+
+
+
+#class yba close;

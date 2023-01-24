@@ -12,7 +12,7 @@
   #tic {mrq2} {
   #echo {%c%h} {light yellow} {目标正在%1处} } {15}};
 
-#act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {wait;stopwalk;follow jiazei;jiali max;yun powerup;hit jiazei};
+#act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {wait;stopwalk;follow jiazei;jiali max;yun powerup;p.fx jiazei};
 
 #act {慕容世家家贼死了。} {#delay 2 {get all from corpse}};
 

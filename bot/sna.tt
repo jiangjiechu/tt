@@ -7,7 +7,7 @@
 #act {你摇摇摆摆走在雪地上%*} {l snow};
 #act {雪，雪，还是雪。} {l snow};
 #act {环顾四周，到处都是白皑皑的积雪。} {l snow};
-#act {你正忙着呢%*} {#delay 1 {l snow}};
+#act {你正忙着呢%*} {#delay 1 {xingzou snow}};
 
 #act {^skbrief ok$}
 {

@@ -1,4 +1,5 @@
 #class sxa open;
+#var li 40;
 
 #tic {sxa} {#untic sxa;sxaa} {2};
 #alias {sxaa} {ask yue about job};
@@ -18,22 +19,22 @@
 };
 
 #act {你伸手向怀中一摸，发现密函已经不翼而飞！} {
-  #var wait wait;stopwalk;jiali max;yun powerup};
+  #var wait wait;stopwalk;jiali $li;yun powerup};
 
 #act {%*没有 powerup 这个功能。} {
   yun ku;
 }
 
-#act {看起来%1想杀死你} {#var sxss %1;#var wait wait; stopwalk;jiali max;yun powerup};
+#act {看起来%1想杀死你} {#var sxss %1;#var wait wait; stopwalk;jiali $li;yun powerup};
 #act {$sxss死了} {#delay 2 {get all from corpse}};
 
 #act {你的任务失败}{
    #untic sxa1;#untic sxa2;sxx};
 
-#act {你被奖励了} {#untic sxa1;#untic sxa2;sxx;hfa;
+#act {你被奖励了} {#untic sxa1;#untic sxa2;sxx;dm;
   #tic {hfxx} {#untic hfxx; hfx;
   #show <afa> 可以送信了！
-} {100}
+} {60}
 };
 
 #class sxa close;
