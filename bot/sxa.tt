@@ -1,5 +1,4 @@
 #class sxa open;
-#var li 40;
 
 #tic {sxa} {#untic sxa;sxaa} {2};
 #alias {sxaa} {ask yue about job};
@@ -7,10 +6,10 @@
 #alias  {sxf} {ask yue about fail};
 
 #act {岳不群%*道：%*交给%1。} {
-  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {15}
+  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {5}
 };
 #act {岳不群%*道：%*送到%1。} {
-  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {15}
+  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {5}
 };
 
 #act {%*目前在【%1】,快去摁死它吧!} {
@@ -31,7 +30,7 @@
 #act {你的任务失败}{
    #untic sxa1;#untic sxa2;sxx};
 
-#act {你被奖励了} {#untic sxa1;#untic sxa2;sxx;dm;
+#act {你总共已经送了%*件密函。} {#untic sxa1;#untic sxa2;sxx;dm;
   #tic {hfxx} {#untic hfxx; hfx;
   #show <afa> 可以送信了！
 } {60}

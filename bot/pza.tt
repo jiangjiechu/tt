@@ -113,6 +113,7 @@
 		#class zhanbu.maze.kill open;
 		#action {大 恶 %%1(%D)} {
 			#format npcid %l %%%1;
+			p.fx $npcid;
 			kill $npcid;
 		};
 		#action {%%1道：想不到我最终还是失败了！哎！} {
@@ -123,7 +124,9 @@
 			s;
 		};  
 		#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-			#if {%%%1 >= 24} {#nop perform strike.leiting};
+			#if {%%%1 >= 12} {
+				perform liumai-shenjian.qifa
+			};
 		};
 		#class zhanbu.maze.kill close;
 	};

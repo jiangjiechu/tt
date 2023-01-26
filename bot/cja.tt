@@ -23,7 +23,7 @@
 
 
 #act {你精力不够，无法领悟残局。} {
-	#delay 1 {gsleep}
+	yun regenerate;
 };
 #act {你的内力不够。} {
 	#var kujie 1;
@@ -40,8 +40,7 @@
 
 
 #act {你对着残局研究了一会,似乎有些心得。} {
-	#if {$kujie==0} {exert regenerate}; 
-	#else {cjaa}
+	cjaa
 };
 
 #act {你略一凝神，精神看起来好多了。} {

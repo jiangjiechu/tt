@@ -1357,13 +1357,14 @@
 #var myid {};
 #var mygender {};
 #var mydodgelv 0;
-#act {^┌───人物详情───────────────────────┐$}
+#act {^┌───人物详情────────────────%*────┐$}
 {
+    #show <afa> 抓取人物信息;
     #class tmp open;
-    #act {^│%!s%* %*(%*)%!s│$} {#var myid @lower{%%3}};
-    #act {│门派：%*%!s│$} {#var mymenpai %%1};
-    #act {^│年龄：%*岁%!s│} {#var myage @ctd{%%1}};
-    #act {^│性别：%*性%!s│} {#var mygender %%1};
+    #act {^│%!s%*弟子 %*(%*)%!s│%*$} {#var myid @lower{%%3}};
+    #act {^%*│ 门派：%*%!s│$} {#var mymenpai %%2};
+    #act {^│ 年龄：%*岁%!s│} {#var myage @ctd{%%1}};
+    #act {^│ 性别：%*性%!s│} {#var mygender %%1};
     #act {^└───────────────┴─────北大侠客行────┘$} {#class tmp kill};
     #class tmp close;
 };

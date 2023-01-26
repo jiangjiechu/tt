@@ -62,6 +62,10 @@
 	#if {"$kujie"=="0"} {exert regenerate}; 
 	#elseif {"$faint"=="0"} { dsaa};
 };
+#act {你正专心阅读%*} { 
+	#if {"$kujie"=="0"} {exert regenerate}; 
+	#elseif {"$faint"=="0"} { dsaa};
+};
 #nop #act {你正专心阅读%*} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 #nop #act {你从身上拿出} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 

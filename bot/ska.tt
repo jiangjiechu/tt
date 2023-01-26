@@ -26,12 +26,14 @@
     enter
   };
   #elseif {"$shi"=="yue"} {e;s};
+  #elseif {"$shi"=="zhu"} {e};
   hp;
   #delay 1 {sleep}
 };
 #alias gout {
   #if {"$shi"=="kurong"} { out;#delay 1 {w} };
   #elseif {"$shi"=="yue"} { n;w };
+  #elseif {"$shi"=="zhu"} { w };
 }
 
 
