@@ -27,6 +27,7 @@
   };
   #elseif {"$shi"=="yue"} {e;s};
   #elseif {"$shi"=="zhu"} {e};
+  #elseif {"$shi"=="duan"} {n};
   hp;
   #delay 1 {sleep}
 };
@@ -34,6 +35,7 @@
   #if {"$shi"=="kurong"} { out;#delay 1 {w} };
   #elseif {"$shi"=="yue"} { n;w };
   #elseif {"$shi"=="zhu"} { w };
+  #elseif {"$shi"=="duan"} { s };
 }
 
 
@@ -72,6 +74,9 @@
     #delay 1 {do 3 drink;};
     #delay 1 {gsleep;};
   };
+  #else {
+      skaaa;
+  }
 };
 #act {你洗完了澡，变得楚楚动人，身上散发出阵阵的香气。}{ wear all; s;w;n; skaaa};
 

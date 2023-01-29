@@ -15,8 +15,8 @@
 	ask lu about ÆÆÕó;
 };
 
-#alias jpz {ask lu about ÆÆÕó½±Àø};
-#alias fpz {ask lu about ÆÆÕóÊ§°Ü};
+#alias pzd {ask lu about ÆÆÕó½±Àø};
+#alias pzf {ask lu about ÆÆÕóÊ§°Ü};
 
 #alias pzi {
   #echo {%c%h} {light yellow};
@@ -99,6 +99,7 @@
 	};
 	#action {ÆÆÕóÊ§°Ü£¡ÕâÀïµÄÕæÏà¿ÖÅÂÓÀÔ¶±»ÑÚ¸Ç¡£} {
 		#class zhanbu.maze kill;
+		#class zhanbu.maze.kill kill;
 	  #echo {%c%h} {light yellow};
 		#echo <cfa>¡¡¡¡ÆÆÕóÊ§°Ü£¡;
 		#echo {%c%h} {light yellow};

@@ -10,10 +10,9 @@
     prepare;
 } {2};
 #list skills create {
-    tiannan-bufa;
-    duanjia-jian;
     yiyang-zhi;
     liumai-shenjian;
+    tiannan-bufa;
 }
 
 
@@ -117,10 +116,11 @@
 };
 #action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {suxing; gofsk;};
 #action {你慢慢的睁开眼睛%*$}        {suxing; gofsk;};
+#action {慢慢地你%*$}        {suxing; gofsk;};
 
 #action {^你需要提高基本功，不然练得再多也没有用。$END}  {
     #math i {$i+1};
-    #if {$i > 4} {tna};
+    #if {$i > 3} {tna};
     #else {
         prepare;
     }

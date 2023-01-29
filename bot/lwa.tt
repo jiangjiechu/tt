@@ -1,4 +1,7 @@
 #class lwa open;
+#var lei 0
+#var kujie 0
+#var faint 0
 
 #tic {lwaa} {
     #echo {%c%h} {light yellow}{【指令格式:lwa [技能]进行领悟】};
@@ -10,13 +13,53 @@
 
 #alias {lwaa} {do 2 lingwu $lwname 100;yun regenerate};
 
+#alias {gsleep} {
+  s;enter;
+  hp;
+  #delay 1 {sleep}
+}
+#alias {gout} {
+  out;n;
+}
+#alias {suxing} {
+	#var lei 0;
+	#var kujie 0;
+	#var faint 0;
+}
+
+#act {^你现在气血严重不足，无法满足打坐最小要求。} {
+  #var lei 1;
+  lwaa};
 #act {你的内力不够。} {
    #echo {当前$lwname领悟进度:};
    skbrief $lwname;
    eat liang;
 	 #delay 1 {drink jiudai;
-  #delay 1 {sleep}}
+   #delay 1 {gsleep}}
 };
+#act {你的内力已经枯竭，不能施用内功。} {
+   #echo {当前$lwname领悟进度:};
+   skbrief $lwname;
+   eat liang;
+	 #delay 1 {drink jiudai;
+  #delay 1 {gsleep}}
+};
+
+#act {^慢慢地你%*} {
+  suxing;
+  gout;
+  do 2 eat liang;
+  #delay 1 {do 2 drink;
+  #delay 1 {lwaa;
+}}};
+#act {^你一觉醒来%*} {
+  suxing;
+  gout;
+  do 2 eat liang;
+  #delay 1 {do 2 drink;
+  #delay 1 {lwaa;
+}}};
+
 #gag {^> $};
 #gag {^$};
 #gag {你略一凝神，精神看起来好多了%*};
@@ -31,8 +74,10 @@
 
 #act {你刚在三分钟内睡过一觉}{#delay 15 {sleep}};
 
-#act {你略一凝神，精神看起来好多了。} {lwaa};
-#act {你一觉醒来，精神抖擞地活动了几下手脚。} {dazuo max};
+#act {你略一凝神，精神看起来好多了。} {
+	#if {$lei==0} {dazuo max};
+	#else {lwaa}
+};
 #act {{你运功完毕，深深吸了口气，站了起来。|你将内息走了个小周天，流回丹田，收功站了起来。|你只觉神元归一，全身精力弥漫，无以复加，忍不住长啸一声，徐徐站了起来。|你将真气在体内沿脉络运行了一圈}} {lwaa};
 
 #act {你现在精不够，无法控制内息的流动！} {exert regenerate};

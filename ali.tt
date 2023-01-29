@@ -260,7 +260,10 @@
 
 #nop 破阵;
 #alias {pza} {#class pza read bot/pza.tt};
-#alias {pzx} {#class pza kill};
+#alias {pzx} {
+  #class pza kill;
+  #class zhanbu.maze.kill kill;
+};
 
 #nop 自动钓鱼先去买一个鱼钩 50鱼饵；
 #alias fishb {e;n;n;gt yz};

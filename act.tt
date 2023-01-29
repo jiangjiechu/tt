@@ -45,6 +45,11 @@
 #nop slink查看mxp链接，termux调用浏览器mxp;
 #alias {mxp} {#sys termux-open-url $link};
 #alias {cmxp} {#sys unchroot am start -a android.intent.action.VIEW -d $link};
+#action {^%*在线发出红包，请到http://fullme.pkuxkx.net/robot.php?filename=%1查询口令。%*$} {
+  #var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
+  #nop mxp;
+  #system sh bot/fullme.sh %1;
+};
 #action {^http://fullme.pkuxkx.net/robot.php?filename=%1} {
   #var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
   #nop mxp;

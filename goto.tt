@@ -430,8 +430,8 @@
     #alias gotoyanziwu {#if {$mydodgelv>120} {cai yanziwu} {enter boat;row yanziwu}};
     #action {^你沿着踏板走了上去。} {walk};
     #action {^{你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。|你还在山中跋涉，一时半会恐怕走不出这藏边群山！|青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。|你还在山中跋涉，一时半会恐怕走不出这西南地绵绵群山！|你还在山中跋涉，一时半会恐怕走不出这六盘山！|山路崎岖，你不得不停下来歇歇脚。}} {#math step {$step-2}};
-    #action {正等着你呢，上来吧。} {#class tmp kill;enter};
-    #action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter};
+    #action {正等着你呢，上来吧。} {#class tmp kill;enter;dazuo max};
+    #action {艄公将一块踏脚板搭上堤岸，} {#class tmp kill;enter;dazuo max};
     #action {^%*接过你递给的船资} {
         #class tmp open;
         #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
@@ -460,6 +460,7 @@
         #if {${in_boat} == 1} {
             #var in_boat 0;
             #var stepaccu 1;
+            halt;
             out;walk;
         };
     };

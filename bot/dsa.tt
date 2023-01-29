@@ -81,7 +81,9 @@
 #act {也许是缺乏实战经验，你对%*总是无法领会。} {cunbook};
 #act {^你看着看着觉得郭靖的内功也不过如此。} {cunbook};
 #act {^你的%*等级已经高于%*，没法再从%*学到任何东西了。} {cunbook};
-#act {你把身上的%*拿出来放进柜子里了。} {dsx};
+#act {你把身上的%*拿出来放进柜子里了。} {dsx;
+suxing;
+#delay 10 {txa}};
 #act {你将%*放进包袱。} {dsx;#ec {停止读书};#ec {开始打坐};dza};
 #act {这个东西不值得保存} {put $book in bag};
 #act {柜子里已经塞了太多的东西了} {put $book in bag};

@@ -62,13 +62,24 @@
 		#delay 1 {l};
 	};
 	#elseif {$battle==0} {
-		#delay 1 {taopao};
+		#delay 1 {yun lifeheal jia};
 	}
 };
-
-#act {^%*你无法从他体内吸取丹元！$} {
-	#var finish 1;
-};
+#act {你左手中指连弹，已封闭了白骨架伤处的穴道，} {
+	#show <afa> 治疗了$num 次;
+	#if {$num < 2} {
+		#math num {$num + 1};
+		#delay 2 {
+			yun lifeheal jia;
+		}
+	};
+	#else {
+		#var num 0;
+		taopao;
+}}
+#act {没有受伤，疗什么？} {
+	taopao;
+}
 
 
 #gag {^这里不是你能睡的地方！};
