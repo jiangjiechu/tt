@@ -1,0 +1,36 @@
+#nop 天珠;
+#class jga open;
+
+#tic {jga} {#untic jga;jgaa} {2};
+#alias {jgaa} {ask zhang about job};
+#alias {jgd} {give zhang core;jgx;};
+#alias {jgf} {ask zhang about fail;jgx;};
+#alias {start} {
+  set walk_speed 2;
+  walk -c;
+};
+#alias {p} {
+  walk -p;
+};
+
+
+#act {你去到%1之后缓行(walk)%2当可发现我留下的线索，%*} {
+  #tic {jga1} {#echo {%c%h} {light yellow} {线索在%1,缓行%2}} {5}
+};
+
+#act {^你揉揉眼睛仔细一看，%*} {
+  wait;stopwalk;
+  #untic jga1;
+  set walk_speed 0;
+  #delay 2 look xian suo;
+};
+#act {^你获得了一枚机关核心，%*$} {
+  #bell;
+}
+
+#act {^%*木人似乎就在%*，去拆了它吧%*$} { #tic {jga2} {#echo {%c%h} {light yellow} {木人在%2}} {5} };
+
+
+#nop #act {}{};
+
+#class jga close;

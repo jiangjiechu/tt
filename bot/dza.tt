@@ -1,14 +1,17 @@
 #class dza open;
+#math amount {$sklevel/10 +1};
+#var lei 0;
 
-#tic {dza} {dzaa} {77};
 
 #tic {dzaa} {#untic dzaa;dzaa} {1};
 
-#alias {dzaa} {dazuo max};
+#alias {dzaa} {
+      yun recover;
+      dazuo max};
 
-#act {你现在内力接近圆满状态。} {dazuo 10};
+#act {你现在内力接近圆满状态。} {dazuo $amount};
 
-#act {你%*站了起来} {eat liang;#delay 1 {drink ;#delay 1 {dzaa}}};
+#act {你%*站了起来} {eat liang;#delay 1 {drink ;#delay 5 {dzaa}}};
 
 #act {你的内力增加了！！}  {hpbrief;dzaa};
 

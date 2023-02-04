@@ -2,23 +2,22 @@
 
 #tic {tlaa} {
     #untic tlaa;
-    set brief 1;
+    set brief 3;
     #echo {开始跳楼...};
     tlaa} 
 {1};
 
 #alias {tlaa} {
-     #if {$t < 100} {
-       exert regenerate;
-				exert recover;
-       #delay 1 {enter;do 6 u;out;
-      }};
+     #if {$t < 60} {
+      #6 u;out;
+     };
      #else {
      #var t 1;
-     eat liang;
-     #delay 1 {drink jiudai;
-     #delay 1 {sleep;
-      }}};
+     yun regenerate;
+     yun recover;
+     #delay 1 {
+     #6 u;out;
+     } };
 };
 
 #var t 1;
@@ -36,8 +35,14 @@
 #act {^你已稳稳地站在地上。} {
    #math t {$t+1};
    skbrief dodge;
-   #delay 2 {tlaa;
-}};
+   enter;
+};
+#act {^你的动作还没有完成%*} {
+  #delay {0.5} {enter}
+};
+#act {^鼓楼一层 -%*} {
+  tlaa;
+}
 
 #act {^你的「基本轻功」进步了！} {verify dodge};
 #act {^你已经达到你的技能等级极限！$} {tlx;dza};

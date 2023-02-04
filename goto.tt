@@ -1358,7 +1358,7 @@
 #var myid {};
 #var mygender {};
 #var mydodgelv 0;
-#act {^┌───人物详情────────────────%*────┐$}
+#act {^┌───人物详情───────%*────┐$}
 {
     #show <afa> 抓取人物信息;
     #class tmp open;

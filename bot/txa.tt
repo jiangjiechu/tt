@@ -71,7 +71,7 @@
 };
 
 #alias lw {lingwu $skill 100};
-#alias lx {lian $skill 1};
+#alias lx {lian $skill 2};
 
 #alias suxing {
     #var lei 0;
@@ -120,14 +120,24 @@
 
 #action {^你需要提高基本功，不然练得再多也没有用。$END}  {
     #math i {$i+1};
-    #if {$i > 3} {tna};
+    #if {$i > 3} {
+        halt;
+        out;n;
+        txx;
+        #delay 1 {lwa parry}
+    };
     #else {
         prepare;
     }
 };
 #action {^你的基本%*的级别还没有%*的级别高} {
     #math i {$i+1};
-    #if {$i > 3} {tna};
+    #if {$i > 3} {
+        halt;
+        out;n;
+        txx;
+        #delay 1 {lwa}
+    };
     #else {
         prepare;
     }

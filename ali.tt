@@ -1,6 +1,8 @@
 #class ali open;
 #nop ==常用alias==;
 #nop ==帮助==;
+#alias ho {halt;out};
+#alias d1 {#delay 1 {%1}};
 #alias {omg} {
   #echo {%c%h} {light green};
   #showme {<efa>自定义命令如下：};
@@ -25,9 +27,26 @@
 #alias {p.lt} {perform strike.leiting};
 #alias {p.x} {perform strike.xiao};
 #alias {p.s} {perform strike.sanhui};
-#alias {p.jz} {perform huashan-jianfa.jianzhang}
-#alias {p.qf} {perform liumai-shenjian.qifa}
-#alias {p.fx} {perform yiyang-zhi.fuxue}
+#alias {p.jz} {
+  jiali max;
+  perform huashan-jianfa.jianzhang;
+  jiali $li;
+}
+#alias {p.lm} {
+  jiali max;
+  perform liumai-shenjian.liumai %1;
+  jiali $li;
+};
+#alias {p.qf} {
+  jiali max;
+  perform liumai-shenjian.qifa;
+  jiali $li;
+};
+#alias {p.fx} {
+  jiali max;
+  perform yiyang-zhi.fuxue %1;
+  jiali $li;
+}
 #alias {p.al} {perform duanjia-jian.ailao}
 
 
@@ -191,7 +210,7 @@
 #alias {lxx} {#class lxa kill};
 
 #nop 领悟;
-#alias {lwa} {#class lwa read bot/lwa.tt;#var lwname %1};
+#alias {lwa} {#class lwa read bot/lwa.tt;};
 #alias {lwx} {#class lwa kill};
 
 #nop 看雪轻功;
@@ -211,6 +230,7 @@
 
 #nop 自动打坐；
 #alias {dza} {#class dza read bot/dza.tt;
+     #var sklevel %1;
      #switch {"%1"} {
         #case {"dz"} {
               #ali dzaa dz;
@@ -303,7 +323,7 @@
 #nop 北冥
 #alias tra {
   #var obj {%1};
-  set skip_combat 1;
+  set skip_combat 3;
   #class tra read bot/tra.tt;
   unwield all;
   jifa finger none;
@@ -352,4 +372,13 @@
 #nop yubi
 #alias yba {#class yba read bot/yba.tt};
 #alias ybx {#class yba kill};
+
+#nop 萧半和
+#alias xba {#class xba read bot/xba.tt};
+#alias xbx {#class xba kill; #untic xbq1};
+
+#nop 机关人
+#alias jga {#class jga read bot/jga.tt};
+#alias jgx {#class jga kill; #untic jga1;#untic jga2};
+
 #class ali close;

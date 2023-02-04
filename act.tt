@@ -2,11 +2,11 @@
 
 #nop #act {1分钟内回答以下问题} {answer 1};
 
-#act {你动作似乎开始有点不太灵光，但是仍然有条不紊} {yun recover};
-#act {你看起来可能有些累了} {yun recover};
-#act {你似乎十分疲惫，看来需要好好休息了} {yun recover};
-#act {你气喘嘘嘘，看起来状况并不太好} {yun recover};
-#act {你看起来已经力不从心了} {yun recover};
+#act {你动作似乎开始有点不太灵光，但是仍然有条不紊} { yun recover};
+#act {你看起来可能有些累了} { yun recover};
+#act {你似乎十分疲惫，看来需要好好休息了} { yun recover};
+#act {你气喘嘘嘘，看起来状况并不太好} { yun recover};
+#act {你看起来已经力不从心了} { yun recover};
 
 #act {^你有很长一段时间没有备份档案了} {backup};
 
@@ -28,6 +28,7 @@
 #act {^ %*两白银(Silver)$} {wait;get silver};
 #act {^ %*两黄金(Gold)$} {wait;get gold};
 #act {^ %*银票(Cash)$} {wait;get cash};
+#act {^ %*圣火令(Shenghuo ling)$} {wait;get shenghuo ling};
 
 #act {^你从%*{搜出|拿出}一柄长剑。$} {drop changjian};
 #act {^你从%*{搜出|拿出}一本紫霞秘籍。$} {drop miji};

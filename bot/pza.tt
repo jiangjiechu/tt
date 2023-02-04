@@ -1,6 +1,6 @@
 #class pza open;
 
-#tic {pza} {set wimpy 20;pzi;#untic pza;pzaa}{1};
+#tic {pza} {set wimpy 0;pzi;#untic pza;pzaa}{1};
 
 #act {Äã³É¹¦Íì»ØÌÒ»¨µºµÄÉùÓþ£¬±»½±Àø£º}{pzx};
 
@@ -15,8 +15,14 @@
 	ask lu about ÆÆÕó;
 };
 
-#alias pzd {ask lu about ÆÆÕó½±Àø};
-#alias pzf {ask lu about ÆÆÕóÊ§°Ü};
+#alias pzd {
+	#class zhanbu.maze kill;
+	#class zhanbu.maze.kill kill;
+	ask lu about ÆÆÕó½±Àø};
+#alias pzf {
+	#class zhanbu.maze kill;
+	#class zhanbu.maze.kill kill;
+	ask lu about ÆÆÕóÊ§°Ü};
 
 #alias pzi {
   #echo {%c%h} {light yellow};
@@ -114,8 +120,8 @@
 		#class zhanbu.maze.kill open;
 		#action {´ó ¶ñ %%1(%D)} {
 			#format npcid %l %%%1;
-			p.fx $npcid;
 			kill $npcid;
+			p.lm $npcid;
 		};
 		#action {%%1µÀ£ºÏë²»µ½ÎÒ×îÖÕ»¹ÊÇÊ§°ÜÁË£¡°¥£¡} {
 			#class zhanbu.maze.kill kill;
@@ -126,12 +132,14 @@
 		};  
 		#action {ÄãÔÚ¹¥»÷ÖÐ²»¶Ï»ýÐî¹¥ÊÆ¡£(ÆøÊÆ£º%d%)} {
 			#if {%%%1 >= 12} {
-				perform liumai-shenjian.qifa
+				p.lm $npcid;
 			};
 		};
 		#class zhanbu.maze.kill close;
 	};
 	#class zhanbu.maze close;
+	set ForcedAct 1;
+	unwied shield;
 	jiali max;
 	yun recover;
 	yun regenerate;

@@ -11,7 +11,13 @@
 
 #act {你的精力上限增加了！！}{hpbrief};
 
-#act {你的精力修为已经达到了瓶颈，精力最大值为基本内功技能的15倍。} {#untic tna;tnx;};
+#act {你的精力修为已经达到了瓶颈，精力最大值为基本内功技能的15倍。} {
+    #untic tna;tnx;
+    #delay 1 {
+        out;n;
+        lwa;
+    }
+};
 
 #act {你吐纳完毕} {yun regenerate};
 #act {你略一凝神，精神看起来好多了。} {

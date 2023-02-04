@@ -1,0 +1,38 @@
+#class xba open;
+#var stage 0;
+
+#tic {xba} {#untic xba;xbaa}{2};
+#alias {xbaa} {ask xiao about job};
+#alias  {xbd} {give yuanyang dao to xiao};
+#alias  {xbf} {ask xiao about fail};
+
+#act {萧半和说道：%*找小女麻烦的贼人听说还有同伙%1在%2作恶，可否%*} {
+  #math stage {$stage+1};
+  #var obj %1;
+  #tic {xbq1} {#echo {%c%h} {light yellow} {萧半和任务第$stage轮：目标%1在%2处}} {5}
+};
+
+
+
+#act {形迹可疑的 $obj(%*)} {
+  wait;
+  walk -p;
+  #var zei @lower{%1};
+  follow $zei;
+  jiali $li;
+  yun powerup;
+  kill $zei;
+  yun beiming $zei;
+};
+
+
+#act {^打败骚扰萧中慧的贼人后%*} {
+  unwield $wp;
+  wield $wp;
+  #delay 1 {get all from corpse};
+};
+
+
+
+#class xba close;
+

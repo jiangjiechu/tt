@@ -2,6 +2,7 @@
 #var lei 0;
 #var kujie 0;
 #var faint 0;
+#var yun_nums 0;
 
 #tic {ska} {skaaa} {77};
 #tic {skaa} {
@@ -26,6 +27,7 @@
     enter
   };
   #elseif {"$shi"=="yue"} {e;s};
+  #elseif {"$shi"=="fa"} {s};
   #elseif {"$shi"=="zhu"} {e};
   #elseif {"$shi"=="duan"} {n};
   hp;
@@ -34,13 +36,14 @@
 #alias gout {
   #if {"$shi"=="kurong"} { out;#delay 1 {w} };
   #elseif {"$shi"=="yue"} { n;w };
+  #elseif {"$shi"=="fa"} {n};
   #elseif {"$shi"=="zhu"} { w };
   #elseif {"$shi"=="duan"} { s };
 }
 
 
-#act {^你和师父切磋了%*消耗了大量潜能} {skx;e;s;dza};
-#act {^你的潜能已经发挥到极限} {skx;e;s;dza};
+#act {^你和师父切磋了%*消耗了大量潜能} {skx;e;s;tna};
+#act {^你的潜能已经发挥到极限} {skx;e;s;tna};
 
 #act {^你刚在三分钟内睡过} {#delay 15 sleep};
 #act {^你刚刚睡过一觉} {#delay 15 sleep};
@@ -48,8 +51,12 @@
 #act {^你的%*进步了} {skbrief $gong};
 
 #act {你略一凝神，精神看起来好多了。} {
-	#if {$lei==0} {dazuo max};
-	#else {skaaa}
+	#if {$yun_nums>10} {
+    #var yun_nums 0;
+    dazuo max};
+	#else {
+    #math yun_nums {$yun_nums+1};
+    skaaa}
 };
 #act {你现在精力充沛。} {
 	#if {$lei==0} {dazuo max};
@@ -70,12 +77,12 @@
 #act {你今天太累了，结果什么也没有学到。} {
   #if {$faint==0} {
     #var faint 1;
+    skaaa;
+  };
+  #else {
     do 3 eat liang;
     #delay 1 {do 3 drink;};
     #delay 1 {gsleep;};
-  };
-  #else {
-      skaaa;
   }
 };
 #act {你洗完了澡，变得楚楚动人，身上散发出阵阵的香气。}{ wear all; s;w;n; skaaa};
@@ -89,12 +96,15 @@
   #var lei 1;
   skaaa};
 #act {^你现在精不够，无法控制内息的流动！} {skaaa};
-#act {^你运功完毕} {skaaa};
+#act {^你运功完毕} {
+  #var lei 1;
+  skaaa};
 
 #act {^你的内力不够。} {skaaa};
 
 #act {^慢慢地你%*} {
   suxing;
+  gout;
   do 2 eat liang;
   #delay 1 {do 2 drink;
   #delay 1 {skaaa;
