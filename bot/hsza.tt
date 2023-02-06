@@ -4,6 +4,7 @@
 #tic {hsza} {#untic hsza;hszaa} {2};
 #ali {hszaa} {
   set wimpy 70;
+  set hansz_new_mode 1;
   ask han about job};
 #ali {hszd} {ask han about finish};
 #ali {hszf} {ask han about fail;#untic hsza1;hszx};
@@ -13,9 +14,12 @@
 };
 
 #act {%*异族奸细 %*(%*)%*} {
-  #var oppo @lower{%3};
-  yun qi;
-  jiali $li;
+  #if {$foced==0}{
+    #var oppo @lower{%3};
+    #var foced 1;
+    yun qi;
+    jiali $li;
+  };
 };
 
 #alias bm {
@@ -24,9 +28,38 @@
 
 #alias gm {
   get gem from corpse %1;
-}
+};
 
 #nop #act {}{};
+#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+  #if {"$myid"=="simontuixue" && %1 >= 12} {
+    p.lm $oppo;
+  };
+  #elseif {"$myid"=="jinger"} {
+    p.jz ;
+  }
+};
+#act {%*死了。} {
+  #var foced 0;
+  l;
+}
+#alias foc {
+  #var oppo {%1};
+  #var foced 1;
+};
+#alias tx {
+  p.lm $oppo;
+};
+#alias pg {
+  pack gem;
+};
+#alias hc {
+  do 3 get %1 from bo;
+  d1 {
+    combine gem;
+    d1 {pack gem}
+  }
+};
 
 #act {^你已经完成了%*次清除异族奸细的工作。$} {
     #untic hsza1;hszx

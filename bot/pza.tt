@@ -121,7 +121,12 @@
 		#action {大 恶 %%1(%D)} {
 			#format npcid %l %%%1;
 			kill $npcid;
-			p.lm $npcid;
+			#if {"$myid"=="simontuixue"} {
+				p.lm $npcid;
+			};
+			#elseif {"$myid"=="jinger"} {
+				p.jz $npcid;
+			}
 		};
 		#action {%%1道：想不到我最终还是失败了！哎！} {
 			#class zhanbu.maze.kill kill;
@@ -131,9 +136,12 @@
 			s;
 		};  
 		#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-			#if {%%%1 >= 12} {
+			#if {"$myid"=="simontuixue"} {
 				p.lm $npcid;
 			};
+			#elseif {"$myid"=="jinger"} {
+				p.jz $npcid;
+			}
 		};
 		#class zhanbu.maze.kill close;
 	};

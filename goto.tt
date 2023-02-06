@@ -437,7 +437,7 @@
         #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
         #class tmp close;
     };
-    #action {^你的车船通账上还剩%S，这一趟的船资%S。} {
+    #action {^这一趟的船资%*，将从你的行旅通上走账。$} {
         #class tmp open;
         #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
         #class tmp close;
@@ -1342,8 +1342,10 @@
             #math i {$i-1};
         };
     };
+    #if {$VERBOSE==1} {
     #echo {%c%s %c>> %s} {light yellow} { 当前位置：$a($AreaId,%1)} {light white} {$position_connect};
     #showme {};
+    };
     #nop #if {@blsupport{${CurrentPosition}} == 1} {
     #nop    #showme 支持遍历;
     #nop };
@@ -1358,14 +1360,15 @@
 #var myid {};
 #var mygender {};
 #var mydodgelv 0;
-#act {^┌───人物详情───────%*────┐$}
+#act {^╭───人物详情────────────────────────┬───────╮$}
 {
     #show <afa> 抓取人物信息;
     #class tmp open;
     #act {^│%!s%*弟子 %*(%*)%!s│%*$} {#var myid @lower{%%3}};
-    #act {^%*│ 门派：%*%!s│$} {#var mymenpai %%2};
-    #act {^│ 年龄：%*岁%!s│} {#var myage @ctd{%%1}};
-    #act {^│ 性别：%*性%!s│} {#var mygender %%1};
+    #act {^│%!s%*剑侠 %*(%*)%!s│%*$} {#var myid @lower{%%3}};
+    #act {^%*│门派：%*%!s│$} {#var mymenpai %%2};
+    #act {^│年龄：%*岁%!s│$} {#var myage @ctd{%%1}};
+    #act {^│性别：%*性%!s│$} {#var mygender %%1};
     #act {^└───────────────┴─────北大侠客行────┘$} {#class tmp kill};
     #class tmp close;
 };

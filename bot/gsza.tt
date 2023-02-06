@@ -8,17 +8,15 @@
 
 #ali {jqg} {
    s;#6 w;
-   #delay 2 {northwest;enter;enter;
-   #delay 2 {move hou;move qian;move qian;move hou;move you;move zuo;move qian;
-   #delay 2 {move qian;move zuo;move you;move hou;move qian;move qian;move hou;
-   #delay 4 {#5 n;
-}}}}};
+   #delay 1 {northwest;enter;enter;
+   #delay 1 {move you;move zuo;move zuo;move zuo;move qian;
+   #delay 1 {e;#5 n;
+}}}};
 
 #ali {jqgb} {
    #5 s;w;enter;
-   #delay 2 {move qian;move zuo;move you;move hou;move qian;move qian;move hou;
-  #delay 2 {move hou;move qian;move qian;move hou;move you;move zuo;move qian;
-   #delay 4 {out;se;#6 e;n;
-}}}};
+   #delay 1 {move qian;move zuo;move zuo;move zuo;move you;
+   #delay 1 {out;se;#6 e;n;
+}}};
 
 #class gsza close;

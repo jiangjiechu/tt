@@ -10,9 +10,9 @@
     prepare;
 } {2};
 #list skills create {
-    yiyang-zhi;
-    liumai-shenjian;
     tiannan-bufa;
+    liumai-shenjian;
+    yiyang-zhi;
 }
 
 
@@ -36,7 +36,7 @@
     };
     #elseif {"$skills[$i]"=="duanjia-jian"} {
         #var skill parry;
-        wield dao;
+        wield $wp;
         jifa parry duanjia-jian;
         #var num 50;
     }
@@ -155,4 +155,9 @@
 #gag {你现在过于疲倦,无法静下心来领悟功夫！};
 #gag {^> $};
 #gag {^$};
+#gag {^你反复练习}
+#gag {^你现在气力充沛}
+#gag {^你已经吃太饱了}
+#gag {^你已经喝太多了}
+#gag {^你深深吸了几口气}
 #class fska close;

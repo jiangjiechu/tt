@@ -4,8 +4,8 @@
 #alias {tunaa} {tuna max};
 
 #act {你现在精力接近圆满状态。}{hpbrief;
-#delay 1 {do 10 eat liang;
-#delay 1 {do 10 drink;
+#delay 1 {eat liang;
+#delay 1 {drink;
 #delay 1 {tuna 10
 }}}};
 

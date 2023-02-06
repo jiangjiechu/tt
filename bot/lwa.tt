@@ -20,12 +20,12 @@
     };
     #elseif {"$myid"=="jinger"} {
       #list basic_skills create {
-        cuff;
         strike;
+        cuff;
       };
       #var n_lw 100;
-      #var max_yun 2;
-    }
+      #var max_yun 0;
+    };
     #untic lwaa;
     #var lwname $basic_skills[$skill_id];
     lwaa;

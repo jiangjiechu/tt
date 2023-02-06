@@ -1,4 +1,6 @@
 #class tla open;
+#var VERBOSE 0;
+#var t 0;
 
 #tic {tlaa} {
     #untic tlaa;
@@ -8,17 +10,38 @@
 {1};
 
 #alias {tlaa} {
-     #if {$t < 60} {
+     #if {$t < 20} {
+      #show <afa> $t;
+      #math t {$t+1};
       #6 u;out;
      };
      #else {
      #var t 1;
      yun regenerate;
      yun recover;
+     eat liang;
+     drink;
      #delay 1 {
      #6 u;out;
      } };
 };
+
+#alias {glw} {
+  gt tf;
+  #class tmp1 open;
+  #action {^天福镖局 -} {
+    n;ne;nw;w;gu;
+    qu tianlongsi;
+  };
+  #action {大车停稳了下来，%*} {
+    xia;e;
+    nu;#5 n;
+    #class tmp1 kill;
+    tlx;
+    #delay 1 {lwa}
+  };
+  #class tmp1 close;
+}
 
 #var t 1;
 
@@ -32,19 +55,42 @@
        #delay 2 {tlaa;
 }}};
 
+#act {你正忙} {
+  #delay {0.1} {checkbusy};
+};
+#act {你不忙} {
+  #if {$level >= 290 || $halt==1} {
+    glw;
+  };
+  #else {enter};
+}
 #act {^你已稳稳地站在地上。} {
-   #math t {$t+1};
    skbrief dodge;
-   enter;
+   checkbusy;
 };
 #act {^你的动作还没有完成%*} {
-  #delay {0.5} {enter}
+  #delay {0.1} {
+    enter}
 };
 #act {^鼓楼一层 -%*} {
   tlaa;
 }
+#act {#%d/%d} {
+  #var level %1;
+}
 
 #act {^你的「基本轻功」进步了！} {verify dodge};
 #act {^你已经达到你的技能等级极限！$} {tlx;dza};
+#gag {你正忙};
+#gag {你不忙};
+#gag {鼓楼{一|二|三|四|五|六|七}层};
+#gag {鼓楼小院};
+#gag {^>}
+#gag {^%s$}
+#gag {^%s%*(%*)$}
+#gag {你爬上窗台%*}
+#gag {%*你从塔顶跳了下来。}
+#gag {你已稳稳地站在地上。}
+#gag {%*当前位置%*}
 
 #class tla close;

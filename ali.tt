@@ -51,7 +51,7 @@
 
 
 #alias {dm} {dazuo max};
-#alias {tm} {tuna max};
+#alias {tm} {tuna max;};
 #alias {seq %0} {showequip %0};
 #alias {lx} {look box};
 #alias {gx %0} {get %0 from box};
@@ -161,8 +161,8 @@
 #alias {watx} {#class wata kill};
 
 #nop 少林寺跳楼;
-#alias {tla} {#class tla read bot/tla.tt};
-#alias {tlx} {#class tla kill};
+#alias {tla} {#class tla read bot/tla.tt;#var VERBOSE 0};
+#alias {tlx} {#class tla kill;#var VERBOSE 1};
 
 #nop full skills;
 #alias {fska} {#class fska read bot/fska.tt;#var lw-or-lx %1; #var skill %2; #var num %3};
@@ -206,12 +206,12 @@
 #alias {gdx} {#class gda kill};
 
 #nop 练习;
-#alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1};
-#alias {lxx} {#class lxa kill};
+#alias {lxa} {#class lxa read bot/lxa.tt;#var skname %1;#var VERBOSE 0};
+#alias {lxx} {#class lxa kill;#var VERBOSE 1};
 
 #nop 领悟;
-#alias {lwa} {#class lwa read bot/lwa.tt;};
-#alias {lwx} {#class lwa kill};
+#alias {lwa} {#class lwa read bot/lwa.tt;#var VERBOSE 0};
+#alias {lwx} {#class lwa kill;#var VERBOSE 1};
 
 #nop 看雪轻功;
 #alias {sna} {#class sna read bot/sna.tt;l snow;}
@@ -362,8 +362,8 @@
 };
 
 #nop full skills for tuixue;
-#alias {txa} {#class fska read bot/txa.tt;#var lw-or-lx lx; #var skill parry};
-#alias {txx} {#class fska kill};
+#alias {txa} {#class fska read bot/txa.tt;#var lw-or-lx lx; #var VERBOSE 0};
+#alias {txx} {#class fska kill;#var VERBOSE 1};
 
 #nop heal gujia
 #alias hjia {#class hjia read bot/hjia.tt};

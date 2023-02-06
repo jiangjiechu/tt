@@ -80,10 +80,11 @@ mlo;
   #return $tmp;
 };
 #nop ==命令回显==;
+#var VERBOSE 1;
 #EVENT {SEND OUTPUT} {
   #nop 剥离前后空字符;
   #format {temp} {%p} {%0};
-  #if {"$temp" != ""} {
+  #if {"$temp" != "" && $VERBOSE==1} {
     #nop 绿黄配色;
     #echo {<129>-->CMD:[<139>$temp<129>]<--<099>};
     #nop 彩虹色;
