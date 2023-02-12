@@ -2,6 +2,9 @@
 #var lei 0
 #var kujie 0
 #var faint 0
+#var n_yun 0
+#var max_yun 10
+
 
 #nop #tic {dsa}{dsaa}{77};
 
@@ -92,12 +95,16 @@ suxing;
 #act {你刚在三分钟内睡过一觉} { #delay {5} {sleep}; };
 #act {^你刚刚睡过一觉} {#delay 5 sleep};
 
-#nop #act {你略一凝神，精神看起来好多了。} {#ticker dushu {#unticker dushu;dsaa} {3}};
-#nop #act {你现在精力充沛。} {#ticker dushu {#unticker dushu;dsaa} {3}};
 #act {你略一凝神，精神看起来好多了。} {
-	#if {$lei==0} {dazuo max};
-	#else {dsaa}
+	#show <afa> $n_yun;
+	#math n_yun {$n_yun + 1};
+	#if {$n_yun < $max_yun} {dsaa};
+	#else {
+		#var n_yun 0;
+		dazuo max;
+	}
 };
+#nop #act {你现在精力充沛。} {#ticker dushu {#unticker dushu;dsaa} {3}};
 #act {你现在精力充沛。} {dazuo max};
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {
 	suxing;

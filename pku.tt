@@ -1,7 +1,7 @@
 #nop ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢;
 #nop #event {SCREEN RESIZE} {#split};
 #split;
-#nop ï¿½ï¿½ï¿½ï¿½ prompt ï¿½ï¿½ï¿½;
+#nop ï¿½ï¿½ï¿½ï¿½ prompt ï¿½ï¿½ï¿?;
 #read {plugin/prompt.tin};
 #nop ï¿½ï¿½ï¿½ï¿½ GMCP;
 #read {gmcp.tt};

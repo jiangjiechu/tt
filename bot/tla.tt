@@ -1,6 +1,8 @@
 #class tla open;
 #var VERBOSE 0;
 #var t 0;
+#var halt 0;
+#var max_level 350
 
 #tic {tlaa} {
     #untic tlaa;
@@ -27,15 +29,15 @@
 };
 
 #alias {glw} {
-  gt tf;
+  gt yz;
   #class tmp1 open;
-  #action {^天福镖局 -} {
-    n;ne;nw;w;gu;
-    qu tianlongsi;
+  #action {^中央广场 -} {
+    s;s;s;w;
   };
-  #action {大车停稳了下来，%*} {
-    xia;e;
-    nu;#5 n;
+  #action {^盛昌总行 -} {
+    enter jianxinju;
+  };
+  #action {你进入了剑心居} {
     #class tmp1 kill;
     tlx;
     #delay 1 {lwa}
@@ -59,7 +61,7 @@
   #delay {0.1} {checkbusy};
 };
 #act {你不忙} {
-  #if {$level >= 290 || $halt==1} {
+  #if {$level >= $max_level || $halt==1} {
     glw;
   };
   #else {enter};

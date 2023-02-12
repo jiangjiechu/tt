@@ -42,6 +42,7 @@
 #act {%*À¿¡À°£} {
   #var foced 0;
   l;
+  #delay 2 {bm;}
 }
 #alias foc {
   #var oppo {%1};

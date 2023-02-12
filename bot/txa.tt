@@ -4,10 +4,12 @@
 #var kujie 0;
 #var qixu 0;
 #var i 1;
+#var num 94;
 #tic {fskaa} {
     #show <afa>开始fsk...;
     #untic fskaa;
     prepare;
+    skaa;
 } {2};
 #list skills create {
     tiannan-bufa;
@@ -20,25 +22,22 @@
 
     #if {"$skills[$i]"=="liumai-shenjian"} {
         #var skill parry;
+        wield $wp;
         jifa sword liumai-shenjian;
         jifa parry liumai-shenjian;
-        #var num 50;
     };
     #elseif {"$skills[$i]"=="yiyang-zhi"} {
         #var skill parry;
         unwield all;
         jifa parry yiyang-zhi;
-        #var num 50;
     };
     #elseif {"$skills[$i]"=="tiannan-bufa"} {
         #var skill dodge;
-        #var num 50;
     };
     #elseif {"$skills[$i]"=="duanjia-jian"} {
         #var skill parry;
         wield $wp;
         jifa parry duanjia-jian;
-        #var num 50;
     }
     lx;
 }
@@ -122,9 +121,9 @@
     #math i {$i+1};
     #if {$i > 3} {
         halt;
-        out;n;
         txx;
-        #delay 1 {lwa parry}
+        sleep;
+        lwa;
     };
     #else {
         prepare;
@@ -155,9 +154,9 @@
 #gag {你现在过于疲倦,无法静下心来领悟功夫！};
 #gag {^> $};
 #gag {^$};
-#gag {^你反复练习}
-#gag {^你现在气力充沛}
-#gag {^你已经吃太饱了}
-#gag {^你已经喝太多了}
-#gag {^你深深吸了几口气}
+#nop #gag {^你反复练习};
+#nop #gag {^你现在气力充沛};
+#gag {^你已经吃太饱了};
+#gag {^你已经喝太多了};
+#gag {^你深深吸了几口气};
 #class fska close;

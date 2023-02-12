@@ -152,8 +152,14 @@
 	yun recover;
 	yun regenerate;
 	yun qi;
-	yun powerup;
 	zhanbu -maze;
+	#if {"$myid"=="simontuixue"} {
+		p.yy;
+	};
+	#elseif {"$myid"=="jinger"} {
+		p.ld;
+		yun powerup;
+	};
 };
 
 #class pza close;

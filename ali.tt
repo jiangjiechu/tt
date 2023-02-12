@@ -28,12 +28,18 @@
 #alias {p.x} {perform strike.xiao};
 #alias {p.s} {perform strike.sanhui};
 #alias {p.jz} {
-  jiali max;
   perform huashan-jianfa.jianzhang;
-  jiali $li;
-}
+};
+#alias {p.ld} {
+  perform poyu-quan.leidong;
+};
 #alias {p.lm} {
-  jiali max;
+  #if {$li == 0} {
+    jiali 150;
+  };
+  #else {
+    jiali $li;
+  }
   perform liumai-shenjian.liumai %1;
   jiali $li;
 };
@@ -48,6 +54,12 @@
   jiali $li;
 }
 #alias {p.al} {perform duanjia-jian.ailao}
+#alias {p.yy} {
+  perform tiannan-bufa.yunyou
+};
+#alias {p.xy} {
+  perform yingxiong-jianfa.xiyang
+}
 
 
 #alias {dm} {dazuo max};
@@ -124,14 +136,14 @@
 };
 
 #nop 自动返回原点;
-#alias {pg} {
+#alias {pga} {
   #path new;
   #class pgtmp open;
   #act {%*这个方向没有出路。} {#path del};
   #class pgtmp close;
   #echo {%c%h} {light yellow}{【开始记录路径，指令pb返回】}
 };
-#alias {pb} {
+#alias {pgb} {
   #path save backward ptmp;
   #path load $ptmp;
   #path run 0.2;
@@ -225,8 +237,8 @@
 #alias {dsx} {#class dsa kill};
 
 #nop 自动吐纳;
-#alias {tna} {#class tna read bot/tna.tt;tunaa};
-#alias {tnx} {#class tna kill;#untic tna};
+#alias {tna} {#class tna read bot/tna.tt;#var VERBOSE 0;tnaa};
+#alias {tnx} {#class tna kill;#var VERBOSE 1;halt};
 
 #nop 自动打坐；
 #alias {dza} {#class dza read bot/dza.tt;
@@ -380,5 +392,10 @@
 #nop 机关人
 #alias jga {#class jga read bot/jga.tt};
 #alias jgx {#class jga kill; #untic jga1;#untic jga2};
+
+#nop 萧峰
+#alias xfa {#class xfa read bot/xfa.tt};
+#alias xfx {#class xfa kill };
+
 
 #class ali close;

@@ -1,0 +1,77 @@
+#nop 任务;
+#class xfa open;
+#var mod quan;
+
+#tic {xfa} {#untic xfa;xfaa} {2};
+#ali {xfaa} {
+  set wimpy 30;
+  ask xiao feng about job};
+#ali {xfd} {ask xiao feng about finish};
+#ali {xff} {ask xiao feng about fail;#untic xfa1;xfx};
+
+
+#act {%*西夏一品堂 蒙面杀手(%*)%*} {
+  halt;
+  stopwalk;
+  follow shashou;
+  #if {$foced==0}{
+    #var oppo shashou;
+    #var foced 1;
+    yun qi;
+    jiali $li;
+  };
+};
+
+#alias bm {
+  yun beiming $oppo;
+}
+
+#alias hf {
+  yun inspire;
+};
+#alias hl {
+  halt;
+  ask shashou about 认输;
+  look;
+};
+#alias liao {
+  perform yiyang-zhi.liao shashou;
+};
+
+
+#nop #act {}{};
+#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+  #if {"$myid"=="simontuixue" && %1 >= 12 && "$mod"=="sha"} {
+    p.lm $oppo;
+  };
+  #elseif {"$myid"=="jinger"} {
+    p.jz ;
+  }
+};
+#act {%*死了。} {
+  #var foced 0;
+  l;
+}
+#alias foc {
+  #var oppo {%1};
+  #var foced 1;
+};
+#alias tx {
+  p.lm $oppo;
+};
+#alias pg {
+  pack gem;
+};
+#alias hc {
+  do 3 get %1 from bo;
+  d1 {
+    combine gem;
+    d1 {pack gem}
+  }
+};
+
+#act {^你已经完成了%*次清除异族奸细的工作。$} {
+    #untic xfa1;xfx
+};
+
+#class xfa close;

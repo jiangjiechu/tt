@@ -15,15 +15,16 @@
         sword;
         finger;
       };
-      #var n_lw 44;
+      #var n_lw 74;
       #var max_yun 10;
     };
     #elseif {"$myid"=="jinger"} {
       #list basic_skills create {
         strike;
         cuff;
+        sword;
       };
-      #var n_lw 100;
+      #var n_lw 40;
       #var max_yun 0;
     };
     #untic lwaa;
@@ -39,20 +40,20 @@
 
 #alias {gsleep} {
   #if {"$myid"=="simontuixue"} {
-    s;enter;
+    #nop {s;enter;}
   };
   #elseif {"$myid"=="jinger"} {
-    w;w;s
+    #nop {w;w;s}
   }
   hp;
   #delay 1 {sleep}
 };
 #alias {gout} {
   #if {"$myid"=="simontuixue"} {
-    out;n
+    #nop {out;n}
   };
   #elseif {"$myid"=="jinger"} {
-    n;e;e;
+    #nop {n;e;e;}
   }
 };
 #alias {suxing} {
@@ -62,7 +63,9 @@
 }
 
 #act {^你现在气血严重不足，无法满足打坐最小要求。} {
-  #var lei 1};
+  #var lei 1;
+  lwaa;
+  };
 #act {你的内力不够。} {
    #echo {当前$lwname领悟进度:};
    skbrief $lwname;
@@ -76,7 +79,7 @@
    skbrief $lwname;
    eat liang;
 	 #delay 1 {drink jiudai;
-   #if {$lei<1} {dazuo max};
+   #if {$lei==0} {dazuo max};
    #else {gsleep}
 }};
 
@@ -117,12 +120,18 @@
   #if {$advlock==0} {
     #var advlock 1;
     #math skill_id {$skill_id+1};
-    #if {$skill_id > 4} {
+    #if {"$myid"=="simontuixue" && $skill_id > 4} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
-      s;enter;
       lwx;
       txa;
+    };
+    #elseif {"$myid"=="jinger" && $skill_id > 3} {
+      #echo {领悟已停止...};lwx;
+      #echo {开始练习...};
+      w;w;s;
+      lwx;
+      fska;
     };
     #else {
       #var lwname $basic_skills[$skill_id];

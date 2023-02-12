@@ -11,8 +11,10 @@
     prepare;
 } {2};
 #list skills create {
-    hunyuan-zhang;
     huashan-jianfa;
+    yangwu-jian;
+    yunushijiu-jian;
+    hunyuan-zhang;
     poyu-quan;
     huashan-shenfa;
 }
@@ -28,9 +30,19 @@
         bei hunyuan-zhang;
         jifa parry hunyuan-zhang;
     };
+    #elseif {"$skills[$i]"=="yunushijiu-jian"} {
+        #var skill parry;
+        wield dao;
+        jifa parry yunushijiu-jian;
+    };
+    #elseif {"$skills[$i]"=="yangwu-jian"} {
+        #var skill sword;
+        wield dao;
+        jifa sword yangwu-jian;
+    };
     #elseif {"$skills[$i]"=="huashan-jianfa"} {
         #var skill parry;
-        wield sword;
+        wield dao;
         jifa parry huashan-jianfa;
     };
     #elseif {"$skills[$i]"=="poyu-quan"} {
@@ -75,7 +87,7 @@
 };
 
 #alias lw {lingwu $skill 100};
-#alias lx {lian $skill 1};
+#alias lx {lian $skill 4};
 
 #alias suxing {
     #var lei 0;
@@ -89,7 +101,7 @@
 #action {你深深吸了几口气，脸色看起来好多了。$END}  {lx};
 
 #action {你现在精力充沛。$END}  {${lw-or-lx}};
-#action {你现在气力充沛。$END}  {${lw-or-lx}};
+#action {你现在气力充沛。}  {${lw-or-lx}};
 
 #action {你%*练习%1，获得了%*进步！} {
     #if {$kujie==0} {
@@ -118,19 +130,23 @@
 #action {{^你刚在三分钟内睡过一觉|^你刚刚睡过一觉|^你精血不足}}   {
     #delay 15 sleep; 
 };
-#action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {suxing; gofsk;};
+#action {你一觉醒来%*}        {suxing; gofsk;};
 #action {你慢慢的睁开眼睛%*$}        {suxing; gofsk;};
 
 #action {^你需要提高基本功，不然练得再多也没有用。$END}  {
     #math i {$i+1};
-    #if {$i > 4} {tna};
+    #if {$i > 5} {
+        fskx;
+        sleep;
+        lwa;
+    };
     #else {
         prepare;
     }
 };
 #action {^你的基本%*的级别还没有%*的级别高} {
     #math i {$i+1};
-    #if {$i > 3} {tna};
+    #if {$i > 5} {tna};
     #else {
         prepare;
     }

@@ -27,6 +27,7 @@
     enter
   };
   #elseif {"$shi"=="yue"} {e;s};
+  #elseif {"$shi"=="ai"} {nu;nu;nu;w;s;s;s;w;s};
   #elseif {"$shi"=="fa"} {s};
   #elseif {"$shi"=="zhu"} {e};
   #elseif {"$shi"=="duan"} {n};
@@ -35,6 +36,7 @@
 };
 #alias gout {
   #if {"$shi"=="kurong"} { out;#delay 1 {w} };
+  #elseif {"$shi"=="ai"} {n;e;n;n;n;e;sd;sd;sd};
   #elseif {"$shi"=="yue"} { n;w };
   #elseif {"$shi"=="fa"} {n};
   #elseif {"$shi"=="zhu"} { w };

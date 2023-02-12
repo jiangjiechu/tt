@@ -22,6 +22,13 @@
 }
 
 #act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {
+  walk -p;
+  follow jiazei;
+  jiali $li;
+  kill jiazei;
+  yun beiming jiazei;
+};
+#act {%s本雪发现的%s慕容世家家贼(Murong jiazei)} {
   wait;
   stopwalk;
   follow jiazei;
@@ -31,7 +38,7 @@
 };
 
 
-#act {慕容世家家贼死了。} {
+#act {慕容世家家贼死了} {
   #var i 0;
   #delay 2 {get all from corpse}
 };
