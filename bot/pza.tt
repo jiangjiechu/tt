@@ -125,7 +125,7 @@
 				p.lm $npcid;
 			};
 			#elseif {"$myid"=="jinger"} {
-				p.jz $npcid;
+				yun powerup;
 			}
 		};
 		#action {%%1道：想不到我最终还是失败了！哎！} {
@@ -139,7 +139,7 @@
 			#if {"$myid"=="simontuixue"} {
 				p.lm $npcid;
 			};
-			#elseif {"$myid"=="jinger"} {
+			#elseif {"$myid"=="jinger" && %1 >= 12} {
 				p.jz $npcid;
 			}
 		};
@@ -148,7 +148,8 @@
 	#class zhanbu.maze close;
 	set ForcedAct 1;
 	unwied shield;
-	jiali max;
+	#if {"$myid"=="jinger"} {jiali 0};
+	#else {jiali max;};
 	yun recover;
 	yun regenerate;
 	yun qi;

@@ -15,8 +15,8 @@
         sword;
         finger;
       };
-      #var n_lw 74;
-      #var max_yun 10;
+      #var n_lw 100;
+      #var max_yun 20;
     };
     #elseif {"$myid"=="jinger"} {
       #list basic_skills create {
@@ -40,17 +40,17 @@
 
 #alias {gsleep} {
   #if {"$myid"=="simontuixue"} {
-    #nop {s;enter;}
+    s;enter;
   };
   #elseif {"$myid"=="jinger"} {
-    #nop {w;w;s}
-  }
+    w;w;s
+  };
   hp;
   #delay 1 {sleep}
 };
 #alias {gout} {
   #if {"$myid"=="simontuixue"} {
-    #nop {out;n}
+    out;n
   };
   #elseif {"$myid"=="jinger"} {
     #nop {n;e;e;}
@@ -123,6 +123,7 @@
     #if {"$myid"=="simontuixue" && $skill_id > 4} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
+      s;enter;
       lwx;
       txa;
     };

@@ -2,11 +2,17 @@
 
 #nop #act {1分钟内回答以下问题} {answer 1};
 
-#nop {#act {你动作似乎开始有点不太灵光，但是仍然有条不紊} { yun recover};
-#act {你看起来可能有些累了} { yun recover};
-#act {你似乎十分疲惫，看来需要好好休息了} { yun recover};}
-#act {你气喘嘘嘘，看起来状况并不太好} { yun recover};
-#act {你看起来已经力不从心了} { yun recover};
+#act {你全身放松，坐下来开始运功疗伤。} {
+  #delay 1 {yun heal};
+};
+#act {你全身放松，运转真气进行疗伤。} {
+  #delay 1 {yun inspire};
+};
+#nop #act {你动作似乎开始有点不太灵光，但是仍然有条不紊} { yun recover};
+#nop #act {你看起来可能有些累了} { yun recover};
+#nop #act {你似乎十分疲惫，看来需要好好休息了} { yun recover};
+#nop #act {你气喘嘘嘘，看起来状况并不太好} { yun recover};
+#nop #act {你看起来已经力不从心了} { yun recover};
 
 #act {^你有很长一段时间没有备份档案了} {backup};
 

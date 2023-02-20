@@ -37,8 +37,8 @@
 
 #nop 走路速度控制,分别为每秒上限步数、超限等待时间、正常行走间隔时间;
 #var xiaoyao.accu 12;
-#var xiaoyao.delay_long 0.5;
-#var xiaoyao.delay_short 0.08;
+#var xiaoyao.delay_long 0.2;
+#var xiaoyao.delay_short 0.05;
 
 #alias gt {
     #if {"%1"==""} {
@@ -283,6 +283,7 @@
     #var Route_list_short {};
     #loop @numitems{Route} 1 i {
         #var RouteName Route_@item{Route;$i}_@item{Route;@eval{$i-1}};
+        #showme $RouteName;
         #var Route_list_short ${$RouteName};
         #list Route_list add $Route_list_short[%*];
     };
@@ -1120,7 +1121,7 @@
 #action {^萧府${SUF}$} {set_position {jy}};
 #action {^荆州${SUF}$} {set_position {jzh}};
 #action {^神威镖局${SUF}$} {set_position {km}};
-#action {^琅缳福地${SUF}$} {set_position {fd}};
+#action {^琅嬛福地${SUF}$} {set_position {fd}};
 #action {^老林尽头${SUF}$} {set_position {lld}};
 #action {^老林边缘${SUF}$} {set_position {llx}};
 #action {^百丈涧${SUF}$} {set_position {lj}};
@@ -1290,7 +1291,6 @@
         walk;
     };
 };
-#class goto close;
 
 #nop ==自定函数==;
 #function {numitems} {#list %1 size result};
@@ -1369,7 +1369,7 @@
     #act {^%*│门派：%*%!s│$} {#var mymenpai %%2};
     #act {^│年龄：%*岁%!s│$} {#var myage @ctd{%%1}};
     #act {^│性别：%*性%!s│$} {#var mygender %%1};
-    #act {^└───────────────┴─────北大侠客行────┘$} {#class tmp kill};
+    #act {^╰────────────┴────────────┴────北大侠客行────╯$} {#class tmp kill};
     #class tmp close;
 };
 

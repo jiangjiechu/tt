@@ -1,47 +1,36 @@
 #nop 任务;
-#class hsza open;
+#class jxfa open;
 #var f1_set 0;
 #var f2_set 0;
 
-#tic {hsza} {#untic hsza;hszaa} {2};
-#ali {hszaa} {
-  #format time1 {%t} {%Y-%m-%d-%H:%M:%S};
+#tic {jxfa} {#untic jxfa;jxfaa} {2};
+#ali {jxfaa} {
+  time;
   #var loc_lock 0;
   #var luck %1;
   #var bonus %2;
   set wimpy 70;
-  set hansz_new_mode 1;
-  set adv_quest 50;
-  ask han about job;
+  ask ji xiaofu about job;
   check_bonus;
 };
-#ali {hszd} {sm;ask han about finish;unset adv_quest};
-#ali {hszf} {ask han about fail;#untic hsza1;hszx;unset adv_quest};
+#ali {jxfd} {say $anhao;jxfx};
+#ali {jxff} {ask han about fail;#untic jxfa1;jxfx;};
+#ali {ah} {#var anhao %1};
+#ali {pa} {clamber up};
+#ali {ld} {look down};
+#ali {jd} {
+  p.yy;
+  yun qi;
+  leap down;
+  #delay 2 bm;
+}
 
-#act {^韩世忠说道：「我听说有一群异族奸细在%*附近出没%*去打探(datan)一下%*} {
-
+#act {^纪晓芙在你耳边轻声说道：$myid 据说他们会在%*密谋。} {
   #if {$loc_lock==0} {
     #var loc_lock 1;
     #var loc %1;
-    #tic {hsza1} {#echo {%c%h} {light yellow} {奸细在%1，到了datan。}} {5};
+    #tic {jxfa1} {#echo {%c%h} {light yellow} {同伙在%1，到了clamber up。}} {5};
   };
-};
-#act {^你进入了[韩世忠任务副本]$} {
-  do 4 yun recover;
-  do 4 yun inspire;
-};
-
-#act {%*异族奸细 %*(%*)%*} {
-  #if {$f1_set==0}{
-    #var oppo @lower{%3};
-    #var f1_set 1;
-  };
-  #elseif {$f2_set==0}{
-    #var oppo_bm @lower{%3};
-    #var f2_set 1;
-  };
-  yun qi;
-  jiali $li;
 };
 
 #alias bm {
@@ -97,8 +86,8 @@
   #var n_oppo %0;
   #showme <afa> OK, n_oppo has been set to $n_oppo;
 };
-#alias hszLog {
-  #line log {hsz.log} {%0};
+#alias jxfLog {
+  #line log {jxf.log} {%0};
 };
 
 #alias jm {
@@ -107,13 +96,12 @@
 
 #act {^╭───%*{之周|同庆}┬──────────────────────────────────╮$} {
   #class week open;
-    #act {^│%s韩世忠%s│%*奖励增加%d％。%s│$} {#var job_mod 2};
     #act {^│%*│→%*韩世忠%*%s│$} {#var job_mod  0};
     #act {^│%*│↑%*韩世忠%*%s│$} {#var job_mod  1};
     #act {^│%*│↓%*韩世忠%*%s│$} {#var job_mod -1};
     #act {^╰───────┴─────────────────────────北大侠客行────╯$} {#class week kill};
   #class week close;
-  #delay 1 {#showme <afa> bonus_mode: $job_mod;}
+  #showme <afa> bonus_mode: $job_mod;
 };
 #class report open;
   #act {^%!s%*点经验；$} {
@@ -133,12 +121,12 @@
 
 #act {^│幸运值%!s│%d%!s│奖励系数%!s│%d% %!s│识图检查%!s│%*完整奖励%*│$} { #var luck %1; #var bonus %2; };
 #act {你被奖励了：} {
-  #format time2 {%t} {%H:%M:%S};
+  #format time {%t} {%Y-%m-%d-%H:%M:%S};
   #delay 1 {
-    #format record {%s;%s;%s;%d;%d;%d;%s;%s;%s;%s;%s} {$job_mod} {$loc} {$n_oppo} {@ctd{$exp}} {@ctd{$pot}} {@ctd{$fam}} {@ctd{$taskid}} {$time1} {$time2} {$luck} {$bonus};
+    #format record {%s;%s;%s;%d;%d;%d;%s;%s;%s;%s} {$job_mod} {$loc} {$n_oppo} {@ctd{$exp}} {@ctd{$pot}} {@ctd{$fam}} {@ctd{$taskid}} {$time} {$luck} {$bonus};
     #showme <afa> $record;
-    hszLog $record;
-    #untic hsza1;hszx;
+    jxfLog $record;
+    #untic jxfa1;jxfx;
   }
 };
-#class hsza close;
+#class jxfa close;

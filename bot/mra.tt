@@ -24,6 +24,7 @@
 #act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {
   walk -p;
   follow jiazei;
+  yun powerup;
   jiali $li;
   kill jiazei;
   yun beiming jiazei;
@@ -37,6 +38,14 @@
   yun beiming jiazei;
 };
 
+#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+  #if {"$myid"=="simontuixue" && %1 >= 50} {
+    p.lm jiazei;
+  };
+  #elseif {"$myid"=="jinger"} {
+    p.jz ;
+  }
+};
 
 #act {慕容世家家贼死了} {
   #var i 0;

@@ -2,13 +2,12 @@
 
 #alias {tnaa} {tuna max};
 
-#act {你现在精力接近圆满状态。}{hpbrief;
+#act {你现在精力接近圆满状态。}{
 eat liang;
 drink;
 tuna 10
 };
 
-#act {你的精力上限增加了！！}{hpbrief};
 
 #act {你的精力修为已经达到了瓶颈，精力最大值为基本内功技能的15倍。} {
     #untic tna;tnx;

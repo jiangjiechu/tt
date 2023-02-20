@@ -1,13 +1,14 @@
 #class fska open;
-#var cd 0;
-#var lei 0;
-#var kujie 0;
-#var qixu 0;
-#var i 1;
-#var num 94;
 #tic {fskaa} {
     #show <afa>开始fsk...;
+    #var cd 0;
+    #var lei 0;
+    #var kujie 0;
+    #var qixu 0;
+    #var i 1;
+    #var num 4000;
     #untic fskaa;
+    #var max_level 435;
     prepare;
     skaa;
 } {2};
@@ -19,6 +20,7 @@
 
 
 #alias prepare {
+    skbrief yiyang-zhi;
 
     #if {"$skills[$i]"=="liumai-shenjian"} {
         #var skill parry;
@@ -57,6 +59,7 @@
  }}}};
 
 #alias {gofsk} {
+
     do 3 eat liang;
     #delay 1 {do 3 drink ;
     #delay 1 {fskaa;
@@ -70,7 +73,7 @@
 };
 
 #alias lw {lingwu $skill 100};
-#alias lx {lian $skill 2};
+#alias lx {lian $skill 10};
 
 #alias suxing {
     #var lei 0;
@@ -88,7 +91,7 @@
 
 #action {你%*练习%1，获得了%*进步！} {
     #if {$kujie==0} {
-        yun recover;
+        lx;
     };
     #else {
         lx;
@@ -98,42 +101,60 @@
 
 #action {%*{你的内力不够|你的内力已经枯竭}%*$} {
     #var kujie 1;
-    #if {$qixu==0} {dazuo $num};
+    #if {$qixu==0} {dazuo max};
     #else {gosleep}
 }
 #act {你%*站了起来} {
     lx;
 };
-#action {{你太累了|你的体力不够|你的体力太低|你现在气血虚浮|你的气不足}}    {
+#action {{你太累了|你的体力不够|你的体力太低|你现在气血虚浮|你的气不足|你现在的气太少了}}    {
     #var qixu 1;
     #if {$kujie==0} {yun recover};
     #else {gosleep}
 };
 
 #action {{^你刚在三分钟内睡过一觉|^你刚刚睡过一觉|^你精血不足}}   {
-    #delay 15 sleep; 
+    #delay 5 sleep; 
 };
 #action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {suxing; gofsk;};
 #action {你慢慢的睁开眼睛%*$}        {suxing; gofsk;};
 #action {慢慢地你%*$}        {suxing; gofsk;};
 
-#action {^你需要提高基本功，不然练得再多也没有用。$END}  {
+#action {^%*你需要提高基本功，不然练得再多也没有用。$}  {
+    #show $i;
     #math i {$i+1};
-    #if {$i > 3} {
+    #if {$yylevel >= $max_level} {
         halt;
         txx;
-        sleep;
+        tna;
+    };
+    #elseif {$i > 3} {
+        halt;
+        txx;
+        out;n;
         lwa;
     };
     #else {
         prepare;
     }
 };
-#action {^你的基本%*的级别还没有%*的级别高} {
+
+#action {^你的「一阳指」进步了！} {
+    skbrief yiyang-zhi;
+};
+#action {#%1/%2} {
+    #var yylevel %1;
+}
+#action {^%*你的基本%*的级别还没有%*的级别高} {
+    #show $i;
     #math i {$i+1};
-    #if {$i > 3} {
+    #if {$yylevel >= $max_level} {
         halt;
-        out;n;
+        txx;
+        tna;
+    };
+    #elseif {$i > 3} {
+        halt;
         txx;
         #delay 1 {lwa}
     };
@@ -142,7 +163,7 @@
     }
 };
 #action {^你已经达到你的技能等级极限！}{fskx;dza};
-#action {^你的基本功夫比你的高级功夫还高！$END}          {#var lw-or-lx {lx}};
+#action {^你的基本功夫比你的高级功夫还高！$}          {#var lw-or-lx {lx}};
 
 #nop #action {~^%*你的「%1」进步了！%*$END} {};
 #gag {走了过来};

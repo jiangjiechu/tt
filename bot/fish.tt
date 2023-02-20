@@ -2,11 +2,11 @@
 
 #nop 扬州广场开始;
 
-#tic {fisha} {l yuer} {77};
+#nop #tic {fisha} {l yuer} {77};
 
 #show <afa>开始钓鱼指令【fishaa 】。;
 
-#var fisha 1;
+#var fisha 3;
 
 #alias {fishaa} {
     #if {$fisha == 1} {#var fisha 2;fish.aa};
@@ -19,7 +19,7 @@
 #alias {fish.aa} {
   set brief 0;
   e;s;
-  #delay 1 {buy yugou;
+  #delay 1 {buy diaoyu gan;
   fishaa;
 }};
 
@@ -56,14 +56,12 @@
 }}};
 
 #alias {fish.c} {
- #delay 1 {buy im_211;
- #delay 1 {buy im_415;
  #delay 3 {w;n;n;w;
  #delay 5 {cun all gold;
  #delay 5 {qu 2 silver;
  #delay 3 {e;s;e;s;
  fishaa;
-}}}}}}};
+}}}}};
 
 #alias gofish {
  #delay 1 {out;d;w;s;
@@ -92,12 +90,12 @@
 
 #act {你不由的在心里大骂} {l yuer};
 #act {你的潜能增加了} {l yuer};
-#act {你的鱼钩上已经有了一个鱼饵了，不能再挂了！} {diao yu};
-#act {你还没把鱼饵挂在鱼钩上哪！} {l yuer};
+#act {你的钓鱼竿上已经有了一个鱼饵了，不能再挂了！} {diao yu};
+#act {你还没把鱼饵挂在钓鱼竿上哪！} {l yuer};
 #act {你看着%*，眼睛立刻红了。} {l yuer};
 #act {你看着%*不由的发呆了。} {l yuer};
 #act {你连声叫到：晦气，晦气。} {l yuer};
-#act {你小心的把鱼饵挂到鱼钩上。} {diao yu};
-#act {这是个钓鱼用的鱼饵。} {gua yuer};
+#act {你小心的把鱼饵挂到钓鱼竿上。} {diao yu};
+#act {这是%*个钓鱼用的鱼饵。} {gua yuer};
 
 #class fish close;

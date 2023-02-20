@@ -4,7 +4,8 @@
 
 #alias {xlaa} {xiulian $xgong};
 
-#act {你从玄幻之境回过神来，顿觉内功修为增进不小。} {verify $xgong;xlaa};
-#act {你的潜能必须大于%*才能修炼}{xlx};
+#act {你从玄幻之境回过神来，顿觉内功修为增进不小。} {skbrief $xgong;xlaa};
+#act {你的潜能必须大于%*才能修炼} {xlx;lwa};
+#act {由于缺乏实战经验，你无法领会更高深的武功} {xlx;lwa};
 
 #class xla close;

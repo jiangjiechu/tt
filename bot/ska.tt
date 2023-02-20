@@ -3,6 +3,7 @@
 #var kujie 0;
 #var faint 0;
 #var yun_nums 0;
+#var going 0;
 
 #tic {ska} {skaaa} {77};
 #tic {skaa} {
@@ -16,6 +17,7 @@
   #var lei 0;
   #var kujie 0;
   #var faint 0;
+  #var going 0;
 }
 #alias {skaaa} {
   xue $shi for $gong $num;
@@ -31,6 +33,7 @@
   #elseif {"$shi"=="fa"} {s};
   #elseif {"$shi"=="zhu"} {e};
   #elseif {"$shi"=="duan"} {n};
+  #elseif {"$shi"=="mohe"} {n;nd;enter;e;enter};
   hp;
   #delay 1 {sleep}
 };
@@ -41,11 +44,22 @@
   #elseif {"$shi"=="fa"} {n};
   #elseif {"$shi"=="zhu"} { w };
   #elseif {"$shi"=="duan"} { s };
+  #elseif {"$shi"=="mohe"} { out;w;out;su;s};
 }
 
 
 #act {^你和师父切磋了%*消耗了大量潜能} {skx;e;s;tna};
-#act {^你的潜能已经发挥到极限} {skx;e;s;tna};
+#act {^也许是缺乏实战经验} {
+  skx;l;
+  #delay 1 {gt gl;};
+  #class tmp open;
+    #act {^鼓楼小院 -} {
+      enter;
+      #class tmp kill;
+      #delay 1 {tla};
+    };
+  #class tmp close;
+};
 
 #act {^你刚在三分钟内睡过} {#delay 15 sleep};
 #act {^你刚刚睡过一觉} {#delay 15 sleep};
@@ -81,7 +95,8 @@
     #var faint 1;
     skaaa;
   };
-  #else {
+  #elseif {$going==0} {
+    #var going 1;
     do 3 eat liang;
     #delay 1 {do 3 drink;};
     #delay 1 {gsleep;};

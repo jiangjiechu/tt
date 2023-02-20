@@ -1,0 +1,96 @@
+#nop 任务;
+#class dba open;
+#var f1_set 0;
+#var f2_set 0;
+
+#tic {dba} {#untic dba;dbaa} {2};
+#ali {dbaa} {
+  set wimpy 20;
+  tune bd;
+  ask yu about job};
+#ali {dbd} {ask yu about finish;dbx;#class battle kill};
+#ali {dbf} {ask yu about fail;#untic dba1;dbx;#class battle kill};
+#ali {ah} { yun qi; p.yy; say $anhao};
+#ali {jt} {
+  #untic dba1;#untic dba2;
+  ask %1 about 接头};
+#ali {r} { #var anhao %1; };
+
+#act {^余玠%*说道：为了保护接头人的安全，%*，我只能告诉你某人在%*等着你。} {
+  #tic {dba1} {#echo {%c%h} {light yellow} {线人在%3，长相%4}} {5}
+};
+#act {^长相大致如下%*} {
+  #tic {dba2} {#echo {%c%h} {light yellow} {长相%1}} {5}
+};
+
+#act {看起来%*想杀死你} { #var battle 1;
+  #class battle open;
+  #act {%*大元 秘谍 %*(%*)%*} {
+    #if {$f1_set==0}{
+      #var oppo @lower{%3};
+      #var f1_set 1;
+    };
+    #elseif {$f2_set==0}{
+      #var oppo_bm @lower{%3};
+      #var f2_set 1;
+    };
+    yun qi;
+    jiali $li;
+  };
+
+  #alias bm {
+    yun beiming $oppo_bm;
+  };
+
+  #alias gm {
+    get gem from corpse %1;
+  };
+
+
+  #nop #act {}{};
+  #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+    #if {"$myid"=="simontuixue" && %1 >= 12} {
+      p.lm $oppo;
+    };
+    #elseif {"$myid"=="jinger"} {
+      p.jz ;
+    }
+  };
+  #act {%*死了。} {
+    #var f1_set 0;
+    l;
+    #delay 2 {bm;}
+  };
+  #alias f1 {
+    #var oppo {%1};
+    #var f1_set 1;
+  };
+  #alias f2 {
+    #var oppo_bm {%1};
+    #var f2_set 1;
+  };
+  #alias tx {
+    p.lm $oppo;
+  };
+  #class battle close;
+  look;
+	#delay 1 {bm}
+};
+
+#alias pg {
+  pack gem;
+};
+
+#alias hc {
+  do 3 get %1 from bo;
+  d1 {
+    combine gem;
+    d1 {pack gem}
+  }
+};
+
+#act {^你已经完成了%*次清除异族奸细的工作。$} {
+    #untic dba1;dbx
+};
+
+#class dba close;

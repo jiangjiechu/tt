@@ -2,7 +2,20 @@
 #nop ==常用alias==;
 #nop ==帮助==;
 #alias ho {halt;out};
+#alias hx {halt;xia};
 #alias d1 {#delay 1 {%1}};
+#alias t1 {halt;xia;e;se;sw;s;#delay 1 {gt %1}};
+#alias t2 {n;ne;nw;w;gu;qu %1;dm};
+#alias h1 {s;out;s;w;w;n;e;n;gu;qu %1;dm};
+#alias h2 {halt;xia;s;w;s;e;e;n;enter;n};
+#alias mr1 {sw;n;n;n;e;e;gu;qu %1;dm};
+#alias mr2 {halt;xia;w;w;s;s;s;ne};
+#alias pz1 {w;w;sd;sd;out;w;w;s;gu;qu %1;dm};
+#alias pz2 {halt;xia;n;e;e;enter;nu;nu;e;e;gf bosss};
+
+#alias db1 {out;nw;nw;n;gu;qu %1;dm};
+#alias db2 {halt;xia;s;se;se;enter};
+#alias xln {xla;#delay %1 {xlx;#showme <afa> 好了！}}
 #alias {omg} {
   #echo {%c%h} {light green};
   #showme {<efa>自定义命令如下：};
@@ -35,12 +48,12 @@
 };
 #alias {p.lm} {
   #if {$li == 0} {
-    jiali 150;
+    jiali 200;
   };
   #else {
     jiali $li;
   }
-  perform liumai-shenjian.liumai %1;
+  perform liumai-shenjian.liumai %0;
   jiali $li;
 };
 #alias {p.qf} {
@@ -68,7 +81,7 @@
 #alias {lx} {look box};
 #alias {gx %0} {get %0 from box};
 #alias {px %0} {put %0 in box};
-#alias {hbf} {set hpbrief long,report;hpbrief}
+#alias {hbf} {hpbrief}
 #alias {de} {do 10 drink;do 10 eat liang};
 #alias {cq %0} {ask %0 about cancelquest};
 #alias {cf %0} {ask %0 about fail};
@@ -207,7 +220,7 @@
 
 #nop 韩世忠;
 #alias {hsza} {#class hsza read bot/hsza.tt};
-#alias {hszx} {#class hsza kill;#untic hsza1};
+#alias {hszx} {#class hsza kill;#untic hsza1;unset adv_quest};
 
 #nop 公孙止;
 #alias {gsza} {#class gsza read bot/gsza.tt};
@@ -397,5 +410,18 @@
 #alias xfa {#class xfa read bot/xfa.tt};
 #alias xfx {#class xfa kill };
 
+#nop 谍报
+#alias dba {#class dba read bot/dba.tt};
+#alias dbx {#class dba kill;#untic dba1;#untic dba2};
 
+#nop 纪晓芙
+#alias jxfa {#class jxfa read bot/jxfa.tt};
+#alias jxfx {#class jxfa kill; #untic jxfa1};
+
+#nop 护镖
+#alias hba {#class hba read bot/hba.tt;hbaa %1};
+#alias hbx {#class hba kill; #untic hba1};
+#nop 爵位
+#alias jwa {#class jwa read bot/jwa.tt;};
+#alias jwx {#class jwa kill; #untic jwa1};
 #class ali close;

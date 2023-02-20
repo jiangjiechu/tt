@@ -3,7 +3,8 @@
 #var kujie 0
 #var faint 0
 #var n_yun 0
-#var max_yun 10
+#var max_yun 1
+#var max_level 163
 
 
 #nop #tic {dsa}{dsaa}{77};
@@ -79,6 +80,10 @@
 #nop #act {^你思索着小说中关于%*，对%*有一些新的理解。$} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
 #act {你的%*火候} {cunbook};
+#act {^你的%*进步了%*$} {skbrief force};
+#act {^#%d/%d} {
+	#if {%1 >= maxlevel} {cunbook; fska}
+}
 #act {你的%*等级已经高于} {cunbook};
 #act {你的武功等级受到经验限制} {cunbook};
 #act {也许是缺乏实战经验，你对%*总是无法领会。} {cunbook};

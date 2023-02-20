@@ -2,7 +2,7 @@
 #var VERBOSE 0;
 #var t 0;
 #var halt 0;
-#var max_level 350
+#var max_level 435;
 
 #tic {tlaa} {
     #untic tlaa;
@@ -28,9 +28,25 @@
      } };
 };
 
-#alias {glw} {
+#class tmp1 open;
+#action {^天福镖局 -} {
+  #delay 1 {t2 tianlongsi};
+  #delay 15 {hx;e;nu;n;n;n;n};
+};
+#action {^后院 -} {
+  #class tmp1 kill;
+  tlx;
+  #delay 1 {xla}
+};
+#class tmp1 close;
+
+#alias {glw1} {
+  gt tf;
+}
+
+#alias {glw2} {
   gt yz;
-  #class tmp1 open;
+  #class tmp2 open;
   #action {^中央广场 -} {
     s;s;s;w;
   };
@@ -38,11 +54,11 @@
     enter jianxinju;
   };
   #action {你进入了剑心居} {
-    #class tmp1 kill;
+    #class tmp2 kill;
     tlx;
-    #delay 1 {lwa}
+    #delay 1 {xla}
   };
-  #class tmp1 close;
+  #class tmp2 close;
 }
 
 #var t 1;
@@ -62,7 +78,7 @@
 };
 #act {你不忙} {
   #if {$level >= $max_level || $halt==1} {
-    glw;
+    glw1;
   };
   #else {enter};
 }
