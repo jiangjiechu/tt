@@ -129,4 +129,7 @@
     #untic jxfa1;jxfx;
   }
 };
+
+#act {看起来%1想杀死你} {#var jxfss %1};
+#act {$jxfss死了} {#delay 2 {get all from corpse}};
 #class jxfa close;

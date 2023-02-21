@@ -1,6 +1,7 @@
 #class ali open;
 #nop ==常用alias==;
 #nop ==帮助==;
+#alias rw {remove %1;wear %1;yun inspire};
 #alias ho {halt;out};
 #alias hx {halt;xia};
 #alias d1 {#delay 1 {%1}};
@@ -12,9 +13,21 @@
 #alias mr2 {halt;xia;w;w;s;s;s;ne};
 #alias pz1 {w;w;sd;sd;out;w;w;s;gu;qu %1;dm};
 #alias pz2 {halt;xia;n;e;e;enter;nu;nu;e;e;gf bosss};
+#alias q1 {halt;out;node walk hhbkd3_%1};
+#alias q2 {halt;out;walk qufu};
 
 #alias db1 {out;nw;nw;n;gu;qu %1;dm};
 #alias db2 {halt;xia;s;se;se;enter};
+#alias pg {
+  pack gem;
+};
+#alias hc {
+  do 3 get %1 from bo;
+  d1 {
+    combine gem;
+    d1 {pack gem}
+  }
+};
 #alias xln {xla;#delay %1 {xlx;#showme <afa> 好了！}}
 #alias {omg} {
   #echo {%c%h} {light green};
@@ -48,7 +61,7 @@
 };
 #alias {p.lm} {
   #if {$li == 0} {
-    jiali 200;
+    jiali max;
   };
   #else {
     jiali $li;
@@ -86,6 +99,7 @@
 #alias {cq %0} {ask %0 about cancelquest};
 #alias {cf %0} {ask %0 about fail};
 #alias {ls} {look};
+#alias {yj} {yun inspire};
 #alias {xq} {yun recover};
 #alias {yp} {yun powerup};
 #alias {yh} {yun heal};
@@ -424,4 +438,9 @@
 #nop 爵位
 #alias jwa {#class jwa read bot/jwa.tt;};
 #alias jwx {#class jwa kill; #untic jwa1};
+
+#nop 修持
+#alias xca {#class xca read bot/xca.tt;xcaa};
+#alias xcx {xcad;#class xca kill;};
+
 #class ali close;

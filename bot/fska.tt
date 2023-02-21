@@ -1,12 +1,12 @@
 #class fska open;
-#var cd 0;
-#var lei 0;
-#var kujie 0;
-#var qixu 0;
-#var i 1;
-#var num 100;
 #tic {fskaa} {
     #show <afa>¿ªÊ¼fsk...;
+    #var cd 0;
+    #var lei 0;
+    #var kujie 0;
+    #var qixu 0;
+    #var i 1;
+    #var num 100;
     #untic fskaa;
     prepare;
 } {2};

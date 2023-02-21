@@ -67,7 +67,7 @@
 #act {^你的%*进步了} {skbrief $gong};
 
 #act {你略一凝神，精神看起来好多了。} {
-	#if {$yun_nums>10} {
+	#if {$yun_nums>3} {
     #var yun_nums 0;
     dazuo max};
 	#else {
@@ -113,7 +113,7 @@
   #var lei 1;
   skaaa};
 #act {^你现在精不够，无法控制内息的流动！} {skaaa};
-#act {^你运功完毕} {
+#act {^{你运功完毕|你只觉神元归一}%*$} {
   #var lei 1;
   skaaa};
 

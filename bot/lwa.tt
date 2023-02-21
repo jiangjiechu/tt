@@ -24,8 +24,8 @@
         cuff;
         sword;
       };
-      #var n_lw 40;
-      #var max_yun 0;
+      #var n_lw 100;
+      #var max_yun 2;
     };
     #untic lwaa;
     #var lwname $basic_skills[$skill_id];
@@ -43,7 +43,7 @@
     s;enter;
   };
   #elseif {"$myid"=="jinger"} {
-    w;w;s
+    #nop w;w;s
   };
   hp;
   #delay 1 {sleep}
@@ -53,7 +53,7 @@
     out;n
   };
   #elseif {"$myid"=="jinger"} {
-    #nop {n;e;e;}
+    #nop n;e;e;
   }
 };
 #alias {suxing} {
@@ -130,7 +130,7 @@
     #elseif {"$myid"=="jinger" && $skill_id > 3} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
-      w;w;s;
+      #nop w;w;s;
       lwx;
       fska;
     };
