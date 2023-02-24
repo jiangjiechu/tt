@@ -7,6 +7,7 @@
 #var skill_id 1;
 
 #tic {lwaa} {
+    #var VERBOSE 1;
     #echo {%c%h} {light yellow}{【指令格式:lwa [技能]进行领悟】};
     #if {"$myid"=="simontuixue"} {
       #list basic_skills create {
@@ -20,6 +21,8 @@
     };
     #elseif {"$myid"=="jinger"} {
       #list basic_skills create {
+        force;
+        parry;
         strike;
         cuff;
         sword;
@@ -43,7 +46,7 @@
     s;enter;
   };
   #elseif {"$myid"=="jinger"} {
-    #nop w;w;s
+    w;w;s
   };
   hp;
   #delay 1 {sleep}
@@ -53,7 +56,7 @@
     out;n
   };
   #elseif {"$myid"=="jinger"} {
-    #nop n;e;e;
+    n;e;e;
   }
 };
 #alias {suxing} {
@@ -127,10 +130,10 @@
       lwx;
       txa;
     };
-    #elseif {"$myid"=="jinger" && $skill_id > 3} {
+    #elseif {"$myid"=="jinger" && $skill_id > 5} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
-      #nop w;w;s;
+      w;w;s;
       lwx;
       fska;
     };

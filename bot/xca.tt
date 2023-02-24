@@ -45,10 +45,12 @@
 	#else {xcab}
 };
 #act {你现在精力充沛。} {
-	xiuchi;
+	#if {$done==0} {xiuchi};
+	#else {xcab}
 };
 #act {你现在内力接近圆满状态。} {
-	xiuchi;
+	#if {$done==0} {xiuchi};
+	#else {xcab}
 };
 
 #act {你略一凝神，精神看起来好多了。} {

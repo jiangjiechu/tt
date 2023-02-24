@@ -124,43 +124,50 @@
 			#if {"$myid"=="simontuixue"} {
 				p.lm $npcid;
 			};
-			#elseif {"$myid"=="jinger"} {
-				yun powerup;
+		};
+		#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+			#showme <afa> 放技能p.$skills[$i_sk];
+			#if {"$myid"=="simontuixue"} {
+				p.lm $npcid;
+			};
+			#elseif {"$myid"=="jinger" && %%%1 >= 12} {
+				jiali max;
+				p.$skills[$i_sk] $npcid;
+				jiali 0;
 			}
 		};
+		#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
+			#math i_sk {$i_sk+1};
+			#if {$i_sk>$n_sk} {
+				#var i_sk 1;
+			};
+			jiali max;
+			p.$skills[$i_sk];
+			jiali 0;
+		};
+
 		#action {%%1道：想不到我最终还是失败了！哎！} {
+			unset ForcedAct;
 			#class zhanbu.maze.kill kill;
 			#echo {%c%h} {light yellow};
 			#echo <cfa>　　破阵任务成功完成！;
 			#echo {%c%h} {light yellow};
 			s;
 		};  
-		#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-			#if {"$myid"=="simontuixue"} {
-				p.lm $npcid;
-			};
-			#elseif {"$myid"=="jinger" && %1 >= 12} {
-				p.jz $npcid;
-			}
-		};
 		#class zhanbu.maze.kill close;
 	};
 	#class zhanbu.maze close;
 	set ForcedAct 1;
-	unwied shield;
-	#if {"$myid"=="jinger"} {jiali 0};
+	#if {"$myid"=="jinger"} {yun powerup;jiali 0};
 	#else {jiali max;};
 	yun recover;
 	yun regenerate;
-	yun qi;
-	zhanbu -maze;
 	#if {"$myid"=="simontuixue"} {
 		p.yy;
 	};
 	#elseif {"$myid"=="jinger"} {
-		p.ld;
 		yun powerup;
 	};
+	zhanbu -maze;
 };
-
 #class pza close;

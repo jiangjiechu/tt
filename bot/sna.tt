@@ -7,12 +7,30 @@
 #act {你摇摇摆摆走在雪地上%*} {l snow};
 #act {雪，雪，还是雪。} {l snow};
 #act {环顾四周，到处都是白皑皑的积雪。} {l snow};
-#act {你正忙着呢%*} {#delay 1 {xingzou snow}};
+#act {你正忙着呢%*} {checkbusy};
+#act {你正忙} {
+	#delay 0.1 {checkbusy}
+};
+#act {你不忙} {
+	xingzou snow
+}
 
 #act {^skbrief ok$}
 {
 	#echo {{踏雪：%s %d/%d(%d%a)} {-1}} {基本轻功} {$level} {$maxsk} {@eval{$lvpot*100/($level+1)/($level+1)}} {37};
 	#if {$level>=$maxsk} {#class sa kill;#show <faa>dodge已达到上限。<099>};
 };
+#gag {^> $};
+#gag {^$};
+#gag {走了过来};
+#gag {走了进去};
+#gag {往%*离开};
+#gag {你已经吃%*};
+#gag {你已经喝%*};
+#gag {你正忙};
+#gag {你不忙};
+#gag {>%s}
+#gag {^$}
+
 
 #class sna close;

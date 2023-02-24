@@ -1,0 +1,48 @@
+#var myid simontuixue;
+#var li1 0;
+#var li2 max;
+#var wp flute;
+#var skills {
+    {1}{fx}
+    {2}{lm}
+    {3}{qf}
+};
+#list lx_skills create {
+    tiannan-bufa;
+    liumai-shenjian;
+    yiyang-zhi;
+}
+
+#var n_sk 3;
+#var xgong beiming-shengong;
+
+#alias {p.lm} {
+  jiali $li2;
+  perform liumai-shenjian.liumai %0;
+  jiali $li1;
+};
+#alias {p.qf} {
+  jiali $li2;
+  perform liumai-shenjian.qifa;
+  jiali $li1;
+};
+#alias {p.fx} {
+  jiali $li2;
+  perform yiyang-zhi.fuxue %1;
+  jiali $li1;
+}
+#alias {p.al} {perform duanjia-jian.ailao}
+#ali {jqg} {
+   s;#6 w;
+   #delay 1 {northwest;enter;enter;
+   #delay 1 {move you;move zuo;move zuo;move zuo;move qian;
+   #delay 1 {e;#5 n;
+}}}};
+
+#ali {jqgb} {
+   #5 s;w;enter;
+   #delay 1 {move qian;move zuo;move zuo;move zuo;move you;
+   #delay 1 {out;se;#6 e;n;
+}}};
+#var pack bo;
+pku;simontuixue;123abc;y

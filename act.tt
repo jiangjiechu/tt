@@ -34,7 +34,6 @@
 #act {^ %*两白银(Silver)$} {wait;get silver};
 #act {^ %*两黄金(Gold)$} {wait;get gold};
 #act {^ %*银票(Cash)$} {wait;get cash};
-#act {^ %*圣火令(Shenghuo ling)$} {wait;get shenghuo ling};
 
 #act {^你从%*{搜出|拿出}一柄长剑。$} {drop changjian};
 #act {^你从%*{搜出|拿出}一本紫霞秘籍。$} {drop miji};

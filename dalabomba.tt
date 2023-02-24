@@ -1,0 +1,39 @@
+#var myid dalabomba;
+#var li 0;
+#var wp dao;
+#var skills {
+    {1}{xy}
+};
+#var n_sk 1;
+
+#alias {p.xy} {
+  perform yingxiong-jianfa.xiyang
+};
+
+#list sp_skills create {
+  yuxue-dunxing;
+  dashou-yin;
+};
+#var n_spskill 2;
+
+#alias prepare {
+    #if {"$sp_skills[$i]"=="yuxue-dunxing"} {
+        #var skill dodge;
+    };
+    #elseif {"$sp_skills[$i]"=="dashou-yin"} {
+        #var skill parry;
+        unwield all;
+        bei none;
+        jifa hand dashou-yin;
+        bei dashou-yin;
+        jifa parry dashou-yin;
+    };
+    lx;
+};
+#alias {gofsk} {
+    do 3 eat liang;
+    #delay 1 {do 3 drink ;
+    #delay 1 {fskaa;
+}}};
+
+pku;dalabomba;123abc;y

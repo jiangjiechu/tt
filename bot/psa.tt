@@ -3,36 +3,35 @@
 #var kujie 0
 
 #tic {report} {skbrief dodge} 10;
-#act {你领悟出}{
-  #delay 2 {
-    #if {"$kujie"=="1"} {climb tree};
-    #else {yun recover};
-}};
+#act {你领悟出} {
+  checkbusy;
+};
+#act {你正忙} {
+  #delay 0.2 {checkbusy};
+};
+#act {你不忙} {
+  yun recover;
+};
 
-#action {你%*忙着呢。} {#delay 2 climb tree};
 #action {你身子发虚} {
   hp;
   #math lei {$lei + 1};
   #delay 3 {yun recover}
 };
 #action {你深深吸了几口气}  {
-  #if {$lei < 1}{climb tree};
-  #else {
-    gsleep
-}};
+  climb tree;
+};
 #act {你%*站了起来} {
   sleep;
 };
 #act {你现在内力接近圆满状态。} {sleep};
 
 #act {你的内力不够。} {
-  #var kujie 1;
-  climb tree;
+  gsleep;
 };
 
 #act {你的内力已经枯竭，不能施用内功。} {
-  #var kujie 1;
-  climb tree;
+  gsleep;
 };
 
 #act {^慢慢地你%*} {
@@ -45,11 +44,12 @@
 };
 
 #alias gsleep {
-  #var lei 0;
-  #var kujie 0;
-  hp;
-  n;e;
-  give 2 silver to xiao er;
+  n;e;up;enter;
+  do 2 drink;
+  #delay 2 {
+    do 2 eat liang;
+    dazuo max;
+  }
 }
 #action {小二一哈腰}{
   #delay 2 {
@@ -57,14 +57,20 @@
     do 2 drink;
     #delay 2 {
       do 2 eat liang;
-      dazuo max
+      dazuo max;
     }
   }
 };
 
 #alias gout {
   out;d;w;s;
-}
+};
+#act {你%*站了起来。} {
+  sleep;
+};
+#act {你现在的气太少了，无法产生内息运行全身经脉。} {
+  sleep;
+};
 
 #gag {^这里不是你能睡的地方！};
 #gag {走了过来};
@@ -72,7 +78,11 @@
 #gag {往%*离开};
 #gag {了来%*};
 #gag {本仙%*};
-#gag {你已经吃%*}
-#gag {你已经喝%*}
+#gag {你已经吃%*};
+#gag {你已经喝%*};
+#gag {你正忙};
+#gag {你不忙};
+#gag {>%s}
+#gag {^$}
 
 #class psa close;

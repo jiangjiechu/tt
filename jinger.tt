@@ -1,0 +1,73 @@
+#var myid jinger;
+#var li 0;
+#var wp dao;
+#var skills {
+    {1}{jz}
+    {2}{ty}
+};
+#var n_sk 2;
+
+#alias {p.wj} {
+  perform hunyuan-zhang.wuji;
+};
+#alias {p.yw} {
+  perform yangwu-jian.yangwu;
+};
+#alias {p.ty} {
+  perform yunushijiu-jian.sanqingfeng;
+};
+#alias {p.jz} {
+  perform huashan-jianfa.jianzhang;
+};
+#list sp_skills create {
+    huashan-jianfa;
+    yangwu-jian;
+    yunushijiu-jian;
+    hunyuan-zhang;
+    poyu-quan;
+    huashan-shenfa;
+};
+#var n_spskill 6;
+
+
+#alias prepare {
+
+    #if {"$skills[$i]"=="hunyuan-zhang"} {
+        #var skill parry;
+        unwield all;
+        bei none;
+        jifa strike hunyuan-zhang;
+        bei hunyuan-zhang;
+        jifa parry hunyuan-zhang;
+    };
+    #elseif {"$sp_skills[$i]"=="yunushijiu-jian"} {
+        #var skill parry;
+        wield dao;
+        jifa parry yunushijiu-jian;
+        jifa sword yunushijiu-jian;
+    };
+    #elseif {"$sp_skills[$i]"=="yangwu-jian"} {
+        #var skill sword;
+        wield dao;
+        jifa sword yangwu-jian;
+    };
+    #elseif {"$sp_skills[$i]"=="huashan-jianfa"} {
+        #var skill parry;
+        wield dao;
+        jifa parry huashan-jianfa;
+    };
+    #elseif {"$sp_skills[$i]"=="poyu-quan"} {
+        #var skill parry;
+        unwield all;
+        bei none;
+        jifa cuff poyu-quan;
+        bei poyu-quan;
+        jifa parry poyu-quan;
+    };
+    #elseif {"$sp_skills[$i]"=="huashan-shenfa"} {
+        #var skill dodge;
+    }
+    lx;
+};
+
+pku;jinger;123abc;y

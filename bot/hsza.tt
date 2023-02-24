@@ -26,22 +26,26 @@
     #tic {hsza1} {#echo {%c%h} {light yellow} {奸细在%1，到了datan。}} {5};
   };
 };
-#act {^你进入了[韩世忠任务副本]$} {
-  do 4 yun recover;
-  do 4 yun inspire;
+#act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
+  #delay 2 {
+    #untic hsza1;
+    unwield all;}
 };
+#act {^快去找韩王复命吧。} {
+  #var VERBOSE 1;
+  unset brief;
+}
 
 #act {%*异族奸细 %*(%*)%*} {
   #if {$f1_set==0}{
     #var oppo @lower{%3};
+    zhuanzhu $oppo;
     #var f1_set 1;
   };
   #elseif {$f2_set==0}{
     #var oppo_bm @lower{%3};
     #var f2_set 1;
   };
-  yun qi;
-  jiali $li;
 };
 
 #alias bm {
@@ -52,9 +56,13 @@
   get gem from corpse %1;
 };
 
-#act {看起来%*想杀死你} { #var battle 1;
+#act {看起来%*想杀死你} { 
+  #var battle 1;
   #var n_oppo1;
+  #var VERBOSE 0;
+  set brief 3;
 	#delay 2 {bm}
+
 };
 
 #nop #act {}{};
@@ -65,6 +73,10 @@
   #elseif {"$myid"=="jinger"} {
     p.jz ;
   }
+};
+#act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
+  unset brief;
+  #var VERBOSE 1;
 };
 #act {%*死了。} {
   #var f1_set 0;
@@ -81,16 +93,6 @@
 };
 #alias tx {
   p.lm $oppo;
-};
-#alias pg {
-  pack gem;
-};
-#alias hc {
-  do 3 get %1 from bo;
-  d1 {
-    combine gem;
-    d1 {pack gem}
-  }
 };
 
 #alias jl {
@@ -141,4 +143,9 @@
     #untic hsza1;hszx;
   }
 };
+#gag {^>%s$};
+#gag {^$};
+
+#gag {^你设定每一击用};
+#gag {^你已在运用北冥神功};
 #class hsza close;

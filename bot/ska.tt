@@ -34,6 +34,7 @@
   #elseif {"$shi"=="zhu"} {e};
   #elseif {"$shi"=="duan"} {n};
   #elseif {"$shi"=="mohe"} {n;nd;enter;e;enter};
+  #elseif {"$shi"=="lingzhi"} {n;n;nd;enter;e;enter};
   hp;
   #delay 1 {sleep}
 };
@@ -45,7 +46,8 @@
   #elseif {"$shi"=="zhu"} { w };
   #elseif {"$shi"=="duan"} { s };
   #elseif {"$shi"=="mohe"} { out;w;out;su;s};
-}
+  #elseif {"$shi"=="lingzhi"} { out;w;out;su;s;s};
+};
 
 
 #act {^你和师父切磋了%*消耗了大量潜能} {skx;e;s;tna};

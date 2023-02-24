@@ -1,48 +1,44 @@
 #nop 任务;
-#class hsza open;
+#class hyda open;
 #var f1_set 0;
 #var f2_set 0;
 
-#tic {hsza} {#untic hsza;hszaa} {2};
-#ali {hszaa} {
-  #format time1 {%t} {%Y-%m-%d-%H:%M:%S};
+#tic {hyda} {#untic hyda;hydaa} {1};
+#ali {hydaa} {
+  tune helpme;
   #var loc_lock 0;
-  #var luck %1;
-  #var bonus %2;
-  set wimpy 70;
-  set hansz_new_mode 1;
-  set adv_quest 50;
-  ask han about job;
+  ask hu about job;
   check_bonus;
 };
-#ali {hszd} {sm;ask han about finish;unset adv_quest};
-#ali {hszf} {ask han about fail;#untic hsza1;hszx;unset adv_quest};
+#ali {hydd} {give cangbao tu to hu};
+#ali {hydf} {ask hu about fail};
 
-#act {^韩世忠说道：「我听说有一群异族奸细在%*附近出没%*去打探(datan)一下%*} {
-
+#act {^胡一刀说道：『我收到消息，听说%*有盗宝人%*(%*)找到了闯王宝藏的地图,你可否帮忙找回来！』$} {
+  #var oppo @lower{%3};
   #if {$loc_lock==0} {
     #var loc_lock 1;
     #var loc %1;
-    #tic {hsza1} {#echo {%c%h} {light yellow} {奸细在%1，到了datan。}} {5};
+    #tic {hyda1} {#echo {%c%h} {light yellow} {盗宝人%2在%1，到了datan。}} {5};
   };
 };
-#act {^你进入了[韩世忠任务副本]$} {
-  do 4 yun recover;
-  do 4 yun inspire;
+#ali hm {
+  helpme ...;
+  helpme find $oppo;
+};
+#act {%*说道：「你有种去%*找我兄弟%*(%* ... %*)，他会给我报仇的！」} {
+  #var loc %2;
+  #var oppo {@lower{%4} %5};
+  #untic hyda1;
+  #tic {hyda1} {#echo {%c%h} {light yellow} {盗宝人%3在%2，到了datan。}} {5};
+
 };
 
-#act {%*异族奸细 %*(%*)%*} {
-  #if {$f1_set==0}{
-    #var oppo @lower{%3};
-    #var f1_set 1;
-  };
-  #elseif {$f2_set==0}{
-    #var oppo_bm @lower{%3};
-    #var f2_set 1;
-  };
-  yun qi;
-  jiali $li;
+#ali kb {
+  p.yy;
+  kill %1;
+  #delay 2 {yun beiming %1};
 };
+
 
 #alias bm {
   yun beiming $oppo_bm;
@@ -97,8 +93,8 @@
   #var n_oppo %0;
   #showme <afa> OK, n_oppo has been set to $n_oppo;
 };
-#alias hszLog {
-  #line log {hsz.log} {%0};
+#alias hydLog {
+  #line log {hyd.log} {%0};
 };
 
 #alias jm {
@@ -137,8 +133,8 @@
   #delay 1 {
     #format record {%s;%s;%s;%d;%d;%d;%s;%s;%s;%s;%s} {$job_mod} {$loc} {$n_oppo} {@ctd{$exp}} {@ctd{$pot}} {@ctd{$fam}} {@ctd{$taskid}} {$time1} {$time2} {$luck} {$bonus};
     #showme <afa> $record;
-    hszLog $record;
-    #untic hsza1;hszx;
+    hydLog $record;
+    #untic hyda1;hydx;
   }
 };
-#class hsza close;
+#class hyda close;

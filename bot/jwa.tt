@@ -2,6 +2,7 @@
 #class jwa open;
 
 #ali {jwaa} {
+  #var i_sk 1;
   set wimpy 20;
   ask shaoyin about 任务信息};
 #ali {jw} {record %1};
@@ -12,5 +13,20 @@
 #ali {dc} {ask luren %1 about 消息;l luren %1};
 #ali {zr} {yun qi;yun powerup;ask luren %1 about 盗贼};
 
+#act {最近长安城内出现不少盗窃事件，有人报告%*附近%*$} {
+  #tic {jwa1} {#echo {%c%h} {light yellow} {位置%1}} {5};
+};
+#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+  #if {%1 >= 12} {
+    p.$skills[$i_sk];
+  }
+};
+#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
+  #math i_sk {$i_sk+1};
+  #if {$i_sk>$n_sk} {
+    #var i_sk 1;
+  };
+  p.$skills[$i_sk];
+};
 
 #class jwa close;

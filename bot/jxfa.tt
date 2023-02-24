@@ -9,13 +9,11 @@
   #var loc_lock 0;
   #var luck %1;
   #var bonus %2;
-  set wimpy 70;
   ask ji xiaofu about job;
-  check_bonus;
 };
 #ali {jxfd} {say $anhao;jxfx};
-#ali {jxff} {ask han about fail;#untic jxfa1;jxfx;};
-#ali {ah} {#var anhao %1};
+#ali {jxff} {ask ji about fail;#untic jxfa1;jxfx;};
+#ali {r} {#var anhao %1};
 #ali {pa} {clamber up};
 #ali {ld} {look down};
 #ali {jd} {
@@ -46,7 +44,6 @@
 	#delay 2 {bm}
 };
 
-#nop #act {}{};
 #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
   #if {"$myid"=="simontuixue" && %1 >= 12} {
     p.lm $oppo;
@@ -131,5 +128,7 @@
 };
 
 #act {看起来%1想杀死你} {#var jxfss %1};
-#act {$jxfss死了} {#delay 2 {get all from corpse}};
+#act {%*脚下一个不稳，跌在地上一动也不动了。} {
+  #var oppo $oppo_bm;
+};
 #class jxfa close;

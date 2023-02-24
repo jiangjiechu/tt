@@ -1,11 +1,12 @@
 #class dza open;
-#math amount {$sklevel/10 +1};
 #var lei 0;
 
 
 #tic {dzaa} {#untic dzaa;dzaa} {1};
 
 #alias {dzaa} {
+      #var sklevel %2;
+      #math amount {($sklevel/10)*6};
       #nop yun recover;
       dazuo max};
 
@@ -13,15 +14,16 @@
       dazuo 10;
 };
 
-#act {你%*站了起来} {eat liang;#delay 1 {drink ;yun recover;}};
+#act {你%*站了起来} {
+      eat liang;#delay 1 {drink ;dazuo $amount;}};
 
-#act {你的内力增加了！！}  {hpbrief;dzaa};
+#act {你的内力增加了！！}  {dzaa};
 
 #act {你的内功还没有达到那个境界} {dzaa};
 
-#act {你现在气血严重不足，无法满足打坐最小要求}{sleep};
+#act {你现在气血严重不足，无法满足打坐最小要求}{yun recover};
 
-#act {你现在的气太少了，无法产生内息} {sleep};
+#act {你现在的气太少了，无法产生内息} {yun recover};
 
 #act {你现在精不够，无法控制内息的流动} {exert regenerate;#delay 2 {dzaa}};
 
@@ -32,6 +34,9 @@
           {dz};
     #else
           {dzx;#untic dza;tna}
+};
+#act {你现在气力充沛。} {
+      dazuo max;
 };
 #act {你深深吸了几口气，脸色看起来好多了。} {
       dazuo max;

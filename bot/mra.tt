@@ -1,7 +1,10 @@
 #class mra open;
-#var i 0;
 
-#tic {mra} {#untic mra;mraa}{2};
+#tic {mra} {
+  #var i 1;
+  #untic mra;mraa;
+  #var i_sk 1;
+}{2};
 #alias {mraa} {ask pu ren about job};
 #alias  {mrd} {give xin jian to pu ren};
 #alias  {mrf} {ask pu ren about fail};
@@ -16,20 +19,21 @@
 #act {慕容%*卸除了你的兵器%*。} {
   #math i {$i+1};
   #if {i>3} {
-    #var i 0;
+    #var i 1;
   }
   wield dao $i;
 }
 
-#act {%*发现的%s慕容世家家贼(@capital{$myid}'s murong jiazei)} {
+#act {%*发现的%s慕容世家{家贼|内鬼}(@capital{$myid}'s murong jiazei)} {
   walk -p;
   follow jiazei;
-  yun powerup;
+  #if {"$myid" == "jinger"} {yun powerup};
+  #if {"$myid" == "dalabomba"} {yun powerup};
   jiali $li;
   kill jiazei;
   yun beiming jiazei;
 };
-#act {%s本雪发现的%s慕容世家家贼(Murong jiazei)} {
+#act {%s本雪发现的%s慕容世家{家贼|内鬼}(Murong jiazei)} {
   wait;
   stopwalk;
   follow jiazei;
@@ -42,14 +46,25 @@
   #if {"$myid"=="simontuixue" && %1 >= 50} {
     p.lm jiazei;
   };
-  #elseif {"$myid"=="jinger"} {
-    p.jz ;
+  #elseif {"$myid"=="jinger" && %1 >= 12} {
+    p.$skills[$i_sk];
+  };
+  #elseif {"$myid"=="dalabomba" && %1 >= 12} {
+    p.$skills[$i_sk];
   }
 };
-
-#act {慕容世家家贼死了} {
+#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
+  #math i_sk {$i_sk+1};
+  #if {$i_sk>$n_sk} {
+    #var i_sk 1;
+  };
+  p.$skills[$i_sk];
+};
+#act {慕容世家{家贼|内鬼}死了} {
   #var i 0;
   #delay 2 {get all from corpse}
+  uwield all;
+  wi dao 1;
 };
 
 #act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;mrx};

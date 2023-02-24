@@ -3,13 +3,16 @@
 #var kujie 0
 #var faint 0
 #var n_yun 0
-#var max_yun 1
 #var max_level 163
 
 
 #nop #tic {dsa}{dsaa}{77};
 
-#tic {dsaa}{#echo {%c%h} {light yellow}{【指令格式:dsa [书名] [次数]进行读书，i2查看书id。】};#show <afa> 开始读书...;#untic dsaa;dsaa} {1};
+#tic {dsaa}{
+	#if {"$myid"=="dalabomba"} {#var max_yun 5};
+	#else {#var max_yun 10};
+
+	#echo {%c%h} {light yellow}{【指令格式:dsa [书名] [次数]进行读书，i2查看书id。】};#show <afa> 开始读书...;#untic dsaa;dsaa} {1};
 
 #nop #gag {^你思索着小说中关于%*，对%*有一些新的理解。$};
 #nop #gag {^你现在过于疲倦，无法专心下来研读新知。};

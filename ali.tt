@@ -22,11 +22,17 @@
   pack gem;
 };
 #alias hc {
-  do 3 get %1 from bo;
+  do 3 get %1 from $pack;
   d1 {
     combine gem;
     d1 {pack gem}
   }
+};
+#alias mg {
+  get %1A from $pack;
+  get %1B from $pack;
+  merge gem;
+  pack gem;
 };
 #alias xln {xla;#delay %1 {xlx;#showme <afa> 好了！}}
 #alias {omg} {
@@ -41,6 +47,8 @@
   #echo {%c%h} {light green};
 }; 
 #nop 常用别名;
+
+#alias login {#read %1.tt};
 #alias {zisha} {suicide -f};
 #alias {rl} {
      #kill;
@@ -53,33 +61,9 @@
 #alias {p.lt} {perform strike.leiting};
 #alias {p.x} {perform strike.xiao};
 #alias {p.s} {perform strike.sanhui};
-#alias {p.jz} {
-  perform huashan-jianfa.jianzhang;
-};
 #alias {p.ld} {
   perform poyu-quan.leidong;
 };
-#alias {p.lm} {
-  #if {$li == 0} {
-    jiali max;
-  };
-  #else {
-    jiali $li;
-  }
-  perform liumai-shenjian.liumai %0;
-  jiali $li;
-};
-#alias {p.qf} {
-  jiali max;
-  perform liumai-shenjian.qifa;
-  jiali $li;
-};
-#alias {p.fx} {
-  jiali max;
-  perform yiyang-zhi.fuxue %1;
-  jiali $li;
-}
-#alias {p.al} {perform duanjia-jian.ailao}
 #alias {p.yy} {
   perform tiannan-bufa.yunyou
 };
@@ -249,7 +233,7 @@
 #alias {lxx} {#class lxa kill;#var VERBOSE 1};
 
 #nop 领悟;
-#alias {lwa} {#class lwa read bot/lwa.tt;#var VERBOSE 0};
+#alias {lwa} {#class lwa read bot/lwa.tt;};
 #alias {lwx} {#class lwa kill;#var VERBOSE 1};
 
 #nop 看雪轻功;
@@ -442,5 +426,14 @@
 #nop 修持
 #alias xca {#class xca read bot/xca.tt;xcaa};
 #alias xcx {xcad;#class xca kill;};
+
+#nop 胡一刀
+#alias hyda {#class hyda read bot/hyda.tt;};
+#alias hydx {#class hyda kill;#untic hyda1};
+
+#nop 禅定
+#alias hxa {#class hxa read bot/hxa.tt;};
+#alias hxx {#class hxa kill; };
+
 
 #class ali close;

@@ -8,35 +8,29 @@
     #var i 1;
     #var num 4000;
     #untic fskaa;
-    #var max_level 437;
+    #var max_level 453;
     prepare;
     skaa;
 } {2};
-#list skills create {
-    tiannan-bufa;
-    liumai-shenjian;
-    yiyang-zhi;
-}
-
 
 #alias prepare {
     skbrief yiyang-zhi;
 
-    #if {"$skills[$i]"=="liumai-shenjian"} {
+    #if {"$lx_skills[$i]"=="liumai-shenjian"} {
         #var skill parry;
         wield $wp;
         jifa sword liumai-shenjian;
         jifa parry liumai-shenjian;
     };
-    #elseif {"$skills[$i]"=="yiyang-zhi"} {
+    #elseif {"$lx_skills[$i]"=="yiyang-zhi"} {
         #var skill parry;
         unwield all;
         jifa parry yiyang-zhi;
     };
-    #elseif {"$skills[$i]"=="tiannan-bufa"} {
+    #elseif {"$lx_skills[$i]"=="tiannan-bufa"} {
         #var skill dodge;
     };
-    #elseif {"$skills[$i]"=="duanjia-jian"} {
+    #elseif {"$lx_skills[$i]"=="duanjia-jian"} {
         #var skill parry;
         wield $wp;
         jifa parry duanjia-jian;
