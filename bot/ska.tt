@@ -35,6 +35,8 @@
   #elseif {"$shi"=="duan"} {n};
   #elseif {"$shi"=="mohe"} {n;nd;enter;e;enter};
   #elseif {"$shi"=="lingzhi"} {n;n;nd;enter;e;enter};
+  #elseif {"$shi"=="shan"} {w;s;e;enter};
+  #elseif {"$shi"=="sheng"} {e;s;e;enter};
   hp;
   #delay 1 {sleep}
 };
@@ -47,6 +49,8 @@
   #elseif {"$shi"=="duan"} { s };
   #elseif {"$shi"=="mohe"} { out;w;out;su;s};
   #elseif {"$shi"=="lingzhi"} { out;w;out;su;s;s};
+  #elseif {"$shi"=="shan"} {out;w;n;e};
+  #elseif {"$shi"=="sheng"} {out;w;n;w};
 };
 
 

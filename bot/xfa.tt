@@ -48,6 +48,13 @@
     p.jz ;
   }
 };
+#action {( 蒙面杀手%!*，%!*。)『蒙面杀手(damage:%!* 气血:$d%/%d%) %*』} {
+  #if {%1 < 50 && "$mod" == "quan"} {
+    halt;quan;
+  };#elseif {"$mode"== "xiang"} {
+    halt;ask shashou about 认输;
+  }
+};
 #act {%*死了。} {
   #var foced 0;
   l;

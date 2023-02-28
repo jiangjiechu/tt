@@ -11,6 +11,11 @@
 
 #act {仆人叹道：家贼难防，有人偷走了少爷的信件，据传曾在『%1』附近出现，你去把它找回来吧} {
   #tic {mrq1} {#echo {%c%h} {light yellow} {慕容信件目标在%1处}} {5}};
+#act {仆人叹道：家贼难防，有人偷走了少爷的信件，听说在%*的%*留下了线索，你去看看} {
+  #var city %1;
+  #var objroom %2;
+  #tic {mrq2} {#echo {%c%h} {light yellow} {慕容信件线索在%1的%2处}} {5}
+};
 
 #act {%*目前在【%1】,快去摁死它吧!} {
   #tic {mrq2} {
@@ -24,20 +29,21 @@
   wield dao $i;
 }
 
-#act {%*发现的%s慕容世家{家贼|内鬼}(@capital{$myid}'s murong jiazei)} {
-  walk -p;
+#act {^%s$myname发现的%s慕容世家{家贼|内鬼}(@capital{$myid}'s murong jiazei)} {
+  mplay fight.wav;
+  pause_walk;walk -p;
   follow jiazei;
   #if {"$myid" == "jinger"} {yun powerup};
   #if {"$myid" == "dalabomba"} {yun powerup};
   jiali $li;
   kill jiazei;
-  yun beiming jiazei;
+  #if {"$myid" == "simontuixue"} {#delay 2 {yun beiming jiazei}};
 };
-#act {%s本雪发现的%s慕容世家{家贼|内鬼}(Murong jiazei)} {
-  wait;
-  stopwalk;
+#act {^%s$myname发现的%s慕容世家{家贼|内鬼}(Murong jiazei)} { wait;
+  mplay fight.wav;
+  stopwalk;walk -p;
   follow jiazei;
-  jiali $li;
+  jiali $li1;
   kill jiazei;
   yun beiming jiazei;
 };
@@ -62,9 +68,12 @@
 };
 #act {慕容世家{家贼|内鬼}死了} {
   #var i 0;
-  #delay 2 {get all from corpse}
-  uwield all;
-  wi dao 1;
+  #delay 2 {
+    get all from corpse;
+    say 可以回去了！
+  };
+  #nop uwield all;
+  #nop wi dao 1;
 };
 
 #act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;mrx};

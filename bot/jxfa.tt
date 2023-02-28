@@ -131,4 +131,5 @@
 #act {%*脚下一个不稳，跌在地上一动也不动了。} {
   #var oppo $oppo_bm;
 };
+#gag {^[舜耕山]%*$};
 #class jxfa close;

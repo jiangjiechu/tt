@@ -1,5 +1,6 @@
 #var myid simontuixue;
-#var li1 0;
+#var myname ±¾Ñ©;
+#var li1 max;
 #var li2 max;
 #var wp flute;
 #var skills {
@@ -45,4 +46,4 @@
    #delay 1 {out;se;#6 e;n;
 }}};
 #var pack bo;
-pku;simontuixue;123abc;y
+pku;simontuixue;123abc;y;

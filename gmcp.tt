@@ -70,6 +70,7 @@ gmcp format [raw|pretty] 接受GMCP是收到基础信息或者有自我描述的信息。
     #case {"GMCP.Move"}{
       #var gmcp_move {%1};
       gmcp_move;
+      #nop goto_busy;
     };
     #case {"GMCP.Buff"}{
       #var gmcp_move {%1};

@@ -91,7 +91,3 @@ mlo;
     #nop #echo @bc0{-->CMD:[$temp]<--};
   };
 };
-
-#split
-#config charset gbk
-

@@ -8,7 +8,7 @@
     #var i 1;
     #var num 100;
     #untic fskaa;
-    prepare;
+    prep $i;
 } {2};
 
 
@@ -61,27 +61,26 @@
 #act {你%*站了起来} {
     lx;
 };
-#action {{你太累了|你的体力不够|你的体力太低|你现在气血虚浮|你的气不足}}    {
+#action {{你太累了|你的体力不够|你的体力太低|你现在气血虚浮|你的气不足|你现在的气太少}}    {
     #var qixu 1;
     #if {$kujie==0} {yun recover};
     #else {gosleep}
 };
-
 #action {{^你刚在三分钟内睡过一觉|^你刚刚睡过一觉|^你精血不足}}   {
     #delay 15 sleep; 
 };
-#action {你一觉醒来%*}        {suxing; gofsk;};
-#action {你慢慢的睁开眼睛%*$}        {suxing; gofsk;};
+#action {^你一觉醒来%*$}   {suxing; gofsk;};
+#action {^你慢慢的睁开眼睛%*$}        {suxing; gofsk;};
 
 #action {^你需要提高基本功，不然练得再多也没有用。$END}  {
     #math i {$i+1};
-    #if {$i > 5} {
+    #if {$i > $n_spskill} {
         fskx;
         sleep;
         lwa;
     };
     #else {
-        prepare;
+        prep $i;
     }
 };
 #alias {gosleep} {
@@ -96,7 +95,7 @@
     #math i {$i+1};
     #if {$i > $n_spskill} {#var i 1;tna};
     #else {
-        prepare;
+        prep $i;
     }
 };
 

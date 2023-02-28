@@ -1,0 +1,22 @@
+#class explore open;
+#var step 1;
+#var in_boat 0;
+#var path ${${src}_${dst}};
+#line log explore.log {#var ${src}_${dst} \x7B};
+#action {^%*${SUF}$} {
+  #if {$step <= &path[] && $in_boat == 0} {
+    #var exit $path[$step];
+    #var myroom %1;
+    #line log {explore.log} {  {$step} {{房间}{$myroom} {方向}{$exit}}};
+    #show $step;
+    #show $result;
+    #delay 0.1 {$exit;#math step {$step + 1}};
+  };#elseif {$in_boat==0} {
+    #line log explore.log {\x7D;};
+    #class explore kill;
+  }
+};
+#action {^这个方向没有出路。} {#math step {$step - 1}};
+#action {^你跳上了小船%*} {#var in_boat 1};
+#action {^你从小船上跳了下来%*} {#var in_boat 0;l};
+#class explore close;

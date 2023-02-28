@@ -13,10 +13,10 @@
 };
 #alias taopao {
 	halt;
-	s;
+	w;
 }
 #alias ghit {
-	n;kill mu;
+	e;kill mu;
 }
 
 #act {看起来%*想杀死你} {
@@ -50,7 +50,7 @@
 #act {你逃跑失败} {
 	#delay 1 {taopao};
 };
-#act {^码头 -%*$} {
+#act {^南大街 -%*$} {
 	#var battle 0;
 	#var lock 0;
 	#if {$finish==0} {

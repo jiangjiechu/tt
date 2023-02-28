@@ -131,9 +131,7 @@
 				p.lm $npcid;
 			};
 			#elseif {"$myid"=="jinger" && %%%1 >= 12} {
-				jiali max;
 				p.$skills[$i_sk] $npcid;
-				jiali 0;
 			}
 		};
 		#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
@@ -141,9 +139,7 @@
 			#if {$i_sk>$n_sk} {
 				#var i_sk 1;
 			};
-			jiali max;
 			p.$skills[$i_sk];
-			jiali 0;
 		};
 
 		#action {%%1道：想不到我最终还是失败了！哎！} {
@@ -158,7 +154,7 @@
 	};
 	#class zhanbu.maze close;
 	set ForcedAct 1;
-	#if {"$myid"=="jinger"} {yun powerup;jiali 0};
+	#if {"$myid"=="jinger"} {yun powerup;jiali 100};
 	#else {jiali max;};
 	yun recover;
 	yun regenerate;

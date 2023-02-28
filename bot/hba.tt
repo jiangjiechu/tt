@@ -22,101 +22,125 @@
   {wd} {westdown}
   {enter} {enter}
   {out} {out}
-}
-#list fz_hz  create {s;s;w;n;n;n;nu;nw;nw;ride north;e;ne;w;w;w};
-#list fz_jx  create {s;s;w;n;n;n;nu;nw;nw;ride north;e;ne;w;ne;ne;n;n;n;nw;n;};
-#list fz_ywm create {s;s;w;n;n;n;nu;nw;nw;ride north;e;ne;w;w;w;w;w;w;w;w;w;w;w;sw;sw;nu;n;e;ne;n};
-#list fz_sz  create {s;s;w;n;n;n;nu;nw;nw;ride north;e;ne;w;ne;ne;n;n;n;nw;n;n;n;n;n;n};
-#list fz_nc  create {s;s;w;n;n;n;nu;nw;nw;s;nw;n;nw;n;n;n;n;n;};
-#list fz_qz  create {s;s;w;w;w;w;sw;sw;s;s;sw;sw;sw};
+};
+#re bot/hb_data.tt;
 
 #ali {hbaa} {
   set wimpy 20;
   #var step 1;
   getesc %1};
 #ali {hbd} {ask $master about finish;hbx};
-#ali {hbf} {ask $master about fail;#untic hba1;hbx;};
+#ali {hbf} {ask $master about fail;#untic hba1;#untic hba2;hbx;};
 #ali {t} { #if {"%0"=="ride"||"%0"=="ride north"||"%0"=="ride west"} {%0}; #else { gan che to $dir[%1]; }; };
 #act {^林震南在你的耳边悄声说道：你把这批红货送到%*那里，他已经派了个伙计名叫%*到%*接你，把镖车送到他那里就行了。} {
   #tic {hba1} {#echo {%c%h} {light yellow} {目的地%1的%3, 伙计%2}} {5}
 };
 #ali start {
+  tune channel helpme;
   #var path ${%1};
   #var step 1;
   #var battle 0;
   #var biased 0;
   #var arrive 0;
   #var inheal 0;
-  g;
-};
-#ali g {
-  t $path[$step];
-};
-#ali dn {
-  dazuo max;
-  #delay 4 {halt;g}
-};
-#act {^劫匪突然从暗处跳了出来} {
-  #var battle 1;
-  #showme <afa> $battle;
-  #var op1 {$myid's robber 1};
-  #var op2 {$myid's robber 2};
-  kill $op1;
-  yun beiming $op2;
-};
-#act {劫匪趁你不注意，推着镖车就跑，} {
-  #var biased 1;
-}
-#act {( 只听见「啪」地一声，你手中的武士刀已经断为两截！ )} {
-  wi dao;
-};
-#act {你赶着镖车驶了过来} {
-  #if {$biased==0} {
-    #math step {$step+1};
-    #delay 1 {
-      #if {$battle==0 && $arrive==0} { dn; };
+  #var cnt 0;
+  #class hb_tmp open;
+    #ali g {
+      t $path[$step][方向];
     };
-  };
-  #if {$step >$length} {
-    #var arrive 1;
-    #showme <afa> 到达目的地附近！！！
-  };
-};
-#ali adj {#var biased 0};
-#act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
-  #var battle 0;
-  eat liang;drink;
-  #if {$inheal==0} {
-    #var inheal 1;
-    yun heal;
-  }
-}
-#act {你跳上了小船} {
-  #math step {$step+1};
-};
+    #ali dn {
+      dazuo max;
+      #delay 4 {halt;g}
+    };
+    #act {^劫匪突然从暗处跳了出来} {
+      #var battle 1;
+      #showme <afa> $battle;
+      #var op1 {$myid's robber 1};
+      #var op2 {$myid's robber 2};
+      kill $op1;
+      yun beiming $op2;
+    };
+    #act {劫匪趁你不注意，推着镖车就跑，} {
+      #var biased 1;
+      #tic {hba2} {#echo {%c%h} {light red} {已偏航，请修正！}} {5};
+    };
+    #ali adj {
+      #var step %0;
+      #var biased 0;
+      #untic hba2;
+    };
+    #act {( 只听见「啪」地一声，你手中的武士刀已经断为两截！ )} {
+      wi dao;
+    };
+    #act {你赶着镖车驶了过来} {
+      #var room $path[$step][房间]; 
+      #echo {%c%h} {light yellow} {你现在走了$step步，应该在$room,实际在%%1}; 
+      #if {$biased==0} {
+        #math step {$step+1};
+        #delay 1 {
+          #if {$battle==0 && $arrive==0} { dn; };
+        };
+      };
+      #if {$step >$length} {
+        #var arrive 1;
+        #showme <afa> 到达目的地附近！！！
+      };
+    };
+    #act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
+      #var battle 0;
+      #var cnt 0;
+      eat liang;drink;
+      #if {$inheal==0} {
+        #var inheal 1;
+        yun heal;
+      }
+    };
+    #act {你跳上了小船} {
+      #math step {$step+1};
+    };
 
-#act {劫匪叫道：点子扎手，扯呼！} {
-  #var op1 {$myid's robber};
-};
-#act {劫匪伸手一拦道：“想跑？没那么容易！”} {
-  kill $myid's robber;
-  #var battle 1;
-};
-#act {你是在押车，不是赶路，小心为上。} {
-  dn;
-};
-#act {你全身放松，坐下来开始运功疗伤。} {
-  #delay 1 {yun heal};
-};
-#act {战斗中不能疗伤！} { kill $myid's robber; };
-#act {你现在气血充盈} {
-  #var inheal 0;
+    #act {劫匪叫道：点子扎手，扯呼！} {
+      #var cnt 0;
+      #var op1 {$myid's robber};
+    };
+    #act {劫匪伸手一拦道：“想跑？没那么容易！”} {
+      kill $myid's robber;
+      #var battle 1;
+    };
+    #act {你是在押车，不是赶路，小心为上。} {
+      dn;
+    };
+    #action {^你在攻击中不断积蓄攻势。(气势：%d%)} {
+      #if {"$myid"=="simontuixue" && %1 >= 20 && $cnt==0} {
+        #var cnt 1;
+        unwield dao;
+        p.lm jiazei;
+        wield dao;
+      };
+      #elseif {"$myid"=="jinger" && %1 >= 12} {
+        p.$skills[$i_sk];
+      };
+      #elseif {"$myid"=="dalabomba" && %1 >= 12} {
+        p.$skills[$i_sk];
+      }
+    };
+    #act {战斗中不能疗伤！} { kill $myid's robber; #var inheal 0 };
+    #act {你现在气血充盈} {
+      #var inheal 0;
+      g;
+    };
+    #act {^你从小船上跳了下来%*} {g};
+    #act {^你累了个半死，终于把镖运到了地头。} {
+      #class hb_tmp kill;
+      #untic hba1;
+      #untic hba2;
+    };
+    #gag {你灵犀一动，招式再变%*};
+    #gag {你灵犀一动，招式再变%*};
+    #gag {^>%s$};
+    #nop #gag {你在攻击中%*};
+    #gag {你随手按住劫匪大穴};
+  #class hb_tmp close;
   g;
-};
-#act {^你从小船上跳了下来%*} {g};
-#gag {你灵犀一动，招式再变%*};
-#gag {你灵犀一动，招式再变%*};
-#gag {^>%s$};
-#gag {你在攻击中%*};
-#gag {你随手按住劫匪大穴};
+}
 #class hba close;

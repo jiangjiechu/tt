@@ -17,13 +17,19 @@
 };
 #ali {hszd} {sm;ask han about finish;unset adv_quest};
 #ali {hszf} {ask han about fail;#untic hsza1;hszx;unset adv_quest};
+#ali {findroom} {
+  #class my_gps read bot/my_gps.tt;
+  locme $city %1;
+};
 
-#act {^韩世忠说道：「我听说有一群异族奸细在%*附近出没%*去打探(datan)一下%*} {
+#act {^韩世忠说道：「我听说有一群异族奸细在%*的%*附近出没%*去打探(datan)一下%*} {
 
   #if {$loc_lock==0} {
     #var loc_lock 1;
-    #var loc %1;
-    #tic {hsza1} {#echo {%c%h} {light yellow} {奸细在%1，到了datan。}} {5};
+    #var city %1;
+    #var room %2;
+    #var loc $city的$room;
+    #tic {hsza1} {#echo {%c%h} {light yellow} {奸细在$loc，到了datan。}} {5};
   };
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
@@ -34,7 +40,7 @@
 #act {^快去找韩王复命吧。} {
   #var VERBOSE 1;
   unset brief;
-}
+};
 
 #act {%*异族奸细 %*(%*)%*} {
   #if {$f1_set==0}{
@@ -109,7 +115,7 @@
 
 #act {^╭───%*{之周|同庆}┬──────────────────────────────────╮$} {
   #class week open;
-    #act {^│%s韩世忠%s│%*奖励增加%d％。%s│$} {#var job_mod 2};
+    #act {^│%s韩世忠%s│%*{奖励增加|加成提升}%d％。%s│$} {#var job_mod 2};
     #act {^│%*│→%*韩世忠%*%s│$} {#var job_mod  0};
     #act {^│%*│↑%*韩世忠%*%s│$} {#var job_mod  1};
     #act {^│%*│↓%*韩世忠%*%s│$} {#var job_mod -1};

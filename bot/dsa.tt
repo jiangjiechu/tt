@@ -3,7 +3,6 @@
 #var kujie 0
 #var faint 0
 #var n_yun 0
-#var max_level 163
 
 
 #nop #tic {dsa}{dsaa}{77};
@@ -83,10 +82,13 @@
 #nop #act {^你思索着小说中关于%*，对%*有一些新的理解。$} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
 #act {你的%*火候} {cunbook};
-#act {^你的%*进步了%*$} {skbrief force};
+#act {^你的%*进步了%*$} {skbrief parry};
 #act {^#%d/%d} {
-	#if {%1 >= maxlevel} {cunbook; fska}
-}
+	#show <afa> comparing;
+	#if {%1 >= $max_level} {
+		#var finished 1;
+	}
+};
 #act {你的%*等级已经高于} {cunbook};
 #act {你的武功等级受到经验限制} {cunbook};
 #act {也许是缺乏实战经验，你对%*总是无法领会。} {cunbook};
@@ -104,9 +106,11 @@ suxing;
 #act {^你刚刚睡过一觉} {#delay 5 sleep};
 
 #act {你略一凝神，精神看起来好多了。} {
+	skbrief parry;
 	#show <afa> $n_yun;
 	#math n_yun {$n_yun + 1};
-	#if {$n_yun < $max_yun} {dsaa};
+	#if {$finished==1} {#var finished 0;dsx;cunbook; out;gt zp;#delay 15 {n;n;n;sna}};
+	#elseif {$n_yun < $max_yun} {dsaa};
 	#else {
 		#var n_yun 0;
 		dazuo max;

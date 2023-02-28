@@ -1,4 +1,6 @@
+#map read pku.map;
 #var myid dalabomba;
+#var myname 达拉崩吧;
 #var li 0;
 #var wp dao;
 #var skills {
@@ -16,11 +18,11 @@
 };
 #var n_spskill 2;
 
-#alias prepare {
-    #if {"$sp_skills[$i]"=="yuxue-dunxing"} {
+#alias prep {
+    #if {"$sp_skills[%1]"=="yuxue-dunxing"} {
         #var skill dodge;
     };
-    #elseif {"$sp_skills[$i]"=="dashou-yin"} {
+    #elseif {"$sp_skills[%1]"=="dashou-yin"} {
         #var skill parry;
         unwield all;
         bei none;
@@ -35,5 +37,11 @@
     #delay 1 {do 3 drink ;
     #delay 1 {fskaa;
 }}};
+#act {你动作似乎开始有点不太灵光，但是仍然有条不紊} { yun recover};
+#act {你看起来可能有些累了} { yun recover};
+#act {你似乎十分疲惫，看来需要好好休息了} { yun recover};
+#act {你气喘嘘嘘，看起来状况并不太好} { yun recover};
+#act {你看起来已经力不从心了} { yun recover};
+#var pxcode 3123;
 
-pku;dalabomba;123abc;y
+pku;dalabomba;123abc;y;

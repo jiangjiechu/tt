@@ -5,7 +5,7 @@
 
 #tic {hyda} {#untic hyda;hydaa} {1};
 #ali {hydaa} {
-  tune helpme;
+  tune channel helpme;
   #var loc_lock 0;
   ask hu about job;
   check_bonus;
@@ -41,7 +41,7 @@
 
 
 #alias bm {
-  yun beiming $oppo_bm;
+  yun beiming $oppo;
 };
 
 #alias gm {

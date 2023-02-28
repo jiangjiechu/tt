@@ -8,7 +8,6 @@
     #var i 1;
     #var num 4000;
     #untic fskaa;
-    #var max_level 453;
     prepare;
     skaa;
 } {2};

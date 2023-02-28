@@ -7,19 +7,27 @@
 #act {你摇摇摆摆走在雪地上%*} {l snow};
 #act {雪，雪，还是雪。} {l snow};
 #act {环顾四周，到处都是白皑皑的积雪。} {l snow};
+#act {你提一口气，在积雪上小心的走了起来。} {checkbusy};
 #act {你正忙着呢%*} {checkbusy};
 #act {你正忙} {
 	#delay 0.1 {checkbusy}
 };
 #act {你不忙} {
-	xingzou snow
-}
-
-#act {^skbrief ok$}
-{
-	#echo {{踏雪：%s %d/%d(%d%a)} {-1}} {基本轻功} {$level} {$maxsk} {@eval{$lvpot*100/($level+1)/($level+1)}} {37};
-	#if {$level>=$maxsk} {#class sa kill;#show <faa>dodge已达到上限。<099>};
+	#if {$finished==1} {
+		#var finished 0;
+		snx; s;s;s;
+		#if {"$myid" == "jinger"} {#delay 2 {gt hs; #delay 20 {e;s;fska}}};
+		#elseif {"$myid"=="dalabomba"} {#delay 2 {gt bs; #delay 20 fska}};
+	};
+	#else {xingzou snow}
 };
+#act {^#%d/%d} {
+	#if {%1 >= $max_level} {
+		#var finished 1;
+	}
+};
+#act {n}
+
 #gag {^> $};
 #gag {^$};
 #gag {走了过来};

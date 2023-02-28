@@ -20,19 +20,19 @@
   perform huashan-jianfa.jianzhang;
 };
 #list sp_skills create {
+    hunyuan-zhang;
+    poyu-quan;
     huashan-jianfa;
     yangwu-jian;
     yunushijiu-jian;
-    hunyuan-zhang;
-    poyu-quan;
     huashan-shenfa;
 };
 #var n_spskill 6;
 
 
-#alias prepare {
+#alias prep {
 
-    #if {"$skills[$i]"=="hunyuan-zhang"} {
+    #if {"$sp_skills[%1]"=="hunyuan-zhang"} {
         #var skill parry;
         unwield all;
         bei none;
@@ -40,23 +40,23 @@
         bei hunyuan-zhang;
         jifa parry hunyuan-zhang;
     };
-    #elseif {"$sp_skills[$i]"=="yunushijiu-jian"} {
+    #elseif {"$sp_skills[%1]"=="yunushijiu-jian"} {
         #var skill parry;
         wield dao;
         jifa parry yunushijiu-jian;
         jifa sword yunushijiu-jian;
     };
-    #elseif {"$sp_skills[$i]"=="yangwu-jian"} {
+    #elseif {"$sp_skills[%1]"=="yangwu-jian"} {
         #var skill sword;
         wield dao;
         jifa sword yangwu-jian;
     };
-    #elseif {"$sp_skills[$i]"=="huashan-jianfa"} {
+    #elseif {"$sp_skills[%1]"=="huashan-jianfa"} {
         #var skill parry;
         wield dao;
         jifa parry huashan-jianfa;
     };
-    #elseif {"$sp_skills[$i]"=="poyu-quan"} {
+    #elseif {"$sp_skills[%1]"=="poyu-quan"} {
         #var skill parry;
         unwield all;
         bei none;
@@ -64,7 +64,7 @@
         bei poyu-quan;
         jifa parry poyu-quan;
     };
-    #elseif {"$sp_skills[$i]"=="huashan-shenfa"} {
+    #elseif {"$sp_skills[%1]"=="huashan-shenfa"} {
         #var skill dodge;
     }
     lx;

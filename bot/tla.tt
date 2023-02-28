@@ -2,7 +2,6 @@
 #var VERBOSE 0;
 #var t 0;
 #var halt 0;
-#var max_level 453;
 
 #tic {tlaa} {
     #untic tlaa;
@@ -29,8 +28,8 @@
 };
 
 #class tmp1 open;
-#action {^天福镖局 -} {
-  #delay 1 {t2 tianlongsi};
+#action {^大轮寺山门 -} {
+  #delay 1 {e;gu;qu tianlongsi};
   #delay 15 {hx;e;nu;n;n;n;n};
 };
 #action {^后院 -} {
@@ -41,7 +40,7 @@
 #class tmp1 close;
 
 #alias {glw1} {
-  gt tf;
+  gt dls;
 }
 
 #alias {glw2} {

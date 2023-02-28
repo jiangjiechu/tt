@@ -1,6 +1,10 @@
 #class ali open;
 #nop ==³£ÓÃalias==;
 #nop ==°ïÖú==;
+
+#alias {mplay} {
+    #system {mplayer sound/%1 1>/dev/null 2>&1 &};
+};
 #alias rw {remove %1;wear %1;yun inspire};
 #alias ho {halt;out};
 #alias hx {halt;xia};
@@ -75,7 +79,7 @@
 #alias {dm} {dazuo max};
 #alias {tm} {tuna max;};
 #alias {seq %0} {showequip %0};
-#alias {lx} {look box};
+#nop #alias {lx} {look box};
 #alias {gx %0} {get %0 from box};
 #alias {px %0} {put %0 in box};
 #alias {hbf} {hpbrief}
@@ -435,5 +439,13 @@
 #alias hxa {#class hxa read bot/hxa.tt;};
 #alias hxx {#class hxa kill; };
 
+#nop gps
+#alias gpa {#class my_gps read bot/my_gps.tt; #var city %1};
+#alias gpx {#class my_gps kill};
+#alias mr {#map run %1};
+#alias explore {#class explore read bot/explore.tt;#var src %1;#var dst %2};
+#alias explorex {#class explore kill};
+
+#alias trash {do 3 put shi tan in xiang;do 3 put yun tie in xiang; do 3 put huo tong in xiang;do 3 put xuan bing in xiang};
 
 #class ali close;
