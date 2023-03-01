@@ -212,7 +212,7 @@
     };
 };
 
-#alias {stopwalk} {#class walk kill};
+#alias {stopwalk} {#class walk kill;pga};
 
 #nop ==自定函数==;
 
@@ -427,6 +427,7 @@
             #var critical_running 0;
             #showme <efa>  抵达目的地 ...;
             mplay alert.wav;
+            pga;
         };
     };
 
@@ -438,8 +439,9 @@
     #nop };
 
     #alias hnr {halt;yun regenerate;yun recover};
-    #alias guojiang1 {ask shao gong about 过江};
-    #alias guohe1 {ask shao gong about 过河};
+    #alias guojiang1 {#var in_boat 0;ask shao gong about 过江};
+    #alias guohe1 {#var in_boat 0;ask shao gong about 过河};
+    #alias ylboat {#var in_boat 0;yell boat};
     #alias gb_andao {enter shudong;say 天堂有路你不走呀;d;%%1;};
     #alias gy_yinzhe {s;w;w;e;s};
     #alias meizhuang_gate {knock gate 4;knock gate 2;knock gate 5;knock gate 3};
@@ -497,8 +499,7 @@
         #action {^只听得江面上隐隐传来：“别急嘛，这儿正忙着呐……”} {#class tmp kill;#delay {3} {yell boat}};
         #class tmp close;
     };
-    #var in_boat 0;
-    #action {%*向%*驶去。} {
+    #action {%s艄公%s%*(%*)%*$} {
         #var in_boat 1;
     };
     #action {^%*“到啦，上岸吧%*”，随即把一块踏脚板搭上堤岸。} {

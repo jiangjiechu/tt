@@ -152,6 +152,7 @@
 
 #nop 自动返回原点;
 #alias {pga} {
+  #path end;
   #path new;
   #class pgtmp open;
   #act {%*这个方向没有出路。} {#path del};

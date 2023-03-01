@@ -1,13 +1,18 @@
 #class dsa open;
-#var lei 0
-#var kujie 0
-#var faint 0
-#var n_yun 0
 
 
 #nop #tic {dsa}{dsaa}{77};
 
 #tic {dsaa}{
+	#var lei 0;
+	#var kujie 0;
+	#var faint 0;
+	#var n_yun 0;
+	#list book_list create  {blade book} {sword book} {tianlong} ;
+	#list skill_list create {blade} {sword} {blade};
+	#var n_book 3;
+	#var i_book 1;
+	#var book $book_list[$i_book];
 	#if {"$myid"=="dalabomba"} {#var max_yun 5};
 	#else {#var max_yun 10};
 
@@ -82,7 +87,6 @@
 #nop #act {^你思索着小说中关于%*，对%*有一些新的理解。$} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
 #act {你的%*火候} {cunbook};
-#act {^你的%*进步了%*$} {skbrief parry};
 #act {^#%d/%d} {
 	#show <afa> comparing;
 	#if {%1 >= $max_level} {
@@ -106,10 +110,15 @@ suxing;
 #act {^你刚刚睡过一觉} {#delay 5 sleep};
 
 #act {你略一凝神，精神看起来好多了。} {
-	skbrief parry;
+	skbrief $skill_list[$i_book];
 	#show <afa> $n_yun;
 	#math n_yun {$n_yun + 1};
-	#if {$finished==1} {#var finished 0;dsx;cunbook; out;gt zp;#delay 15 {n;n;n;sna}};
+	#nop #if {$finished==1} {#var finished 0;dsx;cunbook; out;gt zp;#delay 15 {n;n;n;sna}};
+	#if {$finished==1} {
+		#math i_book {$i_book + 1};
+		#var finished 0;
+		#var book $book_list[$i_book];
+		dsaa};
 	#elseif {$n_yun < $max_yun} {dsaa};
 	#else {
 		#var n_yun 0;

@@ -260,11 +260,11 @@
 #list Route_jb4_jb3 create {e} {e} {ne} {ne} {ne} {ne} {e} {e} {se};
 #list Route_bt_yz create {nw} {s} {ask zhang about ÑïÖİ} {e} {s};
 #list Route_yz_bt create {n} {w} {ask qian about °×ÍÕÉ½} {baituofufei};
-#list Route_jb1_jn1 create {yell boat;enter} {stop};
+#list Route_jb1_jn1 create {ylboat} {stop};
 #list Route_jb2_jn2 create {guojiang1} {stop};
 #list Route_jb3_jn3 create {guojiang1} {stop};
 #list Route_jb4_jn4 create {guojiang1} {stop};
-#list Route_jn1_jb1 create {yell boat;enter} {stop};
+#list Route_jn1_jb1 create {ylboat} {stop};
 #list Route_jn2_jb2 create {guojiang1} {stop};
 #list Route_jn3_jb3 create {guojiang1} {stop};
 #list Route_jn4_jb4 create {guojiang1} {stop};
