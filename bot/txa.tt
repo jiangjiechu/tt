@@ -55,7 +55,7 @@
 
     do 3 eat liang;
     #delay 1 {do 3 drink ;
-    #delay 1 {fskaa;
+    #delay 1 {dazuo max;
 }}};
 
 #var {wait-for-sleep} {false};
@@ -93,10 +93,8 @@
 
 
 #action {%*{你的内力不够|你的内力已经枯竭}%*$} {
-    #var kujie 1;
-    #if {$qixu==0} {dazuo max};
-    #else {gosleep}
-}
+    gosleep
+};
 #act {你%*站了起来} {
     lx;
 };
@@ -121,7 +119,7 @@
         txx;
         tna;
     };
-    #elseif {$i > 3} {
+    #elseif {$i > 4} {
         halt;
         txx;
         out;n;
@@ -146,7 +144,7 @@
         txx;
         tna;
     };
-    #elseif {$i > 3} {
+    #elseif {$i > 4} {
         halt;
         txx;
         #delay 1 {lwa}

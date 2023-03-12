@@ -26,7 +26,7 @@
 #alias lw {lingwu $skill 100};
 #alias lx {lian $skill 10};
 #alias gofsk {
-    fskaa;
+    dazuo max;
 };
 
 #alias suxing {
@@ -55,9 +55,8 @@
 
 #action {%*{你的内力不够|你的内力已经枯竭}%*$} {
     #var kujie 1;
-    #if {$qixu==0} {dazuo $num};
-    #else {gosleep}
-}
+    gosleep
+};
 #act {你%*站了起来} {
     lx;
 };
@@ -101,6 +100,10 @@
 
 #action {^你已经达到你的技能等级极限！}{fskx;dza};
 #action {^你的基本功夫比你的高级功夫还高！$END}          {#var lw-or-lx {lx}};
+#action {^你目前精神状态并不足以领悟%*。} {#var qixu 1;yun regenerate};
+#act {你略一凝神，精神看起来好多了。} {
+    fskaa;
+};
 
 #nop #action {~^%*你的「%1」进步了！%*$END} {};
 #gag {走了过来};

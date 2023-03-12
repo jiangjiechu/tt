@@ -1,8 +1,11 @@
 #class explore open;
-#var step 1;
-#var in_boat 0;
-#var path ${${src}_${dst}};
-#line log explore.log {#var ${src}_${dst} \x7B};
+#tic run {
+  #untic run;
+  #var step 1; #var in_boat 0;
+  #var path ${${src}_${dst}};
+  #line log explore.log {#var ${src}_${dst} \x7B};
+  l
+} {1};
 #action {^%*${SUF}$} {
   #if {$step <= &path[] && $in_boat == 0} {
     #var exit $path[$step];
@@ -19,4 +22,5 @@
 #action {^这个方向没有出路。} {#math step {$step - 1}};
 #action {^你跳上了小船%*} {#var in_boat 1};
 #action {^你从小船上跳了下来%*} {#var in_boat 0;l};
+#action {^小路已经被拨开，还不赶紧过去？蒙古人就快来了。} {}
 #class explore close;

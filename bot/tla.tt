@@ -41,7 +41,7 @@
 
 #alias {glw1} {
   gt dls;
-}
+};
 
 #alias {glw2} {
   gt yz;

@@ -10,14 +10,15 @@
 #act {你提一口气，在积雪上小心的走了起来。} {checkbusy};
 #act {你正忙着呢%*} {checkbusy};
 #act {你正忙} {
-	#delay 0.1 {checkbusy}
+	#delay 0.5 {checkbusy}
 };
 #act {你不忙} {
 	#if {$finished==1} {
+		mplay pLevelUp.wav;
 		#var finished 0;
 		snx; s;s;s;
 		#if {"$myid" == "jinger"} {#delay 2 {gt hs; #delay 20 {e;s;fska}}};
-		#elseif {"$myid"=="dalabomba"} {#delay 2 {gt bs; #delay 20 fska}};
+		#elseif {"myid"=="dalabomba"} { mplay eMix.wav };
 	};
 	#else {xingzou snow}
 };

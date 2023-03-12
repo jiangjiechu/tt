@@ -16,7 +16,7 @@
 
 #act {пн╪ё©ири╣д $obj(%*)} {
   wait;
-  walk -p;
+  mplay fight.wav;
   #var zei @lower{%1};
   follow $zei;
   jiali $li;

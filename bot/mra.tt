@@ -33,9 +33,9 @@
   mplay fight.wav;
   pause_walk;walk -p;
   follow jiazei;
-  #if {"$myid" == "jinger"} {yun powerup};
+  #if {"$myid" == "jinger" || "$myid"=="jingirl"} {yun powerup};
   #if {"$myid" == "dalabomba"} {yun powerup};
-  jiali $li;
+  jiali $li1;
   kill jiazei;
   #if {"$myid" == "simontuixue"} {#delay 2 {yun beiming jiazei}};
 };
@@ -55,6 +55,9 @@
   #elseif {"$myid"=="jinger" && %1 >= 12} {
     p.$skills[$i_sk];
   };
+  #elseif {"$myid"=="jingirl" && %1 >= 14} {
+    p.$skills[$i_sk];
+  };
   #elseif {"$myid"=="dalabomba" && %1 >= 12} {
     p.$skills[$i_sk];
   }
@@ -68,7 +71,7 @@
 };
 #act {慕容世家{家贼|内鬼}死了} {
   #var i 0;
-  #delay 2 {
+  #delay 0.5 {
     get all from corpse;
     say 可以回去了！
   };

@@ -1,0 +1,49 @@
+#class tda open;
+
+#ali {tdc} {ask chen about cancelquest;hsx};
+#ali {jiao %1} {give %1 to chen}
+
+#act {陈近南%*说道：%*正在%*，你去给我踢了%1的场子！} {
+  #tic {tdq1} {#echo {%c%h} {light yellow} {目标%1(hit)}} {2}};
+#act {陈近南%*说道：%*最近太驳我面子，你去给我打败%1！} {
+  #tic {tdq1} {#echo {%c%h} {light yellow} {目标%1(hit)}} {2}};
+#act {陈近南%*说道：%*在武林中耀武扬威，你去跟%1一比高下！} {
+  #tic {tdq1} {#echo {%c%h} {light yellow} {目标%1(hit)}} {2}};
+#act {陈近南%*说道：%*最近有点不知天高地厚，你去给%1点颜色瞧瞧。} {
+  #tic {tdq1} {#echo {%c%h} {light yellow} {目标%1(hit)}} {2}};
+#act {陈近南%*说道：去把%1杀掉！} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {目标%1(kill)}} {2}};
+#act {陈近南%*说道：我现在正需要你去将%1除掉！} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {目标%1(kill)}} {2}};
+#act {陈近南%*说道：%1欺压我派中人，你去一趟了解了这事！} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {目标%1(kill)}} {2}};
+#act {陈近南%*说道：%1散布我派谣言，你去解决了%1！} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {目标%1(kill)}} {2}};
+#act {陈近南%*说道：本派需要%1，} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {寻找%1,(give)}} {2}};
+#act {陈近南%*说道：你去帮本派找来%1，} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {寻找%1,(give)}} {2}};
+#act {陈近南%*说道：你去给我找来%1，} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {寻找%1,(give)}} {2}};
+#act {陈近南%*说道：这里尚缺些%1，} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {寻找%1,(give)}} {2}};
+#act {陈近南%*说道：听说%1需要%2，你给送去吧。} {
+  #tic {tdq2} {#echo {%c%h} {light yellow} {寻找%1,(give) to %2}} {2}};
+
+#act {你对天地会的忠诚度提高了}{#untic tdq3;tdx};
+#act {你对天地会的忠诚度降低了} {#untic tdq3;tdx};
+
+
+#act {%*告诉你：%1目前在%2,快去摁死它吧!}
+ {#tic {tdq2} {
+  #echo {%c%h} {light yellow} {目标%1正在%2处} } {15}};
+
+#act {完成任务后，你被奖励了} {tdx};
+#act {陈近南说道：「没关系，没做到就算了吧。」} {tdx};
+#act {陈近南说道：「真可惜，没做到就算了吧。」} {tdx};
+#act {陈近南叹了口气：真可惜！你没有按时完成！} {tdx};
+
+
+
+#class tda close;
+

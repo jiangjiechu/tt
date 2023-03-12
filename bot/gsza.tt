@@ -1,22 +1,32 @@
 #nop 公孙止任务;
 #class gsza open;
+#tic gsza {#untic gsza;gszaa} {1};
 
 #nop 辅助别名;
 #ali {gszaa} {ask gongsun about job};
-#ali {gszd} {ask gongsun about finish};
-#ali {gszf} {ask gongsun about fail};
+#ali {gszd} {ask gongsun about finish;#untic gsza1;gszx};
+#ali {gszf} {ask gongsun about fail;#untic gsza1;gszx};
 
-#ali {jqg} {
-   s;#6 w;
-   #delay 1 {northwest;enter;enter;
-   #delay 1 {move you;move zuo;move zuo;move zuo;move qian;
-   #delay 1 {e;#5 n;
-}}}};
+#act {^%*双手抱拳，对着你作了个揖道：这位%*请了！} {
+   #var shizhe %1;
+};
 
-#ali {jqgb} {
-   #5 s;w;enter;
-   #delay 1 {move qian;move zuo;move zuo;move zuo;move you;
-   #delay 1 {out;se;#6 e;n;
-}}};
+#act {^%!s%*使者%!s${shizhe}%!s(%*)%s$} {
+   #var menpai %1;
+   ask @lower{%2} about wound;
+};
+#act {^${shizhe}说道：「这个叛徒已经叛国，有人在%*一带的%*看见过他。」} {
+   #var city %1;
+   #var room %2;
+   #tic gsza1 {#echo {%c%h} {light green} {${menpai}弃徒目前在${city}的${room}活动}};
+
+};
+
+#act {^${shizhe}说道：「%!*叛徒已被逐出师门，听说他现在正在%*一带的%*活动。」} {
+   #var city %1;
+   #var room %2;
+   #tic {gsza1} {#echo {%c%h} {light green} {${menpai}弃徒目前在${city}的${room}活动}} {5};
+};
+
 
 #class gsza close;

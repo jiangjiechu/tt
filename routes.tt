@@ -4,7 +4,7 @@
 #list Route_hz_hzbs create {se} {s} {s} {w} {n} {xy.home};
 #list Route_hzbs_hz create {out} {s} {e} {n} {n} {nw};
 
-#list Route_hz_jnqz create {se} {e} {ne} {s};
+#list Route_hz_jnqz create {se} {e} {ne} {s}
 #list Route_jnqz_hz create {n} {sw} {w} {nw};
 
 #list Route_yz_bk create {n;w};
@@ -221,21 +221,19 @@
 #list Route_mj_hb3 create {sd} {se} {s} {se} {e} {e} {e} {e} {s} {s} {s} {e} {e} {e} {e} {se};
 #list Route_hb3_hb2 create {ne} {ne} {ne} {e} {se} {s} {sw} {s} {s} {se} {se} {se};
 #list Route_hb2_hb3 create {nw} {nw} {nw} {n} {n} {ne} {n} {nw} {w} {sw} {sw} {sw};
-#list Route_hb2_jy create {nu} {w} {nw} {w} {nw} {nd} {n} {n} {nu} {nd} {ne} {n} {n} {ne} {ne} {n} {ne} {e} {n} {n} {w};
-#list Route_jy_hb2 create {e} {s} {s} {w} {sw} {s} {sw} {sw} {s} {s} {sw} {su} {sd} {s} {s} {su} {se} {e} {se} {e} {sd};
 #list Route_dt_zjk create {n}{n}{ne}{nu}{ne}{ne}{ride;dazuo max}{stop} {eu}{ne}{ne}{e}{n}{n}{n}{n}{n}{n};
 #list Route_zjk_dt create {s}{s}{s}{s}{s}{s}{w}{sw}{sw}{wd} {ride;dazuo max} {stop} {sw}{sw}{sd}{sw}{s}{s};
 
-#list Route_jy_dz create {e}{n}{n}{e}{n}{n}{ne}{n}{nu}{n}{ride;dazuo max}{stop}{ne}{n}{n}{n};
-#list Route_dz_jy create {s}{s}{s}{sw}{ride;dazuo max}{stop}{s}{sd}{s}{sw}{s}{s}{w}{s}{s}{w};
+#list Route_xbh_dz create {e}{n}{n}{e}{n}{n}{ne}{n}{nu}{n}{ride;dazuo max}{stop}{ne}{n}{n}{n};
+#list Route_dz_xbh create {s}{s}{s}{sw}{ride;dazuo max}{stop}{s}{sd}{s}{sw}{s}{s}{w}{s}{s}{w};
 #list Route_dz_dt create {n} {n} {nu} {nw} {ne} {ne} {n} {n} {n} {n} {n} {n};
 #list Route_dt_dz create {s} {s} {s} {s} {s} {s} {sw} {sw} {se} {sd} {s} {s};
 #list Route_dz_hyd create {e} {e} {ne} {ne} {ne} {e} {ne} {se} {se} {se} {se} {se} {ne} {ne} {ne} {ne} {n} {n} {ne} {n};
 #list Route_hyd_dz create {s} {sw} {s} {s} {sw} {sw} {sw} {sw} {nw} {nw} {nw} {nw} {nw} {sw} {w} {sw} {sw} {sw} {w} {w};
-#list Route_jy_bj create {e} {ne} {e} {e} {e} {e} {e} {e} {e} {ne} {ne} {s} {s} {e} {e} {e} {e};
-#list Route_bj_jy create {w} {w} {w} {w} {n} {n} {sw} {sw} {w} {w} {w} {w} {w} {w} {w} {sw} {w};
-#list Route_jy_ry create {e} {ne} {e} {e} {e} {e} {e} {e} {e} {nu} {n} {ne} {nu} {nu};
-#list Route_ry_jy create {sd} {sd} {sw} {s} {sd} {w} {w} {w} {w} {w} {w} {w} {sw} {w};
+#list Route_xbh_bj create {e} {ne} {e} {e} {e} {e} {e} {e} {e} {ne} {ne} {s} {s} {e} {e} {e} {e};
+#list Route_bj_xbh create {w} {w} {w} {w} {n} {n} {sw} {sw} {w} {w} {w} {w} {w} {w} {w} {sw} {w};
+#list Route_xbh_ry create {e} {ne} {e} {e} {e} {e} {e} {e} {e} {nu} {n} {ne} {nu} {nu};
+#list Route_ry_xbh create {sd} {sd} {sw} {s} {sd} {w} {w} {w} {w} {w} {w} {w} {sw} {w};
 #list Route_ry_bj create {sd} {sd} {sw} {s} {sd} {e} {ne} {ne} {ed} {e} {ne} {ne} {ne} {ne} {ne} {ne} {ne} {ne} {n} {n} {ne} {ne} {n};
 #list Route_bj_ry create {s} {sw} {sw} {s} {s} {sw} {sw} {sw} {sw} {sw} {sw} {sw} {sw} {w} {wu} {sw} {sw} {w} {nu} {n} {ne} {nu} {nu};
 #list Route_bj_zjk create {w} {w} {w} {w} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {ne} {nw} {nw} {nw} {w} {w} {w} {n} {n};
@@ -405,6 +403,8 @@
 #list Route_qfa_em create {s} {s} {sd} {ed} {sd} {sd} {sd} {s} {wd};
 #list Route_em_qfa create {eu} {n} {nu} {nu} {nu} {wu} {nu} {n} {n};
 #list Route_dls_xkt create {knock gate} {busy1} {nu} {nu} {n} {n} {nd}{busy2};
+#list Route_dls_bf create {knock gate} {busy1} {nu};
+#list Route_bf_dls create {pull gate} {sd};
 #list Route_xkt_dls create {su} {s} {s} {sd} {pull gate} {sd};
 #list Route_rz_sl create {w} {nu} {nu} {wu} {nu} {nu} {nu} {e};
 #list Route_sl_rz create {w} {sd} {sd} {sd} {ed} {sd} {sd} {e};
@@ -540,8 +540,8 @@
 #list Route_qz_nsl create {w}{n}{nw}{nw}{nu};
 #list Route_wys_mingz create {n}{e}{se}{se}{e}{e}{s};
 #list Route_mingz_wys create {n}{w}{w}{nw}{nw}{w}{s};
-#list Route_mingz_th create {n} {n} {enter boat;dazuo max} {stop};
-#list Route_th_mingz create  {enter boat;dazuo max} {stop} {s} {s};
+#list Route_mingz_th create {n} {n} {#var in_boat 1;enter boat;dazuo max} {stop};
+#list Route_th_mingz create  {#var in_boat 1;enter boat;dazuo max} {stop} {s} {s};
 #list Route_qf_qingz create {e}{n}{n}{n}{n}{ne}{e}{ne}{ed}{e}{e}{ne}{nu}{e}{ne}{ne};
 #list Route_qingz_qf create {sw}{sw}{w}{sd}{sw}{w}{w}{wu}{sw}{w}{sw}{s}{s}{s}{s}{w};
 #list Route_qingz_dengz create {nd}{ne}{ne}{n}{ne}{nd}{n}{nd}{n};
@@ -586,7 +586,7 @@
 #list Route_hz_cd create {n}{e}{n} {hire} {qu chengdu} {stop} {xia} {s}{se}{se};
 #list Route_cd_hz create {nw}{nw}{n} {hire} {qu hangzhou} {stop} {xia} {s}{w}{s};
 #list Route_xy_gsz create {jqg};
-#list Route_gsz_xy create {jqgb};
+#list Route_gsz_xy create {jqgb}{stop};
 #list Route_hshxf_dt create {sw}{wd}{w}{nw}{nw}{nw}{ne}{ne}{eu}{nd}{ne}{nd}{nd}{nw}{w}{w}{w}{n};
 #list Route_dt_hshxf create {s}{e}{e}{e}{se}{su}{su}{sw}{su}{wd}{sw}{sw}{se}{se}{se}{e}{eu}{ne};
 #list Route_dt_hengs create {s}{e}{e}{e}{se}{su}{su}{sw}{su}{eu}{eu}{e}{eu}{nu}{nu}{n}{n}{nd};
@@ -620,4 +620,14 @@
 #list Route_yx_cym create {w}{nw}{ne}{wu}{w};
 #list Route_cym_yx create {e}{ed}{sw}{se}{e};
 #list Route_yx_zym create {w}{nw}{sw}{sw}{w}{nw}{nw}{n};
-#list Route_zym_yx create {s}{se}{se}{e}{ne}{ne}{ne}{e};
+#list Route_zym_yx create {s}{se}{se}{e}{ne}{ne}{se}{e};
+#list Route_xbh_gtz create  {e}{s}{s}{w}{sw}{s}{sw}{sw}{s}{s}{sw};
+#list Route_gtz_xbh create {ne} {n} {n} {ne} {ne} {n} {ne} {e} {n} {n} {w};
+#list Route_gtz_jinz create {su}{sd}{s};
+#list Route_jinz_gtz create {n}{nu}{nd};
+#list Route_hb2_jinz create {nu} {w} {nw} {w} {nw} {nd} {n};
+#list Route_jinz_hb2 create {s} {su} {se} {e} {se} {e} {sd};
+#list Route_xbh_jy create {e}{s}{s}{e}{e}{e}{e}{e}{ne};
+#list Route_jy_xbh create {sw}{w}{w}{w}{w}{w}{n}{n}{w};
+#list Route_jy_ry create {n}{n}{e}{e}{e}{nu}{n}{ne}{nu}{nu};
+#list Route_ry_jy create {sd}{sd}{sw}{s}{sd}{w}{w}{w}{s}{s};

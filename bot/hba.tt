@@ -1,7 +1,7 @@
 #nop 任务;
 #class hba open;
-#var master lin;
-#var base fz;
+#var master zhang;
+#var base zz;
 
 #var dir {
   {n} {north}
@@ -22,42 +22,52 @@
   {wd} {westdown}
   {enter} {enter}
   {out} {out}
+  {u} {up}
+  {d} {down}
 };
 #re bot/hb_data.tt;
 
 #ali {hbaa} {
   set wimpy 20;
   #var step 1;
+  #var encounter 0;
   getesc %1};
 #ali {hbd} {ask $master about finish;hbx};
 #ali {hbf} {ask $master about fail;#untic hba1;#untic hba2;hbx;};
-#ali {t} { #if {"%0"=="ride"||"%0"=="ride north"||"%0"=="ride west"} {%0}; #else { gan che to $dir[%1]; }; };
-#act {^林震南在你的耳边悄声说道：你把这批红货送到%*那里，他已经派了个伙计名叫%*到%*接你，把镖车送到他那里就行了。} {
+#ali {t} { 
+  #if {"%0"=="ride"||"%0"=="ride north"||"%0"=="ride west"}{%0};
+  #elseif {"%0"=="ny1"} {bo xiaolu; gan che to $dir[ne];}; 
+  #else { gan che to $dir[%1]; }; };
+#act {^%!*在你的耳边悄声说道：你把这批红货送到%*那里，他已经派了个伙计名叫%*到%*接你，把镖车送到他那里就行了。} {
   #tic {hba1} {#echo {%c%h} {light yellow} {目的地%1的%3, 伙计%2}} {5}
 };
 #ali start {
-  tune channel helpme;
   #var path ${%1};
   #var step 1;
   #var battle 0;
   #var biased 0;
   #var arrive 0;
   #var inheal 0;
-  #var cnt 0;
+  #var npfm 0;
   #class hb_tmp open;
     #ali g {
       t $path[$step][方向];
     };
     #ali dn {
       dazuo max;
-      #delay 4 {halt;g}
+      #delay 4 {
+        halt;xq;
+        #if {"$myid"=="simontuixue"} {p.yy};
+        #elseif {"$myid"=="jinger"} {yun powerup};
+        g}
     };
     #act {^劫匪突然从暗处跳了出来} {
+      #math encounter {$encounter + 1};
       #var battle 1;
       #showme <afa> $battle;
       #var op1 {$myid's robber 1};
       #var op2 {$myid's robber 2};
-      kill $op1;
+      hit $op1;
       yun beiming $op2;
     };
     #act {劫匪趁你不注意，推着镖车就跑，} {
@@ -65,7 +75,8 @@
       #tic {hba2} {#echo {%c%h} {light red} {已偏航，请修正！}} {5};
     };
     #ali adj {
-      #var step %0;
+      #var step %%1;
+      #showme <afa> 已修正，step:$step;
       #var biased 0;
       #untic hba2;
     };
@@ -74,17 +85,18 @@
     };
     #act {你赶着镖车驶了过来} {
       #var room $path[$step][房间]; 
-      #echo {%c%h} {light yellow} {你现在走了$step步，应该在$room,实际在%%1}; 
       #if {$biased==0} {
         #math step {$step+1};
         #delay 1 {
           #if {$battle==0 && $arrive==0} { dn; };
         };
       };
-      #if {$step >$length} {
+      #if {$step > &path[]} {
         #var arrive 1;
+        mplay pLevelUp.wav;
         #showme <afa> 到达目的地附近！！！
       };
+      #echo {%c%h} {light yellow} {遇敌数：$encounter ，你现在走了$step步，应该在$room,实际在%%1}; 
     };
     #act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
       #var battle 0;
@@ -104,7 +116,7 @@
       #var op1 {$myid's robber};
     };
     #act {劫匪伸手一拦道：“想跑？没那么容易！”} {
-      kill $myid's robber;
+      hit $myid's robber;
       #var battle 1;
     };
     #act {你是在押车，不是赶路，小心为上。} {
@@ -124,9 +136,10 @@
         p.$skills[$i_sk];
       }
     };
-    #act {战斗中不能疗伤！} { kill $myid's robber; #var inheal 0 };
+    #act {战斗中不能疗伤！} { hit $myid's robber; #var inheal 0 };
     #act {你现在气血充盈} {
       #var inheal 0;
+      yun recover;
       g;
     };
     #act {^你从小船上跳了下来%*} {g};
@@ -142,5 +155,8 @@
     #gag {你随手按住劫匪大穴};
   #class hb_tmp close;
   g;
-}
+};
+#nop #act {你似乎十分疲惫，看来需要好好休息了} { yun recover};
+#nop #act {你气喘嘘嘘，看起来状况并不太好} { yun recover};
+#nop #act {你看起来已经力不从心了} { yun recover};
 #class hba close;

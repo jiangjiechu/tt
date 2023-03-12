@@ -5,20 +5,20 @@
 
 #tic {jxfa} {#untic jxfa;jxfaa} {2};
 #ali {jxfaa} {
+  unset adv_quest;
   time;
   #var loc_lock 0;
   #var luck %1;
   #var bonus %2;
   ask ji xiaofu about job;
 };
-#ali {jxfd} {say $anhao;jxfx};
+#ali {jxfd} {say $code;jxfx};
 #ali {jxff} {ask ji about fail;#untic jxfa1;jxfx;};
-#ali {r} {#var anhao %1};
+#ali {r} {#var code %1};
 #ali {pa} {clamber up};
 #ali {ld} {look down};
 #ali {jd} {
   p.yy;
-  yun qi;
   leap down;
   #delay 2 bm;
 }
@@ -29,6 +29,39 @@
     #var loc %1;
     #tic {jxfa1} {#echo {%c%h} {light yellow} {同伙在%1，到了clamber up。}} {5};
   };
+};
+#action {^你刚刚把自己藏起来，立刻听到了脚步声。} {
+  #var code {};
+  #class conv open;
+  #action {^%%!s│%%!s%%*%%!s＞%%!*$} {
+    #nop 左侧首行数据;
+      process %%1;
+  };
+  #action {^%%!s│%%!s%%*%%!s│%%!*$} {
+    #nop 左侧续行数据;
+      process %%1;
+  };
+  #action {^%%!*＜%%!s%%*%%!s│%%!s$} {
+    #nop 右侧首行数据;
+      process %%1;
+  };
+  #action {^%%!*│%%!s%%*%%!s│%%!s$} {
+    #nop 右侧续行数据;
+      process %%1;
+  };
+  #action {^[%%*]%%*和%%*转身离去。$} {
+    #showme <afa> $code;
+    #class conv kill;
+    jd;
+  };
+  #class conv close;
+};
+#alias process {
+  #if {@ismember{%1;blacklist} == 0} {
+    #var code ${code}%1;
+    #showme <afa> 未命中黑名单，记录: $code;
+  };
+  #else {#showme <afa> 命中黑名单，丢弃}
 };
 
 #alias bm {
@@ -49,7 +82,7 @@
     p.lm $oppo;
   };
   #elseif {"$myid"=="jinger"} {
-    p.jz ;
+    p.jz;
   }
 };
 #act {%*死了。} {
@@ -125,6 +158,29 @@
     jxfLog $record;
     #untic jxfa1;jxfx;
   }
+};
+#list blacklist create {
+  首领布置了天罗地网对;
+  付姓杨的，谅他这次插;
+  翅难逃。;
+  还用你说？;
+  那还用说？;
+  这毫无疑问。;
+  我也是这样想的。;
+  我们说啥来对口令的？;
+  行动的口令我记不太清;
+  了……;
+  真要我再说一遍？;
+  你怎么这都记不住？;
+  暗号是啥来着的？;
+  附耳过来！;
+  真笨！;
+  嘿嘿嘿嘿;
+  哈哈哈哈;
+  哦;
+  我最近偶感风寒，什么;
+  都记不住;
+  真是这个？
 };
 
 #act {看起来%1想杀死你} {#var jxfss %1};

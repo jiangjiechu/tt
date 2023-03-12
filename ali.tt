@@ -90,7 +90,11 @@
 #alias {yj} {yun inspire};
 #alias {xq} {yun recover};
 #alias {yp} {yun powerup};
-#alias {yh} {yun heal};
+#alias {yh} {
+  #if {"$myid"=="dalabomba"} {
+    yun juexue $myid;
+  };#else {yun heal}
+};
 #alias {jm} {jiali max};
 #alias {zl} {yun lifeheal $myid};
 #alias {home} {enter $myid};
@@ -306,6 +310,14 @@
 #alias tlsa {#class tlsa read bot/tlsa.tt;ask benchen about quest};
 #alias tlsx {#class tlsa kill;#untic tlsq1;#untic tlsq2;#untic tlsq3};
 
+#nop 大轮寺门忠;
+#alias bfa {#class bfa read bot/bfa.tt;ask bofu about quest};
+#alias bfx {#class bfa kill;#untic bfq1;#untic bfq2;#untic bfq3};
+
+#nop 天地会门忠;
+#alias tda {#class tda read bot/tda.tt;ask chen about quest};
+#alias tdx {#class tda kill;#untic tdq1;#untic tdq2;#untic tdq3};
+
 #nop 破阵;
 #alias {pza} {#class pza read bot/pza.tt};
 #alias {pzx} {
@@ -351,6 +363,7 @@
 #nop 北冥
 #alias tra {
   #var obj {%1};
+  yield yes;
   set skip_combat 3;
   #class tra read bot/tra.tt;
   unwield all;
@@ -363,6 +376,7 @@
 };
 #alias trx {
   set skip_combat 1;
+  yield no;
   #class tra kill;
 };
 
@@ -448,5 +462,10 @@
 #alias explorex {#class explore kill};
 
 #alias trash {do 3 put shi tan in xiang;do 3 put yun tie in xiang; do 3 put huo tong in xiang;do 3 put xuan bing in xiang};
+#alias ny1 {bo xiaolu;ne};
+
+#nop 海战
+#alias hza {#class hza read bot/hza.tt};
+#alias hzx {#class hza kill};
 
 #class ali close;

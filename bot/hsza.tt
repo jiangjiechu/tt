@@ -34,7 +34,12 @@
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
   #delay 2 {
+    special + agile;
+    special + sociability;
     #untic hsza1;
+    wear mine;
+    remove armet;
+    remove belt;
     unwield all;}
 };
 #act {^快去找韩王复命吧。} {
@@ -105,6 +110,13 @@
   #var n_oppo %0;
   #showme <afa> OK, n_oppo has been set to $n_oppo;
 };
+#action {^快去找韩王复命吧。} {
+  wear mine;
+  remove belt;
+  remove armet;
+  uw all;
+};
+
 #alias hszLog {
   #line log {hsz.log} {%0};
 };
@@ -115,7 +127,7 @@
 
 #act {^╭───%*{之周|同庆}┬──────────────────────────────────╮$} {
   #class week open;
-    #act {^│%s韩世忠%s│%*{奖励增加|加成提升}%d％。%s│$} {#var job_mod 2};
+    #act {^│%s韩世忠%s│%*。%s│$} {#var job_mod 2};
     #act {^│%*│→%*韩世忠%*%s│$} {#var job_mod  0};
     #act {^│%*│↑%*韩世忠%*%s│$} {#var job_mod  1};
     #act {^│%*│↓%*韩世忠%*%s│$} {#var job_mod -1};

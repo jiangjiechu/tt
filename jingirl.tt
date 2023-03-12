@@ -1,0 +1,62 @@
+#map read pku.map;
+#var myid jingirl;
+#var myname ÷ª“ÚΩ„;
+#var li 0;
+#var wp dao;
+
+#var skills {
+    {1} {sc}
+    {2} {suo}
+};
+#var qishi {
+    {1} {14}
+    {2} {14}
+};
+#var i_sk 1;
+#var n_sk 2;
+
+#alias {p.sc} {
+  perform danxin-jian.sancai;
+};
+#alias {p.suo} {
+  perform jiulong-bian.suo;
+};
+#list sp_skills create {
+    danxin-jian;
+    lingding-piao;
+    jiulong-bian;
+    houquan;
+};
+#var n_spskill 4;
+
+
+#alias prep {
+    #if {"$sp_skills[%1]"=="houquan"} {
+        #var skill parry;
+        unwield all;
+        bei none;
+        jifa cuff houquan;
+        bei houquan;
+        jifa parry houquan;
+    };
+    #elseif {"$sp_skills[%1]"=="danxin-jian"} {
+        #var skill parry;
+        unwield all;
+        wield $wp;
+        jifa parry danxin-jian;
+        jifa sword danxin-jian;
+    };
+    #elseif {"$sp_skills[%1]"=="jiulong-bian"} {
+        #var skill parry;
+        unwield all;
+        wield bian;
+        jifa parry jiulong-bian;
+        jifa sword jiulong-bian;
+    };
+    #elseif {"$sp_skills[%1]"=="lingding-piao"} {
+        #var skill dodge;
+    };
+    lx;
+};
+
+pku;jingirl;123abc;y

@@ -344,6 +344,8 @@
     lian sword 1
 };
 
+
+
 #action {你试着练习太乙神剑，获得了少许进步！} {
     lian sword 1;
 };

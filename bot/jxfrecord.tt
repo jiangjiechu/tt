@@ -1,0 +1,10 @@
+#nop 任务;
+#class jxfrecorda open;
+#action {^%*说道：「%*」} {
+  #if {"%1"!="纪晓芙"} {
+    #showme <afa> get one record !;
+    #line log {jxfcode.log} {%2};
+  };
+};
+#gag {^[舜耕山]%*$};
+#class jxfrecorda close;

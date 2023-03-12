@@ -25,8 +25,8 @@
   #delay 2 look xian suo;
 };
 #act {^你获得了一枚机关核心，%*$} {
-  #bell;
-}
+  mplay eMix.wav
+};
 
 #act {^%*木人似乎就在%*，去拆了它吧%*$} { #tic {jga2} {#echo {%c%h} {light yellow} {木人在%2}} {5} };
 

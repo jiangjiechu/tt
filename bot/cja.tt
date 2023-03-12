@@ -4,17 +4,31 @@
 
 #ali gsleep {
   skbrief literate;
-  s;e;n;
-  eat liang;
-  #delay 1 {drink};
-  sleep
-}
+  s;e;
+  #class clamb open;
+	#act {你缓缓向上爬去。} {
+		#delay 0.5 {clamber up};
+	};
+	#act {你正忙着呢。} {
+		#delay 0.5 {clamber up};
+	};
+	#act {^琅嬛福地的屋顶 -} {
+		#delay 2 {
+			leap n;
+			#class clamb kill;
+			eat liang;
+			drink;
+			sleep
+		} };
+	#class clamb close;
+	clamber up;
+};
 #ali gout {
   s;w;n
-}
+};
 #ali cjaa {
-  watch canju
-}
+  watch canju 2;
+};
 #tic {cjaa} {#show <afa>开始参悟残局。<099>;#untic cjaa;watch canju} {2};
 
 #nop #tic {cja} {watch canju}{77};
@@ -23,14 +37,18 @@
 
 
 #act {你精力不够，无法领悟残局。} {
-	yun regenerate;
+	#if {$kujie==1} {gsleep};
+	#else {yun regenerate;};
 };
 #act {你的内力不够。} {
-	#var kujie 1;
+	#if {$lei==1} {#var kujie 1};
 	cjaa;
 };
+#act {你现在精不够，无法控制内息的流动！} {
+	gsleep;
+};
 #act {你的内力已经枯竭，不能施用内功。} {
-	#var kujie 1;
+	#if {$lei==1} {#var kujie 1};
 	cjaa;
 };
 #act {^你现在气血严重不足，无法满足打坐最小要求。} {

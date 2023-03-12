@@ -4,7 +4,7 @@
 #alias {sxaa} {ask yue about job};
 #alias  {sxd} {ask yue about finish};
 #alias  {sxf} {ask yue about fail};
-
+岳不群在你的耳边悄声说道：这封机密函件，火速送给扬州南门附近的武将，好处少不了你的。
 #act {岳不群%*道：%*交给%1。} {
   #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {5}
 };

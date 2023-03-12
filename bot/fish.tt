@@ -25,7 +25,7 @@
 
 #alias {fish.a} {
   #delay 2 {do 5 eat liang;
-  #delay 5 {do 5 drink jiudai;
+  #delay 5 {do 5 drink;
   #delay 5 {diao yu;
 }}}};
 

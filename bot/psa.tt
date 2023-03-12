@@ -10,7 +10,19 @@
   #delay 0.2 {checkbusy};
 };
 #act {你不忙} {
-  yun recover;
+  #if {$finished==0} {yun recover};
+  #else {gosn}
+};
+#alias {gosn} {
+  psx;
+  gt zp;
+  #class tmp open;
+    #act {^赞普广场 -} {
+      #3 n;
+      #class tmp kill;
+      #delay 1 {sna};
+    };
+  #class tmp close;
 };
 
 #action {你身子发虚} {
@@ -70,6 +82,12 @@
 };
 #act {你现在的气太少了，无法产生内息运行全身经脉。} {
   sleep;
+};
+#act {^#%d/%d} {
+  #var dodge_level %1;
+  #if {$dodge_level >= 50} {
+    #var finished 1;
+  }
 };
 
 #gag {^这里不是你能睡的地方！};

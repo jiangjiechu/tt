@@ -1,19 +1,27 @@
 #class dsa open;
 
-
 #nop #tic {dsa}{dsaa}{77};
 
 #tic {dsaa}{
+
 	#var lei 0;
 	#var kujie 0;
 	#var faint 0;
 	#var n_yun 0;
-	#list book_list create  {blade book} {sword book} {tianlong} ;
-	#list skill_list create {blade} {sword} {blade};
-	#var n_book 3;
-	#var i_book 1;
-	#var book $book_list[$i_book];
+	#var finished 0;
+	#if {"$myid"=="jingirl"} {
+		#var n_book 1;
+		#var i_book 1;
+		#var book_list {
+			{1}{tianlong}
+		};
+		#var check_list {
+			{1} {sword}
+		};
+		#var book $book_list[$i_book];
+	};
 	#if {"$myid"=="dalabomba"} {#var max_yun 5};
+	#elseif {"$myid"=="jingirl"} {#var max_yun 5};
 	#else {#var max_yun 10};
 
 	#echo {%c%h} {light yellow}{【指令格式:dsa [书名] [次数]进行读书，i2查看书id。】};#show <afa> 开始读书...;#untic dsaa;dsaa} {1};
@@ -89,7 +97,8 @@
 #act {你的%*火候} {cunbook};
 #act {^#%d/%d} {
 	#show <afa> comparing;
-	#if {%1 >= $max_level} {
+	#if {%1 >= $max_level && $finished==0} {
+		#showme <afa> 技能$check_list[$i_book] 已满，切换！;
 		#var finished 1;
 	}
 };
@@ -110,15 +119,25 @@ suxing;
 #act {^你刚刚睡过一觉} {#delay 5 sleep};
 
 #act {你略一凝神，精神看起来好多了。} {
-	skbrief $skill_list[$i_book];
+	skbrief $check_list[$i_book];
 	#show <afa> $n_yun;
 	#math n_yun {$n_yun + 1};
+	#if {$myid=="jingirl" && $finished==1} {
+		#delay 2 {
+			#var finished 0;
+			cun $book;
+			#math i_book {$i_book + 1};
+			skbrief $check_list[$i_book];
+			#if {$i_book <= $n_book} {
+				#var book $book_list[$i_book];
+				dsaa
+			};
+			#else {dsx;fska lx};
+
+		};
+	};
 	#nop #if {$finished==1} {#var finished 0;dsx;cunbook; out;gt zp;#delay 15 {n;n;n;sna}};
-	#if {$finished==1} {
-		#math i_book {$i_book + 1};
-		#var finished 0;
-		#var book $book_list[$i_book];
-		dsaa};
+	#nop #if {$finished==1} { #math i_book {$i_book + 1}; #var finished 0; #var book $book_list[$i_book]; dsaa};
 	#elseif {$n_yun < $max_yun} {dsaa};
 	#else {
 		#var n_yun 0;

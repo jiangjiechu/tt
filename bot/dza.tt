@@ -15,15 +15,23 @@
 };
 
 #act {你%*站了起来} {
-      eat liang;#delay 1 {drink ;dazuo $amount;}};
+      #if {$sklevel>200} {yun recover};
+      eat liang;#delay 1 {drink ;dazuo max}};
 
-#act {你的内力增加了！！}  {dzaa};
+#act {你的内力增加了！！}  {
+      #if {$sklevel<100} {sleep};
+      #else {dzaa}
+};
 
 #act {你的内功还没有达到那个境界} {dzaa};
 
-#act {你现在气血严重不足，无法满足打坐最小要求}{yun recover};
+#act {你现在气血严重不足，无法满足打坐最小要求} {
+      #if {$sklevel <200} {sleep};
+      #else {yun recover}};
 
-#act {你现在的气太少了，无法产生内息} {yun recover};
+#act {你现在的气太少了，无法产生内息} {
+      #if {$sklevel <200} {sleep};
+      #else {yun recover}};
 
 #act {你现在精不够，无法控制内息的流动} {exert regenerate;#delay 2 {dzaa}};
 
@@ -48,7 +56,7 @@
 #delay 15 {sleep};
 };
 #act {你刚在三分钟内睡过} {
-#delay 15 {sleep};
+      dzaa
 };
 
 #act {你一觉醒来，精神抖擞地活动了几下手脚。} {

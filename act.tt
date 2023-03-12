@@ -34,7 +34,9 @@
 #act {^ %*两白银(Silver)$} {wait;get silver};
 #act {^ %*两黄金(Gold)$} {wait;get gold};
 #act {^ %*银票(Cash)$} {wait;get cash};
+#nop #act {^ %*陨铁(Yun tie)$} {wait;get yun tie};
 
+#act {^你从%*{搜出|拿出}一件铁甲。$} {drop armor};
 #act {^你从%*{搜出|拿出}一柄长剑。$} {drop changjian};
 #act {^你从%*{搜出|拿出}一本紫霞秘籍。$} {drop miji};
 

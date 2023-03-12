@@ -18,6 +18,7 @@
 #alias pzd {
 	#class zhanbu.maze kill;
 	#class zhanbu.maze.kill kill;
+	gf bosss;
 	ask lu about 破阵奖励};
 #alias pzf {
 	#class zhanbu.maze kill;
@@ -124,6 +125,12 @@
 			#if {"$myid"=="simontuixue"} {
 				p.lm $npcid;
 			};
+			#elseif {"$myid"=="jingirl"} {
+				p.sc $npcid;
+			};
+			#elseif {"$myid"=="dalabomba"} {
+				p.ty $npcid;
+			}
 		};
 		#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
 			#showme <afa> 放技能p.$skills[$i_sk];
@@ -154,16 +161,17 @@
 	};
 	#class zhanbu.maze close;
 	set ForcedAct 1;
-	#if {"$myid"=="jinger"} {yun powerup;jiali 100};
+	#if {"$myid"=="jinger"} {yun powerup;jiali 0};
+	#elseif {"$myid"=="jingirl"} {yun powerup;jiali 0};
 	#else {jiali max;};
 	yun recover;
 	yun regenerate;
 	#if {"$myid"=="simontuixue"} {
 		p.yy;
 	};
-	#elseif {"$myid"=="jinger"} {
-		yun powerup;
-	};
 	zhanbu -maze;
+};
+#act {^慢慢地你终于又有了知觉} {
+	wear all;
 };
 #class pza close;

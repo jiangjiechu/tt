@@ -30,6 +30,28 @@
       #var n_lw 100;
       #var max_yun 2;
     };
+    #elseif {"$myid"=="dalabomba"} {
+      #list basic_skills create {
+        hand;
+        force;
+        parry;
+        sword;
+        strike;
+      };
+      #var n_lw 100;
+      #var max_yun 2;
+    };
+    #elseif {"$myid"=="jingirl"} {
+      #list basic_skills create {
+        cuff;
+        force;
+        parry;
+        sword;
+        whip;
+      };
+      #var n_lw 100;
+      #var max_yun 2;
+    };
     #untic lwaa;
     #var lwname $basic_skills[$skill_id];
     lwaa;
@@ -131,6 +153,20 @@
       txa;
     };
     #elseif {"$myid"=="jinger" && $skill_id > 5} {
+      #echo {领悟已停止...};lwx;
+      #echo {开始练习...};
+      w;w;s;
+      lwx;
+      fska;
+    };
+    #elseif {"$myid"=="jingirl" && $skill_id > 5} {
+      #echo {领悟已停止...};lwx;
+      #echo {开始练习...};
+      w;w;s;
+      lwx;
+      fska;
+    };
+    #elseif {"$myid"=="dalabomba" && $skill_id > 5} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
       w;w;s;

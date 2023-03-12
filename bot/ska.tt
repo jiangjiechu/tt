@@ -37,6 +37,10 @@
   #elseif {"$shi"=="lingzhi"} {n;n;nd;enter;e;enter};
   #elseif {"$shi"=="shan"} {w;s;e;enter};
   #elseif {"$shi"=="sheng"} {e;s;e;enter};
+  #elseif {"$shi"=="sang"} {enter;e;enter};
+  #elseif {"$shi"=="feng" || "$shi"=="cheng"} {};
+  #elseif {"$shi"=="xu"} {s;u};
+  #elseif {"$shi"=="zhi"} {d;s;sd;s;e;enter};
   hp;
   #delay 1 {sleep}
 };
@@ -51,20 +55,29 @@
   #elseif {"$shi"=="lingzhi"} { out;w;out;su;s;s};
   #elseif {"$shi"=="shan"} {out;w;n;e};
   #elseif {"$shi"=="sheng"} {out;w;n;w};
+  #elseif {"$shi"=="sang"} {out;w;out};
+  #elseif {"$shi"=="feng" || "$shi"=="cheng"}  {};
+  #elseif {"$shi"=="xu"} {d;n};
+  #elseif {"$shi"=="zhi"} {out;w;n;nu;n;up};
 };
 
 
 #act {^你和师父切磋了%*消耗了大量潜能} {skx;e;s;tna};
 #act {^也许是缺乏实战经验} {
-  skx;l;
-  #delay 1 {gt gl;};
-  #class tmp open;
-    #act {^鼓楼小院 -} {
-      enter;
-      #class tmp kill;
-      #delay 1 {tla};
-    };
-  #class tmp close;
+  #if {"$myid"=="simontuixue"} {
+    skx;l;
+    #delay 1 {gt gl;};
+    #class tmp open;
+      #act {^鼓楼小院 -} {
+        enter;
+        #class tmp kill;
+        #delay 1 {tla};
+      };
+    #class tmp close;
+  };
+  #elseif {"myid"=="dalabomba"} {
+    mplay eMix.wav
+  }
 };
 
 #act {^你刚在三分钟内睡过} {#delay 15 sleep};

@@ -1,10 +1,13 @@
 #var myid jinger;
 #var li 0;
-#var wp dao;
+#var wp flute;
+#var zong qizong;
+
 #var skills {
     {1}{jz}
-    {2}{ty}
+    {2}{tl}
 };
+#var i_sk 1;
 #var n_sk 2;
 
 #alias {p.wj} {
@@ -13,8 +16,9 @@
 #alias {p.yw} {
   perform yangwu-jian.yangwu;
 };
-#alias {p.ty} {
-  perform yunushijiu-jian.sanqingfeng;
+#alias {p.tl} {
+    #if {"$zong"=="qizong"} {perform yunushijiu-jian.sanqingfeng};
+    #elseif {"$zong"=="jianzong"} {perform kuangfeng-jianfa.lianhuan};
 };
 #alias {p.jz} {
   perform huashan-jianfa.jianzhang;
@@ -23,11 +27,12 @@
     hunyuan-zhang;
     poyu-quan;
     huashan-jianfa;
-    yangwu-jian;
-    yunushijiu-jian;
+    yw-or-xy;
+    dugu-jiujian;
+    yn-or-kf;
     huashan-shenfa;
 };
-#var n_spskill 6;
+#var n_spskill 7;
 
 
 #alias prep {
@@ -40,20 +45,24 @@
         bei hunyuan-zhang;
         jifa parry hunyuan-zhang;
     };
-    #elseif {"$sp_skills[%1]"=="yunushijiu-jian"} {
+    #elseif {"$sp_skills[%1]"=="yn-or-kf"} {
+        #if {"$zong"=="jianzong"} {#var jian kuangfeng-kuaijian};
+        #elseif {"$zong"=="qizong"} {#var jian yunushijiu-jian};
         #var skill parry;
-        wield dao;
-        jifa parry yunushijiu-jian;
-        jifa sword yunushijiu-jian;
+        wield $wp;
+        jifa parry $jian;
+        jifa sword $jian;
     };
-    #elseif {"$sp_skills[%1]"=="yangwu-jian"} {
+    #elseif {"$sp_skills[%1]"=="yw-or-xy"} {
+        #if {"$zong"=="jianzong"} {#var jian xiyi-jian};
+        #elseif {"$zong"=="qizong"} {#var jian yangwu-jian};
         #var skill sword;
-        wield dao;
-        jifa sword yangwu-jian;
+        wield $wp;
+        jifa sword $jian;
     };
     #elseif {"$sp_skills[%1]"=="huashan-jianfa"} {
         #var skill parry;
-        wield dao;
+        wield $wp;
         jifa parry huashan-jianfa;
     };
     #elseif {"$sp_skills[%1]"=="poyu-quan"} {
@@ -66,7 +75,12 @@
     };
     #elseif {"$sp_skills[%1]"=="huashan-shenfa"} {
         #var skill dodge;
-    }
+    };
+    #elseif {"$sp_skills[%1]"=="dugu-jiujian"} {
+        #var skill parry;
+        wield $wp;
+        jifa parry dugu-jiujian;
+    };
     lx;
 };
 

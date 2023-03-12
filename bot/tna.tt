@@ -3,9 +3,10 @@
 #alias {tnaa} {tuna max};
 
 #act {你现在精力接近圆满状态。}{
-eat liang;
-drink;
-tuna 10
+    yun regenerate;
+    eat liang;
+    drink;
+    tuna 10
 };
 
 
@@ -23,7 +24,7 @@ tuna 10
 };
 #act {你现在精力充沛。} {tnaa};
 #act {你现在内力接近圆满状态。} {tnaa};
-#act {你%*站了起来} {tnaa};
+#act {你%*站了起来} {yun regenerate};
 
 
 #act {你现在精不足，无法修行精力！} {exert regenerate;#delay 2 {tnaa}};

@@ -9,12 +9,13 @@
     {3}{qf}
 };
 #list lx_skills create {
+    duanjia-jian;
     tiannan-bufa;
     liumai-shenjian;
     yiyang-zhi;
 }
 
-#var n_sk 3;
+#var n_sk 4;
 #var xgong beiming-shengong;
 
 #alias {p.lm} {
@@ -44,6 +45,7 @@
    #5 s;w;enter;
    #delay 1 {move qian;move zuo;move zuo;move zuo;move you;
    #delay 1 {out;se;#6 e;n;
+   walk
 }}};
 #var pack bo;
 pku;simontuixue;123abc;y;
