@@ -15,8 +15,14 @@
 };
 
 #act {你%*站了起来} {
-      #if {$sklevel>200} {yun recover};
-      eat liang;#delay 1 {drink ;dazuo max}};
+      #if {$gmcp_status[qi]<200} {
+            yun recover; 
+      };
+      eat liang;
+      #delay 1 {
+            drink;
+            dazuo max
+}};
 
 #act {你的内力增加了！！}  {
       #if {$sklevel<100} {sleep};

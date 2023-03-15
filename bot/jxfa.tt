@@ -10,6 +10,7 @@
   #var loc_lock 0;
   #var luck %1;
   #var bonus %2;
+  #var enemies;
   ask ji xiaofu about job;
 };
 #ali {jxfd} {say $code;jxfx};
@@ -122,43 +123,12 @@
 
 #alias jm {
   #var job_mod %0;
-}
-
-#act {^╭───%*{之周|同庆}┬──────────────────────────────────╮$} {
-  #class week open;
-    #act {^│%*│→%*韩世忠%*%s│$} {#var job_mod  0};
-    #act {^│%*│↑%*韩世忠%*%s│$} {#var job_mod  1};
-    #act {^│%*│↓%*韩世忠%*%s│$} {#var job_mod -1};
-    #act {^╰───────┴─────────────────────────北大侠客行────╯$} {#class week kill};
-  #class week close;
-  #showme <afa> bonus_mode: $job_mod;
 };
-#class report open;
-  #act {^%!s%*点经验；$} {
-    #var exp %1;
-  };
-  #act {^%!s%*点潜能；$} {
-    #var pot %1;
-  };
-  #act {^%!s%*点江湖声望。$} {
-    #var fam %1;
-  };
-  #act {^你已经完成了%*次清除异族奸细的工作。$} {
-    #var taskid %1;
-    #class report kill;
-  };
-#class report close;
-
-#act {^│幸运值%!s│%d%!s│奖励系数%!s│%d% %!s│识图检查%!s│%*完整奖励%*│$} { #var luck %1; #var bonus %2; };
-#act {你被奖励了：} {
-  #format time {%t} {%Y-%m-%d-%H:%M:%S};
-  #delay 1 {
-    #format record {%s;%s;%s;%d;%d;%d;%s;%s;%s;%s} {$job_mod} {$loc} {$n_oppo} {@ctd{$exp}} {@ctd{$pot}} {@ctd{$fam}} {@ctd{$taskid}} {$time} {$luck} {$bonus};
-    #showme <afa> $record;
-    jxfLog $record;
-    #untic jxfa1;jxfx;
-  }
+#act {^%!s「%!*」%*(%*) <战斗中>$} {
+  #var oppo @lower{%2};
+  #if {@ismember{$oppo;enemies}==0} {#list enemies add $oppo};
 };
+
 #list blacklist create {
   首领布置了天罗地网对;
   付姓杨的，谅他这次插;

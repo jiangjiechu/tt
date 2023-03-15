@@ -1,8 +1,9 @@
 #map read pku.map;
 #var myid dalabomba;
 #var myname ¥Ô¿≠±¿∞…;
-#var li 0;
+#var li1 0;
 #var wp dao;
+#var lun {iron falun};
 #var blade {xinyue dao};
 #var skills {
     {1}{ty}
@@ -18,7 +19,9 @@
   jiali $li;
 };
 #alias {p.dq} {
-  perform huoyan-dao.daoqi
+  jiali max;
+  perform huoyan-dao.daoqi;
+  jiali $li1;
 };
 #alias {p.jx} {
   perform xuedao-jing.jixue
@@ -28,11 +31,12 @@
 };
 
 #list sp_skills create {
+  xiangfu-lun;
   dashou-yin;
   yuxue-dunxing;
   huoyan-dao;
 };
-#var n_spskill 3;
+#var n_spskill 4;
 
 #alias prep {
     #if {"$sp_skills[%1]"=="yuxue-dunxing"} {
@@ -54,6 +58,20 @@
         jifa hand dashou-yin;
         bei dashou-yin;
         jifa parry dashou-yin;
+    };
+    #elseif {"$sp_skills[%1]"=="xiangfu-lun"} {
+        #var skill parry;
+        unwield all;
+        wi $lun;
+        jifa hammer xiangfu-lun;
+        jifa parry xiangfu-lun;
+    };
+    #elseif {"$sp_skills[%1]"=="yingxiong-jianfa"} {
+        #var skill parry;
+        unwield all;
+        wi $wp;
+        jifa blade yingxiong-jianfa;
+        jifa parry yingxiong-jianfa;
     };
     #elseif {"$sp_skills[%1]"=="xuedao-jing"} {
         #var skill parry;

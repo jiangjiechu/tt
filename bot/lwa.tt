@@ -32,10 +32,10 @@
     };
     #elseif {"$myid"=="dalabomba"} {
       #list basic_skills create {
-        hand;
         force;
+        hammer;
+        hand;
         parry;
-        sword;
         strike;
       };
       #var n_lw 100;

@@ -13,10 +13,10 @@
 		#var n_book 1;
 		#var i_book 1;
 		#var book_list {
-			{1}{tianlong}
+			{1}{shediao}
 		};
 		#var check_list {
-			{1} {sword}
+			{1} {force}
 		};
 		#var book $book_list[$i_book];
 	};

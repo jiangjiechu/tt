@@ -12,18 +12,18 @@
 		#class pzaa kill;
 	};
 	#class pzaa close;
-	ask lu about ∆∆’Û;
+	ask lu chengfeng about ∆∆’Û;
 };
 
 #alias pzd {
 	#class zhanbu.maze kill;
 	#class zhanbu.maze.kill kill;
 	gf bosss;
-	ask lu about ∆∆’ÛΩ±¿¯};
+	ask lu chengfeng about ∆∆’ÛΩ±¿¯};
 #alias pzf {
 	#class zhanbu.maze kill;
 	#class zhanbu.maze.kill kill;
-	ask lu about ∆∆’Û ß∞‹};
+	ask lu chengfeng about ∆∆’Û ß∞‹};
 
 #alias pzi {
   #echo {%c%h} {light yellow};
@@ -42,6 +42,7 @@
 };
 #alias pzm {
 	#class zhanbu.maze open;
+	#var inbattle 0;
 	#var pos {{nw}{2}{n}{2}{ne}{2}{w}{2}{e}{2}{sw}{2}{s}{2}{se}{2}};
 	#var posstep 0;
 	#var direc {nw;n;ne;w;e;sw;s;se};
@@ -121,6 +122,10 @@
 		#class zhanbu.maze.kill open;
 		#action {¥Û ∂Ò %%1(%D)} {
 			#format npcid %l %%%1;
+			#if {$inbattle==0} {
+				#var inbattle 1;
+				look $npcid;
+			};
 			kill $npcid;
 			#if {"$myid"=="simontuixue"} {
 				p.lm $npcid;
@@ -129,7 +134,7 @@
 				p.sc $npcid;
 			};
 			#elseif {"$myid"=="dalabomba"} {
-				p.ty $npcid;
+				p.dq $npcid;
 			}
 		};
 		#action {ƒ„‘⁄π•ª˜÷–≤ª∂œª˝–Óπ• ∆°£(∆¯ ∆£∫%d%)} {
@@ -160,9 +165,11 @@
 		#class zhanbu.maze.kill close;
 	};
 	#class zhanbu.maze close;
+	unset skip_combat;
 	set ForcedAct 1;
 	#if {"$myid"=="jinger"} {yun powerup;jiali 0};
 	#elseif {"$myid"=="jingirl"} {yun powerup;jiali 0};
+	#elseif {"$myid"=="dalabomba"} {yun longxiang;};
 	#else {jiali max;};
 	yun recover;
 	yun regenerate;

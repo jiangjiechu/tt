@@ -34,7 +34,7 @@
   pause_walk;walk -p;
   follow jiazei;
   #if {"$myid" == "jinger" || "$myid"=="jingirl"} {yun powerup};
-  #if {"$myid" == "dalabomba"} {yun powerup};
+  #if {"$myid" == "dalabomba"} {yun longxiang};
   jiali $li1;
   kill jiazei;
   #if {"$myid" == "simontuixue"} {#delay 2 {yun beiming jiazei}};
@@ -45,7 +45,9 @@
   follow jiazei;
   jiali $li1;
   kill jiazei;
-  yun beiming jiazei;
+  #if {"$myid"=="dalabomba"} {yun longxiang};
+  #if {"$myid"=="simontuixue"} {yun beiming jiazei};
+  #else {yun powerup};
 };
 
 #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
@@ -58,7 +60,7 @@
   #elseif {"$myid"=="jingirl" && %1 >= 14} {
     p.$skills[$i_sk];
   };
-  #elseif {"$myid"=="dalabomba" && %1 >= 12} {
+  #elseif {"$myid"=="dalabomba" && %1 >= 18} {
     p.$skills[$i_sk];
   }
 };

@@ -44,7 +44,7 @@
 
 #act {^你从%*{除下|拿出|搜出}一件布衣。$} {drop cloth};
 
-#act {^你从%*{搜出|拿出}一只铁轮。$} {drop falun};
+#nop #act {^你从%*{搜出|拿出}一只铁轮。$} {drop falun};
 
 #act {^卫士对你大吼一声：站住，干什么的？(answer)} {answer 送信};
 

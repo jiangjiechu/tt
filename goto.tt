@@ -56,7 +56,7 @@
 };
 
 #nop 走路速度控制,分别为每秒上限步数、超限等待时间、正常行走间隔时间;
-#var xiaoyao.accu 5;
+#var xiaoyao.accu 10;
 #var xiaoyao.delay_long 0.5;
 #var xiaoyao.delay_short 0.1;
 
