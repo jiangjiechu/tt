@@ -55,7 +55,7 @@
   #action {你进入了剑心居} {
     #class tmp2 kill;
     tlx;
-    #delay 1 {xla}
+    #delay 1 {fska lx}
   };
   #class tmp2 close;
 }
@@ -77,7 +77,7 @@
 };
 #act {你不忙} {
   #if {$level >= $max_level || $halt==1} {
-    glw1;
+    glw2;
   };
   #else {enter};
 }

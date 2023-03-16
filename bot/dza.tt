@@ -47,7 +47,7 @@
     #if {$dzaa == dz}
           {dz};
     #else
-          {dzx;#untic dza;tna}
+          {dzx;#untic dza;fska lx}
 };
 #act {你现在气力充沛。} {
       dazuo max;

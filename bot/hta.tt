@@ -1,0 +1,37 @@
+#nop 海棠
+#class hta open;
+#re bot/hua_data.tt;
+
+#tic {hta} {#untic hta;htaa} {2};
+#alias {htaa} {ask zhang about job};
+#alias {htd} {give zhang core;htx;};
+#alias {htf} {ask zhang about fail;htx;};
+#alias {start} {
+  set walk_speed 2;
+  walk -c;
+};
+#alias {p} {
+  walk -p;
+};
+
+
+#act {你去到%1之后缓行(walk)%2当可发现我留下的线索，%*} {
+  #tic {hta1} {#echo {%c%h} {light yellow} {线索在%1,缓行%2}} {5}
+};
+
+#act {^你揉揉眼睛仔细一看，%*} {
+  wait;stopwalk;
+  #untic hta1;
+  set walk_speed 0;
+  #delay 2 look xian suo;
+};
+#act {^你获得了一枚机关核心，%*$} {
+  mplay eMix.wav
+};
+
+#act {^%*木人似乎就在%*，去拆了它吧%*$} { #tic {hta2} {#echo {%c%h} {light yellow} {木人在%2}} {5} };
+
+
+#nop #act {}{};
+
+#class hta close;
