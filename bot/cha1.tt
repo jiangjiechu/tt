@@ -25,7 +25,7 @@
 };
 #act {云游僧人说道：%*报上你的口令！%*} {
     report $num;
-    #UNVARIABLE {num};
+    #unvar {num};
 };
 
 #class cha1 close;

@@ -10,12 +10,9 @@
 };
 
 
-#act {你的精力修为已经达到了瓶颈，精力最大值为基本内功技能的15倍。} {
+#act {^你的精力修为已经达到了瓶颈%*} {
     #untic tna;tnx;
-    #delay 1 {
-        out;n;
-        lwa;
-    }
+    fska lx;
 };
 
 #act {你吐纳完毕} {yun regenerate};
