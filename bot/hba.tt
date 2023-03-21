@@ -68,7 +68,7 @@
       #var op1 {$myid's robber 1};
       #var op2 {$myid's robber 2};
       hit $op1;
-      yun beiming $op2;
+      #nop yun beiming $op2;
     };
     #act {劫匪趁你不注意，推着镖车就跑，} {
       #var biased 1;
@@ -116,6 +116,7 @@
       #var op1 {$myid's robber};
     };
     #act {劫匪伸手一拦道：“想跑？没那么容易！”} {
+      yun recover;
       hit $myid's robber;
       #var battle 1;
     };

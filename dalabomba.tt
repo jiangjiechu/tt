@@ -32,11 +32,10 @@
 
 #list sp_skills create {
   xiangfu-lun;
-  dashou-yin;
   yuxue-dunxing;
   huoyan-dao;
 };
-#var n_spskill 4;
+#var n_spskill 3;
 
 #alias prep {
     #if {"$sp_skills[%1]"=="yuxue-dunxing"} {

@@ -34,8 +34,8 @@
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
   #delay 2 {
-    special + agile;
-    special + sociability;
+    special agile;
+    special ironskin;
     #untic hsza1;
     wear mine;
     remove armet;
@@ -125,7 +125,7 @@
   #var job_mod %0;
 }
 
-#act {^╭───%*{之周|同庆}┬──────────────────────────────────╮$} {
+#act {^╭───%*{之周|同庆}{┬─|}─────────────────────────────────╮$} {
   #class week open;
     #act {^│%s韩世忠%s│%*。%s│$} {#var job_mod 2};
     #act {^│%*│→%*韩世忠%*%s│$} {#var job_mod  0};

@@ -3,6 +3,7 @@
 #var myname ÷ª“ÚΩ„;
 #var li 0;
 #var wp dao;
+#var bian whip;
 
 #var skills {
     {1} {sc}
@@ -49,7 +50,7 @@
     #elseif {"$sp_skills[%1]"=="jiulong-bian"} {
         #var skill parry;
         unwield all;
-        wield bian;
+        wield $bian;
         jifa parry jiulong-bian;
         jifa sword jiulong-bian;
     };

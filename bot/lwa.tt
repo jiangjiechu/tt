@@ -43,6 +43,7 @@
     };
     #elseif {"$myid"=="jingirl"} {
       #list basic_skills create {
+        claw;
         cuff;
         force;
         parry;
@@ -159,7 +160,7 @@
       lwx;
       fska;
     };
-    #elseif {"$myid"=="jingirl" && $skill_id > 5} {
+    #elseif {"$myid"=="jingirl" && $skill_id > 6} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
       w;w;s;
