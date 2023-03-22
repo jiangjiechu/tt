@@ -11,7 +11,9 @@
   #var bonus %2;
   set wimpy 70;
   set hansz_new_mode 1;
-  set adv_quest 50;
+  #if {"$myid"=="simontuixue"} {
+    set adv_quest 50;
+  };
   ask han about job;
   check_bonus;
 };
@@ -40,11 +42,20 @@
     wear mine;
     remove armet;
     remove belt;
-    unwield all;}
+    unwield all;
+    #if {"$myid"=="dalabomba"} {
+      unwield shield;
+      wield lun;
+    }
+  }
 };
-#act {^快去找韩王复命吧。} {
+#alias peace {
+  #var battle 0;
   #var VERBOSE 1;
   unset brief;
+};
+#act {^快去找韩王复命吧。} {
+  peace;
 };
 
 #act {%*异族奸细 %*(%*)%*} {
@@ -68,12 +79,17 @@
 };
 
 #act {看起来%*想杀死你} { 
-  #var battle 1;
-  #var n_oppo1;
+  #if {$battle != 1} {
+    #var battle 1;
+    #if {"$myid"=="dalabomba"} {
+      yun longxiang;
+    };
+    #elseif {"$myid"=="simontuixue"} {
+      #delay 2 {bm;}
+    }
+  };
   #var VERBOSE 0;
   set brief 3;
-	#delay 2 {bm}
-
 };
 
 #nop #act {}{};
@@ -83,16 +99,22 @@
   };
   #elseif {"$myid"=="jinger"} {
     p.jz ;
+  };
+  #elseif {"$myid"=="dalabomba" && %1 >= 18} {
+    p.dq;
   }
 };
 #act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
+  #var battle 0;
   unset brief;
   #var VERBOSE 1;
 };
 #act {%*死了。} {
   #var f1_set 0;
   l;
-  #delay 2 {bm;}
+  #if {"$myid"=="simontuixue"} {
+    #delay 2 {bm;}
+  }
 }
 #alias f1 {
   #var oppo {%1};
@@ -103,7 +125,12 @@
   #var f2_set 1;
 };
 #alias tx {
-  p.lm $oppo;
+  #if {"$myid"=="simontuixue"} {
+    p.lm $oppo;
+  };
+  #elseif {"$myid"=="dalabomba"} {
+    p.dq $oppo;
+  }
 };
 
 #alias jl {

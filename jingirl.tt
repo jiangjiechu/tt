@@ -23,15 +23,24 @@
   perform jiulong-bian.suo;
 };
 #list sp_skills create {
+    yunlong-zhua;
     danxin-jian;
     lingding-piao;
     jiulong-bian;
     houquan;
 };
-#var n_spskill 4;
+#var n_spskill 5;
 
 
 #alias prep {
+    #if {"$sp_skills[%1]"=="yunlong-zhua"} {
+        #var skill parry;
+        unwield all;
+        bei none;
+        jifa claw yunlong-zhua;
+        bei houquan;
+        jifa parry yunlong-zhua;
+    };
     #if {"$sp_skills[%1]"=="houquan"} {
         #var skill parry;
         unwield all;

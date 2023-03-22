@@ -24,7 +24,7 @@
 };
 
 #alias lw {lingwu $skill 100};
-#alias lx {lian $skill 10};
+#alias lx {lian $skill 50};
 #alias gofsk {
     dazuo max;
 };
