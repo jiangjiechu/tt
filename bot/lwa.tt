@@ -43,11 +43,11 @@
     };
     #elseif {"$myid"=="jingirl"} {
       #list basic_skills create {
+        parry;
+        sword;
         claw;
         cuff;
         force;
-        parry;
-        sword;
         whip;
       };
       #var n_lw 100;

@@ -404,7 +404,7 @@
 };
 
 #nop full skills for tuixue;
-#alias {txa} {#class fska read bot/txa.tt;#var lw-or-lx lx; #var VERBOSE 0};
+#alias {txa} {#class fska read bot/txa.tt;#var lw-or-lx lx; #var VERBOSE 1};
 #alias {txx} {#class fska kill;#var VERBOSE 1};
 
 #nop heal gujia

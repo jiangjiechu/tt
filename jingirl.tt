@@ -6,16 +6,19 @@
 #var bian whip;
 
 #var skills {
-    {1} {sc}
-    {2} {suo}
+    {1} {fh}
+    {2} {sc}
 };
 #var qishi {
-    {1} {14}
+    {1} {4}
     {2} {14}
 };
 #var i_sk 1;
 #var n_sk 2;
 
+#alias {p.fh} {
+  perform danxin-jian.feihua;
+};
 #alias {p.sc} {
   perform danxin-jian.sancai;
 };
@@ -23,13 +26,13 @@
   perform jiulong-bian.suo;
 };
 #list sp_skills create {
-    yunlong-zhua;
     danxin-jian;
     lingding-piao;
     jiulong-bian;
     houquan;
+    yunlong-zhua;
 };
-#var n_spskill 5;
+#var n_spskill 4;
 
 
 #alias prep {
@@ -38,7 +41,7 @@
         unwield all;
         bei none;
         jifa claw yunlong-zhua;
-        bei houquan;
+        bei yunlong-zhua;
         jifa parry yunlong-zhua;
     };
     #if {"$sp_skills[%1]"=="houquan"} {

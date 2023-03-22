@@ -57,7 +57,7 @@
   #elseif {"$myid"=="jinger" && %1 >= 12} {
     p.$skills[$i_sk];
   };
-  #elseif {"$myid"=="jingirl" && %1 >= 14} {
+  #elseif {"$myid"=="jingirl" && %1 >= $qishi[$i_sk]} {
     p.$skills[$i_sk];
   };
   #elseif {"$myid"=="dalabomba" && %1 >= 18} {
