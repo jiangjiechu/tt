@@ -131,7 +131,7 @@
 				p.lm $npcid;
 			};
 			#elseif {"$myid"=="jingirl"} {
-				p.sc $npcid;
+				p.pf $npcid;
 			};
 			#elseif {"$myid"=="dalabomba"} {
 				p.dq $npcid;
@@ -168,7 +168,7 @@
 	unset skip_combat;
 	set ForcedAct 1;
 	#if {"$myid"=="jinger"} {yun powerup;jiali 0};
-	#elseif {"$myid"=="jingirl"} {yun powerup;jiali 0};
+	#elseif {"$myid"=="jingirl"} {yun powerup;jiali max};
 	#elseif {"$myid"=="dalabomba"} {yun longxiang;};
 	#else {jiali max;};
 	yun recover;

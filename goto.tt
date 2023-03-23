@@ -399,7 +399,9 @@
                         #math step {$step+1};
                         #var max_accu 1;
                         #var stepaccu 1;
-                        #delay {2} {walk};
+                        #delay {2} {
+                            #var in_boat 0;
+                            walk};
                     }; #elseif {"$cmd"=="busy2"}{
                         #math step {$step+1};
                         #var stepaccu 1;
@@ -508,7 +510,6 @@
             #var stepaccu 1;
             hnr;
             out;walk;
-            #delay 0.1 {#var in_boat 0};
         };
     };
     #action {^{艄公|船夫}要继续做生意了，所有人被赶下了渡船。} {

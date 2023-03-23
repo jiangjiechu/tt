@@ -2,6 +2,7 @@
 #var myid jingirl;
 #var myname ÷ª“ÚΩ„;
 #var li 0;
+#var li1 0;
 #var wp dao;
 #var bian whip;
 
@@ -18,6 +19,16 @@
 
 #alias {p.fh} {
   perform danxin-jian.feihua;
+};
+#alias {p.pf} {
+  jiali max;
+  perform houquan.pofuchenzhou;
+  jiali $li1;
+};
+#alias {p.nx} {
+    jiali max;
+    perform yunlong-zhua.ningxue;
+    jiali 0;
 };
 #alias {p.sc} {
   perform danxin-jian.sancai;
