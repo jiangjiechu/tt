@@ -1,7 +1,7 @@
 #nop хннЯ;
 #class hba open;
-#var master zhang;
-#var base zz;
+#var master zuo;
+#var base zuo;
 
 #var dir {
   {n} {north}

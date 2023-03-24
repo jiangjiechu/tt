@@ -4,11 +4,7 @@
 #alias {sxaa} {ask yue about job};
 #alias  {sxd} {ask yue about finish};
 #alias  {sxf} {ask yue about fail};
-岳不群在你的耳边悄声说道：这封机密函件，火速送给扬州南门附近的武将，好处少不了你的。
-#act {岳不群%*道：%*交给%1。} {
-  #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {5}
-};
-#act {岳不群%*道：%*送到%1。} {
+#act {岳不群%*道：%*{交|送}{给|到}%1。} {
   #tic {sxa1} {#echo {%c%h} {light yellow} {华山送信目标在%1处}} {5}
 };
 
@@ -22,7 +18,21 @@
 
 #act {%*没有 powerup 这个功能。} {
   yun ku;
-}
+};
+#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+  #if {"$myid"=="simontuixue" && %1 >= 50} {
+    p.lm jiazei;
+  };
+  #elseif {"$myid"=="jinger" && %1 >= 12} {
+    p.$skills[$i_sk];
+  };
+  #elseif {"$myid"=="jingirl" && %1 >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  };
+  #elseif {"$myid"=="dalabomba" && %1 >= 18} {
+    p.$skills[$i_sk];
+  }
+};
 
 #act {看起来%1想杀死你} {#var sxss %1;#var wait wait; stopwalk;jiali $li;yun powerup};
 #act {$sxss死了} {#delay 2 {get all from corpse}};
