@@ -1,0 +1,22 @@
+#nop ÃÏ÷È;
+#class bxsa open;
+
+#tic {bxsa} {#untic bxsa;bxsaa} {2};
+#alias {bxsaa} {
+  ask bai about ÃÙ’Ω;
+  #var in_bxs 1;
+  #format start_t {%t} {%H:%M:%S};
+  #tic {bxs_ticker} {
+    #format now_t {%t} {%H:%M:%S};
+    #echo {%c%h} {light green} {start: $start_t now: $now_t};
+  } {10};
+};
+#alias {bxsd} {
+  ask bai about finish;
+  #untic {bxs_ticker};
+  #unvar in_bxs;
+  bxsx
+};
+
+
+#class bxsa close;

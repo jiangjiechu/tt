@@ -12,7 +12,7 @@
   set wimpy 70;
   set hansz_new_mode 1;
   #if {"$myid"=="simontuixue"} {
-    set adv_quest 50;
+    #nop set adv_quest 50;
   };
   ask han about job;
   check_bonus;
@@ -45,7 +45,7 @@
     unwield all;
     #if {"$myid"=="dalabomba"} {
       unwield shield;
-      wield lun;
+      wield $lun;
     }
   }
 };
@@ -125,6 +125,7 @@
   #var f2_set 1;
 };
 #alias tx {
+  kill all;
   #if {"$myid"=="simontuixue"} {
     p.lm $oppo;
   };
@@ -151,14 +152,13 @@
 #alias jm {
   #var job_mod %0;
 }
-
-#act {^╭───%*{之周|同庆}{┬─|}─────────────────────────────────╮$} {
+#act {^{┌|╭}───%*{之周|同庆}{┬─|}─────────────────────────────────{╮|┐}$} {
   #class week open;
     #act {^│%s韩世忠%s│%*。%s│$} {#var job_mod 2};
     #act {^│%*│→%*韩世忠%*%s│$} {#var job_mod  0};
     #act {^│%*│↑%*韩世忠%*%s│$} {#var job_mod  1};
     #act {^│%*│↓%*韩世忠%*%s│$} {#var job_mod -1};
-    #act {^╰───────┴─────────────────────────北大侠客行────╯$} {#class week kill};
+    #act {^{╰|└}───────┴─────────────────────────北大侠客行────{╯|┘}$} {#class week kill};
   #class week close;
   #delay 1 {#showme <afa> bonus_mode: $job_mod;}
 };

@@ -1,0 +1,112 @@
+#nop 遍历;
+#class pra open;
+#alias pn {
+  #var in_record 1;
+  #var auto_go 1;
+  #var path_tmp {};
+};
+#alias pm {
+  #show $path_tmp;
+};
+#alias ps {
+  #showme  <afa> save path_tmp to %1;
+  #var %1 $path_tmp;
+};
+#alias pr {
+  #list path_tmp add $dir[%1];
+};
+#alias ph {
+  #var auto_go 0;
+};
+#alias f {
+  #var last_dir $dir[%1];
+  #list path_tmp add $dir[%1];
+  $dir[%1];
+};
+#action {^%s这里{唯一|明显}的{出口|方向}{有|是}%*} {
+  #showme <afa> 触发成功！;
+  #var dir_out ${gmcp_move[1][dir]};
+  #list dir_out size n;
+  #if {$n > 2} {
+    #showme <afa> 遇到岔路！请选择方向！
+  };
+  #elseif {$n == 2} {
+    #foreach {$dir_out[]} {_dir} {
+      #if {"$_dir"!="@oppose{$last_dir}"} {
+        #showme <afa> $_dir vs @oppose{$last_dir};
+        #var next_dir $_dir;
+      }
+    };
+    #showme <afa> 上次行动$last_dir要去$next_dir;
+    #var last_dir $next_dir;
+    #if {$auto_go==1}  {
+      #delay {0.2} {
+        #list path_tmp add $next_dir;
+        $next_dir;
+      }
+    }
+  };
+  #else {
+    #showme <afa> 没有路了！;
+    #var next_dir $dir_out[1];
+    #showme <afa> 上次行动$last_dir要去$next_dir;
+    #var last_dir $next_dir;
+    #if {$auto_go==1}  {
+      #delay {0.2} {
+        #list path_tmp add $next_dir;
+        $next_dir;
+      }
+    }
+  };
+};
+
+#var dir {
+  {n} {north}
+  {s} {south}
+  {e} {east}
+  {w} {west}
+  {nw} {northwest}
+  {sw} {southwest}
+  {ne} {northeast}
+  {se} {southeast}
+  {nu} {northup}
+  {nd} {northdown}
+  {su} {southup}
+  {sd} {southdown}
+  {eu} {eastup}
+  {ed} {eastdown}
+  {wu} {westup}
+  {wd} {westdown}
+  {enter} {enter}
+  {out} {out}
+  {u} {up}
+  {d} {down}
+};
+#var back {
+  {north} {south}
+  {south} {north}
+  {east} {west}
+  {west} {east}
+  {northeast} {southwest}
+  {southeast} {northwest}
+  {southwest} {northeast}
+  {northwest} {southeast}
+  {up} {down}
+  {down} {up}
+  {northdown} {southup}
+  {southdown} {northup}
+  {eastdown} {westup}
+  {westdown} {eastup}
+  {northup} {southdown}
+  {southup} {northdown}
+  {eastup} {westdown}
+  {westup} {eastdown}
+  {enter} {out}
+  {out} {enter}
+};
+#function oppose {
+  #var result $back[%1]
+};
+
+
+#class pra close;

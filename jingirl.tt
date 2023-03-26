@@ -43,7 +43,7 @@
     houquan;
     yunlong-zhua;
 };
-#var n_spskill 4;
+#var n_spskill 5;
 
 
 #alias prep {

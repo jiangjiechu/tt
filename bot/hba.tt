@@ -1,7 +1,5 @@
 #nop хннЯ;
 #class hba open;
-#var master zuo;
-#var base zuo;
 
 #var dir {
   {n} {north}
@@ -31,7 +29,11 @@
   set wimpy 20;
   #var step 1;
   #var encounter 0;
-  getesc %1};
+  #if {$in_bxs==1} {
+    ask $master about job;
+  };
+  #else {getesc %1}
+};
 #ali {hbd} {ask $master about finish;hbx};
 #ali {hbf} {ask $master about fail;#untic hba1;#untic hba2;hbx;};
 #ali {t} { 

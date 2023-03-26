@@ -82,14 +82,39 @@
     #class tmp close;
   };
   #elseif {"myid"=="dalabomba"} {
-    skx;
-    dza 302;
+    #5 s;
+    #delay 0.5 {
+      sethere myr;
+      #delay 0.5 {
+        glw2;
+      }
+    };
   };
   #elseif {"$myid"=="jingirl"} {
     w;
     skx;
     dza 264;
   }
+};
+#alias {glw2} {
+  gt yz;
+  #class tmp2 open;
+  #action {^中央广场 -} {
+    s;s;s;w;
+  };
+  #action {^盛昌总行 -} {
+    enter jianxinju;
+  };
+  #action {你进入了剑心居} {
+    #class tmp2 kill;
+    skx;
+    #delay 1 {lwa}
+  };
+  #class tmp2 close;
+};
+
+#act {#%d/%d} {
+  #var level %1;
 };
 
 #act {^你刚在三分钟内睡过} {#delay 15 sleep};

@@ -1,0 +1,27 @@
+#nop ±éÀú;
+#class hba open;
+
+#var dir {
+  {n} {north}
+  {s} {south}
+  {e} {east}
+  {w} {west}
+  {nw} {northwest}
+  {sw} {southwest}
+  {ne} {northeast}
+  {se} {southeast}
+  {nu} {northup}
+  {nd} {northdown}
+  {su} {southup}
+  {sd} {southdown}
+  {eu} {eastup}
+  {ed} {eastdown}
+  {wu} {westup}
+  {wd} {westdown}
+  {enter} {enter}
+  {out} {out}
+  {u} {up}
+  {d} {down}
+};
+
+#class hba close;

@@ -5,7 +5,9 @@
   #untic mra;mraa;
   #var i_sk 1;
 }{2};
-#alias {mraa} {ask pu ren about job};
+#alias {mraa} {
+  #var qi 0;
+  ask pu ren about job};
 #alias  {mrd} {give xin jian to pu ren};
 #alias  {mrf} {ask pu ren about fail};
 
@@ -51,16 +53,17 @@
 };
 
 #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-  #if {"$myid"=="simontuixue" && %1 >= 50} {
+  #var qi {%1};
+  #if {"$myid"=="simontuixue" && $qi >= 50} {
     p.lm jiazei;
   };
-  #elseif {"$myid"=="jinger" && %1 >= 12} {
+  #elseif {"$myid"=="jinger" && $qi >= 12} {
     p.$skills[$i_sk];
   };
-  #elseif {"$myid"=="jingirl" && %1 >= $qishi[$i_sk]} {
+  #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];
   };
-  #elseif {"$myid"=="dalabomba" && %1 >= 18} {
+  #elseif {"$myid"=="dalabomba" && $qi >= 18} {
     p.$skills[$i_sk];
   }
 };
@@ -69,7 +72,9 @@
   #if {$i_sk>$n_sk} {
     #var i_sk 1;
   };
-  p.$skills[$i_sk];
+  #if {$qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  }
 };
 #act {慕容世家{家贼|内鬼}死了} {
   #var i 0;

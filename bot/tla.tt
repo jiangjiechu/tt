@@ -58,7 +58,7 @@
     #delay 1 {lwa}
   };
   #class tmp2 close;
-}
+};
 
 #var t 1;
 
@@ -91,10 +91,10 @@
 };
 #act {^鼓楼一层 -%*} {
   tlaa;
-}
+};
 #act {#%d/%d} {
   #var level %1;
-}
+};
 
 #act {^你的「基本轻功」进步了！} {verify dodge};
 #act {^你已经达到你的技能等级极限！$} {tlx;dza};

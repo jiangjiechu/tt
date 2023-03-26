@@ -461,11 +461,19 @@
 #alias explore {#class explore read bot/explore.tt;#var src %1;#var dst %2};
 #alias explorex {#class explore kill};
 
-#alias trash {do 3 put shi tan in xiang;do 3 put yun tie in xiang; do 3 put huo tong in xiang;do 3 put xuan bing in xiang};
+#alias trash {do 3 drop shi tan;do 3 drop yun tie; do 3 drop huo tong;do 3 drop xuan bing};
 #alias ny1 {bo xiaolu;ne};
 
 #nop 海战
 #alias hza {#class hza read bot/hza.tt};
 #alias hzx {#class hza kill};
+
+#nop 百晓生
+#alias bxsa {#class bxsa read bot/bxsa.tt};
+#alias bxsx {#class bxsa kill};
+
+#nop 记录路径
+#alias pra {#class pra read bot/pra.tt};
+#alias prx {#class pra kill};
 
 #class ali close;
