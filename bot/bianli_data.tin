@@ -41,15 +41,14 @@
     bl.comment {镇江内部及土路，到南水门};
     s;s;n;e;n;s;s;n;w;w;n;n;e;w;s;s;w;s;n;w;n;s;s;n;e;e;s;w;e;e;w;s;w;w;n;n;n;n;e;e;e;e;s;s;s;s;w;w;
     bl.comment {南面鸡笼山到南水门};
-    s;s;sw;se;nw;ne;eu;wd;sd;s;n;nu;n;n;
+    s;n;
     bl.comment {西面到建康，长江，到登云门};
     w;w;n;n;w;nw;nw;se;se;sw;sw;sw;nu;sd;sw;ne;wu;ed;se;se;se;se;nw;nw;nw;nw;ne;ne;ne;e;
     bl.comment {北面到青阳门};
     n;n;nw;u;d;se;e;e;nu;sd;e;e;s;s;
     bl.comment {义兴，苏州，建康，到青阳门};
-    e;se;se;ne;ne;sw;sw;s;sw;sw;s;se;s;s;n;n;nw;n;nw;nw;nw;nw;se;se;se;se;ne;ne;nw;n;e;w;w;wd;eu;e;n;n;se;nw;n;nw;w;
-    bl.comment {返回梦溪园};
-    w;w;n;
+    e;se;se;ne;ne;sw;sw;s;sw;sw;s;se;s;s;n;n;nw;n;nw;nw;nw;nw;se;se;se;se;ne;ne;n;nw;nw;w;
+    w;n;s;s;n;w;s;enter;out;n;n;
 };
 #list bl_connections_jy create {
     zjk;ry;bj;
@@ -100,7 +99,18 @@
 };
 
 #list bl_path_fz create {
-    n;s;s;e;w;s;n;w;n;w;e;e;w;n;n;nu;nw;nw;n;s;s;n;e;w;se;se;sd;s;s;s;w;n;enter;out;s;s;e;w;n;w;w;sw;sw;s;n;ne;ne;e;e;e;s;s;n;n;e;n;
+    bl.comment {福州北};
+    s;s;e;w;s;n;w;n;w;e;e;w;n;n;nu;nw;nw;
+    bl.comment {武夷山};
+    e;se;nw;w;
+    s;nw;n;nw;se;s;se;se;s;n;nw;s;
+    nw;se;s;n;n;n;
+    se;se;
+    bl.comment {雁荡南};
+    nu;nw;nu;sd;se;sd;
+    sd;s;s;s;
+    bl.comment {莆田};
+    w;n;enter;bl.command {break men};n;d;d;u;u;bl.command {break men};s;out;s;s;e;s;n;w;n;w;w;nw;n;s;w;nw;n;ne;ne;e;w;sw;sw;s;se;e;se;sw;sw;s;e;w;w;e;s;sw;sw;sw;ne;ne;ne;n;n;ne;ne;e;e;e;e;n;n;
 };
 
 #list bl_connections_nc create {
@@ -126,9 +136,14 @@
 
 #list bl_path_qz create {
     bl.comment {泉州自身};
-    n;s;ed;n;s;s;n;wu;s;n;w;s;s;e;w;n;n;w;n;s;s;n;nw;w;e;se;e;e;
+    n;s;ed;n;s;s;n;wu;s;n;w;s;s;e;w;n;n;w;
+    s;n;
+    nw;w;e;se;
+    w;s;n;w;n;s;w;e;e;e;e;e;
     bl.comment {嘉兴方向};
-    w;n;n;nw;n;nw;se;s;se;n;e;n;s;w;se;se;nw;nw;n;e;w;sw;ne;n;s;s;s;s;s;e;
+    w;n;n;nw;n;nw;se;s;se;n;e;se;nw;w;
+    bl.comment {南少林方向};
+    s;s;nw;nw;nw;wu;wd;sw;e;ed;wu;w;su;wd;nw;sw;e;eu;nd;ne;eu;ed;se;nu;n;e;w;w;e;out;n;w;e;e;w;nu;e;w;w;e;n;enter;bl.command {look u};out;s;sd;s;enter;s;sd;se;se;s;e;
     bl.comment {闽南(福州)方向};
     ne;ne;ne;n;w;e;n;ne;ne;e;w;sw;sw;s;s;sw;sw;sw;
 };
@@ -157,7 +172,7 @@
 #list bl_path_px create {
     n;w;e;e;w;n;n;n;n;w;n;s;e;e;w;n;n;bl.clear {bao biao};w;e;e;w;n;n;n;s;s;s;s;s;s;s;s;s;s;
 
-    s;s;s;s;s;s;w;e;e;w;s;w;n;s;s;n;w;w;nw;se;s;ed;e;n;n;n;w;e;e;w;n;e;n;s;s;n;e;e;ne;sw;w;w;w;n;n;n;n;n;n;n
+    s;s;s;s;s;s;w;e;e;w;s;w;n;s;s;n;w;w;nw;se;s;ed;e;n;n;n;w;e;e;w;n;e;n;s;s;n;e;e;ne;sw;w;w;w;n;n;n;n;n;n;n;
 };
 #list bl_path_lxc create {
     bl.comment {北边};
@@ -210,15 +225,13 @@
 
 #list bl_path_jx create {
     bl.comment {建康方向};
-    w;nu;nw;nw;n;nw;ne;sw;w;nw;nw;n;s;se;se;e;se;s;se;se;sd;e;
+    w;nu;nw;nw;wu;w;w;w;se;enter;out;nw;s;n;w;e;nu;u;d;sd;e;e;e;ed;se;se;sd;e;
     bl.comment {陆家庄};
     s;sw;w;nw;se;e;sw;e;w;s;enter;enter;s;n;out;out;n;ne;ne;n;
     bl.comment {泉州};
-    s;e;w;s;e;n;n;s;e;w;s;w;sw;w;sw;w;w;e;e;ne;e;ne;se;se;sd;s;s;s;n;w;e;n;n;nu;nw;nw;s;nw;n;nw;n;n;s;s;se;s;se;s;s;s;n;w;e;e;w;n;n;n;n;n;
+    s;e;w;s;se;s;s;s;sw;eu;se;w;n;w;e;sw;w;w;e;e;e;sw;w;e;ne;w;ne;ne;n;n;n;nw;n;n;
     bl.comment {烟雨楼};
-    e;s;s;n;w;e;n;e;w;se;ne;e;ne;ne;e;e;w;w;sw;sw;w;sw;s;u;enter;out;d;n;nw;w;
-    bl.comment {桃花岛};
-    e;n;s;nd;w;bl.truce;e;e;e;e;e;n;s;w;w;w;w;bl.command {ask diao about 独孤求败};nu;se;nw;sd;sd;su;w;
+    e;n;s;s;s;n;n;e;w;se;s;u;enter;out;d;n;nw;nd;e;w;w;bl.truce;e;bl.command {ask chou diao about 独孤求败};nu;se;nw;sd;sd;su;w;
 };
 #list bl_path_scm create {
     bl.comment {神策门以北到长江南岸};
@@ -454,11 +467,12 @@
 };
 #list bl_path_jz create {
     bl.comment {往南到南昌，到中央广场};
-    w;w;w;e;s;w;e;e;w;s;s;s;e;w;su;se;s;s;w;e;e;w;s;n;n;n;nw;nd;n;n;n;n;n;
+    w;w;s;w;e;e;w;s;s;s;e;w;su;se;s;s;w;e;e;w;s;n;n;n;nw;nd;n;n;n;n;n;
     bl.comment {岳阳方向， 到中央广场};
     sw;s;n;n;s;sw;n;s;s;n;sw;w;wu;nw;wu;w;w;s;n;n;s;w;e;e;e;ed;se;ed;e;ne;ne;ne;
     bl.comment {建康方向};
-    n;n;s;w;enter;w;e;e;w;out;e;e;s;n;ne;se;nw;nw;w;e;se;ne;ne;n;nw;se;e;w;s;e;ne;n;s;sw;w;e;ne;u;d;n;w;e;ne;ne;sw;sw;s;sw;w;sw;e;e;ne;eu;ed;ed;wu;wu;wd;sw;w;w;sw;sw;sw;s;e;e;
+    n;n;s;w;enter;w;e;e;w;out;e;e;s;n;ne;se;nw;nw;w;e;se;ne;ne;n;nw;se;e;w;s;e;ne;n;s;sw;w;e;ne;u;d;n;w;nw;nw;se;se;e;
+    s;sw;w;sw;e;e;ne;eu;ed;ed;ne;wu;sw;wu;wd;sw;w;w;sw;sw;sw;s;e;e;
 };
 
 #list bl_connections_yy create {
@@ -470,7 +484,7 @@
     bl.comment {往东到江州};
     e;n;s;s;n;e;e;ed;se;ed;e;ne;s;n;n;s;ne;sw;sw;w;wu;nw;wu;w;w;w;
     bl.comment {往北};
-    n;e;w;n;n;w;e;ne;sw;s;s;s;
+    n;e;w;n;n;w;w;e;e;s;s;s;
     bl.comment {往西到桃源成都};
     w;n;s;s;n;w;w;u;d;s;su;sw;e;w;sw;ne;ne;nd;w;wu;sw;se;se;nw;nw;ne;ed;e;n;e;e;e;s;
 };
@@ -649,6 +663,48 @@
     n;e;w;ne;sw;s;w;sw;sw;w;s;s;s;sw;sw;ne;ne;n;n;n;e;ne;ne;e;e;e;e;s;s;s;s;e;se;nd;su;e;e;e;e;e;ed;wu;w;w;w;w;w;nw;s;s;
     bl.comment {长安东南};
     su;su;su;su;s;n;nd;nd;nd;nd;n;w;w;w;n;s;w;s;e;w;w;e;s;e;w;w;enter;out;e;s;se;nw;w;e;s;se;e;w;se;nw;nw;n;n;n;n;w;w;n;
+};
+
+#list bl_path_mingz create {
+    bl.comment {明州南};
+    e;w;s;e;w;se;bl.command {wander};u;u;u;u;u;u;out;enter;d;d;d;d;d;d;out;nw;sw;su;su;s;sw;ne;se;e;eu;wd;w;nw;n;nd;nd;ne;n;
+    bl.comment {明州北};
+    n;n;s;w;n;s;w;nw;eu;wd;nw;w;se;se;nw;nw;s;n;e;se;se;e;e;s;
+};
+
+#list bl_path_th create {
+    bl.comment {桃花岛};
+    n;n;nu;nu;nu;se;e;n;n;e;w;w;s;w;n;n;n;e;e;e;w;w;w;n;w;wu;eu;wd;ed;nu;ed;wu;sd;e;e;e;e;n;w;e;s;e;w;s;bl.command {look w};bl.command {look e};bl.command {look s};n;w;w;w;s;s;s;s;sd;sd;sd;s;s;
+};
+
+#list bl_path_chzh create {
+    bl.comment {潮州北};
+    n;n;e;w;n;n;s;s;s;s;
+    bl.comment {潮州西};
+    w;n;n;n;s;s;s;s;n;w;n;s;s;n;w;w;sw;nw;w;e;se;ne;e;
+    bl.comment {潮州西->潮州南};
+    s;s;s;e;e;e;sw;s;se;nw;n;ne;n;w;e;n;n;
+    bl.comment {潮州南};
+    e;s;s;n;e;enter;out;w;n;e;nw;se;se;nw;eu;nw;se;ne;sw;ed;ne;ne;ne;se;eu;nd;ne;eu;ed;se;nu;n;s;sd;se;se;nw;nw;nw;wu;wd;sw;e;ed;wu;w;su;wd;w;sw;sw;wu;wd;w;w;
+};
+
+#list bl_path_ydn create {
+    bl.comment {雁荡南};
+    nw;n;s;se;wu;sw;wd;sw;nw;ed;wu;se;ne;ne;nu;nd;w;e;ne;nw;n;nw;enter;out;se;ne;nu;n;e;w;nu;sd;s;sd;s;eu;wd;n;ne;n;nd;nd;ne;sw;su;su;s;se;e;eu;ne;w;e;ne;enter;out;ne;sw;sw;sw;eu;wd;sd;ed;wu;sw;sw;wu;enter;out;ed;sw;nw;se;se;se;wu;nd;nw;su;sd;se;sd;nw;nw;se;se;sd;s;s;n;n;nu;nu;nw;nu;
+};
+
+#list bl_path_tg create {
+    bl.comment {铜官};
+    nw;nd;su;se;n;s;sw;s;sw;wu;ne;ed;n;ne;e;w;su;se;eu;sw;ne;ne;sw;ed;se;nd;n;n;n;s;s;eu;eu;e;w;wd;wd;se;e;se;n;s;nw;w;w;su;se;ed;se;nw;wu;nw;nw;wu;wd;nw;nd;ne;ne;n;e;ne;n;ne;ed;wu;sw;s;sw;w;s;sw;sw;
+};
+
+#list bl_path_jk create {
+    bl.comment {建康北城};
+    n;w;e;e;w;n;w;e;e;w;n;w;e;e;w;n;e;w;n;nw;s;n;n;n;w;e;nu;e;enter;out;w;nw;ne;bl.command {look w};bl.command {look e};sw;se;sd;s;s;nw;se;sw;w;w;n;s;nw;w;e;se;sw;ne;e;su;su;ed;wu;sd;w;wu;sw;s;sw;w;s;sw;sw;ne;ne;n;e;ne;n;ne;ed;s;sd;s;s;n;n;nu;n;e;e;s;w;sw;sw;sd;w;e;nu;ne;ne;e;e;e;s;n;n;s;e;
+    bl.comment {建康南城};
+    e;n;s;s;n;e;ne;w;w;e;e;ne;se;se;e;ed;nu;sd;ne;ne;ne;nw;nw;se;se;e;w;sw;sw;sw;se;se;se;se;s;se;s;n;nw;n;ne;ne;n;s;sw;sw;nw;nw;nw;nw;sw;se;nw;sw;ed;ne;se;n;w;n;e;e;e;e;e;w;w;w;w;w;s;e;s;nw;sw;s;se;se;se;nw;nw;nw;n;wu;sw;w;s;nw;w;w;n;n;n;s;s;s;su;se;ed;se;nw;wu;nw;nd;e;nw;n;n;n;w;e;n;e;e;n;s;e;e;se;s;su;s;n;nd;n;nw;w;w;w;w;w;w;e;e;n;w;e;e;w;n;w;s;n;w;bl.command {look enter};e;e;n;w;e;n;e;
+    bl.comment {都府};
+    bl.command {ask shiwei about 通传};e;s;n;n;s;e;n;n;w;e;e;w;n;n;n;s;s;s;s;s;e;s;n;e;e;w;w;w;s;w;e;e;w;s;s;w;e;e;w;s;e;se;s;s;se;se;nw;nw;n;n;nw;w;s;w;w;w;n;n;n;n;n;
 };
 
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;

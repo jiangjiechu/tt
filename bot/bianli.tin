@@ -98,10 +98,27 @@
         #math bl_path_index ${bl_path_index}-1;
         bl.wait 1;
     };
-    #action {你还在山中跋涉，一时半会恐怕走不出这六盘山！} {
+    #action {^{你忽然不辨方向，不知道该往哪里走了。|你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。|你小心翼翼往前挪动，生怕一不在意就跌落山下。|你还在山中跋涉，一时半会恐怕走不出这藏边群山！|青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。|你还在山中跋涉，一时半会恐怕走不出这西南地绵绵群山！|你还在山中跋涉，一时半会恐怕走不出这六盘山！|山路崎岖，你不得不停下来歇歇脚。}} {
         #math bl_path_index ${bl_path_index}-1;
         bl.wait 1;
     };
+    #action {^此去往东是荒郊野岭} {
+        #math bl_path_index ${bl_path_index}-1;
+        bl.wait 1;
+    };
+    #action {^打手们把门关了起来,黑老板嘿嘿笑了几声......} {
+        bl.walk;
+    };
+
+    #action {^跑堂说道：「林知府府上预订了席面，我们这实在走不开，你可以帮我送去吗？} {
+        give 1 gold to pao tang;
+        look;
+    };
+    #action {^走路太快，你没在意脚下，被杂草绊了一下。} {
+        #math bl_path_index ${bl_path_index}-1;
+        bl.wait 1;
+    };
+
 
     #alias {bl.walk} {
         #var bl_in_action 0;
@@ -148,16 +165,8 @@
 
     #action {遍历结束} {
         unset brief;
-        #if {"${next_area}" != "NULL"} {
-            gt ${next_area};
-            on_there {
-                bl.bianli %1;
-            };
-        };
-        #else {
-            #showme bianli: done;
-            bl.stop;
-        };
+        #showme bianli: done;
+        bl.stop;
     };
     #class bl.start.inner close;
     bl.bianli %1;
@@ -184,12 +193,15 @@
 };
 
 #alias {bl.truce} {
+    #show <afa> in bl.truce;
     on_truce {
         bl.walk;
     };
 };
 #alias {on_truce} {
+    #show <afa> in on_truce;
     #alias tmp_truce %0;
+    #show <afa> tmp_truce :%0;
     #class truce.inner open;
     #action {truce} {
         #class truce.inner kill;
@@ -347,6 +359,7 @@
 
 #alias {on_unbusy} {
     #list unbusy_list add {%0};
+    #show <afa> unbusy_list: $unbusy_list;
     #if {${busying} == 0} {
         do_unbusy;
     };
@@ -362,6 +375,7 @@
     #else {
         #list unbusy_list get ${busy_list_size} busy_action;
         #list unbusy_list delete ${busy_list_size};
+        #show <afa> executing action: $busy_action;
     };
     #if {"${busy_action}" != "nil"} {
         #var busying 1;
@@ -390,22 +404,6 @@
     } {0.5};
     #class unbusy.inner close;
     checkbusy;
-};
-
-#action {^此去往东是荒郊野岭} {
-    #math bl_path_index ${bl_path_index}-1;
-    bl.wait 1;
-};
-
-#action {^跑堂说道：「林知府府上预订了席面，我们这实在走不开，你可以帮我送去吗？} {
-    give 1 gold to pao tang;
-    look;
-};
-#action {^青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {
-
-};
-#action {^走路太快，你没在意脚下，被杂草绊了一下。} {
-    #
 };
 
 #class bianli close;

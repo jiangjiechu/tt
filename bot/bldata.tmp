@@ -6,3 +6,15 @@
     nu;n;n;n;e;e;e;e;e;e;e;e;e;s;s;s;s;s;s;n;n;n;n;n;n;w;w;w;s;s;w;w;w;w;s;s;e;e;e;e;n;n;w;w;w;w;n;n;w;w;s;s;s;s;s;s;s;e;e;e;e;wd;eu;w;w;e;e;wd;
     bl.comment {长安东};
     e;n;w;s;n;se;nw;sw;ne;w;e;n;s;e;n;nw;se;w;e;sw;ne;ne;sw;e;w;se;nw;s;ne;w;e;nw;se;n;s;ne;sw;e;w;se;nw;sw;e;n;s;s;n;w;s;s;n;e;n;n;w;w;e;e;n;n;s;s;e;n;w;e;s;e;e;n;n;n;n;w;w;w;e;e;e;s;s;s;s;e;s;n;se;nd;su;e;e;e;e;e;ed;wu;w;w;w;w;w;nw;s;w;w;w;n;w;nw;ne;sw;se;e;s;w;s;e;w;w;e;s;e;w;w;enter;out;e;s;w;e;se;nw;s;se;e;w;se;nw;w;s;s;s;se;su;nd;nw;sw;sw;sw;sw;w;w;nw;nu;nd;ne;e;s;n;e;w;w;ne;ne;w;nu;sd;e;n;n;n;e;ne;ne;e;n;e;w;ne;sw;s;s;n;w;sw;sw;w;s;s;s;e;e;e;e;e;w;s;s;e;n;
+         #if {"${next_area}" != "NULL"} {
+        gt ${next_area};
+        on_there {
+            bl.bianli %1;
+        };
+        }; 
+        #else {
+            #showme bianli: done;
+            bl.stop;
+        };*/
+    bl.comment {建康北城};
+    n;w;e;e;w;n;w;e;e;w;n;w;e;e;w;n;e;w;n;nw;s;n;n;n;w;e;nu;e;enter;out;w;nw;ne;bl.command {look w};bl.command {look e};sw;se;sd;s;s;nw;se;sw;w;w;n;s;nw;w;e;se;sw;ne;e;su;su;ed;wu;sd;w;wu;sw;s;sw;w;s;sw;sw;ne;ne;n;e;ne;n;ne;ed;s;sd;s;s;n;n;nu;n;e;e;s;w;sw;sw;sd;w;e;nu;ne;ne;e;e;e;s;n;n;s;e;
