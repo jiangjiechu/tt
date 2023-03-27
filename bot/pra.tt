@@ -1,16 +1,25 @@
 #nop 遍历;
+mld;
 #class pra open;
+#alias pd {
+  #showme <afa> 清空路径;
+  #var path_tmp {};
+};
 #alias pn {
   #var in_record 1;
   #var auto_go 1;
   #var path_tmp {};
+  #show <afa> 开始录制，当前路径为[$path_tmp];
 };
 #alias pm {
-  #show $path_tmp;
+  #list path_tmp size _n;
+  #show <afa> 当前路径为：[$path_tmp]  长度：$_n;
 };
 #alias ps {
   #showme  <afa> save path_tmp to %1;
   #var %1 $path_tmp;
+  #var %1 @squeeze{%1};
+  #show %1:${%1};
 };
 #alias pr {
   #list path_tmp add $dir[%1];
@@ -23,8 +32,14 @@
   #list path_tmp add $dir[%1];
   $dir[%1];
 };
+#alias f2 {
+  #list path_tmp add %1;
+};
+#alias b {
+  #showme <afa> 无效方向，回退一格;
+  #list path_tmp delete {-1};
+};
 #action {^%s这里{唯一|明显}的{出口|方向}{有|是}%*} {
-  #showme <afa> 触发成功！;
   #var dir_out ${gmcp_move[1][dir]};
   #list dir_out size n;
   #if {$n > 2} {
@@ -37,7 +52,6 @@
         #var next_dir $_dir;
       }
     };
-    #showme <afa> 上次行动$last_dir要去$next_dir;
     #var last_dir $next_dir;
     #if {$auto_go==1}  {
       #delay {0.2} {
@@ -48,15 +62,6 @@
   };
   #else {
     #showme <afa> 没有路了！;
-    #var next_dir $dir_out[1];
-    #showme <afa> 上次行动$last_dir要去$next_dir;
-    #var last_dir $next_dir;
-    #if {$auto_go==1}  {
-      #delay {0.2} {
-        #list path_tmp add $next_dir;
-        $next_dir;
-      }
-    }
   };
 };
 
@@ -82,6 +87,15 @@
   {u} {up}
   {d} {down}
 };
+#var abr {
+  {north} {n}
+  {south} {s}
+  {east} {e}
+  {west} {w}
+  {up} {u}
+  {down} {d}
+};
+
 #var back {
   {north} {south}
   {south} {north}
@@ -106,6 +120,13 @@
 };
 #function oppose {
   #var result $back[%1]
+};
+#function squeeze {
+  #var result ${%1};
+  #list result collapse {;};
+  #foreach {*abr[]} {_dir} {
+    #replace result {$_dir} {$abr[$_dir]};
+  }
 };
 
 

@@ -20,6 +20,38 @@
     clear %1;
 };
 
+#alias {on_cleared} {
+    #alias tmp_on_cleared %0;
+    #action {clear: done} {
+        #unaction {clear: done};
+        #delay {3} {
+            tmp_on_cleared;
+        };
+    };
+};
+#alias war_prepare {
+    yun recover;
+    yun regenerate;
+    yun powerup;
+};
+
+#gag clear: done;
+#alias {clear} {
+    war_prepare;
+    kill %0;
+    #class clear.inner open;
+    #action {^这里没有这个人} {
+        #unaction {^这里没有这个人};
+        #class clear.inner kill;
+        #nop raw;
+        #showme clear: done;
+    } {1};
+    #ticker {kill} {
+        kill %0;
+    } {3};
+    #class clear.inner close;
+};
+
 #alias {bl.clear_force} {
     on_cleared {
         bl.walk;
@@ -55,14 +87,18 @@
         };
     } {1};
     #action {^%s这里%*的{出口|方向}{是|有}%*$} {
-        #showme <afa> 触发成功~;
+        #showme <afa> 进度~[$bl_path_index / $bl_path_size];
         #if {${bl_in_action} == 0} {
             #delay {bl.delay} {
                 bl.walk;
-            } {0.15};
+            } {0.1};
         } {1};
     };
     #action {你的动作还没有完成，不能移动。} {
+        #math bl_path_index ${bl_path_index}-1;
+        bl.wait 1;
+    };
+    #action {你还在山中跋涉，一时半会恐怕走不出这六盘山！} {
         #math bl_path_index ${bl_path_index}-1;
         bl.wait 1;
     };
@@ -70,7 +106,7 @@
     #alias {bl.walk} {
         #var bl_in_action 0;
         #math bl_path_index ${bl_path_index}+1;
-        #if {${bl_path_index} > ${bl_path_size}} {
+        #if {${bl_path_index} >= ${bl_path_size}} {
             bl.pause;
             #list bl_path create {};
             #showme 遍历结束;
@@ -99,6 +135,7 @@
 };
 
 #alias {bl.start} {
+    set brief 2;
     #var critical_running 1;
     #list bl_connections create {};
     bl.setup;
@@ -110,6 +147,7 @@
     #list connections size connections_count;
 
     #action {遍历结束} {
+        unset brief;
         #if {"${next_area}" != "NULL"} {
             gt ${next_area};
             on_there {
@@ -118,7 +156,6 @@
         };
         #else {
             #showme bianli: done;
-            gt ${original_here};
             bl.stop;
         };
     };
@@ -150,6 +187,27 @@
     on_truce {
         bl.walk;
     };
+};
+#alias {on_truce} {
+    #alias tmp_truce %0;
+    #class truce.inner open;
+    #action {truce} {
+        #class truce.inner kill;
+        on_unbusy {
+            tmp_truce;
+        };
+    };
+    #class truce.inner close;
+    check_health;
+};
+#alias check_health {
+    #class check_health.inner open;
+    #action {你现在气力充沛} {
+        #showme truce;
+        #class check_health.inner kill;
+    };
+    #class check_health.inner close;
+    yun recover;
 };
 
 #alias {bl.wait} {
@@ -264,30 +322,7 @@
 #function {is_bl_action} {
     #regexp {%1} {^bl.action} {#var result 1} {#var result 0};
 };
-#alias {on_cleared} {
-    #alias tmp_on_cleared %0;
-    #action {clear: done} {
-        #unaction {clear: done};
-        #delay {3} {
-            tmp_on_cleared;
-        };
-    };
-};
-#gag clear: done;
-#alias {clear} {
-    kill %0;
-    #class clear.inner open;
-    #action {^这里没有这个人} {
-        #unaction {^这里没有这个人};
-        #class clear.inner kill;
-        #nop raw;
-        #showme clear: done;
-    } {1};
-    #ticker {kill} {
-        kill %0;
-    } {3};
-    #class clear.inner close;
-};
+
 #alias {on_there} {
     #alias tmp_there #cr;
     #alias tmp_there %0;
@@ -308,6 +343,69 @@
             tmp_not_there;
         };
     };
+};
+
+#alias {on_unbusy} {
+    #list unbusy_list add {%0};
+    #if {${busying} == 0} {
+        do_unbusy;
+    };
+};
+
+#var busying 0;
+#list unbusy_list create {};
+#alias {do_unbusy} {
+    #list unbusy_list size busy_list_size;
+    #if {${busy_list_size} == 0} {
+        #var busy_action nil;
+    };
+    #else {
+        #list unbusy_list get ${busy_list_size} busy_action;
+        #list unbusy_list delete ${busy_list_size};
+    };
+    #if {"${busy_action}" != "nil"} {
+        #var busying 1;
+        on_unbusy_inner {
+            ${busy_action};
+            do_unbusy;
+        };
+    };
+    #else {
+        #var busying 0;
+    };
+};
+
+#gag {你不忙};
+#alias {on_unbusy_inner} {
+    #alias tmp_unbusy #cr;
+    #alias tmp_unbusy %0;
+    #class unbusy.inner open;
+    #action {你不忙} {
+        #class unbusy.inner kill;
+        #undelay {delay_unbusy};
+        tmp_unbusy;
+    } {1};
+    #ticker {checkbusy} {
+        checkbusy;
+    } {0.5};
+    #class unbusy.inner close;
+    checkbusy;
+};
+
+#action {^此去往东是荒郊野岭} {
+    #math bl_path_index ${bl_path_index}-1;
+    bl.wait 1;
+};
+
+#action {^跑堂说道：「林知府府上预订了席面，我们这实在走不开，你可以帮我送去吗？} {
+    give 1 gold to pao tang;
+    look;
+};
+#action {^青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。} {
+
+};
+#action {^走路太快，你没在意脚下，被杂草绊了一下。} {
+    #
 };
 
 #class bianli close;

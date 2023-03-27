@@ -1,17 +1,15 @@
 #class bianli_data open
 #list bl_path_xy create {
     bl.comment {往东到荆西镖局，到城中心};
-    s;s;n;w;w;w;w;n;n;s;s;w;w;w;w;w;n;s;w;w;s;sw;ne;n;e;e;e;e;e;e;e;e;e;e;e;e;n;s;s;n;e;
+    s;s;n;w;w;w;w;n;bl.command {look n};s;w;w;w;w;w;n;s;w;w;s;sw;ne;n;e;e;e;e;e;e;e;e;e;e;e;e;n;s;s;n;e;
     bl.comment {往南到荆州};
-    s;w;e;e;w;s;w;e;s;w;e;e;w;s;s;s;s;e;w;s;s;s;s;s;se;bl.clear_force {zei};s;n;nw;n;n;n;n;n;n;n;n;n;n;n;n;
-    bl.comment {往北到蒙古营门};
-    n;e;w;n;w;n;bl.clear_force {bing};u;d;s;e;e;w;n;w;e;e;e;w;w;n;n;n;n;n;n;n;n;s;s;s;s;s;s;s;s;s;s;s;
-    bl.comment {往东城东小路};
-    e;n;s;se;s;w;e;e;w;n;nw;e;n;n;w;e;s;s;e;s;n;e;e;se;e;e;w;w;nw;e;n;s;w;
+    s;w;e;e;w;s;w;e;s;w;e;e;w;s;s;s;s;e;w;s;s;se;sw;ne;eu;se;nw;wd;nw;n;n;n;n;n;bl.command {ask shou jiang about 投军};n;n;n;n;
+    bl.comment {往北环城小路};
+    n;e;w;n;e;w;w;n;bl.command {look u};s;e;n;w;e;e;e;w;w;n;n;n;w;w;w;w;s;s;s;w;w;s;s;s;e;e;e;e;e;e;se;nw;n;n;n;n;se;e;e;w;w;nw;e;n;s;w;
     bl.comment {黑松寨，不包括乱葬岗};
-    eu;e;eu;ed;wu;wd;w;wd;
-    bl.comment {黑松寨到当铺};
-    w;w;w;w;w;w;w;n;
+    eu;e;eu;ed;wu;wd;w;wd;w;w;s;n;w;n;n;w;e;s;s;sw;s;e;w;s;n;w;e;n;nw;n;s;w;
+    bl.comment {往北到蒙古大营};
+    n;n;n;n;n;n;n;n;n;n;n;bl.command {answer 送信};n;bl.command {look n};s;s;s;s;s;s;s;s;s;s;s;s;w;w;n;
 };
 #list bl_path_xch create {
     bl.comment {东面到信阳，曲阜，扬州};
@@ -31,13 +29,13 @@
 };
 #list bl_path_xiny create {
     bl.comment {北面到中原，到小广场};
-    n;n;n;n;n;sw;ne;e;w;s;s;s;s;s;s;
+    n;n;n;n;n;sw;sw;ne;ne;e;se;nw;w;s;s;s;s;s;s;
     bl.comment {西面到襄阳};
     w;n;s;s;n;w;w;nw;e;n;s;w;w;e;se;e;e;e;
     bl.comment {东面到扬州};
-    e;e;e;e;e;se;e;w;nw;w;se;sd;nu;nw;w;w;w;w;
+    e;e;e;e;e;se;e;w;nw;w;se;sd;nu;nw;n;n;s;s;nw;wu;ed;nw;se;se;w;w;w;w;
     bl.comment {南面到渡口};
-    s;w;e;s;s;sd;se;s;n;nw;nu;n;n;n;n;
+    s;w;e;s;s;sd;se;s;n;nw;sw;sw;w;sw;sw;ne;ne;e;su;sd;nu;nd;ne;ne;nu;se;n;s;e;w;nw;n;n;n;n;
 };
 #list bl_path_zj create {
     bl.comment {镇江内部及土路，到南水门};
@@ -177,9 +175,9 @@
     bl.comment {小村方向};
     nd;nd;nu;sd;wd;nd;wd;nd;nw;ne;sw;n;s;w;w;s;n;w;n;s;w;n;s;s;e;w;n;w;s;n;nw;se;e;e;e;e;e;se;su;eu;su;eu;su;su;
     bl.comment {华山方向};
-    sd;wu;u;d;ed;eu;wd;su;s;s;s;e;w;s;n;n;s;w;bl.clear {liang fa};n;s;s;n;w;e;e;n;n;n;
+    wu;ed;sd;eu;wd;su;s;s;bl.clear {lu dayou};s;e;w;s;n;w;s;n;w;e;bl.command {look n};n;s;e;n;n;n;
     bl.comment {从玉女峰到悬崖};
-    e;sd;sd;sd;nu;climb cliff;u;climb west;wd;nu;ed;e;se;n;
+    e;sd;sd;sd;nu;nu;nu;w;
     bl.comment {从玉女峰到苍龙岭};
     nd;nu;
 };
@@ -303,27 +301,32 @@
 };
 
 #list bl_path_sl create {
-    bl.comment {往南到古墓,汝州};
-    w;sd;sd;eu;wd;sd;wd;wd;wu;w;nw;n;w;e;s;se;e;ed;eu;eu;ed;sd;sd;w;nu;w;nw;se;n;n;s;s;ne;sw;e;sd;nw;
-    nw;w;e;se;se;e;e;se;se;n;s;sw;ne;nw;nw;w;nu;nu;wu;nu;nu;nu;e;
     bl.comment {往北到少林寺外广场};
-    eu;e;w;nu;e;w;nu;nu;n;w;e;e;w;s;sd;sd;sd;wd;
+    bl.command {uw all};eu;e;w;nu;e;w;nu;nu;n;w;e;e;w;s;sd;sd;sd;wd;
+    bl.comment {往南到古墓,汝州};
+    w;sd;sd;eu;wd;sd;ed;sd;sd;w;nu;w;nw;se;n;n;s;s;ne;sw;e;sd;e;e;w;nu;nu;wu;
+    bl.comment {往西到环少林、古墓、达摩洞};
+    wd;nw;wu;sw;su;sw;wu;nw;nu;u;nu;nw;wu;sw;nw;wd;sw;sd;ne;nd;nw;wd;wd;nw;wd;sw;sd;wd;wd;wu;w;nw;n;w;e;s;se;e;ed;eu;eu;nu;ne;eu;se;eu;nu;ne;eu;se;se;eu;ne;nu;ne;nu;nw;wu;se;ed;ne;nd;ed;ne;nd;nw;n;wu;nw;nu;ne;u;ed;ne;nd;nw;nd;ne;ed;se;d;enter;w;e;e;w;out;nu;nw;wu;sw;eu;ne;nu;nw;ne;e;se;s;e;
+    bl.comment {达摩洞};
+    sw;se;n;s;w;e;
+    bl.wait {1};w;e;e;s;w;n;nw;n;
+    out;w;n;nw;w;sw;se;sd;sw;wd;ne;ed;se;sd;u;nw;wu;sw;su;se;su;sw;wu;d;sw;sd;se;ed;ne;ed;se;sd;w;sw;s;se;ne;eu;ne;nu;nw;ne;eu;se;su;se;e;ne;n;ed;ne;nd;nw;e;se;e;ne;n;se;eu;ne;nu;ne;eu;se;su;u;sd;se;ed;ne;sw;wu;nw;nu;d;nd;nw;wd;sw;sd;sw;wd;nw;s;sw;w;nw;w;se;su;sw;wu;se;sd;se;ed;ne;ed;se;sd;sw;d;s;sw;s;se;e;nw;wu;sw;su;wu;sw;su;se;w;sw;s;se;n;nw;w;sw;nw;w;sw;s;sw;w;nw;n;nw;sd;e;w;sd;e;w;wd;
+
 };
 #list bl_connections_ly create {
     sl;
 };
 #list bl_path_fzl create {
+    bl.comment {方丈楼楼上};
+    u;n;s;d;
     bl.comment {方丈楼往左上到和尚院,藏经阁};
     w;n;n;n;w;s;w;bl.clear_force {daoyi};u;bl.truce;bl.command {open door};s;n;d;e;s;s;e;e;
     bl.comment {方丈楼往右上到和尚院,防具库};
     e;n;n;n;e;s;bl.command {open door};e;n;n;s;s;w;s;s;w;w;
     bl.comment {方丈楼往上到千佛殿};
     u;n;s;d;n;nu;u;n;s;d;sd;n;w;e;e;w;nu;
-    bl.comment {达摩洞};
-    bl.command {open door};n;sw;se;n;s;w;e;
-    bl.wait {1};w;e;e;s;w;n;nw;n;
-    bl.comment {达摩洞到方丈楼};
-    out;s;sd;s;s;
+    bl.comment {千佛殿到方丈楼};
+    sd;s;s;
     bl.comment {方丈楼往南到后殿};
     w;w;sd;s;s;s;s;s;s;s;s;s;e;n;n;e;s;s;e;n;n;e;sd;s;s;s;s;s;s;s;s;s;w;w;
     bl.comment {后殿到广场9};
@@ -537,20 +540,16 @@
 };
 
 #list bl_path_wd create {
-    bl.comment {武当广场往南};
-    sd;sd;wd;wd;sd;sd;e;sd;sd;sd;ed;e;e;w;w;s;n;wu;nu;nu;nu;w;nu;nu;eu;eu;nu;nu;
-    bl.comment {武当广场往西};
-    sd;wu;wu;nu;wu;wu;nu;nu;wu;ed;n;s;sd;sd;ed;nu;eu;eu;eu;
-    bl.comment {天柱峰忽略, 回到武当广场};
-    wd;wd;wd;sd;ed;sd;ed;ed;nu;
     bl.comment {到北侧门};
-    n;w;w;e;e;e;e;w;w;bl.clear {song};n;w;w;u;d;e;e;e;e;w;w;n;w;w;n;s;u;u;u;d;d;d;e;e;e;w;n;e;n;s;s;n;e;s;n;w;w;n;n;s;s;w;w;
+    n;w;w;e;e;e;e;w;w;bl.clear {zhongnian daozhang};n;w;w;u;d;e;e;e;e;w;w;n;w;w;n;s;u;u;u;d;d;d;e;e;e;w;n;e;n;s;s;n;e;s;n;w;w;n;nu;u;wu;su;eu;nu;nu;sd;sd;wd;nd;ed;d;sd;s;w;w;
     bl.comment {张三丰};
-    bl.clear {zhang};w;sw;s;se;e;ne;n;nw;sw;s;e;bl.command {open door};n;s;e;w;w;w;e;e;s;s;s;s;
+    bl.clear {xiao daotong};w;sw;s;se;e;ne;n;nw;sw;s;e;bl.command {open door};n;s;e;w;w;w;e;e;s;s;s;s;
     bl.comment {武当广场往东};
     ed;e;e;ed;sd;ed;sd;ed;n;s;s;n;e;e;n;s;s;n;e;eu;wd;w;w;w;wu;nu;wu;nu;wu;w;w;wu;
-    bl.comment {小较场};
-    w;n;e;s;s;w;n;e;
+    bl.comment {武当广场往远东};
+    sd;eu;e;e;e;eu;eu;eu;e;e;e;eu;enter;out;eu;eu;ne;nu;nw;ed;sd;se;ed;ne;wu;sw;su;se;wu;nu;eu;su;u;nw;wu;sw;su;wu;ed;nd;ne;ed;se;d;nd;wd;sd;ed;nw;nd;ne;ed;sw;wu;nw;nu;wu;nu;ne;eu;se;u;nu;eu;su;wu;u;eu;nu;eu;ne;nu;nw;nu;ne;eu;se;u;nu;eu;su;wu;u;nu;nu;ed;sd;se;ed;ne;ed;sd;wd;nd;d;sd;se;ed;ne;sd;wd;nd;ed;d;sd;se;ed;ne;eu;su;wu;nu;u;eu;ne;nu;nw;nu;eu;su;wu;u;eu;su;wu;nu;u;u;d;d;sd;ed;nd;wd;d;ed;nd;wd;sd;se;sd;sw;wd;d;sd;ed;nd;wd;sw;wu;nw;nu;u;wu;su;eu;nu;sw;wu;nw;nu;u;su;eu;nu;wu;sw;wu;nw;nu;wu;nu;n;s;eu;wd;sd;wu;nu;nw;wu;sw;nu;eu;su;wu;u;nu;nw;wu;sw;nu;eu;su;wu;u;nu;nw;wu;sw;nu;eu;su;wu;u;wu;sw;nu;nu;nu;nu;nu;nu;nu;nu;bl.command {climb};nu;bl.command {climb};nu;nu;sd;sd;bl.command {climb};sd;bl.command {climb};sd;sd;sd;sd;sd;sd;sd;sd;sd;sd;wd;nd;ed;d;sd;
+    bl.comment {武当广场往南};
+    sd;sd;wd;wd;sd;sd;e;sd;sd;sd;ed;e;e;w;w;s;n;wu;nu;nu;nu;w;nu;nu;eu;eu;nu;nu;
 };
 
 #list bl_path_hhh create {
@@ -616,6 +615,40 @@
 #list bl_path_whw create {
     bl.comment {威海卫};
     n;w;e;n;s;e;w;s;e;n;s;e;e;w;n;s;w;w;s;e;w;w;e;s;w;e;e;bl.command {climb up};bl.wait 3;d;w;w;e;s;n;n;n;w;n;s;s;n;w;s;n;w;w;w;w;w;sw;sw;w;wd;sw;w;e;ne;eu;e;ne;ne;e;e;e;e;e;e;e;
+};
+#list bl_path_hank create {
+    bl.comment {汉口};
+    s;n;e;n;w;w;s;s;s;u;d;s;s;n;ne;ne;e;n;e;eu;e;w;wd;w;n;n;w;w;n;e;w;nu;nd;ne;ne;sw;sw;w;sw;sw;e;w;sw;w;e;ne;ne;ne;e;su;sd;w;e;s;w;w;s;s;w;nw;n;s;se;s;s;se;nw;n;n;e;s;s;se;n;n;n;e;
+};
+
+#list bl_path_jzh create {
+    bl.comment {荆州北部};
+    w;w;n;e;e;ne;n;nw;sw;sw;sw;se;s;w;sw;sd;nu;ne;n;ne;ne;ne;e;ne;nw;n;s;se;eu;se;w;nw;w;s;ed;nu;sd;su;s;n;e;s;enter;out;n;n;se;n;se;se;e;s;s;e;s;eu;e;nu;sd;e;ne;ne;ne;e;w;sw;sw;e;w;sw;w;w;wd;n;w;w;nu;sd;w;nu;wd;s;w;n;s;s;n;w;n;s;w;n;
+    bl.comment {荆州南部};
+    s;s;sw;wu;ed;sw;e;n;n;s;e;s;e;n;s;e;su;bl.command {ask pao tang about 送菜};nd;n;n;e;w;n;n;s;s;w;w;w;e;e;nw;n;s;se;e;s;s;e;n;n;n;e;s;s;s;w;nw;nw;w;w;s;se;bl.clear {shan zei};s;n;nw;n;w;w;w;n;n;n;n;e;e;e;
+};
+
+#list bl_path_haoz create {
+    bl.comment {濠州东};
+    e;e;w;s;n;w;
+    bl.comment {濠州北};
+    n;e;w;w;e;n;e;w;n;e;w;sw;se;nw;s;sw;s;sw;sw;ne;su;ed;se;wu;ed;se;n;n;nw;n;w;e;e;w;n;w;w;e;e;
+};
+#list bl_path_ca create {
+    bl.comment {长安西};
+    s;w;s;w;e;n;w;n;s;s;w;e;e;w;s;e;w;w;e;s;e;w;w;e;s;e;w;w;e;s;e;w;n;n;n;n;w;e;n;n;s;w;s;n;n;s;w;
+    bl.comment {长安外西南};
+    w;s;n;w;sw;su;sd;se;e;e;ne;ne;ne;ne;se;su;nd;nw;n;n;
+    bl.comment {长安南};
+    n;w;e;e;w;n;n;w;e;e;e;w;w;n;
+    bl.comment {长安东};
+    e;n;w;e;n;s;ne;sw;e;n;s;s;n;w;s;s;n;e;n;e;w;n;w;w;e;e;n;n;s;s;e;n;w;e;s;s;n;e;
+    bl.comment {长安外东};
+    e;n;n;n;n;w;w;w;
+    bl.comment {长安外北};
+    n;e;w;ne;sw;s;w;sw;sw;w;s;s;s;sw;sw;ne;ne;n;n;n;e;ne;ne;e;e;e;e;s;s;s;s;e;se;nd;su;e;e;e;e;e;ed;wu;w;w;w;w;w;nw;s;s;
+    bl.comment {长安东南};
+    su;su;su;su;s;n;nd;nd;nd;nd;n;w;w;w;n;s;w;s;e;w;w;e;s;e;w;w;enter;out;e;s;se;nw;w;e;s;se;e;w;se;nw;nw;n;n;n;n;w;w;n;
 };
 
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;

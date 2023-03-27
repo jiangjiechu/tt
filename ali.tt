@@ -473,7 +473,24 @@
 #alias bxsx {#class bxsa kill};
 
 #nop 记录路径
-#alias pra {#class pra read bot/pra.tt};
-#alias prx {#class pra kill};
+#alias pra {
+  #class pra read bot/pra.tt;
+  #showme <afa> 路径录制开始！已有路径$path_tmp 最后地点$_last_place;
+};
+#alias prx {
+  #class pra kill;
+  #var _last_place $gmcp_move[1][short];
+  #show <afa> 路径录制暂停, 当前路径$path_tmp, 地点$_last_place;
+};
+#nop 遍历
+#alias bla {
+  #class bianli read bot/bianli.tin;
+};
+#alias blx {
+  #class bianli_data kill;
+  #class bianli kill;
+  #class war kill;
+  #class util kill;
+};
 
 #class ali close;
