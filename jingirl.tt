@@ -3,7 +3,7 @@
 #var myname ÷ª“ÚΩ„;
 #var li 0;
 #var li1 0;
-#var wp dao;
+#var wp flute;
 #var bian whip;
 
 #var skills {
@@ -37,16 +37,25 @@
   perform jiulong-bian.suo;
 };
 #list sp_skills create {
+    fulong-shou;
     danxin-jian;
     lingding-piao;
     jiulong-bian;
     houquan;
     yunlong-zhua;
 };
-#var n_spskill 5;
+#var n_spskill 7;
 
 
 #alias prep {
+    #if {"$sp_skills[%1]"=="fulong-shou"} {
+        #var skill parry;
+        unwield all;
+        bei none;
+        jifa hand fulong-shou;
+        bei fulong-shou;
+        jifa parry fulong-shou;
+    };
     #if {"$sp_skills[%1]"=="yunlong-zhua"} {
         #var skill parry;
         unwield all;
