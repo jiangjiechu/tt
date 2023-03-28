@@ -10,7 +10,7 @@
 #alias {bl.command} {
     #alias tmp_command %1;
     tmp_command;
-    #delay 0.5 {
+    #delay 0.1 {
         bl.walk;
     };
 };
@@ -44,6 +44,21 @@
 #gag clear: done;
 #alias {clear} {
     war_prepare;
+    kill %0;
+    #class clear.inner open;
+    #action {^这里没有这个人} {
+        #unaction {^这里没有这个人};
+        #class clear.inner kill;
+        #nop raw;
+        #showme clear: done;
+    } {1};
+    #ticker {kill} {
+        kill %0;
+    } {3};
+    #class clear.inner close;
+};
+#alias {clear_all} {
+    war_prepare;
     killall %0;
     #class clear.inner open;
     #action {^这里没有这个人} {
@@ -64,6 +79,12 @@
     };
     clear %1;
 };
+#alias {bl.clear_all} {
+    on_cleared {
+        bl.walk;
+    };
+    clear_all %1;
+};
 
 #alias {bl.stop} {
     #var critical_running 0;
@@ -75,6 +96,7 @@
     unset brief;
     #class bl.action.inner kill;
     #class bl.inner kill;
+    #unticker bl.action.inner.tic;
     #undelay {bl.delay};
 };
 
@@ -99,7 +121,7 @@
             #delay {bl.delay} {
                 bl.walk;
             } {0.1};
-        } {1};
+        }; 
     };
     #action {你的动作还没有完成，不能移动。} {
         #math bl_path_index ${bl_path_index}-1;
@@ -108,6 +130,10 @@
     #action {你逃跑失败。} {
         #math bl_path_index ${bl_path_index}-1;
         bl.truce;
+    };
+    #action {%*几乎没有路了，你走不了那么快。} {
+        #math bl_path_index ${bl_path_index}-1;
+        bl.wait 1;
     };
     #action {^{你忽然不辨方向，不知道该往哪里走了。|你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。|你小心翼翼往前挪动，生怕一不在意就跌落山下。|你还在山中跋涉，一时半会恐怕走不出这藏边群山！|青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。|你还在山中跋涉，一时半会恐怕走不出这西南地绵绵群山！|你还在山中跋涉，一时半会恐怕走不出这六盘山！|山路崎岖，你不得不停下来歇歇脚。}} {
         #math bl_path_index ${bl_path_index}-1;
@@ -352,6 +378,28 @@
         bl.walk;
     };
     #class bl.action.inner close;
+};
+#alias bl.action.yhb {
+  unset brief;
+  #class bl.action.inner open;
+    #action {%*根本就弄不清自己身在何处。$} {
+      #showme <afa> 未找到出口，继续往南;
+      #tic bl.action.inner.tic {
+        s;
+        #untic bl.action.inner.tic;
+      } 0.5;
+    };
+    #action {一条小道通向前方} {
+      #showme <afa> 找到出口，继续遍历;
+      #class bl.action.inner kill;
+      #tic bl.action.inner.tic {
+        #untic bl.action.inner.tic;
+        n;
+        bl.walk;
+      } 0.5;
+    };
+  #class bl.action.inner close;
+  s;
 };
 
 #function {is_bl_action} {

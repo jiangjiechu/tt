@@ -32,3 +32,7 @@
     nu;nu;bl.truce;nu;bl.truce;w;bl.truce;w;bl.truce;e;e;bl.command {look n};sd;sd;sd;
     bl.comment {隐者};
     s;s;w;w;e;s;n;n;n;n;n;n;
+
+    bl.comment {大殿东西两侧};
+    w;w;s;w;e;e;w;s;w;e;e;w;n;n;n;w;e;e;w;n;w;e;e;w;n;n;s;e;n;s;w;w;w;w;n;s;e;e;e;s;s;s;w;
+    w;nu;sd;sw;nd;nd;su;su;ne;e;e;e;e;e;e;n;w;e;e;w;n;w;e;e;w;n;n;s;w;n;s;w;e;e;e;e;w;w;s;s;s;e;eu;wd;w;s;w;e;e;w;s;w;e;e;w;n;n;w;w;

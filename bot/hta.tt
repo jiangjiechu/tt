@@ -1,10 +1,10 @@
 #nop 海棠
 #class hta open;
-#re bot/hua_data.tt;
-
 #tic {hta} {#untic hta;htaa} {2};
-#alias {htaa} {ask zhang about job};
-#alias {htd} {give zhang core;htx;};
+#re bot/hua_data.tt;
+#alias {htaa} {ask hua about job};
+#action {^花小贱说道：「我正在制作一种叫做%!*，主料需要%*一朵，辅料需%*、%*各一朵，你去帮我弄来吧。」}
+#alias {htd} {give $hua core;htx;};
 #alias {htf} {ask zhang about fail;htx;};
 #alias {start} {
   set walk_speed 2;

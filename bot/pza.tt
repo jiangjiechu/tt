@@ -16,11 +16,13 @@
 };
 
 #alias pzd {
+	set skip_combat 3;
 	#class zhanbu.maze kill;
 	#class zhanbu.maze.kill kill;
 	gf bosss;
 	ask lu chengfeng about ∆∆’ÛΩ±¿¯};
 #alias pzf {
+	set skip_combat 3;
 	#class zhanbu.maze kill;
 	#class zhanbu.maze.kill kill;
 	ask lu chengfeng about ∆∆’Û ß∞‹};

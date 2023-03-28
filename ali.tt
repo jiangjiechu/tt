@@ -492,5 +492,8 @@
   #class war kill;
   #class util kill;
 };
+#alias mg.yhb {
+  s;s;w;w;s;n;
+};
 
 #class ali close;

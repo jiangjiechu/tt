@@ -96,15 +96,15 @@
     nw;nw;nw;w;w;w;n;n;
 };
 #list bl_path_qfa create {
-    bl.comment {大殿东西两侧};
-    w;w;s;w;e;e;w;s;w;e;e;w;n;n;n;w;e;e;w;n;w;e;e;w;n;n;s;e;n;s;w;w;w;w;n;s;e;e;e;s;s;s;w;
-    w;nu;sd;sw;nd;nd;su;su;ne;e;e;e;e;e;e;n;w;e;e;w;n;w;e;e;w;n;n;s;w;n;s;w;e;e;e;e;w;w;s;s;s;e;eu;wd;w;s;w;e;e;w;s;w;e;e;w;n;n;w;w;
     bl.comment {大殿向北到云海};
     n;n;n;u;d;n;w;w;e;n;s;s;n;e;n;n;n;n;s;s;ne;ne;n;s;se;e;w;nw;sw;se;s;se;nw;n;nw;sw;nw;sw;w;nw;w;e;se;e;ne;nw;
-    n;w;e;s;e;e;n;n;n;s;s;mg.yhb;se;se;s;s;s;s;s;s;
+    n;w;e;s;e;e;n;n;n;s;s;
+    bl.action.yhb;
+    se;se;s;s;s;s;s;s;
     bl.comment {大殿向南到成都};
     s;s;sd;ed;eu;e;w;wd;sd;sd;sd;s;wd;sd;sd;wd;n;s;w;enter;out;w;e;s;e;w;sd;sd;s;se;
-    e;nd;nd;nd;n;n;s;s;su;sw;sw;s;n;ne;ne;su;su;w;nw;n;nu;nu;n;e;eu;nu;nu;eu;n;nu;nu;nu;wu;nu;n;n;
+    e;nd;nd;nd;n;n;s;s;su;sw;sw;s;n;ne;ne;su;su;w;nw;n;nu;nu;n;e;eu;nu;nu;eu;
+    bl.clear_all {dizi};bl.clear_all {shitai};n;bl.clear_all {shitai};nu;nu;nu;wu;nu;n;n;
 };
 #list bl_path_lz create {
     bl.comment {皇宫};
@@ -217,12 +217,12 @@
     nd;nu;
 };
 #list bl_path_zp create {
+    bl.comment {赞普以西};
+    w;w;n;s;w;nw;ne;n;s;s;n;w;nw;se;e;sw;se;e;e;e;
     bl.comment {赞普以北};
     n;w;e;e;w;n;ne;e;nd;w;e;e;w;n;w;e;e;w;n;w;e;e;ne;n;ne;n;n;n;n;w;e;e;w;n;s;s;s;s;s;sw;s;sw;w;s;s;su;w;sw;s;n;n;nu;ne;sw;sd;eu;wd;s;s;s;
     bl.comment {赞普以南};
     e;w;s;w;e;e;w;s;w;e;e;w;s;e;se;se;ed;ed;ed;e;e;s;n;w;w;wu;wu;wu;nw;nw;w;n;n;n;
-    bl.comment {赞普以西};
-    w;w;n;s;w;nw;ne;n;s;s;n;w;nw;se;e;sw;se;e;e;e;
 };
 #list bl_path_xz create {
     bl.comment {小镇以北};
@@ -231,12 +231,12 @@
     se;n;n;s;s;se;sd;e;n;n;s;s;e;w;w;nu;sw;sd;e;w;sw;ne;nu;ne;wd;bl.truce;bl.command {open men};eu;nw;nw;
 };
 #list bl_path_xx create {
-    bl.comment {西边};
-    s;wu;nw;ne;ne;sw;sw;sw;sw;ne;ne;se;ed;n;
-    bl.comment {星宿海};
-    bl.clear {tianlang zi};n;nd;n;nw;w;e;ne;se;eu;wd;sw;n;s;s;su;
-    bl.comment {回到湖泊};
-    nu;n;bl.clear {chuchen zi};enter;out;n;w;w;n;n;s;s;e;e;s;s;sd;s;
+    bl.comment {巨岩->湟中};
+    eu;eu;e;s;e;w;n;se;nw;w;wd;wd;
+    bl.comment {巨岩->星宿海->湖泊};
+    bl.clear {haoshou};n;nd;n;nw;w;bl.clear {caihua zi};enter;out;e;ne;se;eu;wd;sw;bl.command {look north};s;su;
+    bl.comment {湖泊->小路->巨岩};
+    nu;n;bl.truce;enter;out;n;w;w;n;n;s;s;e;e;s;s;sd;s;
 };
 
 #list bl_connections_jx create {
@@ -300,7 +300,7 @@
 
 #list bl_path_kf create {
     bl.comment {王府大门->大厅};
-    s;w;e;e;w;s;s;
+    bl.clear_all {guan bing};s;w;e;e;w;s;s;
     bl.comment {大厅->后堂};
     w;s;e;e;n;w;s;s;
     bl.comment {后堂->小院};
@@ -447,11 +447,12 @@
 
 #list bl_path_mj create {
     bl.comment {半山门往北};
-    w;e;nu;nu;nu;s;n;w;e;e;w;n;s;nu;w;e;n;w;w;e;e;e;e;w;n;s;w;n;n;w;n;n;n;n;s;s;s;s;e;e;nd;nd;nd;n;bl.command {open door};n;w;e;e;w;n;s;s;s;su;su;su;w;s;s;s;sd;sd;sd;sd;
+    w;e;nu;nu;nu;s;n;w;e;e;w;n;s;
+    bl.clear {qi zhong}; nu;w;e;n;w;w;e;e;e;e;w;n;s;w;n;n;w;n;n;n;n;s;s;s;s;e;e;nd;nd;nd;n;bl.command {open door};n;w;e;e;w;n;s;s;s;su;su;su;w;s;s;s;sd;sd;sd;sd;
     bl.comment {到绿柳山庄};
     sd;se;e;n;s;e;w;s;n;w;s;bl.truce;w;n;s;e;e;w;sw;ne;se;e;e;e;e;s;s;s;s;e;e;e;e;se;nw;w;w;w;w;w;w;w;n;n;n;w;w;w;sw;w;se;
     bl.comment {绿柳};
-    n;w;e;n;w;n;e;e;s;w;s;s;nw;e;ne;nw;n;nw;nu;
+    bl.clear {ding};n;w;e;n;w;n;e;e;s;w;s;s;nw;e;ne;nw;n;nw;nu;
 };
 
 #list bl_connections_xh create {
@@ -562,7 +563,10 @@
 };
 
 #list bl_path_jyg create {
-    se;e;se;e;e;sw;sw;ne;ne;ne;ne;sw;sw;w;w;nw;climb mount;w;e;ne;w;nw;
+    bl.comment {嘉峪关->兰州西门};
+    se;e;se;e;e;ne;nw;nw;se;se;sw;w;w;nw;
+    bl.comment {兰州西门->月牙泉->嘉峪关};
+    bl.command {climb mount};w;e;ne;w;nw;
 };
 
  #nop 土匪;
@@ -968,10 +972,27 @@
     bl.comment {宫城->南大街->城外土路->西城门};
     w;s;s;s;n;n;n;w;n;
     bl.comment {西城门->星宿};
+    w;wd;wd;eu;eu;e;
     bl.comment {西城门->青塘北门};
+    se;n;n;w;e;n;n;e;enter;out;w;
     bl.comment {青塘北门->沙石地->青塘北门};
+    ne;ne;n;ne;n;n;s;s;sw;s;sw;sw;
     bl.comment {青塘北门->东城->湟中中心};
+    s;e;s;s;e;n;enter;out;s;s;s;n;w;s;n;w;s;
     bl.comment {湟中中心->兰州->宫城};
+    e;e;e;se;se;e;w;se;se;nw;nw;nw;nw;w;w;sw;
+};
+
+#list bl_path_gd create {
+    bl.comment {谷底->玉璧};
+    e;se;sw;sw;sw;sw;s;e;n;w;n;w;
+    bl.comment {玉璧->巨石};
+    e;s;ne;ne;ne;n;s;s;
+    bl.comment {巨石->洞门};
+    bl.command {push stone};s;e;ed;ed;
+    bl.comment {洞门->天龙寺};
+    bl.command {push men};e;n;s;e;bl.command {look n};w;s;out; bl.command_halt {guo};
+    s;se;wu;
 };
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;
 #class bianli_data close

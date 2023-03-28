@@ -1,6 +1,7 @@
 #class fska open;
 #tic {fskaa} {
     #show <afa>¿ªÊ¼fsk...;
+    #var lw-or-lx lx;
     #var cd 0;
     #var lei 0;
     #var kujie 0;
