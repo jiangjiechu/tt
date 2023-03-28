@@ -380,15 +380,16 @@
 };
 
 #list bl_path_sz create {
+    bl.comment {宝带桥往西};
+    nw;n;s;s;n;nw;se;w;n;s;s;n;w;w;w;w;nw;enter;e;out;n;s;enter;w;out;se;s;n;w;nw;se;e;e;e;e;e;e;se;
     bl.comment {宝带桥往南};
     s;w;e;ne;sw;e;ne;sw;e;se;e;s;n;w;nw;w;w;w;e;sw;ne;s;w;w;w;sw;ne;e;e;e;e;w;s;s;s;w;e;e;w;s;n;n;n;n;n;n;
-    bl.comment {宝带桥往西};
-    nw;n;s;s;n;nw;se;w;n;s;s;n;w;w;w;w;nw;enter;e;out;n;s;enter;w;out;se;s;n;w;nw;ne;se;n;s;nw;sw;se;w;e;e;e;e;e;e;e;se;
     bl.comment {宝带桥往东};
     ne;n;n;s;s;s;n;e;nw;w;sw;ne;e;se;s;n;n;s;e;e;e;e;w;w;w;w;w;sw;
     bl.comment {宝带桥往北};
     n;n;sw;n;s;ne;e;e;w;w;n;w;e;e;w;n;n;sw;s;w;wu;ed;eu;s;nw;se;e;n;s;w;n;n;s;ne;n;s;
-    sw;wd;e;n;ne;n;nw;n;nw;nw;nw;se;se;se;ne;ne;nw;n;s;se;n;nw;nw;w;e;se;s;n;se;ne;ne;nw;se;sw;sw;s;sw;sw;s;se;s;s;s;s;s;s;
+    bl.comment {青石官道};
+    sw;wd;e;n;ne;n;nw;n;nw;nw;nw;se;se;se;ne;ne;n;nw;nw;w;n;s;w;e;s;n;e;se;se;ne;ne;sw;sw;s;sw;sw;s;se;s;s;s;s;s;s;
 };
 
 #list bl_path_xc create {
@@ -447,7 +448,7 @@
     bl.comment {茶花林};
     e;e;e;s;w;e;n;w;n;n;e;s;e;w;n;w;s;s;e;e;w;w;w;
     bl.comment {其他};
-    s;w;nw;w;w;sw;bl.command {open door};w;bl.clear {yan};e;se;e;e;ne;e;n;
+    s;w;nw;w;w;sw;bl.command {open door};w;bl.clear {yan};e;se;e;e;bl.command {look s};ne;e;n;
 };
 
 #list bl_path_sd create {
@@ -510,16 +511,18 @@
 
 #list bl_path_taih create {
     bl.comment {往西到苏州};
-    w;w;w;w;w;s;e;s;nw;sw;se;w;e;e;nw;se;s;n;e;w;w;nw;ne;se;n;w;n;e;e;e;e;e;
-    bl.comment {往北到黑风山洞};
-    bl.comment {往东到归云亭};
-    e;n;s;s;e;w;n;e;n;u;d;s;s;n;e;e;enter;nu;nu;w;e;
+    w;w;w;w;w;s;e;s;nw;sw;wu;ne;sw;sw;ne;ed;s;n;
+    ne;se;n;w;n;e;e;e;e;e;
+    bl.comment {迷魂阵};
+    e;s;e;bl.command {tell shouyin shouyin}; bl.command {give shouyin to shen ling};bl.wait 1;s;e;n;w;s;w;e;e;e;n;bl.command {break men};s;s;
     bl.comment {归云亭到后花园};
-    e;e;n;n;w;n;s;s;n;w;w;e;e;e;s;s;s;w;e;bl.clear_force {zong};s;n;n;e;e;e;s;n;
-    bl.comment {回到太湖};
-    w;w;w;w;w;sd;sd;out;w;w;w;w;
+    e;e;n;n;w;n;s;s;n;w;w;e;e;e;s;s;s;w;e;bl.clear_force {zong};s;n;n;e;e;e;s;n;w;w;w;w;w;
+    bl.comment {归云亭回到太湖桥};
+    w;e;sd;sd;out;w;w;n;u;d;s;s;n;w;n;s;w;
     bl.comment {黑风山};
-    nu;nu;bl.truce;nu;bl.truce;w;bl.truce;w;bl.truce;e;e;n;bl.truce;n;bl.truce;s;s;sd;sd;sd;
+    nu;nu;bl.truce;nu;bl.truce;w;bl.truce;w;bl.truce;e;e;bl.command {look n};sd;sd;sd;
+    bl.comment {隐者};
+    s;s;w;w;e;s;n;n;n;n;n;n;
 };
 
 #list bl_path_cd create {
@@ -705,6 +708,36 @@
     e;n;s;s;n;e;ne;w;w;e;e;ne;se;se;e;ed;nu;sd;ne;ne;ne;nw;nw;se;se;e;w;sw;sw;sw;se;se;se;se;s;se;s;n;nw;n;ne;ne;n;s;sw;sw;nw;nw;nw;nw;sw;se;nw;sw;ed;ne;se;n;w;n;e;e;e;e;e;w;w;w;w;w;s;e;s;nw;sw;s;se;se;se;nw;nw;nw;n;wu;sw;w;s;nw;w;w;n;n;n;s;s;s;su;se;ed;se;nw;wu;nw;nd;e;nw;n;n;n;w;e;n;e;e;n;s;e;e;se;s;su;s;n;nd;n;nw;w;w;w;w;w;w;e;e;n;w;e;e;w;n;w;s;n;w;bl.command {look enter};e;e;n;w;e;n;e;
     bl.comment {都府};
     bl.command {ask shiwei about 通传};e;s;n;n;s;e;n;n;w;e;e;w;n;n;n;s;s;s;s;s;e;s;n;e;e;w;w;w;s;w;e;e;w;s;s;w;e;e;w;s;e;se;s;s;se;se;nw;nw;n;n;nw;w;s;w;w;w;n;n;n;n;n;
+};
+#list bl_path_yx create {
+    bl.comment {义兴};
+    n;n;se;nw;nw;w;n;w;e;e;w;n;s;s;s;n;e;e;n;s;w;se;s;s;e;w;enter;out;w;wd;eu;nw;sw;sw;ne;ed;wu;ne;ne;sw;se;e;s;s;se;nw;n;n;
+};
+#list bl_path_huz create {
+    bl.comment {湖州北};
+    n;s;w;e;e;n;n;w;e;nw;nw;nw;n;wu;ed;ne;se;n;w;n;e;e;e;e;e;w;w;w;w;w;s;e;s;nw;sw;s;se;se;se;ne;sw;s;s;e;bl.clear {ya yi};enter;out;w;w;
+    bl.comment {湖州西};
+    s;w;w;nw;wu;nw;nd;su;nw;wu;ed;se;se;ed;se;s;s;su;u;d;nd;e;e;sw;e;w;s;n;ne;n;n;ne;w;enter;out;e;ne;w;n;
+    bl.comment {湖州东};
+    e;s;e;sw;sw;ne;ne;ne;sw;eu;ed;ne;sw;sw;sw;e;e;e;w;n;n;se;enter;out;nw;nu;u;d;sd;e;e;e;ed;se;se;sd;e;w;nu;nw;nw;wu;w;w;w;w;wu;wd;w;n;w;
+};
+
+#list bl_path_gz create {
+    bl.comment {广州北};
+    n;e;w;w;enter;out;e;n;bl.command {look enter};s;s;
+    bl.comment {广州西城};
+    w;n;s;s;n;w;w;s;e;w;s;n;n;nw;n;s;sw;nw;se;s;w;e;s;n;e;w;n;ne;se;e;e;e;
+    bl.comment {广州南};
+    s;w;e;e;w;sw;ne;s;se;e;e;e;w;n;n;w;e;e;w;n;se;u;d;nw;e;w;sw;ne;w;u;d;e;nw;d;u;se;n;e;w;w;w;e;s;n;n;s;e;n;e;e;ne;e;ne;eu;ne;nu;sd;sw;wd;sw;w;sw;nw;nw;sw;sw;w;ne;sw;se;s;n;nw;w;
+};
+
+#list bl_path_py create {
+    bl.comment {河北南部到大名府};
+    se;sw;ne;nw;eu;wd;sw;s;n;sw;sw;w;w;w;sd;nu;w;nw;w;nw;se;e;se;e;e;e;e;ne;n;ne;n;eu;ed;
+    bl.comment {河北北部到沧州};
+    nw;nw;nw;n;nw;se;n;nd;nu;n;w;wu;sw;sw;w;e;ne;ne;ed;e;e;e;w;w;ne;wu;enter;out;ed;ne;ne;ne;nw;nw;nw;nw;nw;sw;w;e;ne;se;se;se;se;se;ne;se;se;nw;nw;ne;enter;out;ne;w;e;ne;w;u;d;w;sw;ne;e;e;n;n;w;enter;out;e;ne;n;s;ne;n;s;se;se;e;w;sw;e;w;w;w;w;nw;nw;nw;se;se;se;sw;sw;se;se;w;e;se;w;w;e;e;e;e;nw;se;eu;wd;n;ne;n;n;n;s;s;s;sw;s;
+    bl.comment {沧州返回};
+    se;eu;wd;s;ed;wu;sw;sw;nw;w;nw;nw;nw;se;se;w;w;sw;sw;e;w;sw;w;w;e;e;ne;se;s;s;ne;e;e;se;nw;nw;n;n;s;s;se;ne;ne;ne;sw;sw;sw;w;w;sw;sw;e;w;s;
 };
 
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;

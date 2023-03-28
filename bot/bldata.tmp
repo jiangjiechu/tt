@@ -18,3 +18,17 @@
         };*/
     bl.comment {建康北城};
     n;w;e;e;w;n;w;e;e;w;n;w;e;e;w;n;e;w;n;nw;s;n;n;n;w;e;nu;e;enter;out;w;nw;ne;bl.command {look w};bl.command {look e};sw;se;sd;s;s;nw;se;sw;w;w;n;s;nw;w;e;se;sw;ne;e;su;su;ed;wu;sd;w;wu;sw;s;sw;w;s;sw;sw;ne;ne;n;e;ne;n;ne;ed;s;sd;s;s;n;n;nu;n;e;e;s;w;sw;sw;sd;w;e;nu;ne;ne;e;e;e;s;n;n;s;e;
+
+    bl.comment {往西到苏州};
+    w;w;w;w;w;s;e;s;nw;sw;wu;ne;sw;sw;ne;ed;s;n;
+    ne;se;n;w;n;e;e;e;e;e;
+    bl.comment {往东到归云亭};
+    e;n;s;s;e;w;n;e;n;u;d;s;s;n;e;e;enter;nu;nu;w;e;
+    bl.comment {归云亭到后花园};
+    e;e;n;n;w;n;s;s;n;w;w;e;e;e;s;s;s;w;e;bl.clear_force {zong};s;n;n;e;e;e;s;n;
+    bl.comment {回到太湖};
+    w;w;w;w;w;sd;sd;out;w;w;w;w;
+    bl.comment {黑风山};
+    nu;nu;bl.truce;nu;bl.truce;w;bl.truce;w;bl.truce;e;e;bl.command {look n};sd;sd;sd;
+    bl.comment {隐者};
+    s;s;w;w;e;s;n;n;n;n;n;n;

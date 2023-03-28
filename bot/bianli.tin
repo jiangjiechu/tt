@@ -10,7 +10,9 @@
 #alias {bl.command} {
     #alias tmp_command %1;
     tmp_command;
-    bl.walk;
+    #delay 0.5 {
+        bl.walk;
+    };
 };
 
 #alias {bl.clear} {
@@ -97,6 +99,10 @@
     #action {你的动作还没有完成，不能移动。} {
         #math bl_path_index ${bl_path_index}-1;
         bl.wait 1;
+    };
+    #action {你逃跑失败。} {
+        #math bl_path_index ${bl_path_index}-1;
+        bl.truce;
     };
     #action {^{你忽然不辨方向，不知道该往哪里走了。|你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。|你小心翼翼往前挪动，生怕一不在意就跌落山下。|你还在山中跋涉，一时半会恐怕走不出这藏边群山！|青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。|你还在山中跋涉，一时半会恐怕走不出这西南地绵绵群山！|你还在山中跋涉，一时半会恐怕走不出这六盘山！|山路崎岖，你不得不停下来歇歇脚。}} {
         #math bl_path_index ${bl_path_index}-1;
