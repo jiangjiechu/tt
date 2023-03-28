@@ -19,7 +19,9 @@ mld;
   #showme  <afa> save path_tmp to %1;
   #var %1 $path_tmp;
   #var %1 @squeeze{%1};
-  #show %1:${%1};
+  #show %1:;
+  #show ${%1};
+  #var path_tmp {};
 };
 #alias pr {
   #list path_tmp add $dir[%1];

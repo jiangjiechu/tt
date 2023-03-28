@@ -14,6 +14,10 @@
         bl.walk;
     };
 };
+#alias {bl.command_halt} {
+    #alias tmp_command %1;
+    tmp_command;
+};
 
 #alias {bl.clear} {
     on_cleared {
@@ -40,7 +44,7 @@
 #gag clear: done;
 #alias {clear} {
     war_prepare;
-    kill %0;
+    killall %0;
     #class clear.inner open;
     #action {^这里没有这个人} {
         #unaction {^这里没有这个人};
@@ -68,6 +72,7 @@
 };
 
 #alias {bl.pause} {
+    unset brief;
     #class bl.action.inner kill;
     #class bl.inner kill;
     #undelay {bl.delay};
@@ -114,6 +119,18 @@
     };
     #action {^打手们把门关了起来,黑老板嘿嘿笑了几声......} {
         bl.walk;
+    };
+    #action {^你从上面爬了下来，衣服都烂了，看起来十分狼狈。} {
+        #delay 0.5 {bl.walk}
+    };
+    #action {^你从下面爬了上来，衣服都烂了，看起来十分狼狈。} {
+        #delay 0.5 {bl.walk}
+    };
+    #action {^东面是一面悬崖，荆棘遍布，山腰似乎有个洞(hole)。} {
+        #delay 0.5 {bl.walk}
+    };
+    #action {^那个洞黑乎乎的，不知道有什么。} {
+        #delay 0.5 {bl.walk}
     };
 
     #action {^跑堂说道：「林知府府上预订了席面，我们这实在走不开，你可以帮我送去吗？} {
@@ -170,7 +187,6 @@
     #list connections size connections_count;
 
     #action {遍历结束} {
-        unset brief;
         #showme bianli: done;
         bl.stop;
     };
@@ -222,10 +238,11 @@
     #class check_health.inner open;
     #action {你现在气力充沛} {
         #showme truce;
+        #untic xq1;
         #class check_health.inner kill;
     };
     #class check_health.inner close;
-    yun recover;
+    #tic {xq1} {yun recover} {0.5};
 };
 
 #alias {bl.wait} {

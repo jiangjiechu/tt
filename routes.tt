@@ -29,7 +29,10 @@
 #list Route_taih_sz create {w}{w}{w}{w}{w}{s}{e}{s}{nw}{sw}{wu}{ne}{ne}{se}{se}{se}{se}{s}{se}{s}{s}{s}{s}{s}{s};
 
 #list Route_zjc_bj create {s;s;s;s;s;s;s;s};
-#list Route_bj_zjc create {n;n;n;n;n;n;n;n};
+#list Route_bj_zjc create {unwield all} {n} {n} {n} {n} {n} {n} {n} {n};
+
+#list Route_bj_bjc create {unwield all} {n} {n} {n} {n} {n};
+#list Route_bjc_bj create {s;s;s;s;s};
 
 #list Route_lanz_huangz create {w;w;w;w;nw;nw;w;w;w;s;s};
 #list Route_huangz_lanz create {n;n;e;e;e;se;se;e;e;e;e};
@@ -366,7 +369,7 @@
 #list Route_tls_wjg create {ed} {nw} {n};
 #list Route_sy_fengd create {s} {nw} {busy1} {nu} {n} {n} {nu} {eu} {n} {nu} {nu} {nu} {wu} {nu}{busy2};
 #list Route_fengd_sy create {sd} {ed} {sd} {sd} {sd} {s} {wd} {sd} {s} {s} {sd} {se} {n};
-#list Route_sy_sld create {s} {nw} {s} {wd} {sd} {sd} {s} {s} {w};
+#list Route_sy_sld create {s} {nw} {s} {wd} {sd} {sd} {s} {s} {s} {s} {w};
 #list Route_sld_sy create {e} {e} {e} {e} {e} {e} {e} {e} {e} {e} {e} {nu} {nu} {eu} {n} {se} {n};
 #list Route_sld_tgk create {s} {shenlongboat} {stop};
 #list Route_tgk_sld create {ask chuan fu about ³öº£} {shenlongboat} {stop} {n};

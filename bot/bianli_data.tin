@@ -53,24 +53,47 @@
 #list bl_connections_jy create {
     zjk;ry;bj;
 };
-#list bl_path_jy create {
+#list bl_path_xbh create {
     bl.comment {晋阳内城,不包括城墙,到达金肃门};
     e;n;n;e;e;sw;sw;w;sw;s;s;e;n;ne;e;ne;e;e;s;s;w;w;w;sw;s;e;ne;sw;s;n;e;ne;sw;e;e;ne;n;enter;out;s;sw;s;s;sw;e;w;n;s;w;w;n;n;w;w;
-    bl.comment {金肃门到黄河};
-    sw;sw;sw;s;n;ne;ne;ne;
-    bl.comment {金肃门沿城墙到张家口,停止在怀德门};
-    n;n;n;e;e;e;n;nu;nu;ne;n;s;ne;sw;sw;sd;sd;s;
-    bl.comment {怀德门到日月和北京,停止在朝曦门};
-    e;e;e;sw;sw;sw;e;e;nu;n;ne;nu;nu;sd;sd;sw;s;sd;ne;ne;n;s;s;n;sw;sw;w;w;
-    bl.comment {剩下的城墙};
-    sw;sw;s;w;w;w;w;w;nw;n;n;n;e;n;n;w;
+    bl.comment {金肃门->甘亭镇};
+    sw;s;sw;sw;s;e;w;s;sw;w;e;eu;wd;
+    bl.comment {甘亭镇->晋州};
+    su;sd;s;w;enter;out;e;e;w;
+    bl.comment {晋州->风陵渡镇};
+    s;su;sw;sw;w;wd;wu;ed;sw;wd;eu;sw;e;n;s;sw;ne;
+    bl.comment {风陵渡镇->轵关陉->济源};
+    w;ne;ne;eu;e;ne;ne;se;e;se;e;sd;nu;e;e;e;ne;sw;w;w;w;w;nw;w;nw;nd;n;n;nu;nd;ne;n;n;ne;ne;n;ne;
+    bl.comment {金肃门->城墙->怀德门};
+    n;n;n;e;e;e;
+    bl.comment {怀德门->代州->怀德门};
+    n;ne;n;nu;n;s;sd;s;sw;s;
+    bl.comment {怀德门->城墙->朝曦门};
+    e;e;e;sw;sw;sw;
+    bl.comment {朝曦门->河北->朝曦门};
+    e;e;nu;n;ne;nu;nu;sd;sd;sw;s;sd;e;ne;ne;ed;e;w;wu;sw;sw;w;w;w;
+    bl.comment {朝曦门->城墙->开远门};
+    sw;sw;s;w;w;w;
+    bl.comment {开远门->晋威镖局->汾河岸边->开远门};
+    s;e;w;sw;wd;eu;ne;n;
+    bl.comment {开远门->城墙->金肃门};
+    w;w;nw;n;n;n;
+    bl.comment {金肃门->萧半和};
+    e;n;n;w;
 };
 #list bl_path_zjk create {
-    bl.comment {大境门以北};
+    bl.comment {大境门->蒙古->大境门};
     n;nw;w;w;e;e;nw;se;se;s;
-    bl.comment {大境门以南到晋阳和北京};
-    s;w;e;
-    s;w;w;w;sw;s;sw;sd;sd;s;n;nu;nu;ne;ne;e;n;w;e;n;n;w;e;e;w;n;e;e;e;se;se;se;e;e;w;w;sw;s;s;n;n;ne;nw;nw;nw;w;w;w;n;n;
+    bl.comment {大境门->广场};
+    s;w;e;e;w;s;
+    bl.comment {广场->西门->洋河北岸};
+    w;w;w;sw;s;sw;wd;
+    bl.comment {洋河北岸->南门->广场};
+    eu;ne;ne;e;n;w;e;n;n;w;enter;out;e;e;enter;out;w;n;
+    bl.comment {广场->居庸关->德胜门};
+    e;e;e;se;se;se;sw;s;s;n;n;ne;e;e;e;w;w;w;bl.command {unwield all};se;nw;bl.command {look up};
+    bl.comment {德胜门->大境门};
+    nw;nw;nw;w;w;w;n;n;
 };
 #list bl_path_qfa create {
     bl.comment {大殿东西两侧};
@@ -125,9 +148,6 @@
     w;n;s;s;n;w;w;wu;wu;nu;enter;w;e;e;w;n;s;out;sd;wu;nd;nd;nd;n;s;su;su;su;ed;ed;ed;e;e;e;
     bl.comment {北面到江州};
     n;w;e;e;w;n;n;nw;ne;sw;nd;n;n;s;s;su;se;s;s;s;e;n;
-};
-#list bl_path_ys create {
-    e;n;s;e;n;s;e;w;w;w;n;w;e;e;w;n;s;s;s;w;e;e;w;s;w;e;e;w;s;n;n;n;w;n;s;s;n;w;s;n;w;w;w;w;w;sw;sw;w;sw;s;n;nw;se;ne;e;ne;ne;e;e;e;e;e;e;e
 };
 
 #list bl_connections_qz create {
@@ -279,7 +299,20 @@
 };
 
 #list bl_path_kf create {
-    s;w;e;e;w;s;s;w;e;e;w;s;w;e;e;w;s;w;w;n;s;w;e;s;n;e;sw;s;bl.command {open door};w;e;n;ne;e;e;e;e;w;s;n;w;w;s;w;e;e;w;s;bl.clear_force {shiwei}; bl.clear_force {shi}; s;s;n;n;n;n;n;n;n;n;n;n;nw;se;s;
+    bl.comment {王府大门->大厅};
+    s;w;e;e;w;s;s;
+    bl.comment {大厅->后堂};
+    w;s;e;e;n;w;s;s;
+    bl.comment {后堂->小院};
+    w;w;n;s;w;e;s;n;
+    bl.comment {小院->马厩};
+    e;sw;s;w;
+    bl.comment {马厩->后花园->后堂};
+    e;n;ne;e;e;e;e;w;bl.command {look s};w;w;
+    bl.comment {后堂->兵器库->牢房};
+    s;w;e;e;w;s;bl.command {clamber up}; bl.command {leap south};s;
+    bl.comment {牢房->王府大门};
+    n;n;n;n;n;n;n;n;n;
 };
 
 #list bl_path_zjc create {
@@ -500,14 +533,6 @@
     s;bl.action.guolinb;w;w;s;ed;sd;s;
 };
 
-#list bl_path_ry create {
-    bl.comment {小村庄往南到晋阳北京};
-    w;n;s;s;n;e;e;e;w;n;s;s;n;w;se;nw;sd;sd;sw;s;sd;w;w;e;e;ne;ne;sw;sw;nu;n;ne;nu;nu;
-    bl.comment {到黑木崖下};
-    n;w;w;w;s;n;e;n;s;s;n;e;e;e;n;w;w;e;n;w;e;e;e;w;n;e;w;s;w;n;
-    bl.comment {从黑木崖下回来};
-    s;s;s;s;
-};
 
 #list bl_path_taih create {
     bl.comment {往西到苏州};
@@ -740,5 +765,213 @@
     se;eu;wd;s;ed;wu;sw;sw;nw;w;nw;nw;nw;se;se;w;w;sw;sw;e;w;sw;w;w;e;e;ne;se;s;s;ne;e;e;se;nw;nw;n;n;s;s;se;ne;ne;ne;sw;sw;sw;w;w;sw;sw;e;w;s;
 };
 
+#list bl_path_dz create {
+    bl.comment {代州西};
+    wu;wd;bl.clear {bian jun};u;u;d;d;w;w;nw;se;e;e;s;su;nd;n;eu;ed;
+    bl.comment {代州北};
+    n;e;w;n;nu;nw;ne;nu;n;s;sd;ne;n;e;w;n;w;e;e;enter;out;w;n;s;s;s;sw;sw;se;sd;s;s;
+    bl.comment {代州南};
+    s;w;enter;out;e;e;w;s;w;e;e;w;s;w;e;sw;ne;n;n;n;
+    bl.comment {代州东};
+    e;n;n;enter;out;s;s;s;sw;e;e;s;sw;s;n;n;nd;w;s;se;nw;n;ne;n;e;ne;su;su;wu;ed;e;u;d;ne;nu;sd;sw;eu;wd;s;su;enter;out;su;nd;nd;n;w;s;n;nd;nd;ne;ne;nu;nu;enter;out;ne;ne;wu;nu;ne;sw;sd;ed;sw;sw;sd;sd;e;ne;se;se;se;se;se;sw;sw;sw;ne;ne;ne;ne;sw;nw;nw;nw;nw;nw;sw;w;sw;sw;sw;w;w;
+};
+
+#list bl_path_hshxf create {
+    bl.comment {会仙府->牌楼};
+    nw;ne;sw;se;
+    sw;wd;n;s;w;sd;sw;wu;ed;ne;se;sd;
+    bl.comment {牌楼->恒山南};
+    se;ed;e;sw;sd;sd;sw;e;w;sw;sd;ed;sw;sw;enter;out;sd;sd;sw;sw;ne;ne;e;ne;se;se;nw;nw;sw;w;
+    nu;nu;ne;ne;wu;nu;ne;ne;nu;nu;ne;w;wu;nw;
+    bl.comment {牌楼->大王庙};
+    e;e;ed;eu;e;
+    bl.comment {大王庙->姑嫂崖、紫霞洞};
+    se;enter;out;se;sd;nu;e;w;nw;nw;
+    bl.comment {大王庙->会仙府};
+    nw;n;w;e;e;w;n;w;wd;nw;
+    bl.comment {会仙府->姐妹松};
+    nw;ne;sw;se;sw;wd;w;nw;nw;nw;ne;ne;eu;nd;ne;nd;nd;nw;se;ed;wu;su;su;se;su;
+    bl.comment {姐妹松->琴棋台};
+    sd;ed;wu;se;e;w;nw;nu;
+    bl.comment {姐妹松->天峰岭};
+    eu;e;eu;
+    bl.comment {天峰岭->水月庵};
+    nu;nu;n;n;w;enter;out;n;enter;out;n;enter;out;e;n;w;e;e;w;nu;sd;s;e;enter;out;s;enter;out;s;enter;out;w;nd;su;s;s;sd;sd;
+    bl.comment {天峰岭->会仙府};
+    ed;e;se;sd;se;enter;out;nw;sw;sw;w;w;wd;nw;
+};
+
+#list bl_path_dt create {
+    bl.comment {魁星楼->北门};
+    n;w;n;s;w;e;s;n;e;e;n;s;e;s;s;n;n;w;s;n;w;n;
+    bl.comment {北门->石窟};
+    nw;ne;sw;n;s;w;n;s;sw;ne;e;se;
+    bl.comment {北门->洋河南岸->魁星楼};
+    ne;nu;ne;ne;e;w;sw;sw;sd;sw;s;s;
+    bl.comment {魁星楼->钟楼->鼓楼->小校场->九龙壁->薄伽教藏殿};
+    s;w;w;e;s;w;e;e;e;w;s;w;w;
+    bl.comment {薄伽教藏殿->神机府->当铺->五郎镖局};
+    e;e;e;bl.command {look enter};w;s;w;e;e;enter;out;w;s;e;
+    bl.comment {五郎镖局->秦家寨->代州北门};
+    w;s;sw;nu;n;s;sd;sw;se;sd;s;e;w;s;n;n;
+    bl.comment {代州北门->南大街};
+    nu;nw;ne;ne;n;n;n;n;n;
+    bl.comment {南大街->车行->恒山山脚->文瀛湖};
+    e;e;s;n;e;n;s;se;su;su;nd;nd;ed;
+    bl.comment {文瀛湖->魁星楼};
+    wu;nw;w;w;w;n;
+};
+
+#list bl_path_bj create {
+    bl.comment {永安门->胡一刀->白虎堂大厅};
+    s;sw;n;s;sw;w;bl.command {look enter};
+    bl.comment {白虎堂->高碑店->塘沽口->陈官屯};
+    e;s;s;n;n;ne;ne;se;se;e;w;sw;
+    bl.comment {陈官屯->永安门};
+    ne;nw;nw;n;
+    bl.comment {永安门->西直门->阜成门};
+    w;w;w;w;n;n;n;n;n;n;n;n;
+    bl.comment {阜成门->安定门};
+    n;n;n;n;n;ne;e;e;e;
+    bl.comment {安定门->关外->安定门};
+    n;n;n;ne;ne;ne;sw;sw;sw;s;s;s;
+    bl.comment {安定门->东直门->朝阳门};
+    e;e;s;s;s;s;
+    bl.comment {朝阳门->庄府};
+    e;ne;n;n;bl.command {climb wall};
+    bl.comment {庄府内};
+    n;w;e;e;w;n;n;s;s;s;s;
+    bl.comment {庄府->朝阳门};
+    s;s;sw;w;
+    bl.comment {朝阳门->广渠门->永安门};
+    s;s;s;s;s;s;s;w;w;w;w;w;
+
+
+};
+#list bl_path_bjc create {
+    bl.comment {长安街->崇文门};
+    s;s;e;s;sw;ne;n;e;s;w;e;s;nw;nw;se;se;e;w;s;n;n;n;n;
+    bl.comment {崇文门->长安街};
+    e;w;w;s;n;w;s;n;w;
+    bl.comment {长安街->梅记包子铺};
+    s;s;s;s;s;n;e;n;e;w;w;s;w;w;
+    bl.comment {梅记包子铺->天桥};
+    e;n;w;s;n;n;w;e;e;
+    bl.comment {天桥->绸缎庄->茶馆->屠宰场->长安街};
+    sw;ne;s;u;d;s;w;e;e;w;n;n;se;u;d;nw;sw;ne;nw;se;n;u;d;s;ne;ne;bl.command {look enter};se;n;n;
+    bl.comment {长安街->宣武门};
+    w;n;s;w;n;s;se;nw;sw;ne;w;w;w;e;
+    bl.comment {宣武门->西直门大街};
+    n;se;s;n;nw;w;e;e;w;n;w;e;e;w;n;e;w;w;e;n;w;e;nw;se;n;s;
+    bl.comment {西直门大街->鼓楼};
+    e;n;w;n;s;s;n;w;n;s;s;n;w;e;e;e;s;s;bl.command {look s};n;e;s;bl.command {look s};n;e;u;d;
+    bl.comment {鼓楼->景山->鼓楼};
+    s;s;enter;out;s;n;n;n;
+    bl.comment {鼓楼->安定门->鼓楼};
+    n;u;d;n;s;s;
+    bl.comment {鼓楼->东直门大街};
+    e;n;bl.command {look n};s;s;bl.command {look s};n;e;e;n;bl.command {look n};bl.command {look nd};s;e;w;
+    bl.comment {东直门大街->崇文门};
+    s;e;w;s;w;e;e;n;s;w;s;w;w;bl.command {look w};e;e;s;e;w;
+    bl.comment {崇文门->长安街};
+    w;w;w;
+};
+
+#list bl_path_sld create {
+    bl.comment {海滩->山脚};
+    nw;se;e;e;e;e;e;e;e;e;e;e;e;e;w;
+    bl.comment {山脚->山腰};
+    nu;nu;eu;n;
+    bl.comment {山腰->山泉};
+    se;w;e;e;w;n;n;n;n;s;
+    bl.comment {山泉->毒龙潭};
+    bl.command_halt {climb down}; bl.command_halt {kan west}; bl.command_halt {kan hole}; bl.command {enter hole}; enter; enter; bl.truce;
+    bl.comment {毒龙潭->山泉};
+    out;out;out;bl.truce;bl.command_halt {climb up};
+    bl.comment {山泉->练武场};
+    s;s;s;nw;nu;n;n;nu;eu;n;nu;nu;nu;wu;nu;n;
+    bl.comment {练武场->五龙堂大门};
+    w;n;s;w;e;s;n;e;e;ne;
+    bl.comment {五龙堂};
+    bl.clear {dizi}; w;n;ne;se;s;w;n;s;
+    bl.comment {五龙堂->长廊};
+    sw;w;n;n;
+    bl.comment {长廊->仙福居};
+    enter;n;s;w;wu;w;w;w;wu; bl.command {look n};
+    bl.comment {仙福居->海滩};
+    ed;e;e;e;ed;e;out;s;s;s;sd;ed;sd;sd;sd;s;wd;sd;s;s;sd;s;wd;sd;sd;s;s;s;s;w;
+
+};
+#list bl_path_ry create {
+    bl.comment {小村庄->南};
+    sd;sd;sw;s;sd;nu;n;ne;nu;nu;
+    bl.comment {小村庄->竹林};
+    e;n;s;e;w;s;n;w;
+    bl.comment {小村庄->朱雀堂};
+    se;nw;w;n;s;s;n;e;
+    bl.comment {小村庄->村中小路};
+    n;w;w;s;n;n;s;w;s;n;e;e;e;
+    bl.comment {村中小路->打铁铺->朱雀堂->小村庄};
+    e;n;w;w;e;n;w;e;e;e;w;n;e;w;s;w;n;s;s;s;s;
+};
+
+#list bl_path_hmy create {
+    bl.comment {黑木崖->成德殿->长廊};
+    s;w;e;e;w;n;enter;n;e;
+    bl.command {look n}; bl.command {look s}; bl.command {look e};
+    bl.comment {长廊->黑木崖};
+    w;s;out;
+};
+
+#list bl_path_lanz create {
+    bl.comment {府前广场->祖儒府大门};
+    e;n;
+    bl.comment {祖儒府};
+    enter;nw;e;e;sw;n;n;n;n;s;s;s;s;out;
+    bl.comment {祖儒府大门->将军府大门};
+    s;e;n;n;w;
+    bl.comment {将军府};
+    enter;w;e;e;w;s;w;e;e;w;n;out;
+    bl.comment {将军府大门->行宫大门};
+    w;n;
+    bl.comment {行宫};
+    bl.clear {heijia junshi}; n;u;d;n;w;nu;e;e;sd;w;nu;nu;nw;ne;ne;se;se;w;su;sd;sd;e;nu;w;sd;sd;s;s;s;
+    bl.comment {行宫大门->国师府};
+    w;enter;s;s;e;w;w;e;s;n;n;n;out;
+    bl.comment {国师府大门->一品堂分堂};
+    w;s;s;s;w;u;enter;out;d;e;s;w;e;s;
+    bl.comment {一品堂分堂->兰州西门};
+    n;n;n;w;
+    bl.comment {兰州西门->湟中->兰州西门};
+    w;nw;nw;w;w;e;e;se;se;se;se;nw;nw;e;
+    bl.comment {兰州西城墙};
+    nu;n;ne;sw;s;sd;su;s;n;nd;
+    bl.comment {兰州西门->刺史府大门};
+    e;e;n;enter;bl.clear {men zi};w;e;e;w;out;
+    bl.comment {刺史府大门->五泉山东麓};
+    s;s;s;e;e;n;enter;out;w;s;s;s;wu;w;e;ed;su;eu;eu;wd;wd;nd;
+    bl.comment {五泉山东麓->玉佛寺门口};
+    n;n;n;n;e;e;s;e;w;s;e;w;s;
+    bl.comment {玉佛寺};
+    enter;su;s;wu;ed;wu;ed;eu;wd;s;w;e;e;w;s;out;su;s;n;nd;enter;n;n;n;nd;out;
+    bl.comment {玉佛寺门口->兰州东门};
+    n;n;n;e;
+    bl.comment {兰州东门->黄河渡口};
+    e;n;s;s;n;se;s;ne;sw;s;n;n;nw;w;
+    bl.comment {兰州东城墙};
+    nu;n;s;sd;su;s;n;nd;
+    bl.comment {兰州东门->府前广场};
+    w;w;w;
+};
+
+#list bl_path_huangz create {
+    bl.comment {宫城->南大街->城外土路->西城门};
+    w;s;s;s;n;n;n;w;n;
+    bl.comment {西城门->星宿};
+    bl.comment {西城门->青塘北门};
+    bl.comment {青塘北门->沙石地->青塘北门};
+    bl.comment {青塘北门->东城->湟中中心};
+    bl.comment {湟中中心->兰州->宫城};
+};
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;
 #class bianli_data close
