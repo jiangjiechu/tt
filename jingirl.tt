@@ -4,6 +4,7 @@
 #var li 0;
 #var li1 0;
 #var wp flute;
+#var blade blade;
 #var bian whip;
 
 #var skills {
@@ -37,6 +38,7 @@
   perform jiulong-bian.suo;
 };
 #list sp_skills create {
+    wuhu-duanmendao;
     fulong-shou;
     danxin-jian;
     lingding-piao;
@@ -79,6 +81,15 @@
         jifa parry danxin-jian;
         jifa sword danxin-jian;
     };
+    #elseif {"$sp_skills[%1]"=="wuhu-duanmendao"} {
+        #var skill parry;
+        unwield all;
+        wield $blade;
+        jifa parry wuhu-duanmendao;
+        jifa blade wuhu-duanmendao;
+    };
+
+
     #elseif {"$sp_skills[%1]"=="jiulong-bian"} {
         #var skill parry;
         unwield all;

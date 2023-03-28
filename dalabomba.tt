@@ -3,10 +3,10 @@
 #var myname ¥Ô¿≠±¿∞…;
 #var li1 0;
 #var wp dao;
-#var lun {iron falun};
+#var lun {hammer};
 #var blade {xinyue dao};
 #var skills {
-    {1}{ty}
+    {1}{dq}
 };
 #var n_sk 1;
 
