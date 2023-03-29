@@ -492,8 +492,11 @@
   #class war kill;
   #class util kill;
 };
-#alias mg.yhb {
-  s;s;w;w;s;n;
+#alias wsa {
+  n;n;n;nw;nw;w;wu;biandao;n;nw;nd;w;
+};
+#alias wsb {
+  e;su;se;s;biandao;ed;e;se;se;s;s;s;
 };
 
 #class ali close;

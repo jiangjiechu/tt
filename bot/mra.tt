@@ -76,7 +76,7 @@
     p.$skills[$i_sk];
   }
 };
-#act {慕容世家{家贼|内鬼}死了} {
+#act {^慕容%*{家贼|内鬼}死了} {
   #var i 0;
   #delay 0.5 {
     get all from corpse;
