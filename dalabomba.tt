@@ -20,7 +20,7 @@
 };
 #alias {p.dq} {
   jiali max;
-  perform huoyan-dao.daoqi;
+  perform huoyan-dao.daoqi %1;
   jiali $li1;
 };
 #alias {p.jx} {

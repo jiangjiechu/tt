@@ -340,10 +340,14 @@
 };
 
 #list bl_path_qlc create {
-    bl.comment {岳飞家到汝州,少林};
-    e;s;n;e;w;n;w;e;e;s;sw;nw;w;w;e;e;se;se;e;e;w;nu;nu;wu;ed;sd;sd;w;nu;w;e;sd;nw;ne;n;w;s;w;
-    bl.comment {其它};
-    e;n;w;e;n;w;e;e;w;n;w;e;n;n;s;s;e;ne;n;ne;eu;eu;e;w;nu;nw;nu;nu;sd;sd;se;sd;wd;wd;sw;s;sw;w;s;s;s;w;
+    bl.comment {岳飞家->虎牢关->汝州->小广场};
+    e;s;n;e;w;n;w;e;e;s;sw;nw;w;w;e;e;se;sw;sw;ne;ne;ne;n;w;
+    bl.comment {小广场->三员外->练武场->小路};
+    n;w;e;e;w;n;w;e;n;n;s;s;
+    bl.comment {小路->山路->方丈屎->土匪窝前->返回};
+    e;ne;n;ne;eu;eu;e;w;nu;nw;nu;nu;sd;sd;se;sd;wd;wd;sw;s;sw;w;
+    bl.comment {返回};
+    s;s;s;w;
 };
 
 #list bl_path_sl create {
@@ -993,6 +997,17 @@
     bl.comment {洞门->天龙寺};
     bl.command {push men};e;n;s;e;bl.command {look n};w;s;out; bl.command_halt {guo};
     s;se;wu;
+};
+
+#list bl_path_ygsk create {
+    bl.comment {石窟西，十四窟-二十窟};
+    wu;n;s;w;n;s;w;n;s;w;n;s;w;n;s;w;n;s;w;n;s;w;bl.command {look wu};e;e;e;e;e;e;e;ed;
+    bl.comment {西谷->一窟};
+    eu;nw;se;ne;sw;ne;sw;e;n;s;e;nw;se;ne;sw;e;n;s;e;n;enter;out;s;e;nw;se;ne;enter;out;sw;sd;eu;n;s;ne;n;s;e;n;s;ne;
+    bl.comment {第一窟->大同北->北门};
+    sw;se;ne;nu;ne;ne;e;w;sw;sw;sd;sw;s;w;e;s;n;e;w;n;
+    bl.comment {北门->西谷};
+    nw;w;sw;wd;nu;w;w;w;w;w;wd;
 };
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;
 #class bianli_data close

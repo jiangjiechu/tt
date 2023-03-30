@@ -69,6 +69,7 @@
   };
   #elseif {$f2_set==0}{
     #var oppo_bm @lower{%3};
+    #var oppo_dq @lower{%3};
     #var f2_set 1;
   };
 };
@@ -123,6 +124,7 @@
 };
 #alias f2 {
   #var oppo_bm {%1};
+  #var oppo_dq {%1};
   #var f2_set 1;
 };
 #alias tx {
@@ -131,7 +133,7 @@
     p.lm $oppo;
   };
   #elseif {"$myid"=="dalabomba"} {
-    p.dq $oppo;
+    p.dq $oppo_dq;
   }
 };
 

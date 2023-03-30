@@ -30,7 +30,7 @@
 
 #act {^%s中年女佣(Nvyong)} {ask nvyong about 郭大侠};
 
-#act {^ %*文铜板(Coin)$} {wait;get coin};
+#nop #act {^ %*文铜板(Coin)$} {wait;get coin};
 #act {^ %*两白银(Silver)$} {wait;get silver};
 #act {^ %*两黄金(Gold)$} {wait;get gold};
 #act {^ %*银票(Cash)$} {wait;get cash};
