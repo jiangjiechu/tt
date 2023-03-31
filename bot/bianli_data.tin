@@ -682,7 +682,14 @@
     bl.comment {濠州东};
     e;e;w;s;n;w;
     bl.comment {濠州北};
-    n;e;w;w;e;n;e;w;n;e;w;sw;se;nw;s;sw;s;sw;sw;ne;su;ed;se;wu;ed;se;n;n;nw;n;w;e;e;w;n;w;w;e;e;
+    n;e;w;w;e;n;e;w;n;e;e;w;w;sw;se;nw;
+    s;sw;s;sw;sw;ne;su;ed;
+    bl.comment {信阳方向};
+    se;wu;ed;se;
+    e;se;nw;w;se;sd;nu;nw;
+    w;w;w;w;e;e;e;e;
+    bl.comment {界牌集返回};
+    n;n;nw;w;e;n;w;e;e;w;n;w;w;e;e;
 };
 #list bl_path_ca create {
     bl.comment {长安西};
