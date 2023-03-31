@@ -135,7 +135,7 @@
 };
 #action {#%1/%2} {
     #var yylevel %1;
-}
+};
 #action {^%*你的基本%*的级别还没有%*的级别高} {
     #show $i;
     #math i {$i+1};

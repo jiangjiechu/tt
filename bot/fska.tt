@@ -61,6 +61,12 @@
 #act {你%*站了起来} {
     lx;
 };
+#action {^你的「火焰刀」进步了！} {
+    skbrief huoyan-dao;
+};
+#action {#%1/%2} {
+    #var skill_level %1;
+};
 #action {{你太累了|你的体力不够|你的体力太低|你现在气血虚浮|你的气不足|你现在的气太少|你的气不够}}    {
     #var qixu 1;
     #if {$kujie==0} {yun recover};
@@ -74,7 +80,12 @@
 
 #action {^你需要提高基本功，不然练得再多也没有用。$END}  {
     #math i {$i+1};
-    #if {$i > $n_spskill} {
+    #if {$skill_level >= $max_level} {
+        halt;
+        txx;
+        tna;
+    };
+    #elseif {$i > $n_spskill} {
         fskx;
         sleep;
         lwa;
