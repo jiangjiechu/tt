@@ -37,6 +37,7 @@ mlo;
 
 #class tmp open;
 #alias pku {#class tmp kill;#re pku.tt};
+#alias xkx {#class tmp kill;#re xkx.tt};
 #class tmp close;
 
 #nop screen 滑动，termux启用正常，juicessh异常;

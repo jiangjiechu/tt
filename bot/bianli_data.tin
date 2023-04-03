@@ -96,8 +96,18 @@
     nw;nw;nw;w;w;w;n;n;
 };
 #list bl_path_qfa create {
+    bl.comment {千佛庵->西廊};
+    w;w;s;w;e;e;w;s;w;e;e;w;n;n;
+    bl.comment {千佛庵->神灯阁};
+    w;w;nu;sd;sw;nd;nd;su;su;ne;e;e;n;w;e;e;w;n;e;w;w;e;n;w;w;w;n;bl.command {look n};s;e;e;e;n;s;e;n;s;e;
+    bl.comment {神灯阁->二层};
+    u;bl.command {look e};d;
+    bl.comment {神灯阁->东廊};
+    e;n;s;e;n;s;e;e;w;w;s;w;e;e;w;s;w;e;e;w;s;w;w;e;e;e;eu;wd;w;s;e;w;w;e;s;e;w;w;e;n;n;w;w;n;n;n;
+    bl.comment {神灯阁->后山右侧};
+    n;w;n;s;w;e;s;n;e;n;n;n;n;s;s;ne;ne;n;s;se;e;w;nw;sw;se;s;se;bl.command {zuan};e;w;out;nw;n;nw;sw;
     bl.comment {大殿向北到云海};
-    n;n;n;u;d;n;w;w;e;n;s;s;n;e;n;n;n;n;s;s;ne;ne;n;s;se;e;w;nw;sw;se;s;se;nw;n;nw;sw;nw;sw;w;nw;w;e;se;e;ne;nw;
+    nw;sw;w;nw;w;e;se;e;ne;nw;
     n;w;e;s;e;e;n;n;n;s;s;
     bl.action.yhb;
     se;se;s;s;s;s;s;s;

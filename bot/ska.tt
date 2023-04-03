@@ -43,7 +43,7 @@
   #elseif {"$shi"=="zhi"} {d;s;sd;s;e;enter};
   #elseif {"$shi"=="jinlun"} {#14 s;e;u};
   #elseif {"$shi"=="xuan"} {#3 s;w;e;#4 n;e};
-  #elseif {"$shi"=="ma"} {e}
+  #elseif {"$shi"=="ma" || "$shi"=="chen"} {e}
   hp;
   #delay 1 {sleep}
 };
@@ -64,7 +64,7 @@
   #elseif {"$shi"=="zhi"} {out;w;n;nu;n;up};
   #elseif {"$shi"=="jinlun"} {d;w;#14 n};
   #elseif {"$shi"=="xuan"} {w;#4 s;w;n;n;e;n;s};
-  #elseif {"$shi"=="ma"} {w}
+  #elseif {"$shi"=="ma" || "$shi"=="chen"} {w}
 };
 
 
@@ -123,15 +123,15 @@
 #act {^你的%*进步了} {skbrief $gong};
 
 #act {你略一凝神，精神看起来好多了。} {
-	#if {$yun_nums>3} {
+	#if {$yun_nums>2} {
     #var yun_nums 0;
-    dazuo max};
+    dm};
 	#else {
     #math yun_nums {$yun_nums+1};
     skaaa}
 };
 #act {你现在精力充沛。} {
-	#if {$lei==0} {dazuo max};
+	#if {$lei==0} {dm};
 	#else {skaaa}
 };
 #act {你的内力不够。} {

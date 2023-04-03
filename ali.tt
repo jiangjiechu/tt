@@ -493,10 +493,10 @@
   #class util kill;
 };
 #alias wsa {
-  n;n;n;nw;nw;w;wu;biandao;n;nw;nd;w;
+  n;n;n;nw;nw;w;nw;nw;nw;n;nw;nw;n;nw;nd;w
 };
 #alias wsb {
-  e;su;se;s;biandao;ed;e;se;se;s;s;s;
+  e;su;se;s;se;se;s;se;se;se;e;se;se;s;s;s
 };
 
 #class ali close;

@@ -83,7 +83,7 @@
     #if {$skill_level >= $max_level} {
         halt;
         txx;
-        tna;
+        dza 550;
     };
     #elseif {$i > $n_spskill} {
         fskx;

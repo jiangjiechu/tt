@@ -2,34 +2,29 @@
 #var lei 0;
 
 
-#tic {dzaa} {#untic dzaa;dzaa} {1};
+#tic {dzaa} {
+      #untic dzaa;
+      #var sklevel %2;
+      #math amount {($sklevel/10)};
+      #if {$amount < 10} {
+            #var amount 10;
+      };
+      dzaa} {1};
 
 #alias {dzaa} {
-      #var sklevel %2;
-      #math amount {($sklevel/10)*6};
       #nop yun recover;
-      dazuo max};
+      dazuo $amount};
 
 #act {你现在内力接近圆满状态。} {
       dazuo 10;
 };
 
 #act {你%*站了起来} {
-      #if {"$myid"=="yrz"} {
-            dazuo 10;
-      };
-      #if {$gmcp_status[qi]<200} {
-            yun recover; 
-      };
-      eat liang;
-      #delay 1 {
-            drink;
-            dazuo max
-}};
+      dzaa;
+};
 
 #act {你的内力增加了！！}  {
-      #if {$sklevel<100} {sleep};
-      #else {dzaa}
+      dzaa;
 };
 
 #act {你的内功还没有达到那个境界} {dzaa};

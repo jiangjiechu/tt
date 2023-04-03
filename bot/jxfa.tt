@@ -87,11 +87,12 @@
     p.jz;
   }
 };
-#act {%*À¿¡À°£} {
-  #var f1_set 0;
-  l;
-  #delay 2 {bm;}
-}
+#alias gg {
+  get all from $enemies[1];
+  on_unbusy {
+    get all from $enemies[2];
+  }
+};
 #alias f1 {
   #var oppo {%1};
   #var f1_set 1;
@@ -102,9 +103,6 @@
 };
 #alias tx {
   p.lm $oppo;
-};
-#alias pg {
-  pack gem;
 };
 #alias hc {
   do 3 get %1 from bo;

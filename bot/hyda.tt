@@ -22,6 +22,9 @@
     #tic {hyda1} {#echo {%c%h} {light yellow} {盗宝人%2在%1，到了datan。}} {5};
   };
 };
+#act {^胡一刀说道：「%*我把参详出的东西绘成了一幅新图，希望你能找到宝藏，恢复我汉室江山。」} {
+  hydx;
+};
 #ali hm {
   helpme ...;
   helpme find $oppo;
