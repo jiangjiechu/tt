@@ -1,0 +1,11 @@
+#class yta open;
+#ali yt1 {
+	uw all;
+	get 1 yun tie from bao fu 1;
+	wi yun tie;
+	#delay 1 {
+		get 1 yun tie from bao fu 2;
+		put yun tie in bao fu 2;
+	}
+};
+#class yta close;

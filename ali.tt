@@ -472,6 +472,10 @@
 #alias bxsa {#class bxsa read bot/bxsa.tt};
 #alias bxsx {#class bxsa kill};
 
+#nop ÔÉÌú
+#alias yta {#class yta read bot/yta.tt};
+#alias ytx {#class yta kill};
+
 #nop ¼ÇÂ¼Â·¾¶
 #alias pra {
   #class pra read bot/pra.tt;
@@ -498,5 +502,6 @@
 #alias wsb {
   e;su;se;s;se;se;s;se;se;se;e;se;se;s;s;s
 };
+
 
 #class ali close;
