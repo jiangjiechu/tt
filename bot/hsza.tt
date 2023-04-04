@@ -49,6 +49,9 @@
     #if {"$myid"=="dalabomba"} {
       unwield shield;
       wield $lun;
+    };
+    #if {"$myid"=="jingirl"} {
+      wield $wp;
     }
   }
 };
@@ -90,21 +93,38 @@
     };
     #elseif {"$myid"=="simontuixue"} {
       #delay 2 {bm;}
-    }
+    };
+    #else {yun powerup}
   };
 };
 
 #nop #act {}{};
 #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-  #if {"$myid"=="simontuixue" && %1 >= 12} {
+  #var qi %1;
+  #if {"$myid"=="simontuixue" && $qi >= 12} {
     p.lm $oppo;
   };
   #elseif {"$myid"=="jinger"} {
     p.jz ;
   };
-  #elseif {"$myid"=="dalabomba" && %1 >= 18} {
+  #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  };
+  #elseif {"$myid"=="dalabomba" && $qi >= 18} {
     p.dq;
   }
+};
+#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
+  #math i_sk {$i_sk+1};
+  #if {$i_sk>$n_sk} {
+    #var i_sk 2;
+  };
+  #if {$qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  }
+};
+#act {^眼前敌人尽去，你顺势圈转手中%*，轻轻吐出胸中浊气，心头大是畅快！} {
+  #var i_sk 1;
 };
 #act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
   #var battle 0;
@@ -117,7 +137,7 @@
   #if {"$myid"=="simontuixue"} {
     #delay 2 {bm;}
   }
-}
+};
 #alias f1 {
   #var oppo {%1};
   #var f1_set 1;
@@ -134,6 +154,9 @@
   };
   #elseif {"$myid"=="dalabomba"} {
     p.dq $oppo_dq;
+  };
+  #elseif {"$myid"=="jingirl"} {
+    p.pf;
   }
 };
 
@@ -190,6 +213,9 @@
     hszLog $record;
     #untic hsza1;hszx;
   }
+};
+#act {你已经陷入半昏迷状态，随时都可能摔倒晕去。} {
+  #if {"$myid"=="jingirl"} {xq}
 };
 #gag {^>%s$};
 #gag {^$};

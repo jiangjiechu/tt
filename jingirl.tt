@@ -9,30 +9,32 @@
 
 #var skills {
     {1} {fh}
-    {2} {sc}
+    {2} {nx}
+    {3} {pf}
 };
 #var qishi {
     {1} {4}
-    {2} {14}
+    {2} {12}
+    {3} {12}
 };
 #var i_sk 1;
-#var n_sk 2;
+#var n_sk 3;
 
 #alias {p.fh} {
-  perform danxin-jian.feihua;
+  perform danxin-jian.feihua %0;
 };
 #alias {p.pf} {
   jiali max;
-  perform houquan.pofuchenzhou;
+  perform houquan.pofuchenzhou %0;
   jiali $li1;
 };
 #alias {p.nx} {
     jiali max;
-    perform yunlong-zhua.ningxue;
-    jiali 0;
+    perform yunlong-zhua.ningxue %0;
+    jiali $li1;
 };
 #alias {p.sc} {
-  perform danxin-jian.sancai;
+  perform danxin-jian.sancai %0;
 };
 #alias {p.suo} {
   perform jiulong-bian.suo;

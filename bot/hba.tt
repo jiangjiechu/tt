@@ -28,6 +28,7 @@
 #ali {hbaa} {
   set wimpy 20;
   #var step 1;
+  #var i_sk 1;
   #var encounter 0;
   #if {$in_bxs==1} {
     ask $master about job;
@@ -67,10 +68,25 @@
       #math encounter {$encounter + 1};
       #var battle 1;
       #showme <afa> $battle;
-      #var op1 {$myid's robber 1};
-      #var op2 {$myid's robber 2};
-      hit $op1;
+      #var op {$myid's robber};
+      hit $op;
       #nop yun beiming $op2;
+    };
+    #act {^你在攻击中不断积蓄攻势。(气势：%%d%)} {
+      #var qi {%%1};
+      #if {"$myid"=="simontuixue" && $qi >= 50} {
+        p.lm jiazei;
+      };
+      #elseif {"$myid"=="jinger" && $qi >= 12} {
+        p.$skills[$i_sk];
+      };
+      #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
+        p.$skills[$i_sk] $op;
+      };
+      #elseif {"$myid"=="dalabomba" && $qi >= 18} {
+        p.$skills[$i_sk];
+      }
+
     };
     #act {劫匪趁你不注意，推着镖车就跑，} {
       #var biased 1;
@@ -98,7 +114,7 @@
         mplay pLevelUp.wav;
         #showme <afa> 到达目的地附近！！！
       };
-      #echo {%c%h} {light yellow} {遇敌数：$encounter ，你现在走了$step步，应该在$room,实际在%%1}; 
+      #echo {%c%h} {light yellow} {遇敌数：$encounter ，你现在走了$step步，应该在$room,实际在}; 
     };
     #act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
       #var battle 0;
@@ -109,6 +125,7 @@
         yun heal;
       }
     };
+
     #act {你跳上了小船} {
       #math step {$step+1};
     };
@@ -124,20 +141,6 @@
     };
     #act {你是在押车，不是赶路，小心为上。} {
       dn;
-    };
-    #action {^你在攻击中不断积蓄攻势。(气势：%d%)} {
-      #if {"$myid"=="simontuixue" && %1 >= 20 && $cnt==0} {
-        #var cnt 1;
-        unwield dao;
-        p.lm jiazei;
-        wield dao;
-      };
-      #elseif {"$myid"=="jinger" && %1 >= 12} {
-        p.$skills[$i_sk];
-      };
-      #elseif {"$myid"=="dalabomba" && %1 >= 12} {
-        p.$skills[$i_sk];
-      }
     };
     #act {战斗中不能疗伤！} { hit $myid's robber; #var inheal 0 };
     #act {你现在气血充盈} {
