@@ -503,5 +503,8 @@
   e;su;se;s;se;se;s;se;se;se;e;se;se;s;s;s
 };
 
+#alias lxca {
+  tell zzxc in;
+};
 
 #class ali close;
