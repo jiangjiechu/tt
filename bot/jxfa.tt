@@ -19,8 +19,9 @@
 #ali {pa} {clamber up};
 #ali {ld} {look down};
 #ali {jd} {
-  #if {"$myid"=="dalabomba"} {wi $lun};
+  #if {"$myid"=="dalabomba"} {wi $lun;yun longxiang};
   #elseif {"$myid"=="simontuixue"} {p.yy};
+  #elseif {"$myid"=="jingirl"} {yun powerup};
   leap down;
   #delay 2 bm;
 };

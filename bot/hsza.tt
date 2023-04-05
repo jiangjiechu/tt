@@ -52,6 +52,7 @@
     };
     #if {"$myid"=="jingirl"} {
       wield $wp;
+      wear zhiyan;wear zhixin;
     }
   }
 };
@@ -169,6 +170,8 @@
   remove belt;
   remove armet;
   uw all;
+  wear zhiyan;
+  wear zhixin;
 };
 
 #alias hszLog {
