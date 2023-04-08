@@ -40,15 +40,15 @@
   perform jiulong-bian.suo;
 };
 #list sp_skills create {
-    wuhu-duanmendao;
-    fulong-shou;
     danxin-jian;
     lingding-piao;
-    jiulong-bian;
-    houquan;
     yunlong-zhua;
+    houquan;
+    fulong-shou;
+    jiulong-bian;
+    wuhu-duanmendao;
 };
-#var n_spskill 7;
+#var n_spskill 4;
 
 
 #alias prep {
