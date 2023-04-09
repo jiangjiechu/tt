@@ -8,6 +8,11 @@
 #var xgong longxiang-boruo;
 #var skills {
     {1}{dq}
+    {2}{ws}
+};
+#var qishi {
+  {1} {18}
+  {2} {12}
 };
 #var n_sk 1;
 
@@ -26,6 +31,12 @@
 };
 #alias {p.jx} {
   perform xuedao-jing.jixue
+};
+#alias {p.ws} {
+  perform xiangfu-lun.wushuai %0;
+};
+#alias {p.dz} {
+  perform xiangfu-lun.dazhuan %0;
 };
 #alias {p.sd} {
   perform xuedao-jing.shendao

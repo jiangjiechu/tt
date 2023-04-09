@@ -111,14 +111,14 @@
   #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];
   };
-  #elseif {"$myid"=="dalabomba" && $qi >= 18} {
-    p.dq;
+  #elseif {"$myid"=="dalabomba" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
   }
 };
 #act {%*的作用时间还没过，请过一段时间再施展绝技。} {
   #math i_sk {$i_sk+1};
   #if {$i_sk>$n_sk} {
-    #var i_sk 2;
+    #var i_sk 1;
   };
   #if {$qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];

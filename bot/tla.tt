@@ -55,7 +55,7 @@
   #action {你进入了剑心居} {
     #class tmp2 kill;
     tlx;
-    #delay 1 {lwa}
+    #delay 1 {fska lx}
   };
   #class tmp2 close;
 };

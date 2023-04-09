@@ -48,7 +48,7 @@
     jiulong-bian;
     wuhu-duanmendao;
 };
-#var n_spskill 4;
+#var n_spskill 7;
 
 
 #alias prep {

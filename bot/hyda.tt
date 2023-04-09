@@ -29,10 +29,12 @@
   helpme ...;
   helpme find $oppo;
 };
-#act {%*说道：「你有种去%*找我兄弟%*(%* ... %*)，他会给我报仇的！」} {
+#act {^%*说道：「你有种去%*找我兄弟%*(%*)，他会给我报仇的！」} {
   #var db_name %3;
   #var loc %2;
-  #var oppo {@lower{%4} %5};
+  #var oppo %5;
+  #replace oppo {...\s} {};
+  #var oppo @lower{$oppo};
   #untic hyda1;
   #tic {hyda1} {#echo {%c%h} {light yellow} {盗宝人%3在%2，到了datan。}} {5};
 
