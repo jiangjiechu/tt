@@ -11,17 +11,11 @@
   #var bonus %2;
   set wimpy 70;
   set hansz_new_mode 1;
-  #if {"$myid"=="simontuixue"} {
-    #nop set adv_quest 50;
-  };
-  #if {"$myid"=="dalabomba"} {
-    set adv_quest 50;
-  };
   ask han about job;
   check_bonus;
 };
-#ali {hszd} {sm;ask han about finish;unset adv_quest};
-#ali {hszf} {ask han about fail;#untic hsza1;hszx;unset adv_quest};
+#ali {hszd} {sm;ask han about finish;};
+#ali {hszf} {ask han about fail;#untic hsza1;hszx;};
 #ali {findroom} {
   #class my_gps read bot/my_gps.tt;
   locme $city %1;
@@ -38,6 +32,12 @@
   };
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
+  #if {"$myid"=="simontuixue"} {
+      set adv_quest 50;
+  };
+  #if {"$myid"=="dalabomba"} {
+    set adv_quest 50;
+  };
   #delay 2 {
     special agile;
     special ironskin;
@@ -49,6 +49,9 @@
     #if {"$myid"=="dalabomba"} {
       unwield shield;
       wield $lun;
+    };
+    #if {"$myid"=="simontuixue"} {
+      p.yy
     };
     #if {"$myid"=="jingirl"} {
       wield $wp;
@@ -62,6 +65,7 @@
   unset brief;
 };
 #act {^快去找韩王复命吧。} {
+  unset adv_quest;
   peace;
 };
 
@@ -111,8 +115,13 @@
   #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];
   };
+<<<<<<< Updated upstream
   #elseif {"$myid"=="dalabomba" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];
+=======
+  #elseif {"$myid"=="dalabomba" && $qi >= 12} {
+    p.ws;
+>>>>>>> Stashed changes
   }
 };
 #act {%*的作用时间还没过，请过一段时间再施展绝技。} {

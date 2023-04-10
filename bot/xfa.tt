@@ -10,18 +10,6 @@
 #ali {xff} {ask xiao feng about fail;#untic xfa1;xfx};
 
 
-#act {%*西夏一品堂 蒙面杀手(%*)%*} {
-  halt;
-  stopwalk;
-  follow shashou;
-  #if {$foced==0}{
-    #var oppo shashou;
-    #var foced 1;
-    yun qi;
-    jiali $li;
-  };
-};
-
 #alias bm {
   yun beiming $oppo;
 }

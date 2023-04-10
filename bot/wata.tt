@@ -12,13 +12,42 @@
    yun powerup;ask ke about 进塔;
 };
 
+<<<<<<< Updated upstream
 
 #act {你短时间内力使用大量内力}{
    #var wat_wait 1;
    #delay 60 {#var wat_wait 0;
+=======
+#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+  #var qi %1;
+  #if {"$myid"=="simontuixue" && $qi >= 12} {
+    p.lm $oppo;
+>>>>>>> Stashed changes
   };
+  #elseif {"$myid"=="jinger"} {
+    p.jz ;
+  };
+  #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  };
+  #elseif {"$myid"=="dalabomba" && $qi >= 12} {
+    p.ws;
+  }
+};
+#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
+  #math i_sk {$i_sk+1};
+  #if {$i_sk>$n_sk} {
+    #var i_sk 2;
+  };
+  #if {$qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  }
+};
+#act {^眼前敌人尽去，你顺势圈转手中%*，轻轻吐出胸中浊气，心头大是畅快！} {
+  #var i_sk 1;
 };
 
+<<<<<<< Updated upstream
 #act {经过一段时间，你体内的内力又重新恢复正常运转！}{#var wat_wait 0};
 
 #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
@@ -52,6 +81,8 @@
 #act {^你手上持有的武器并不能用来发动%*} {
    wi dao;
 };
+=======
+>>>>>>> Stashed changes
 
 #class wata close;
 

@@ -1,6 +1,8 @@
 #nop 公孙止任务;
 #class gsza open;
-#tic gsza {#untic gsza;gszaa} {1};
+#tic gsza {
+   unset adv_quest;
+   #untic gsza;gszaa} {1};
 
 #nop 辅助别名;
 #ali {gszaa} {ask gongsun about job};
@@ -9,6 +11,8 @@
 
 #act {^%*双手抱拳，对着你作了个揖道：这位%*请了！} {
    #var shizhe %1;
+   stopwalk;
+   walk -p;
 };
 
 #act {^%!s%*使者%!s${shizhe}%!s(%*)%s$} {

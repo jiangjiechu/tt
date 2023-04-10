@@ -104,5 +104,18 @@
     };
     lx;
 };
+#ali {jqg} {
+   s;#6 w;
+   #delay 1 {northwest;enter;enter;
+   #delay 1 {move hou;move hou;move zuo;move qian;move qian;move qian;move qian;move qian;move zuo;
+   #delay 1 {e;#5 n;
+}}}};
+
+#ali {jqgb} {
+   #5 s;w;enter;
+   #delay 1 {move zuo;move qian;move qian;move qian;move qian;move qian;move zuo;move hou;move hou;
+   #delay 1 {out;se;#6 e;n;
+   walk
+}}};
 
 pku;jingirl;123abc;y
