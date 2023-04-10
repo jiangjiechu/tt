@@ -14,7 +14,7 @@
   {1} {18}
   {2} {12}
 };
-#var n_sk 1;
+#var n_sk 2;
 
 #alias {p.xy} {
   perform yingxiong-jianfa.xiyang

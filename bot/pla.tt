@@ -1,5 +1,35 @@
 #class pyha open;
+#alias plaa {
+    #var enemies {};
+    ask ren about ??;
+};
 #alias sch {shang boat};
 #alias jsh {jie sheng};
-
+#alias pr {
+    #var piao_length %1;
+    #math slow_length {piao_length - 2};
+    #var hua_length %2;
+};
+#act {^%!s?%!*?%*(%*) <???>$} {
+  #var oppo @lower{%2};
+  #if {@ismember{$oppo;enemies}==0} {#list enemies add $oppo};
+};
+#act {^??????%*????} {
+    #var enemies {};
+};
+#alias {bm} {
+    yun beiming $enemies[-1];
+};
+#act {^?????????%*?????} {
+    #var length @ctd{%1};
+    #if {$length >= $piao_length} {
+        ting
+    };
+    #if {$length >= $slow_length} {
+        sheng
+    };
+};
+#act {^????????????(dalao)?} {
+    on_unbusy {dalao}
+};
 #class pyha close;

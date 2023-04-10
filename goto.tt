@@ -465,7 +465,6 @@
     #alias gotoyanziwu {#if {$mydodgelv>120} {cai yanziwu} {enter boat;dazuo max;row yanziwu}};
     #alias jxfin {act zuan to mao wu};
     #alias tongchuan {ask shiwei about 通传};
-    #action {^你沿着踏板走了上去。} {walk};
     #action {^{你小心翼翼往前挪动，遇到艰险难行处，只好放慢脚步。|你小心翼翼往前挪动，生怕一不在意就跌落山下。|你还在山中跋涉，一时半会恐怕走不出这藏边群山！|青海湖畔美不胜收，你不由停下脚步，欣赏起了风景。|你还在山中跋涉，一时半会恐怕走不出这西南地绵绵群山！|你还在山中跋涉，一时半会恐怕走不出这六盘山！|山路崎岖，你不得不停下来歇歇脚。}} {#math step {$step - 2}; #showme <afa> $step};
     #action {^你的动作还没有完成，不能移动。} {
         #var tmp_delay ${xiaoyao.delay_short};
@@ -509,6 +508,15 @@
     #action {%s艄公%s%*(%*)%*$} {
         #var in_boat 1;
         #show <afa> {上船了! in_boat: $in_boat};
+    };
+    #action {你从踏板上走上了船} {
+        #var in_boat 1;
+        #show <afa> {上船了! in_boat: $in_boat};
+    };
+    #action {^你沿着踏板走了上去。} {
+        #var in_boat 0;
+        #show <afa> {下船了! in_boat: $in_boat};
+        walk;
     };
     #action {^%*“到{啦|了}，上岸吧%*”，随即把一块踏脚板搭上堤岸。} {
         #if {${in_boat} == 1} {

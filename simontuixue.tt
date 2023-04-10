@@ -2,7 +2,7 @@
 #var myname ±¾Ñ©;
 #var li1 max;
 #var li2 max;
-#var wp flute;
+#var wp dao;
 #var skills {
     {1}{fx}
     {2}{lm}

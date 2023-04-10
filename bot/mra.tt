@@ -38,7 +38,6 @@
   #if {"$myid" == "jinger" || "$myid"=="jingirl"} {yun powerup};
   #if {"$myid" == "dalabomba"} {yun longxiang};
   jiali $li1;
-  kill jiazei;
   #if {"$myid" == "simontuixue"} {#delay 2 {yun beiming jiazei}};
 };
 #act {^%s$myname发现的%s慕容世家{家贼|内鬼}(Murong jiazei)} { wait;
@@ -46,7 +45,6 @@
   stopwalk;walk -p;
   follow jiazei;
   jiali $li1;
-  kill jiazei;
   #if {"$myid"=="dalabomba"} {yun longxiang};
   #if {"$myid"=="simontuixue"} {yun beiming jiazei};
   #else {yun powerup};

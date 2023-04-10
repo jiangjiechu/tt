@@ -43,14 +43,15 @@
     special ironskin;
     #untic hsza1;
     wear mine;
-    remove armet;
-    remove belt;
     unwield all;
     #if {"$myid"=="dalabomba"} {
       unwield shield;
       wield $lun;
     };
     #if {"$myid"=="simontuixue"} {
+      wi $wp;
+      remove armet;
+      remove belt;
       p.yy
     };
     #if {"$myid"=="jingirl"} {
@@ -115,13 +116,8 @@
   #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];
   };
-<<<<<<< Updated upstream
   #elseif {"$myid"=="dalabomba" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];
-=======
-  #elseif {"$myid"=="dalabomba" && $qi >= 12} {
-    p.ws;
->>>>>>> Stashed changes
   }
 };
 #act {%*的作用时间还没过，请过一段时间再施展绝技。} {

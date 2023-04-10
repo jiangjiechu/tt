@@ -233,6 +233,10 @@
 #alias {gsza} {#class gsza read bot/gsza.tt};
 #alias {gszx} {#class gsza kill;#untic gsza1};
 
+#nop 漂流;
+#alias {pla} {#class pla read bot/pla.tt};
+#alias {plx} {#class pla kill;#untic pla1};
+
 #nop 功德捐献;
 #alias {gda} {#class gda read bot/gda.tt;say 天不生我小乖乖，侠客万古长如夜};
 #alias {gdx} {#class gda kill};
@@ -497,10 +501,14 @@
   #class util kill;
 };
 #alias wsa {
-  n;n;n;nw;nw;w;wu;ne;n;nw;nd;w
+  n;n;n;nw;nw;w;
+  nw;n;
+  nw;nd;w
 };
 #alias wsb {
-  e;su;se;s;sw;ed;e;se;se;s;s;s
+  e;su;se;
+  s;se;
+  e;se;se;s;s;s
 };
 
 #alias lxca {
