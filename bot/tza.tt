@@ -16,28 +16,32 @@
 
 #act {^似乎有什么东西一闪……$} {
    wait;stopwalk;
-   #delay 2 look
+   #delay 4 look;
 };
-#alias f1 {
-  #var oppo %1;
-  zhuanzhu %1;
+#alias dirs {
+  #var dir_in %1;
+  #var dir_out %2;
+  #showme <afa> 进入:$dir_in 逃跑:$dir_out;
 };
-#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-    jiali $li2;
-    p.$skills[$i_sk] $oppo;
-    jiali $li1;
-    #math i_sk {$i_sk+1};
+#alias f {
+  $dir_in;
+  kill %0;
+  zhuanzhu %0;
+  p.lm;
+  on_unbusy {
+    $dir_out;
+  }
 };
-#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
-  #if {$i_sk>$n_sk} {
-    #var i_sk 2;
-  };
-  p.$skills[$i_sk] $oppo;
-  #math i_sk {$i_sk+1};
+#act {你逃跑失败。} {
+  on_unbusy {
+    $dir_out;
+  }
 };
-
-#nop #act {}{};
-
+#act {你上一个动作还没有完成！} {
+  on_unbusy {
+    $dir_out;
+  }
+};
 #act {^莲花生大士给了你一枚天珠，并嘱咐到：在短期内佩戴(pei)在身会有凝神醒脑、提升修为的作用。$} {
     pei;
     tzx;

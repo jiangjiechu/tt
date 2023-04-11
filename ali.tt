@@ -433,7 +433,7 @@
 
 #nop µý±¨
 #alias dba {#class dba read bot/dba.tt};
-#alias dbx {#class dba kill;#untic dba1;#untic dba2};
+#alias dbx {#class dba kill;#unvar in_db;#untic dba1;#untic dba2};
 
 #nop ¼ÍÏþÜ½
 #alias jxfa {#class jxfa read bot/jxfa.tt};

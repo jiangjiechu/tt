@@ -9,6 +9,7 @@
   #var loc_lock 0;
   #var luck %1;
   #var bonus %2;
+  #var i_sk 1;
   set wimpy 70;
   set hansz_new_mode 1;
   ask han about job;
@@ -45,7 +46,6 @@
     wear mine;
     unwield all;
     #if {"$myid"=="dalabomba"} {
-      unwield shield;
       wield $lun;
     };
     #if {"$myid"=="simontuixue"} {

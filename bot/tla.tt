@@ -27,21 +27,6 @@
      } };
 };
 
-#class tmp1 open;
-#action {^大轮寺山门 -} {
-  #delay 1 {e;gu;qu tianlongsi};
-  #delay 15 {hx;e;nu;n;n;n;n};
-};
-#action {^后院 -} {
-  #class tmp1 kill;
-  tlx;
-  #delay 1 {xla}
-};
-#class tmp1 close;
-
-#alias {glw1} {
-  gt dls;
-};
 
 #alias {glw2} {
   gt yz;
@@ -55,7 +40,7 @@
   #action {你进入了剑心居} {
     #class tmp2 kill;
     tlx;
-    #delay 1 {fska lx}
+    #delay 1 {xla}
   };
   #class tmp2 close;
 };

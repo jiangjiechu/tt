@@ -33,6 +33,7 @@
   #var db_name %3;
   #var loc %2;
   #var oppo %5;
+  #showme <afa> oppo : $oppo;
   #replace oppo {...\s} {};
   #var oppo @lower{$oppo};
   #untic hyda1;

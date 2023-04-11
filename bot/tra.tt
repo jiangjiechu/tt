@@ -13,44 +13,44 @@
 };
 #alias taopao {
 	halt;
-	n;
+	w;
 }
 #alias ghit {
-	s;kill mu;
+	e;kill mu;
 }
 
 #act {看起来%*想杀死你} {
 	#var battle 1;
 	#var lock 1;
-	#delay 2 {xi}
+	on_unbusy {xi};
 };
 #act {（你上一个动作还没有完成，不能施用内功。）} {
-	#delay 1 {xi}
+	on_unbusy {xi}
 };
 
 #act {你觉得%*的丹元自手掌源源涌入身来} {
 	#var sucess 1;
-	#delay 5 {taopao};
+	on_unbusy {taopao};
 };
 
 #act {可是他看破了你的企图，机灵地溜了开去。} {
 	#var sucess 0;
-	#delay 5 {taopao};
+	on_unbusy {taopao};
 }
 #act {^%*只能对战斗中的对手使用。$} {
 	#delay 1 {xi};
 }
 
 #act {你的动作还没有完成，不能移动。} {
-	#delay 1 {taopao}
+	on_unbusy {taopao}
 };
 #act {你刚刚吸取过丹元} {
-	#delay 1 {taopao}
+	on_unbusy {taopao}
 };
 #act {你逃跑失败} {
-	#delay 1 {taopao};
+	on_unbusy {taopao}
 };
-#act {^唐官屯 -%*$} {
+#act {^琴房 -%*$} {
 	#var battle 0;
 	#var lock 0;
 	#if {$finish==0} {

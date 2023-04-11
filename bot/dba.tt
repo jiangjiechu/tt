@@ -5,6 +5,7 @@
 
 #tic {dba} {#untic dba;dbaa} {2};
 #ali {dbaa} {
+  #var in_db 1;
   set wimpy 20;
   tune bd;
   ask yu about job};
@@ -17,15 +18,19 @@
 #ali {r} { #var anhao %1; };
 
 #act {^余玠%*说道：为了保护接头人的安全，%*，我只能告诉你某人在%*等着你。$} {
+  #var db_outlook %4;
   #tic {dba1} {#echo {%c%h} {light yellow} {线人在%3，长相%4}} {5}
 };
 #act {^余玠%*说道：为了保护接头人的安全，%*，我只能告诉你某人在%*等着你。长相大致如下%*$} {
+  #var db_outlook %4;
   #tic {dba1} {#echo {%c%h} {light yellow} {线人在%3，长相%4}} {5};
 };
 #act {^余玠%*说道：为了保护接头人的安全，%*，我只能告诉你某人在%*等着你。长相大致如下%*\n%*$} {
+  #var db_outlook %4;
   #tic {dba1} {#echo {%c%h} {light yellow} {线人在%3，长相%4}} {5}
 };
 #act {^长相大致如下%*} {
+  #var db_outlook %4;
   #tic {dba2} {#echo {%c%h} {light yellow} {长相%1}} {5}
 };
 
