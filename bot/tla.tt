@@ -14,7 +14,9 @@
      #if {$t < 20} {
       #show <afa> $t;
       #math t {$t+1};
-      #6 u;out;
+      #delay 1 {
+        #6 u;out;
+      }
      };
      #else {
      #var t 1;
@@ -22,7 +24,7 @@
      yun recover;
      eat liang;
      drink;
-     #delay 1 {
+     #delay 2 {
      #6 u;out;
      } };
 };
@@ -58,7 +60,7 @@
 }}};
 
 #act {你正忙} {
-  #delay {0.5} {checkbusy};
+  #delay {2} {checkbusy};
 };
 #act {你不忙} {
   #if {$level >= $max_level || $halt==1} {
@@ -71,7 +73,7 @@
    checkbusy;
 };
 #act {^你的动作还没有完成%*} {
-  #delay {0.1} {
+  #delay {1} {
     enter}
 };
 #act {^鼓楼一层 -%*} {
