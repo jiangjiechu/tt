@@ -148,6 +148,7 @@
             } {$bl_delay};
         };
     } {1};
+    #action {^浓雾中你觉得似乎有出口通往 eastup和 west方向。} {};
     #action {^%s这里%*的{出口|方向}{是|有}%*$} {
         #showme <afa> 进度~[$bl_path_index / $bl_path_size];
         #if {${bl_in_action} == 0} {
@@ -243,6 +244,9 @@
 
 #alias {bl.start} {
     set brief 2;
+    #if {$in_syq==1} {
+        unset brief;
+    };
     #var critical_running 1;
     #var looking 0;
     #if {$in_db==1} {

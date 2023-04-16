@@ -1,0 +1,94 @@
+#nop 任务;
+#class mzja open;
+
+#tic {mzja} {#untic mzja;mzjaa} {2};
+#ali {mzjaa} {
+  unset adv_quest;
+  #var pos_listen {};
+  ask meng about job;
+  #class mzj.inner open;
+    #act {^孟之经说道：「这里人多眼杂，你先到%%*等候，我自会通知你。」} {
+      #var pos_listen %%1;
+      #tic mzja1 {#show <afa> 等待地点：$pos_listen} {5};
+      #class mzj.inner kill;
+    };
+  #class mzj.inner close;
+};
+
+#ali {g} {
+  mr $pos_listen;
+};
+#ali {mzjd} {ask meng about finish;mzjx};
+#ali {mzjf} {ask meng about fail;#untic mzja1;mzjx;};
+
+#act {孟之经(Meng zhijing)告诉你：%*。对照(duizhao)这页，你就知道你要刺杀的人在哪了。} {
+  #var s %1;
+  #var indexs {};
+  #var PRF {+a:};
+  #list s explode {。};
+  #foreach $s[] s_i {
+    #class decode open;
+    #act {^${PRF}第%%*个字在：第%%*行，第%%*列} {
+      #show <afa> {@ctd{%%1}: %%2,%%3};
+      #list indexs add {{{1}{%%2}{2}{%%3}}};
+      #class decode kill;
+    };
+    #class decode close;
+    #show ${PRF}${s_i};
+  }
+};
+#alias r {
+  #var zis %0;
+  #var indexs {};
+  #list zis explode { };
+  #foreach $zis[] zi {
+    #list zi tokenize $zi;
+    #list indexs add {{$zi}};
+    #show <aca> 字：$zi[1] 行 $zi[2] 列;
+  };
+};
+#list gan create {甲;乙;丙;丁;戊;己;庚;辛;壬;癸};
+#list zhi create {dummy;子;丑;寅;卯;辰;巳;午;未;申;酉;戌;亥};
+#alias {dzh} {
+  #var codex {};
+  #var answer {};
+  #class duizhao.inner open;
+  #show <afa> in duizhao.inner!;
+  #act {^{│|│}%%*{│|│}} {
+    #show <afa> %%2;
+    #list code_line tokenize %%2;
+    #if {"$code_line[1]"!= "◆"} {
+      #nop #show <acf> $code_line;
+      #var codex[$code_line[1]] $code_line;
+    }
+  };
+  #act  {^{╰|└}─%*─{╯|┘}} {
+    #class duizhao.inner kill;
+    #show <afa> 开始解码。。。;
+    #foreach $indexs zi {
+      #var j @ismember{$zi[2];zhi};
+      #var out $codex[$zi[1]][$j];
+      #var answer {${answer}${out}};
+      #nop #show <afa> { $out 在 $zi[1] 行 ${j} 列} ;
+    };
+    #show <afa> 目的地 $answer;
+  };
+  #class duizhao.inner close;
+  duizhao;
+};
+#act {^你来到了%*，直觉告诉你到%*也许能找到些线索。} {
+  #tic {mzja2} {#show 线索在%2} 5;
+};
+#act {^去%*看看，应该能找到一些你%*的活动规律。} {
+  #untic mzja2;
+  #tic {mzja2} {#show 线索在%1} 5;
+};
+#act {^%*前面有人打起仪仗，也许就是那个狗贼在出行。} {
+  #untic mzja2;
+  #tic {mzja2} {#show 线索在%1} 5;
+};
+#act {^据说你的刺杀对象可能躲在%*。} {
+  #untic mzja2;
+  #tic {mzja2} {#show 线索在%1} 5;
+};
+#class mzja close;

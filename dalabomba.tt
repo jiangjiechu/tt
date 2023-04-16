@@ -4,7 +4,7 @@
 #var li1 0;
 #var wp dao;
 #var lun {hammer};
-#var blade {xinyue dao};
+#var blade {blade};
 #var xgong longxiang-boruo;
 #var skills {
     {1}{dq}

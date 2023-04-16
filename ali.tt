@@ -433,11 +433,15 @@
 
 #nop 谍报
 #alias dba {#class dba read bot/dba.tt};
-#alias dbx {#class dba kill;#unvar in_db;#untic dba1;#untic dba2};
+#alias dbx {#class dba kill;#unvar in_db;#untic dba%*};
 
 #nop 纪晓芙
 #alias jxfa {#class jxfa read bot/jxfa.tt};
 #alias jxfx {#class jxfa kill; #untic jxfa1};
+
+#nop 都府刺杀
+#alias mzja {#class mzja read bot/mzja.tt};
+#alias mzjx {#class mzja kill; #untic mzja%*};
 
 #nop 护镖
 #alias hba {#class hba read bot/hba.tt;hbaa %1};

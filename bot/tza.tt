@@ -3,6 +3,9 @@
 
 #tic {tza} {#untic tza;tzaa} {2};
 #alias {tzaa} {
+  #list enemies create {};
+  #list enemies_name create {};
+  #list enemies_down create {};
   set wimpy 80;
   #var i_sk 1;
   ask dashi about job};
@@ -28,18 +31,69 @@
   kill %0;
   zhuanzhu %0;
   p.lm;
+  #var death 0;
   on_unbusy {
+    stay_or_leave;
+  };
+};
+#alias stay_or_leave {
+  #nop 如果有人死，拉一个人进入战斗状态;
+  #if {$death==1} { 
+    #show <aea> {有人阵亡！中断逃跑: death: $death};
+    #var n_enemies &enemies[];
+    #if {$n_enemies >= 1} {
+      kill $enemies[1];
+      #var death 0;
+      on_unbusy {stay_or_leave};
+    };
+    #else {
+      #show <afa> 全部击败！;
+      #foreach $enemies_down oppo {
+        kill $oppo;
+      }
+    };
+  };
+  #else {
     $dir_out;
   }
 };
+#alias g {
+  $dir_in;
+  kill %0;
+  zhuanzhu %0;
+  p.lm;
+};
+
+#act {^%!s江湖巨盗 %*(%*)$} {
+  #var oppo_name %1;
+  #var oppo @lower{%2};
+  #if {@ismember{$oppo;enemies}==0} {
+    #show <afa> 收录敌人！$enemies;
+    #list enemies add $oppo;
+    #list enemies_name add $oppo_name;
+  };
+};
+#act {^%*死了。} {
+  #var name %1;
+  #var dead_id @ismember{$name;enemies_name};
+  #list enemies delete $dead_id;
+  #list enemies_name delete $dead_id;
+  #var death 1;
+};
+#act {^%*脚下一个不稳，跌在地上一动也不动了。} {
+  #var name %1;
+  #show <afa> {有人晕倒！};
+  #var down_id @ismember{$name;enemies_name};
+  #list enemies_down add {$enemies[$down_id]};
+};
 #act {你逃跑失败。} {
   on_unbusy {
-    $dir_out;
+    stay_or_leave;
   }
 };
 #act {你上一个动作还没有完成！} {
   on_unbusy {
-    $dir_out;
+    stay_or_leave;
   }
 };
 #act {^莲花生大士给了你一枚天珠，并嘱咐到：在短期内佩戴(pei)在身会有凝神醒脑、提升修为的作用。$} {

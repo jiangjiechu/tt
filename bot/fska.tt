@@ -9,6 +9,7 @@
     #var i 1;
     #var num 100;
     #untic fskaa;
+    uw all;
     prep $i;
 } {2};
 

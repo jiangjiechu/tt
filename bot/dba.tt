@@ -8,10 +8,14 @@
   #var in_db 1;
   set wimpy 20;
   tune bd;
+  #var db_enemies {};
   ask yu about job};
-#ali {dbd} {ask yu about finish;dbx;#class battle kill};
-#ali {dbf} {ask yu about fail;#untic dba1;dbx;#class battle kill};
-#ali {ah} {#var in_battle 0;yun qi; p.yy; say $anhao};
+#ali {dbd} {ask yu about finish;dbx;#var in_db 0};
+#ali {dbf} {ask yu about fail;#untic dba1;dbx;#var in_db 0};
+#ali {ah} {
+  #var in_battle 0;
+  #if {"$myid"=="simontuixue"} {p.yy;yun shield};
+  say $anhao};
 #ali {jt} {
   #untic dba1;#untic dba2;
   ask %1 about 接头};
@@ -34,78 +38,81 @@
   #tic {dba2} {#echo {%c%h} {light yellow} {长相%1}} {5}
 };
 
-#act {看起来%*想杀死你} { #var battle 1;
-  #class battle open;
-  #act {%*大元 秘谍 %*(%*)%*} {
-    #if {$f1_set==0}{
-      #var oppo @lower{%3};
-      #var f1_set 1;
-    };
-    #elseif {$f2_set==0}{
-      #var oppo_bm @lower{%3};
-      #var f2_set 1;
-    };
-    #if {$in_battle==0} {
-      #var in_battle 1;
-      yun qi;
-      jiali $li1;
-
-    };
-  };
-
-  #alias bm {
-    yun beiming $oppo_bm;
-  };
-
-  #alias gm {
-    get gem from corpse %1;
-  };
-
-
-  #nop #act {}{};
-  #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-    #if {"$myid"=="simontuixue" && %1 >= 12} {
-      p.lm $oppo;
-    };
-    #elseif {"$myid"=="jinger"} {
-      p.jz ;
-    }
-  };
-  #act {%*死了。} {
-    #var f1_set 0;
-    l;
-    #delay 2 {bm;}
-  };
-  #alias f1 {
-    #var oppo {%1};
-    #var f1_set 1;
-  };
-  #alias f2 {
-    #var oppo_bm {%1};
-    #var f2_set 1;
-  };
-  #alias tx {
-    p.lm $oppo;
-  };
-  #class battle close;
-  look;
-	#delay 1 {bm}
+#act {%*大元 秘谍 %*(%*)%*} {
+  #var oppo @lower{%3};
+  #if {@ismember{$oppo;db_enemies}==0} {#list db_enemies add $oppo};
+};
+#nop 辛金生在你的耳边悄声说道：你到中原去点燃一支心星礼花，就会有人和你联络。;
+#act {%*在你的耳边悄声说道：你到%*去点燃一支%*礼花，就会有人和你联络。} {
+  #var lihua %3;
+  #tic {dba2} {#echo {%c%h} {light yellow} {去%2点燃一支%3礼花}} {5}
+};
+#nop 这时就在不远处的大驿道，似乎有人放烟花回应，你寻思着这大约就是接头口令了。;
+#nop 如果你没记错的话，接头人名唤南宫年。;
+#act {这时就在不远处的%*，似乎有人放烟花回应，你寻思着这大约就是接头口令了。} {
+  #var jt_name {};
+  #tic {dba3} {#echo {%c%h} {light yellow} {接头人在%1,名字 $jt_name}} {5}
+};
+#act {如果你没记错的话，接头人名唤%*。} {
+  #var jt_name %1;
 };
 
-#alias pg {
-  pack gem;
+
+#act {%*的%*，说出%*，%*会找你。} {
+  #var anhao %3;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%4在%1的%2，说出%3}} {5}
 };
 
-#alias hc {
-  do 3 get %1 from bo;
-  d1 {
-    combine gem;
-    d1 {pack gem}
-  }
+#act {%*=====%*◤　◤　◤　◤　◤　◤　%*◎◎%*} {
+  #var anhao %2;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%1在%3的%4，说出%2}} {5}
 };
+#act {%*﹍﹍﹍﹍﹍%*==%*▃　▃　▃　▃　%*} {
+  #var anhao %1;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%2在%3的%4，说出%1}} {5}
+};
+#nop 左令林▇　▇　▇　▇　不得向着天下◇◇◇◇◇◇◇◇◇◇岳王墓●●●●●●●●忘忧亭;
+#act {%*▇　▇　▇　▇　%*◇◇◇◇◇◇◇◇◇◇%*●●●●●●●●%*\n在其人面前说出(say)暗号。} {
+  #var anhao %2;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%1在%3的%4，说出%2}} {5}
+};
+#nop 低声是不是悄声––––––––––刘月；；；；；登州＿＿鼓楼;
+#act {%*––––––––––%*；；；；；%*＿＿%*} {
+  #var anhao %1;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%2在%3的%4，说出%1}} {5}
+};
+#nop 翔龙东街﹏﹏广州府﹏﹏﹏﹏陈杰▍　▍　▍　▍　▍　闪烁皇宫推动;
+#act {%*﹏﹏%*﹏﹏﹏﹏%*▍　▍　▍　▍　▍　%*} {
+  #var anhao %4;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%3在%2的%1，说出%4}} {5}
+};
+#nop     五十岁侯通海决计    人在南昌，南大街附近，名唤童璧;
+#act {%!s%S%!s人在%*，%*附近，名唤%*} {
+  #var anhao %1;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%4在%2的%3，说出%1}} {5}
+};
+#nop 小胡同◇◇◇洛阳﹉﹉﹉于娴▂　▂　只是甚么此事;
+#act {%*◇◇◇%*﹉﹉﹉%*▂　▂　%*} {
+  #var anhao %4;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%3在%2的%1，说出%4}} {5}
+};
+#nop 老婆不敢十六七︱︱︱︱︱︱︱︱︱︱潘常成〓〓〓〓归云庄□□□□□太湖桥;
+#act {%*︱︱︱︱︱︱︱︱︱︱%*〓〓〓〓%*□□□□□%*} {
+  #var anhao %1;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%2在%3的%4，说出%1}} {5}
+};
+#nop 右手一口气裂开▌▌▌▌▌欧阳惠▏　▏　▏　▏　▏　姑苏慕容﹍﹍﹍﹍﹍小道;
+#act {%*▌▌▌▌▌%*▏　▏　▏　▏　▏　%*﹍﹍﹍﹍﹍%*} {
+  #var anhao %1;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%2在%3的%4，说出%1}} {5}
+};
+#nop 人家回过修炼╲╱　╲╱　╲╱　╲╱　费梅香｜｜雁荡山◥　◥　◥　◥　◥　上灵岩;
+#act {%*╲╱　╲╱　╲╱　╲╱　%*｜｜%*◥　◥　◥　◥　◥　%*} {
+  #var anhao %1;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%2在%3的%4，说出%1}} {5}
+};
+#nop 踪迹只是宛如▎　▎　▎　▎　▎　▎　▎　▎　荆莹素○○○○○曲阜▁　▁　青石大道;
 
-#act {^你已经完成了%*次清除异族奸细的工作。$} {
-    #untic dba1;dbx
-};
+
 
 #class dba close;

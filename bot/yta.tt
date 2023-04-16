@@ -8,4 +8,11 @@
 		put yun tie in bao fu 2;
 	}
 };
+
+#act {^你将%*陨铁放进%*} {
+	#delay 1 {yt1};
+};
+#act {^这里没有这样东西} {
+	ytx;
+};
 #class yta close;
