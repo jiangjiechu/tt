@@ -31,12 +31,29 @@
 };
 #act {^余玠%*说道：为了保护接头人的安全，%*，我只能告诉你某人在%*等着你。长相大致如下%*\n%*$} {
   #var db_outlook %4;
-  #tic {dba1} {#echo {%c%h} {light yellow} {线人在%3，长相%4}} {5}
+  #tic {dba1} {#echo {%c%h} {light yellow} {线人在%3，长相%4}} {5};
 };
 #act {^长相大致如下%*} {
   #var db_outlook %4;
-  #tic {dba2} {#echo {%c%h} {light yellow} {长相%1}} {5}
+  #tic {dba2} {#echo {%c%h} {light yellow} {长相%1}} {5};
 };
+#nop 陶咏娅在你的耳边悄声说道：有人在神龙岛的神龙岛留言板给你留下了下一步行动的步骤。;
+#act {%!*在你的耳边悄声说道：有人在%*的%*给你留下了下一步行动的步骤。} {
+  #tic {dba2} {#echo {%c%h} {light yellow} {去%1的%2 read}} {5};
+  #var board %3;
+};
+#nop 兰州内的演武场，暗号终须跟着皇帝，请找孙竹露;
+#act {%*内的%*，暗号%*，请找%*} {
+  #var anhao %3;
+  #tic {dba3} {#echo {%c%h} {light yellow} {接头人%4在%1的%2,暗号 %3}} {5}
+
+};
+#nop 张涵莲正在杀手帮的往生堂广场等着你，暗号是“一番话明晃晃并非”。;
+#act {%*正在%*的%*等着你，暗号是“%*”。} {
+  #var anhao %4;
+  #tic {dba3} {#echo {%c%h} {light yellow} {接头人%1在%2的%3,暗号 %4}} {5}
+};
+
 
 #act {%*大元 秘谍 %*(%*)%*} {
   #var oppo @lower{%3};
@@ -46,6 +63,19 @@
 #act {%*在你的耳边悄声说道：你到%*去点燃一支%*礼花，就会有人和你联络。} {
   #var lihua %3;
   #tic {dba2} {#echo {%c%h} {light yellow} {去%2点燃一支%3礼花}} {5}
+};
+#alias blh {
+  gt ly;
+  #class blh.inner open;
+  #action {抵达目的地 ...} {
+    #class blh.inner kill;
+    w;s;s;
+    #delay 0.5 {
+      buy %0 lihua;
+      on_unbusy {n;n;e}
+    }
+  };
+  #class blh.inner close;
 };
 #nop 这时就在不远处的大驿道，似乎有人放烟花回应，你寻思着这大约就是接头口令了。;
 #nop 如果你没记错的话，接头人名唤南宫年。;
@@ -57,10 +87,19 @@
   #var jt_name %1;
 };
 
+#act {${board}(%*) [ %* 张留言，%* 张未读 ]} {
+  read %2;
+};
 
 #act {%*的%*，说出%*，%*会找你。} {
   #var anhao %3;
   #tic {dba2} {#echo {%c%h} {light yellow} {目标%4在%1的%2，说出%3}} {5}
+};
+#nop 苍龙峡底 青州其人名曰颜浪峦    真死段正淳不会;
+#nop 九日山 泉州其人名曰方水虎    殷天楼头少林;
+#act {%*%!s%*其人名曰%*%!s%*} {
+  #var anhao %4;
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%3在%2的%1，说出%3}} {5}
 };
 
 #act {%*=====%*◤　◤　◤　◤　◤　◤　%*◎◎%*} {
@@ -112,6 +151,7 @@
   #tic {dba2} {#echo {%c%h} {light yellow} {目标%2在%3的%4，说出%1}} {5}
 };
 #nop 踪迹只是宛如▎　▎　▎　▎　▎　▎　▎　▎　荆莹素○○○○○曲阜▁　▁　青石大道;
+#nop 明州★★★★★雁荡北坡★★★★★牛惠康★★★★★疗伤旧衣通吃岛;
 
 
 

@@ -1,4 +1,13 @@
 #class bianli_data open
+/*
+    TODO: 将峨眉和后山分开
+    TODO: 西湖
+    TODO：梅庄
+    TODO：杭州
+    TODO: 提督府
+    TODO：建康北和南分开
+
+*/
 #list bl_path_xy create {
     bl.comment {往东到荆西镖局，到城中心};
     s;s;n;w;w;w;w;n;bl.command {look n};s;w;w;w;w;w;n;s;w;w;s;sw;ne;n;e;e;e;e;e;e;e;e;e;e;e;e;n;s;s;n;e;
@@ -555,7 +564,7 @@
     w;w;w;w;w;s;e;s;nw;sw;wu;ne;sw;sw;ne;ed;s;n;
     ne;se;n;w;n;e;e;e;e;e;
     bl.comment {迷魂阵};
-    e;s;e;bl.command {tell shouyin shouyin}; bl.command {give shouyin to shen ling};bl.wait 1;s;e;n;w;s;w;e;e;e;n;bl.command {break men};s;s;
+    e;s;e;bl.command {tell shouyin shouyin};bl.wait 1; bl.command {give shouyin to shen ling};bl.wait 1;s;e;n;w;s;w;e;e;e;n;bl.command {break men};s;s;
     bl.comment {归云亭到后花园};
     e;e;n;n;w;n;s;s;n;w;w;e;e;e;s;s;s;w;e;bl.clear_force {zong};s;n;n;e;e;e;s;n;w;w;w;w;w;
     bl.comment {归云亭回到太湖桥};

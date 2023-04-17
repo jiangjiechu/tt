@@ -37,7 +37,10 @@
   perform danxin-jian.sancai %0;
 };
 #alias {p.suo} {
-  perform jiulong-bian.suo;
+  perform jiulong-bian.suo %0;
+};
+#alias {p.an} {
+    perform fulong-shou.an %0;
 };
 #list sp_skills create {
     danxin-jian;

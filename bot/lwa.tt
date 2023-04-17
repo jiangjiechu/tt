@@ -162,7 +162,7 @@
       lwx;
       fska;
     };
-    #elseif {"$myid"=="jingirl" && $skill_id > 5} {
+    #elseif {"$myid"=="jingirl" && $skill_id > 8} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
       w;w;s;
