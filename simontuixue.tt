@@ -1,8 +1,8 @@
 #var myid simontuixue;
 #var myname ±¾Ñ©;
-#var li1 max;
+#var li1 0;
 #var li2 max;
-#var wp dao;
+#var wp sword;
 #var skills {
     {1}{fx}
     {2}{lm}

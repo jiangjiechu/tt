@@ -12,6 +12,32 @@
   ask yu about job};
 #ali {dbd} {ask yu about finish;dbx;#var in_db 0};
 #ali {dbf} {ask yu about fail;#untic dba1;dbx;#var in_db 0};
+
+#ali {dl1} {
+  db1 dalunsi;
+  #class dl1.inner open;
+  #act {大车停稳了下来，你可以下车(xia)了。} {
+    #class dl1.inner kill;
+    hx;w;
+    #delay 1 {
+      gt %0
+    }
+  };
+  #class dl1.inner close;
+};
+#ali {dl2} {
+  gt dls;
+  #class dl2.inner open;
+  #act {抵达目的地 ...} {
+    e;gu;
+    qu chengdu;
+    dm;
+  };
+  #act {大车停稳了下来，你可以下车(xia)了。} {
+    #class dl2.inner kill;
+    db2
+  };
+};
 #ali {ah} {
   #var in_battle 0;
   #if {"$myid"=="simontuixue"} {p.yy;yun shield};
@@ -97,9 +123,9 @@
 };
 #nop 苍龙峡底 青州其人名曰颜浪峦    真死段正淳不会;
 #nop 九日山 泉州其人名曰方水虎    殷天楼头少林;
-#act {%*%!s%*其人名曰%*%!s%*} {
+#act {%* %*其人名曰%*    %*} {
   #var anhao %4;
-  #tic {dba2} {#echo {%c%h} {light yellow} {目标%3在%2的%1，说出%3}} {5}
+  #tic {dba2} {#echo {%c%h} {light yellow} {目标%3在%2的%1，说出%4}} {5}
 };
 
 #act {%*=====%*◤　◤　◤　◤　◤　◤　%*◎◎%*} {

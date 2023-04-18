@@ -17,6 +17,7 @@
 
     #if {"$lx_skills[$i]"=="liumai-shenjian"} {
         #var skill parry;
+        uw all;
         wield $wp;
         jifa sword liumai-shenjian;
         jifa parry liumai-shenjian;
