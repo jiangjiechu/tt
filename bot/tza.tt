@@ -6,6 +6,7 @@
   #list enemies create {};
   #list enemies_name create {};
   #list enemies_down create {};
+  #var unbusy.tick 0.1;
   set wimpy 80;
   #var i_sk 1;
   ask dashi about job};

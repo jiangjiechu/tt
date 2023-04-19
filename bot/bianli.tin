@@ -511,6 +511,7 @@
 };
 
 #gag {�㲻æ};
+#var unbusy.tick 0.5;
 #alias {on_unbusy_inner} {
     #alias tmp_unbusy #cr;
     #alias tmp_unbusy %0;
@@ -522,7 +523,7 @@
     } {1};
     #ticker {checkbusy} {
         checkbusy;
-    } {0.1};
+    } {${unbusy.tick}};
     #class unbusy.inner close;
     checkbusy;
 };

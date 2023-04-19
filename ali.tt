@@ -459,7 +459,7 @@
 #alias hydx {#class hyda kill;#untic hyda1};
 
 #nop ìø¶¨
-#alias hxa {#class hxa read bot/hxa.tt;};
+#alias hxa {#class hxa read bot/hxa.tt;#var hx_n %1};
 #alias hxx {#class hxa kill; };
 
 #nop gps
