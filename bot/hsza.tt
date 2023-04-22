@@ -39,6 +39,9 @@
   #if {"$myid"=="dalabomba"} {
     set adv_quest 50;
   };
+  #if {"$myid"=="jingirl"} {
+    set adv_quest 50;
+  };
   #delay 2 {
     special agile;
     special ironskin;
@@ -139,8 +142,8 @@
 };
 #act {%*死了。} {
   #var f1_set 0;
-  l;
   #if {"$myid"=="simontuixue"} {
+    l;
     #delay 2 {bm;}
   }
 };
@@ -209,18 +212,16 @@
   #act {^你已经完成了%*次清除异族奸细的工作。$} {
     #var taskid %1;
     #class report kill;
+    hszLog $record;
+    #untic hsza1;hszx;
   };
 #class report close;
 
 #act {^│幸运值%!s│%d%!s│奖励系数%!s│%d% %!s│识图检查%!s│%*完整奖励%*│$} { #var luck %1; #var bonus %2; };
 #act {你被奖励了：} {
   #format time2 {%t} {%H:%M:%S};
-  #delay 1 {
-    #format record {%s;%s;%s;%d;%d;%d;%s;%s;%s;%s;%s} {$job_mod} {$loc} {$n_oppo} {@ctd{$exp}} {@ctd{$pot}} {@ctd{$fam}} {@ctd{$taskid}} {$time1} {$time2} {$luck} {$bonus};
-    #showme <afa> $record;
-    hszLog $record;
-    #untic hsza1;hszx;
-  }
+  #format record {%s;%s;%s;%d;%d;%d;%s;%s;%s;%s;%s} {$job_mod} {$loc} {$n_oppo} {@ctd{$exp}} {@ctd{$pot}} {@ctd{$fam}} {@ctd{$taskid}} {$time1} {$time2} {$luck} {$bonus};
+  #showme <afa> $record;
 };
 #act {你已经陷入半昏迷状态，随时都可能摔倒晕去。} {
   #if {"$myid"=="jingirl"} {xq}

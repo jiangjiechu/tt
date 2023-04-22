@@ -1,0 +1,83 @@
+#class fma open;
+#tic fma {
+	#untic fma; 
+	#var unbusy.tick 10;
+	#var lei 0;
+	#var qixu 0;
+	#var kujie 0;
+	fmaa $fm_n;
+} 0.5;
+#alias fmaa {
+	skbrief dari-fumo;
+	#class huanxi.inner open;
+	#act {#%%d/%%d} {
+		#class huanxi.inner kill;
+		#var level %%1;
+	};
+	#class huanxi.inner close;
+	canchan %1;
+};
+
+#act {^你的「大日伏魔禅经」进步了！} {
+	stop;
+	on_unbusy {
+		do 2 drink;
+		do 2 eat liang;
+		fmaa $fm_n;
+	}
+};
+
+#act {^你一觉醒来%*} {
+  suxing;
+  gout;
+  do 2 eat liang;
+  #delay 1 {do 2 drink;
+  #delay 1 {fmaa $fm_n;
+}}};
+#act {你略一凝神，精神看起来好多了。} {
+	eat liang;drink;
+	dazuo max;
+};
+#act {你%*站了起来。} {
+	n;fmaa $fm_n;
+};
+#act {你现在精力充沛。} {
+	dazuo max;
+};
+#act {你的内力不够。} {
+  #if {$kujie==0}{
+    #var kujie 1;
+    gosleep;
+  }
+};
+#act {你的内力已经枯竭，不能施用内功。} {
+  #if {$kujie==0}{
+    #var kujie 1;
+	gosleep;
+  }
+};
+#act {^你现在气血严重不足，无法满足打坐最小要求。} {
+	gosleep;
+};
+#act {^你现在精不够，无法控制内息的流动！} {
+	gosleep
+};
+#act {慢慢地你终于又有了知觉....} {
+	s;gosleep;
+};
+
+#gag {^> $};
+#gag {^$};
+#gag {走了过来};
+#gag {走了进去};
+#gag {往%*离开};
+#gag {你已经吃%*};
+#gag {你已经喝%*};
+#gag {你正忙};
+#gag {你不忙};
+#gag {>%s}
+#gag {^$}
+#gag {你对着大柱禅定，仿佛对大柱上的经文有所领悟。}:
+
+
+#class fma close;

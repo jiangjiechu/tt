@@ -330,7 +330,7 @@
     bl.comment {马厩->后花园->后堂};
     e;n;ne;e;e;e;e;w;bl.command {look s};w;w;
     bl.comment {后堂->兵器库->牢房};
-    s;w;e;e;w;s;bl.command {clamber up}; bl.command {leap south};s;
+    s;w;e;e;w;s;bl.command {clamber up};bl.wait; bl.command {leap south};s;
     bl.comment {牢房->王府大门};
     n;n;n;n;n;n;n;n;n;
 };

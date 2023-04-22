@@ -443,9 +443,18 @@
 #alias mzja {#class mzja read bot/mzja.tt};
 #alias mzjx {#class mzja kill; #untic mzja%*};
 
+#nop 宋远桥
+#alias syqa {#class syqa read bot/syqa.tt};
+#alias syqx {#class syqa kill; #untic syqa%*};
+
+#nop 海棠
+#alias hta {#class hta read bot/hta.tt};
+#alias htx {#class hta kill; #untic hta%*};
+
 #nop 护镖
 #alias hba {#class hba read bot/hba.tt;hbaa %1};
 #alias hbx {#class hba kill; #untic hba1};
+
 #nop 爵位
 #alias jwa {#class jwa read bot/jwa.tt;};
 #alias jwx {#class jwa kill; #untic jwa1};
@@ -461,6 +470,10 @@
 #nop 禅定
 #alias hxa {#class hxa read bot/hxa.tt;#var hx_n %1};
 #alias hxx {#class hxa kill; };
+
+#nop 大日伏魔
+#alias fma {#class fma read bot/fma.tt;#var fm_n %1};
+#alias fmx {#class fma kill; };
 
 #nop gps
 #alias gpa {#class my_gps read bot/my_gps.tt; #var city %1};

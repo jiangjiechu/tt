@@ -16,6 +16,10 @@
 #ali {jxfd} {say $code;jxfx};
 #ali {jxff} {ask ji about fail;#untic jxfa1;jxfx;};
 #ali {r} {#var code %1};
+#ali {cu} {
+  clamber up;
+  on_unbusy {wield $wp}
+};
 #ali {pa} {clamber up};
 #ali {ld} {look down};
 #ali {jd} {

@@ -1,0 +1,84 @@
+#nop 任务;
+#class syqa open;
+
+#tic {syqa} {#untic syqa;syqaa} {2};
+#ali {syqd} {give yao cai to song;syqx;#var in_syq 0;yield no};
+#ali {syqf} {ask song about fail;#untic syqa1;syqx;#var in_syq 0;yield no};
+
+#ali {syqaa} {
+  #var in_syq 1;
+  #var syq.pattern {};
+  ask song about job;
+};
+#act {宋远桥说道：「殷六弟的伤势又有反复，你去%*看看，能不能找到伤药吧。」} {
+  #var city %1;
+  #tic {syqa2} {#echo {%c%h} {light yellow} {伤药在$city, 到了后guancha}} {5};
+};
+#act {到有记号的地点观察(guancha)确认后，可以找到伤药，随意观察会导致任务失败} {
+  #class syq.inner open;
+  #action {~^\e\[0m%%*\e\[0m$} {
+    #var tmp1 %%1;
+    #show $tmp1;
+    #list {syq.pattern} add $tmp1;
+  };
+  #action {^>%s$} {
+    #show <faa> deactivate syq.inner;
+    #class syq.inner kill;
+  };
+  #class syq.inner close;
+};
+
+#act {宋远桥说的伤药似乎就在这里。} {
+  #var in_syq 0;
+  #if {"$myid"=="simontuixue"} {
+    p.yy;
+    yun shield;
+  };
+  yun qi;
+  yield yes;
+};
+
+#alias syq_look {
+  #var match_n 0;
+  #list {syq.pattern} size pattern_n;
+  #class bl.syq.inner open;
+  #act {~^\e\[0m%%s${syq.pattern[1]}%%*\e\[0m$} {
+    #math match_n {$match_n + 1};
+    #show <afa> 匹配成功！ ${match_n} / $pattern_n;
+  };
+  #act {~^\e\[0m%%s${syq.pattern[2]}%%*\e\[0m$} {
+    #math match_n {$match_n + 1};
+    #show <afa> 匹配成功！ ${match_n} / $pattern_n;
+  };
+  #act {~^\e\[0m%%s${syq.pattern[3]}%%*\e\[0m$} {
+    #math match_n {$match_n + 1};
+    #show <afa> 匹配成功！ ${match_n} / $pattern_n;
+  };
+  #act {~^\e\[0m%%s${syq.pattern[4]}%%*\e\[0m$} {
+    #math match_n {$match_n + 1};
+    #show <afa> 匹配成功！ ${match_n} / $pattern_n;
+  };
+  #act {~^\e\[0m%%s${syq.pattern[5]}%%*\e\[0m$} {
+    #math match_n {$match_n + 1};
+    #show <afa> 匹配成功！ ${match_n} / $pattern_n;
+  };
+  #act {~^\e\[0m%%s\e\[0m$} {
+    #if {$match_n >= $pattern_n} {
+      #show <afa> 发现房间！;
+      bl.stop;
+      #class bl.syq.inner kill;
+    };
+    #var match_n 0;
+  };
+  #class bl.syq.inner close;
+};
+#ali {zb} {
+  ask %1 about 伤药;
+  yes;
+};
+
+#act {%*说道：「好吧，这么耐打的人我也是服了，伤药是你的了。」} {
+  yield no;
+};
+
+#class syqa close;
