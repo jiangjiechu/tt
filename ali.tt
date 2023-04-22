@@ -9,19 +9,6 @@
 #alias ho {halt;out};
 #alias hx {halt;xia};
 #alias d1 {#delay 1 {%1}};
-#alias t1 {halt;xia;e;se;sw;s;#delay 1 {gt %1}};
-#alias t2 {n;ne;nw;w;gu;qu %1;dm};
-#alias h1 {s;out;s;w;w;n;e;n;gu;qu %1;dm};
-#alias h2 {halt;xia;s;w;s;e;e;n;enter;n};
-#alias mr1 {sw;n;n;n;e;e;gu;qu %1;dm};
-#alias mr2 {halt;xia;w;w;s;s;s;ne};
-#alias pz1 {w;w;sd;sd;out;w;w;s;gu;qu %1;dm};
-#alias pz2 {halt;xia;n;e;e;enter;nu;nu;e;e;gf bosss};
-#alias q1 {halt;out;node walk hhbkd3_%1};
-#alias q2 {halt;out;walk qufu};
-
-#alias db1 {out;nw;nw;n;gu;qu %1;dm};
-#alias db2 {halt;xia;s;se;se;enter};
 #alias pg {
   pack gem;
 };
@@ -532,4 +519,142 @@
   tell zzxc in;
 };
 
+#ali {dl1} {
+  ${CurrentPosition}1 dalunsi;
+  #class dl1.inner open;
+  #act {大车停稳了下来，你可以下车(xia)了。} {
+    #class dl1.inner kill;
+    hx;w;
+    #delay 1 {
+      gt %0
+    }
+  };
+  #class dl1.inner close;
+};
+#var yizhan1 {
+  {cd} {chengdu}
+  {yj} {chengdu}
+  {tls} {tianlongsi}
+  {gd} {tianlongsi}
+  {fd} {tianlongsi}
+  {yb} {tianlongsi}
+  {dl} {dalichengzhong}
+  {km} {kunming}
+  {px} {kunming}
+  {yy} {yueyang}
+  {ty} {yueyang}
+  {yg} {yueyang}
+  {nc} {nanchang}
+  {zx} {nanchang}
+  {fh} {nanchang}
+  {jz} {jiangzhou}
+  {tf} {jiangzhou}
+  {pyh} {jiangzhou}
+  {qz} {quanzhou}
+  {nsl} {quanzhou}
+  {wys} {quanzhou}
+  {mingz} {quanzhou}
+  {th} {quanzhou}
+  {hz} {hangzhou}
+  {hsz} {hangzhou}
+  {jnqz} {hangzhou}
+  {jx} {jiaxing}
+  {gjc} {jiaxing}
+  {sz} {suzhou}
+  {mrf} {suzhou}
+  {mr} {suzhou}
+  {zj} {zhenjiang}
+  {jk} {jiankangfu}
+  {mzj} {jiankangfu}
+  {ytf} {jiankangfu}
+  {gy} {guiyunzhuang}
+  {lcf} {guiyunzhuang}
+  {taih} {guiyunzhuang}
+  {yinz} {guiyunzhuang}
+};
+#alias tf1 {n;ne;nw;w;gu;qu %1;dm};
+#alias tf2 {halt;xia;e;se;sw;s;#delay 1 {gt %1}};
+#alias jz1 {w;w;n;ne;ne;nw;w;gu;qu %1;dm};
+#alias jz2 {halt;xia;e;se;sw;sw;s;e;e;#delay 1 {gt %1}};
+#alias nc1 {s;w;w;n;gu;qu %1;dm};
+#alias nc2 {hx;s;e;e;n};
+
+#alias hz1 {n;e;n;gu;qu %1;dm};
+#alias hz2 {halt;xia;s;w;s;#delay 1 {gt %1}};
+#alias hsz1 {s;out;s;w;w;n;e;n;gu;qu %1;dm};
+#alias hsz2 {halt;xia;s;w;s;e;e;n;enter;n;#delay 1 {gt %1}};
+#alias mrf1 {sw;n;n;n;e;e;gu;qu %1;dm};
+#alias mrf2 {halt;xia;w;w;s;s;s;ne;#delay 1 {gt %1}};
+#alias lcf1 {w;w;sd;sd;out;w;w;s;gu;qu %1;dm};
+#alias lcf2 {halt;xia;n;e;e;enter;nu;nu;e;e;#delay 1 {gt %1}};
+
+#alias yj1 {out;nw;nw;n;gu;qu %1;dm};
+#alias yj2 {halt;xia;s;se;se;enter};
+#alias yy1 {n;n;e;gu;qu %1;dm};
+#alias yy2 {halt;xia;w;s;s;};
+#ali {dl2} {
+  gt dls;
+  #var out_cmd {%1}2;
+  #class dl2.inner open;
+  #act {抵达目的地 ...} {
+    e;gu;
+    qu $yizhan1[%1];
+    dm;
+  };
+  #act {大车停稳了下来，你可以下车(xia)了。} {
+    #class dl2.inner kill;
+    #if {"%2"==""} {#var dl2_end here};
+    #else {#var dl2_end %2};
+    $out_cmd;
+  };
+};
+#alias {on_unbusy} {
+    #list unbusy_list add {%0};
+    #show <afa> unbusy_list: $unbusy_list;
+    #if {${busying} == 0} {
+        do_unbusy;
+    };
+};
+
+#var busying 0;
+#list unbusy_list create {};
+#alias {do_unbusy} {
+    #list unbusy_list size busy_list_size;
+    #if {${busy_list_size} == 0} {
+        #var busy_action nil;
+    };
+    #else {
+        #list unbusy_list get ${busy_list_size} busy_action;
+        #list unbusy_list delete ${busy_list_size};
+        #show <afa> executing action: $busy_action;
+    };
+    #if {"${busy_action}" != "nil"} {
+        #var busying 1;
+        on_unbusy_inner {
+            ${busy_action};
+            do_unbusy;
+        };
+    };
+    #else {
+        #var busying 0;
+    };
+};
+
+#gag {你不忙};
+#var unbusy.tick 0.5;
+#alias {on_unbusy_inner} {
+    #alias tmp_unbusy #cr;
+    #alias tmp_unbusy %0;
+    #class unbusy.inner open;
+    #action {你不忙} {
+        #class unbusy.inner kill;
+        #undelay {delay_unbusy};
+        tmp_unbusy;
+    } {1};
+    #ticker {checkbusy} {
+        checkbusy;
+    } {${unbusy.tick}};
+    #class unbusy.inner close;
+    checkbusy;
+};
 #class ali close;
