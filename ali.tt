@@ -506,12 +506,12 @@
 };
 #alias wsa {
   n;n;n;nw;nw;w;
-  nw;n;
+  nw;nw;nw;n;n;nw;w;n;
   nw;nd;w
 };
 #alias wsb {
   e;su;se;
-  s;se;
+  s;e;se;s;s;se;se;se;
   e;se;se;s;s;s
 };
 
@@ -571,6 +571,8 @@
   {lcf} {guiyunzhuang}
   {taih} {guiyunzhuang}
   {yinz} {guiyunzhuang}
+  {gz} {guangzhou}
+  {chzh} {chaozhou}
 };
 #alias tf1 {n;ne;nw;w;gu;qu %1;dm};
 #alias tf2 {halt;xia;e;se;sw;s;#delay 1 {gt %1}};
@@ -578,6 +580,15 @@
 #alias jz2 {halt;xia;e;se;sw;sw;s;e;e;#delay 1 {gt %1}};
 #alias nc1 {s;w;w;n;gu;qu %1;dm};
 #alias nc2 {hx;s;e;e;n};
+#alias gz1 {e;e;e;e;se;gu;qu %1;dm};
+#alias gz2 {hx;nw;w;w;w;w};
+#alias tls1 {w;gu;qu %1;dm};
+#alias tls2 {hx;e};
+#alias chzh1 {w;w;s;gu;qu %1;dm};
+#alias chzh2 {hx;n;e;e};
+#alias km1 {s;s;gu;qu %1;dm};
+#alias km2 {hx;n;n};
+
 
 #alias hz1 {n;e;n;gu;qu %1;dm};
 #alias hz2 {halt;xia;s;w;s;#delay 1 {gt %1}};

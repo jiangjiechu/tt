@@ -33,16 +33,8 @@
   };
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
-  #if {"$myid"=="simontuixue"} {
-      set adv_quest 50;
-  };
-  #if {"$myid"=="dalabomba"} {
-    set adv_quest 50;
-  };
-  #if {"$myid"=="jingirl"} {
-    set adv_quest 50;
-  };
   #delay 2 {
+    set adv_quest 50;
     special agile;
     special ironskin;
     #untic hsza1;
@@ -52,7 +44,7 @@
       wield $lun;
     };
     #if {"$myid"=="simontuixue"} {
-      wi $wp;
+      yun shield;
       remove armet;
       remove belt;
       p.yy
@@ -68,9 +60,10 @@
   #var VERBOSE 1;
   unset brief;
 };
-#act {^快去找韩王复命吧。} {
-  unset adv_quest;
-  peace;
+#act {快去找韩王复命吧。} {
+  #delay 4 {
+    peace;
+  }
 };
 
 #act {%*异族奸细 %*(%*)%*} {
@@ -174,6 +167,7 @@
   #showme <afa> OK, n_oppo has been set to $n_oppo;
 };
 #action {^快去找韩王复命吧。} {
+  unset adv_quest;
   wear mine;
   remove belt;
   remove armet;
@@ -184,6 +178,9 @@
 
 #alias hszLog {
   #line log {hsz.log} {%0};
+};
+#act {你瞬间感到了危险临近} {
+  unset adv_quest;
 };
 
 #alias jm {
@@ -213,6 +210,7 @@
     #var taskid %1;
     #class report kill;
     hszLog $record;
+    #showme <afa> $record;
     #untic hsza1;hszx;
   };
 #class report close;
@@ -221,7 +219,6 @@
 #act {你被奖励了：} {
   #format time2 {%t} {%H:%M:%S};
   #format record {%s;%s;%s;%d;%d;%d;%s;%s;%s;%s;%s} {$job_mod} {$loc} {$n_oppo} {@ctd{$exp}} {@ctd{$pot}} {@ctd{$fam}} {@ctd{$taskid}} {$time1} {$time2} {$luck} {$bonus};
-  #showme <afa> $record;
 };
 #act {你已经陷入半昏迷状态，随时都可能摔倒晕去。} {
   #if {"$myid"=="jingirl"} {xq}

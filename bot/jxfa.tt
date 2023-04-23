@@ -15,7 +15,7 @@
 };
 #ali {jxfd} {say $code;jxfx};
 #ali {jxff} {ask ji about fail;#untic jxfa1;jxfx;};
-#ali {r} {#var code %1};
+#ali {rj} {#var code %1};
 #ali {cu} {
   clamber up;
   on_unbusy {wield $wp}
@@ -27,7 +27,6 @@
   #elseif {"$myid"=="simontuixue"} {p.yy};
   #elseif {"$myid"=="jingirl"} {yun powerup};
   leap down;
-  #delay 2 bm;
 };
 
 #act {^纪晓芙在你耳边轻声说道：$myid 据说他们会在%*密谋。} {
@@ -71,62 +70,11 @@
   #else {#showme <afa> 命中黑名单，丢弃}
 };
 
-#alias bm {
-  yun beiming $oppo_bm;
-};
-
-#alias gm {
-  get gem from corpse %1;
-};
-
-#act {看起来%*想杀死你} { #var battle 1;
-  #var n_oppo1;
-	#delay 2 {bm}
-};
-
-#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
-  #if {"$myid"=="simontuixue" && %1 >= 12} {
-    p.lm $oppo;
-  };
-  #elseif {"$myid"=="jinger"} {
-    p.jz;
-  }
-};
 #alias gg {
   get all from $enemies[1];
   on_unbusy {
     get all from $enemies[2];
   }
-};
-#alias f1 {
-  #var oppo {%1};
-  #var f1_set 1;
-};
-#alias f2 {
-  #var oppo_bm {%1};
-  #var f2_set 1;
-};
-#alias tx {
-  p.lm $oppo;
-};
-#alias hc {
-  do 3 get %1 from bo;
-  d1 {
-    combine gem;
-    d1 {pack gem}
-  }
-};
-
-#alias jl {
-  #var n_oppo %0;
-  #showme <afa> OK, n_oppo has been set to $n_oppo;
-};
-#alias jxfLog {
-  #line log {jxf.log} {%0};
-};
-
-#alias jm {
-  #var job_mod %0;
 };
 #act {^%!s「%!*」%*(%*) <战斗中>$} {
   #var oppo @lower{%2};
@@ -158,9 +106,6 @@
 };
 
 #act {看起来%1想杀死你} {#var jxfss %1};
-#act {%*脚下一个不稳，跌在地上一动也不动了。} {
-  #var oppo $oppo_bm;
-};
 
 #alias gc2 {get all from corpse 1;get all from corpse 2;get all from $enemies[1]; get all from $enemies[2]};
 #gag {^[舜耕山]%*$};

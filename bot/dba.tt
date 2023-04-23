@@ -15,6 +15,7 @@
 
 #ali {ah} {
   #var in_battle 0;
+  unset adv_quest;
   #if {"$myid"=="simontuixue"} {p.yy;yun shield};
   say $anhao};
 #ali {jt} {

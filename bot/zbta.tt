@@ -1,0 +1,38 @@
+#class zbta open;
+#tic zbta {
+	#untic zbta;
+	zbtaa
+} 0.5;
+#alias zbtaa {
+	hua fangyuan;
+};
+#act {你累得满头大汗, 暂停了画方圆。} {
+	yun regenerate;
+};
+
+#act {你略一凝神，精神看起来好多了。} {
+	eat liang;drink;
+	dazuo max;
+};
+#act {你%*站了起来。} {
+	zbtaa;
+};
+#act {你现在精力充沛。} {
+	dazuo max;
+};
+
+#gag {^> $};
+#gag {^$};
+#gag {走了过来};
+#gag {走了进去};
+#gag {往%*离开};
+#gag {你已经吃%*};
+#gag {你已经喝%*};
+#gag {你正忙};
+#gag {你不忙};
+#gag {>%s}
+#gag {^$}
+#gag {你对着大柱禅定，仿佛对大柱上的经文有所领悟。}:
+
+
+#class zbta close;
