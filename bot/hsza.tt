@@ -47,6 +47,7 @@
       yun shield;
       remove armet;
       remove belt;
+      yun zyhb;
       p.yy
     };
     #if {"$myid"=="jingirl"} {

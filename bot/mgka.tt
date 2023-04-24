@@ -1,0 +1,48 @@
+#class mgka open;
+#tic mgka {
+	#untic mgka;
+	#var i_mx 0;
+	mgkaa
+} 0.5;
+#alias mgkaa {
+	#if {$i_mx>20} {
+		drink; eat liang;
+		#var i_mx 0;
+	};
+	mingxiang;
+};
+#act {你冥想了佛家的真理,觉得颇有所获!} {
+	#math i_mx {$i_mx + 1};
+	#show <afa> 冥想 $i_mx / 20;
+	#delay {${mgk.delay}} {
+		mgkaa;
+	}
+};
+#act {你觉得冥冥中自己的%*有所提高!} {
+	#math i_mx {$i_mx + 1};
+	#show <afa> 冥想 $i_mx / 20;
+	#delay {${mgk.delay}} {
+		mgkaa;
+	}
+
+};
+
+#act {你现在无法冥想佛家的真理!} {
+	#delay 1 {mgkaa};
+};
+
+#gag {^> $};
+#gag {^$};
+#gag {走了过来};
+#gag {走了进去};
+#gag {往%*离开};
+#gag {你已经吃%*};
+#gag {你已经喝%*};
+#gag {你正忙};
+#gag {你不忙};
+#gag {>%s}
+#gag {^$}
+#gag {你对着大柱禅定，仿佛对大柱上的经文有所领悟。}:
+
+
+#class mgka close;
