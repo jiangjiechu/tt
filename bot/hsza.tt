@@ -33,14 +33,14 @@
   };
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
-  #delay 2 {
+  #delay 3 {
     set adv_quest 50;
     special agile;
-    special ironskin;
     #untic hsza1;
     wear mine;
     unwield all;
     #if {"$myid"=="dalabomba"} {
+      special ironskin;
       wield $lun;
     };
     #if {"$myid"=="simontuixue"} {
@@ -52,6 +52,7 @@
     };
     #if {"$myid"=="jingirl"} {
       wield $wp;
+      special ironskin;
       wear zhiyan;wear zhixin;
     }
   }

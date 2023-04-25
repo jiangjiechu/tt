@@ -10,7 +10,6 @@
   #var loc_lock 0;
   #var luck %1;
   #var bonus %2;
-  #var enemies {};
   ask ji xiaofu about job;
 };
 #ali {jxfd} {say $code;jxfx};
@@ -27,6 +26,7 @@
   #elseif {"$myid"=="simontuixue"} {p.yy};
   #elseif {"$myid"=="jingirl"} {yun powerup};
   leap down;
+  #var enemies {};
 };
 
 #act {^纪晓芙在你耳边轻声说道：$myid 据说他们会在%*密谋。} {

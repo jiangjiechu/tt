@@ -9,6 +9,7 @@
     {3}{qf}
 };
 #list lx_skills create {
+    feihua-zhuyue;
     duanjia-jian;
     tiannan-bufa;
     liumai-shenjian;
@@ -33,7 +34,8 @@
   perform yiyang-zhi.fuxue %1;
   jiali $li1;
 }
-#alias {p.al} {perform duanjia-jian.ailao}
+#alias {p.al} {perform duanjia-jian.ailao};
+#alias {p.fh} {perform feihua-zhuyue.feihua};
 #ali {jqg} {
    s;#6 w;
    #delay 1 {northwest;enter;enter;

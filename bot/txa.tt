@@ -27,6 +27,11 @@
         unwield all;
         jifa parry yiyang-zhi;
     };
+    #elseif {"$lx_skills[$i]"=="feihua-zhuyue"} {
+        #var skill parry;
+        unwield all;
+        jifa parry feihua-zhuyue;
+    };
     #elseif {"$lx_skills[$i]"=="tiannan-bufa"} {
         #var skill dodge;
     };
@@ -120,7 +125,7 @@
         txx;
         tna;
     };
-    #elseif {$i > 4} {
+    #elseif {$i > 5} {
         halt;
         txx;
         out;n;
