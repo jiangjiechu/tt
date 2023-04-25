@@ -922,7 +922,7 @@
     bl.comment {山泉->毒龙潭};
     bl.command_halt {climb down}; bl.command_halt {kan west}; bl.command_halt {kan hole}; bl.command {enter hole}; enter; enter; bl.truce;
     bl.comment {毒龙潭->山泉};
-    out;out;out;bl.truce;bl.command_halt {climb up};
+    out;out;out;bl.truce;bl.command {climb up};
     bl.comment {山泉->练武场};
     s;s;s;nw;nu;n;n;nu;eu;n;nu;nu;nu;wu;nu;n;
     bl.comment {练武场->五龙堂大门};

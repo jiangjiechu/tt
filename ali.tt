@@ -580,6 +580,10 @@
 #alias jz2 {halt;xia;e;se;sw;sw;s;e;e;#delay 1 {gt %1}};
 #alias nc1 {s;w;w;n;gu;qu %1;dm};
 #alias nc2 {hx;s;e;e;n};
+#alias qz1 {w;w;w;w;n;gu;qu %1;dm};
+#alias qz2 {hx;s;e;e;e;e};
+#alias zj1 {s;e;n;gu;qu %1;dm};
+#alias zj2 {hx;s;w;n};
 #alias gz1 {e;e;e;e;se;gu;qu %1;dm};
 #alias gz2 {hx;nw;w;w;w;w};
 #alias tls1 {w;gu;qu %1;dm};

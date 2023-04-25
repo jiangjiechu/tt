@@ -111,6 +111,7 @@
 };
 
 #action {{^你刚在三分钟内睡过一觉|^你刚刚睡过一觉|^你精血不足}}   {
+    #var lei 0;
     #delay 5 sleep; 
 };
 #action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {suxing; gofsk;};
