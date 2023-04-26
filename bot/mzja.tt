@@ -91,4 +91,9 @@
   #untic mzja2;
   #tic {mzja2} {#show ÏßË÷ÔÚ%1} 5;
 };
+
+#alias gg {
+  get silver from corpse;
+  get gold from corpse;
+};
 #class mzja close;

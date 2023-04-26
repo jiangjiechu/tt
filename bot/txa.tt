@@ -99,7 +99,9 @@
 
 
 #action {%*{你的内力不够|你的内力已经枯竭}%*$} {
-    gosleep
+    on_unbusy {
+        gosleep
+    }
 };
 #act {你%*站了起来} {
     lx;
@@ -112,7 +114,11 @@
 
 #action {{^你刚在三分钟内睡过一觉|^你刚刚睡过一觉|^你精血不足}}   {
     #var lei 0;
-    #delay 5 sleep; 
+    #delay 5 {
+        on_unbusy {
+            gosleep
+        }
+    }
 };
 #action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {suxing; gofsk;};
 #action {你慢慢的睁开眼睛%*$}        {suxing; gofsk;};

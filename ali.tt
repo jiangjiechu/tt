@@ -672,4 +672,5 @@
     #class unbusy.inner close;
     checkbusy;
 };
+#alias lc {look corpse};
 #class ali close;

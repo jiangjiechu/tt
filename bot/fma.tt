@@ -7,6 +7,9 @@
 	#var kujie 0;
 	fmaa $fm_n;
 } 0.5;
+#tic fma1 {
+	fmaa
+} 300;
 #alias fmaa {
 	skbrief dari-fumo;
 	#class huanxi.inner open;
