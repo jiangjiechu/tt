@@ -1,7 +1,7 @@
 #map read pku.map;
 #var myid jingirl;
 #var myname ÷ª“ÚΩ„;
-#var li 0;
+#var li2 0;
 #var li1 0;
 #var wp flute;
 #var blade blade;
@@ -24,7 +24,7 @@
   perform danxin-jian.feihua %0;
 };
 #alias {p.pf} {
-  jiali max;
+  jiali $li2;
   perform houquan.pofuchenzhou %0;
   jiali $li1;
 };

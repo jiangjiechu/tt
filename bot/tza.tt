@@ -7,12 +7,20 @@
   #list enemies_name create {};
   #list enemies_down create {};
   #var unbusy.tick 0.1;
+  #var healthy 1;
   set wimpy 80;
   #var i_sk 1;
   ask dashi about job};
-#alias {tzd} {give dashi tian zhu};
+#alias {tzd} {
+  #var unbusy.tick 0.5;
+  give dashi tian zhu
+};
 #alias {tzg} {get tian zhu}
-#alias {tzf} {ask dashi about fail;tzx;#untic tza1};
+#alias {tzf} {
+  #var unbusy.tick 0.5;
+  ask dashi about fail;
+  tzx;
+  #untic tza1};
 
 #act {^莲花生大士(lianhuasheng dashi)告诉你：我推测天珠可能即将在%1，你不妨去看一看。$} {
   #tic {tza1} {#echo {%c%h} {light yellow} {天珠在%1}} {15}
@@ -28,10 +36,16 @@
   #showme <afa> 进入:$dir_in 逃跑:$dir_out;
 };
 #alias f {
+  #var healthy 1;
   $dir_in;
-  kill %0;
-  zhuanzhu %0;
-  p.lm;
+  kill %1;
+  zhuanzhu %1;
+  #if {"$myid"=="simontuixue"} {
+    p.al %0;
+  };
+  #elseif {"$myid"=="jingirl"} {
+    p.pf %0;
+  };
   #var death 0;
   on_unbusy {
     stay_or_leave;
@@ -39,13 +53,21 @@
 };
 #alias stay_or_leave {
   #nop 如果有人死，拉一个人进入战斗状态;
-  #if {$death==1} { 
+  #local my_qi ${prompt-dict[qi][value]};
+  #show <afa> 血量: $my_qi;
+  #if {$my_qi < 1000} {
+    #show <faa> 血量$gmcp_status[qi] 过低！强制逃跑！;
+    #var healthy 0;
+  };
+  #if {$death==1 && $healthy==1} { 
     #show <aea> {有人阵亡！中断逃跑: death: $death};
     #var n_enemies &enemies[];
     #if {$n_enemies >= 1} {
       kill $enemies[1];
       #var death 0;
-      on_unbusy {stay_or_leave};
+      #delay 0.5 {
+        on_unbusy {stay_or_leave};
+      }
     };
     #else {
       #show <afa> 全部击败！;
@@ -55,17 +77,24 @@
     };
   };
   #else {
+    halt;
     $dir_out;
   }
 };
 #alias g {
+  #var healthy 1;
   $dir_in;
   kill %0;
   zhuanzhu %0;
-  p.lm;
+  #if {"$myid"=="simontuixue"} {
+    p.al %0;
+  };
+  #elseif {"$myid"=="jingirl"} {
+    p.pf %0;
+  };
 };
 
-#act {^%!s江湖巨盗 %*(%*)$} {
+#act {^%!s江湖巨盗 %*(%*)%*$} {
   #var oppo_name %1;
   #var oppo @lower{%2};
   #if {@ismember{$oppo;enemies}==0} {
@@ -73,6 +102,19 @@
     #list enemies add $oppo;
     #list enemies_name add $oppo_name;
   };
+};
+#act {( %*受伤过重，已经有如风中残烛，随时都可能断气。)『%*(%* 气血:0%/0%)』} {
+  #var name %1;
+  #if {"$name" != "你"} {
+    #show <afa> 重创%1！;
+    #var dead_id @ismember{$name;enemies_name};
+    #list enemies delete $dead_id;
+    #list enemies_name delete $dead_id;
+    #var death 1;
+  };
+  #else {
+    #var healthy 0;
+  }
 };
 #act {^%*死了。} {
   #var name %1;
@@ -98,7 +140,6 @@
   }
 };
 #act {^莲花生大士给了你一枚天珠，并嘱咐到：在短期内佩戴(pei)在身会有凝神醒脑、提升修为的作用。$} {
-    pei;
     tzx;
     #untic tza1;
 };

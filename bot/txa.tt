@@ -49,13 +49,11 @@
 #alias {csk %0}  {#var skill %0};
 
 #alias {gosleep} {
-    #if {$lei==0} {
-        #var lei 1;
         do 3 eat liang;
         hp;
         #delay 1 {do 3 drink ;
         #delay 1 {sleep;
- }}}};
+}}};
 
 #alias {gofsk} {
 

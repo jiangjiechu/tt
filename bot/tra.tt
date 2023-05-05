@@ -50,7 +50,7 @@
 #act {ÄãÌÓÅÜÊ§°Ü} {
 	on_unbusy {taopao}
 };
-#act {^ÇÙ·¿ -%*$} {
+#act {^¿Í·¿ -%*$} {
 	#var battle 0;
 	#var lock 0;
 	#if {$finish==0} {

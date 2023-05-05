@@ -12,11 +12,12 @@
     #if {"$myid"=="simontuixue"} {
       #list basic_skills create {
         force;
+        dodge;
         parry;
         sword;
         finger;
       };
-      #var n_lw 100;
+      #var n_lw ;
       #var max_yun 20;
     };
     #elseif {"$myid"=="jinger"} {
@@ -148,7 +149,7 @@
   #if {$advlock==0} {
     #var advlock 1;
     #math skill_id {$skill_id+1};
-    #if {"$myid"=="simontuixue" && $skill_id > 4} {
+    #if {"$myid"=="simontuixue" && $skill_id > 5} {
       #echo {领悟已停止...};lwx;
       #echo {开始练习...};
       s;enter;
