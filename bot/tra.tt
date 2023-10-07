@@ -50,7 +50,7 @@
 #act {你逃跑失败} {
 	on_unbusy {taopao}
 };
-#act {^琴房 -%*$} {
+#act {^计氏马车分行 -%*$} {
 	#var battle 0;
 	#var lock 0;
 	#if {$finish==0} {

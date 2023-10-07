@@ -51,6 +51,7 @@
       p.yy
     };
     #if {"$myid"=="jingirl"} {
+      uw all;
       wield $wp;
       special ironskin;
       wear zhiyan;wear zhixin;
@@ -224,6 +225,10 @@
 };
 #act {你已经陷入半昏迷状态，随时都可能摔倒晕去。} {
   #if {"$myid"=="jingirl"} {xq}
+};
+
+#act {你被%*「斗转星移」功夫所引导，招招击向自己！} {
+  yield yes;
 };
 #gag {^>%s$};
 #gag {^$};
