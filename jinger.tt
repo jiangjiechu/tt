@@ -1,27 +1,37 @@
 #var myid jinger;
 #var li 0;
-#var wp flute;
+#var wp sword;
 #var zong qizong;
 
 #var skills {
-    {1}{jz}
-    {2}{tl}
+    {1}{po}
+    {2}{jz}
+    {3}{tl}
+};
+
+#var qishi {
+    {1}{8}
+    {1}{14}
+    {1}{14}
 };
 #var i_sk 1;
 #var n_sk 2;
 
+#alias {p.po} {
+    perform dugu-jiujian.po %0;
+};
 #alias {p.wj} {
-  perform hunyuan-zhang.wuji;
+  perform hunyuan-zhang.wuji %0;
 };
 #alias {p.yw} {
-  perform yangwu-jian.yangwu;
+  perform yangwu-jian.yangwu %0;
 };
 #alias {p.tl} {
-    #if {"$zong"=="qizong"} {perform yunushijiu-jian.sanqingfeng};
-    #elseif {"$zong"=="jianzong"} {perform kuangfeng-jianfa.lianhuan};
+    #if {"$zong"=="qizong"} {perform yunushijiu-jian.sanqingfeng %0};
+    #elseif {"$zong"=="jianzong"} {perform kuangfeng-jianfa.lianhuan %0};
 };
 #alias {p.jz} {
-  perform huashan-jianfa.jianzhang;
+  perform huashan-jianfa.jianzhang %0;
 };
 #list sp_skills create {
     hunyuan-zhang;
@@ -84,4 +94,4 @@
     lx;
 };
 
-pku;jinger;123abc;y
+pku;jinger;123abc;agree jinger

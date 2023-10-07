@@ -34,7 +34,7 @@
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
   #delay 3 {
-    set adv_quest 50;
+    # set adv_quest 50;
     special agile;
     #untic hsza1;
     wear mine;
@@ -56,6 +56,9 @@
       wield $wp;
       special ironskin;
       wear zhiyan;wear zhixin;
+    };
+    #if {"$myid"=="jinger"} {
+      wield $wp;
     }
   }
 };
@@ -110,8 +113,8 @@
   #if {"$myid"=="simontuixue" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk] $oppo;
   };
-  #elseif {"$myid"=="jinger"} {
-    p.jz ;
+  #elseif {"$myid"=="jinger" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk] $oppo;
   };
   #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];

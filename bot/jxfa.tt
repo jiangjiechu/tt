@@ -74,7 +74,11 @@
   get all from $enemies[1];
   on_unbusy {
     get all from $enemies[2];
-  }
+  on_unbusy {
+    get all from corpse 1;
+  on_unbusy {
+    get all from corpse 2;
+  }}};
 };
 #act {^%!s¡¸%!*¡¹%*(%*) <Õ½¶·ÖÐ>$} {
   #var oppo @lower{%2};
