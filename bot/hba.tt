@@ -75,13 +75,13 @@
     #act {^你在攻击中不断积蓄攻势。(气势：%%d%)} {
       #var qi {%%1};
       #if {"$myid"=="simontuixue" && $qi >= 50} {
-        p.lm jiazei;
+        p.lm ;
       };
-      #elseif {"$myid"=="jinger" && $qi >= 12} {
-        p.$skills[$i_sk];
+      #elseif {"$myid"=="jinger" && $qi >= 20} {
+        p.$skills[$i_sk] $myid's robber;
       };
-      #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
-        p.$skills[$i_sk] $op;
+      #elseif {"$myid"=="jingirl" && $qi >= 4} {
+        p.fh;
       };
       #elseif {"$myid"=="dalabomba" && $qi >= 18} {
         p.$skills[$i_sk];
@@ -170,6 +170,10 @@
     #gag {你随手按住劫匪大穴};
   #class hb_tmp close;
   g;
+};
+
+#ali jiao {
+    give cai wu to $master;
 };
 #nop #act {你似乎十分疲惫，看来需要好好休息了} { yun recover};
 #nop #act {你气喘嘘嘘，看起来状况并不太好} { yun recover};

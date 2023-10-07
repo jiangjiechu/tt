@@ -50,7 +50,7 @@
   #if {i>3} {
     #var i 1;
   }
-  wield dao $i;
+  wield $wp $i;
 }
 
 #act {^%s$myname发现的%s慕容世家{家贼|内鬼}(@capital{$myid}'s murong jiazei)} {
@@ -103,7 +103,7 @@
     say 可以回去了！
   };
   #nop uwield all;
-  #nop wi dao 1;
+  #nop wi $wp 1;
 };
 
 #act {由于你成功的找回慕容复写给江湖豪杰的信件} {#untic mrq1;#untic mrq2;mrx;unset adv_quest};

@@ -32,8 +32,8 @@
   #if {"$myid"=="simontuixue" && %1 >= 12 && "$mod"=="sha"} {
     p.lm $oppo;
   };
-  #elseif {"$myid"=="jinger"} {
-    p.jz ;
+  #elseif {"$myid"=="jinger" }{
+    p.po $oppo;
   }
 };
 #action {( 蒙面杀手%!*，%!*。)『蒙面杀手(damage:%!* 气血:$d%/%d%) %*』} {
