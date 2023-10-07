@@ -88,6 +88,15 @@
       }
 
     };
+    #act {%%*的作用时间还没过，请过一段时间再施展绝技。} {
+      #math i_sk {$i_sk+1};
+      #if {$i_sk>$n_sk} {
+        #var i_sk 1;
+      };
+      #if {$qi >= $qishi[$i_sk]} {
+        p.$skills[$i_sk];
+      }
+    };
     #act {劫匪趁你不注意，推着镖车就跑，} {
       #var biased 1;
       #tic {hba2} {#echo {%c%h} {light red} {已偏航，请修正！}} {5};

@@ -148,7 +148,7 @@
             } {$bl_delay};
         };
     } {1};
-    #action {^浓雾中你{依稀|}觉得似乎{有出口|可以}通往%*} {
+    #action {^%s浓雾中你{依稀|}觉得似乎{有出口|可以}通往%*} {
         #showme <afa> 进度~[$bl_path_index / $bl_path_size];
         #if {${bl_in_action} == 0} {
             #delay {bl.delay} {

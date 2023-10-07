@@ -4,9 +4,12 @@
 #var li2 max;
 #var wp sword;
 #var skills {
-    {1}{fx}
-    {2}{lm}
-    {3}{qf}
+    {1}{lm}
+    {2}{qf}
+};
+#var {qishi} {
+    {1}{12}
+    {2}{12}
 };
 #list lx_skills create {
     feihua-zhuyue;
@@ -16,7 +19,7 @@
     yiyang-zhi;
 }
 
-#var n_sk 4;
+#var n_sk 2;
 #var xgong beiming-shengong;
 
 #alias {p.lm} {

@@ -56,6 +56,13 @@
     p.ws;
   }
 };
+#act {你进入了[万安塔任务副本]。} {
+  special agile;
+  special ironskin;
+  #if {"$myid"=="jingirl"} {
+    uw blade
+  }
+};
 
 #act {%*的作用时间还没过，请过一段时间再施展绝技。} {
   #math i_sk {$i_sk+1};

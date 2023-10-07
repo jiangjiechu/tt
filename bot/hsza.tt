@@ -47,7 +47,8 @@
       yun shield;
       remove armet;
       remove belt;
-      yun zyhb;
+      uw shield;
+      wi $wp;
       p.yy
     };
     #if {"$myid"=="jingirl"} {
@@ -106,8 +107,8 @@
 #nop #act {}{};
 #action {你在攻击中不断积蓄攻势。(气势：%d%)} {
   #var qi %1;
-  #if {"$myid"=="simontuixue" && $qi >= 12} {
-    p.lm $oppo;
+  #if {"$myid"=="simontuixue" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk] $oppo;
   };
   #elseif {"$myid"=="jinger"} {
     p.jz ;
@@ -136,7 +137,7 @@
   unset brief;
   #var VERBOSE 1;
 };
-#act {%*死了。} {
+#act {%*死了。$} {
   #var f1_set 0;
   #if {"$myid"=="simontuixue"} {
     l;
@@ -175,8 +176,7 @@
   remove belt;
   remove armet;
   uw all;
-  wear zhiyan;
-  wear zhixin;
+  wi $wp;
 };
 
 #alias hszLog {

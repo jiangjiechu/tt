@@ -506,12 +506,12 @@
 };
 #alias wsa {
   n;n;n;nw;nw;w;
-  nw;nw;nw;n;n;nw;w;n;
+  nw;wu;wu;wu;n;
   nw;nd;w
 };
 #alias wsb {
   e;su;se;
-  s;e;se;s;s;se;se;se;
+  s;ed;ed;ed;se;
   e;se;se;s;s;s
 };
 
