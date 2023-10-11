@@ -13,10 +13,10 @@
 		#var n_book 1;
 		#var i_book 1;
 		#var book_list {
-			{1}{shediao}
+			{1}{jing}
 		};
 		#var check_list {
-			{1} {force}
+			{1} {taoism}
 		};
 		#var book $book_list[$i_book];
 	};
@@ -44,7 +44,7 @@
 		dsaa;
 	}
 };
-#act {^你现在过于疲倦，无法专心下来研读新知。} {
+#act {^你现在%*疲倦，无法专心下来研读新知。} {
 	#if {$faint==1} { gsleep };
 	#else {
 		#var faint 1;
@@ -88,7 +88,7 @@
 #nop #act {你正专心阅读%*} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 #nop #act {你从身上拿出} { #if {"$lei"=="0"} {exert regenerate}; #else {dsaa} };
 
-#act {^你研读了%*似乎有点心得。} { 
+#act {^%*似乎有%*心得。} { 
 	#if {"$kujie"=="0"} {exert regenerate}; 
 	#elseif {"$faint"=="0"} {dsaa};
 };

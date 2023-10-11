@@ -17,7 +17,7 @@
         sword;
         finger;
       };
-      #var n_lw ;
+      #var n_lw 100;
       #var max_yun 20;
     };
     #elseif {"$myid"=="jinger"} {

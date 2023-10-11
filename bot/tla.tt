@@ -14,7 +14,7 @@
      #if {$t < 20} {
       #show <afa> $t;
       #math t {$t+1};
-      #delay 1 {
+      #delay 2 {
         #6 u;out;
       }
      };

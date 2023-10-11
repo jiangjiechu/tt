@@ -34,7 +34,7 @@
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
   #delay 3 {
-    # set adv_quest 50;
+    set adv_quest 50;
     special agile;
     #untic hsza1;
     wear mine;
@@ -47,8 +47,8 @@
       yun shield;
       remove armet;
       remove belt;
-      uw shield;
-      wi $wp;
+      wi shield;
+      uw $wp;
       p.yy
     };
     #if {"$myid"=="jingirl"} {
@@ -125,7 +125,7 @@
 };
 #act {%*的作用时间还没过，请过一段时间再施展绝技。} {
   #math i_sk {$i_sk+1};
-  #if {$i_sk>$n_sk} {
+  #if {$i_sk>=$n_sk} {
     #var i_sk 1;
   };
   #if {$qi >= $qishi[$i_sk]} {

@@ -74,7 +74,7 @@
     };
     #act {^你在攻击中不断积蓄攻势。(气势：%%d%)} {
       #var qi {%%1};
-      #if {"$myid"=="simontuixue" && $qi >= 50} {
+      #if {"$myid"=="simontuixue" && $qi >= 12} {
         p.lm ;
       };
       #elseif {"$myid"=="jinger" && $qi >= 20} {

@@ -496,9 +496,11 @@
 };
 #nop ±éÀú
 #alias bla {
+  mld;
   #class bianli read bot/bianli.tin;
 };
 #alias blx {
+  mlo;
   #class bianli_data kill;
   #class bianli kill;
   #class war kill;
@@ -506,12 +508,12 @@
 };
 #alias wsa {
   n;n;n;nw;nw;w;
-  nw;wu;wu;wu;n;
+  wu;wu;w;nw;nd;nw;n;
   nw;nd;w
 };
 #alias wsb {
   e;su;se;
-  s;ed;ed;ed;se;
+  s;se;su;se;e;ed;ed;
   e;se;se;s;s;s
 };
 

@@ -6,6 +6,7 @@
 #var wp flute;
 #var blade blade;
 #var bian whip;
+#var tq 2331;
 
 #var skills {
     {1} {fh}
@@ -121,4 +122,4 @@
    walk
 }}};
 
-pku;jingirl;123abc;agree jingirl
+pku;jingirl;123abc;y
