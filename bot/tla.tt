@@ -64,7 +64,7 @@
 };
 #act {�㲻æ} {
   #if {$level >= $max_level || $halt==1} {
-    glw2;
+    glw2j;
   };
   #else {enter};
 }
