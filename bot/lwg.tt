@@ -1,0 +1,29 @@
+#class lwg open;
+
+#tic {lwga} {
+  #untic lwga;
+  ask yang about job} {1};
+
+#act {杨逍说道：「瞭望塔是我教一处关键所在，你去了望(liaowang)山下，观察敌踪吧。」} {
+  on_unbusy {
+    sd;sd;sd;sd;w;
+    liaowang
+  };
+};
+#act {你站岗完毕，回杨左使处复命吧。} {
+  e;nu;nu;nu;nu;
+  ask yang about fuming;
+  #delay 2 {
+    ask yang about job
+  }
+};
+#act {你刚做完任务不久，先去休息一会吧。} {
+  de;
+  #delay 20 {
+    ask yang about job
+  }
+};
+
+
+#class lwg close;
+

@@ -44,7 +44,9 @@
   #elseif {"$shi"=="zhi"} {d;s;sd;s;e;enter};
   #elseif {"$shi"=="jinlun"} {#14 s;e;u};
   #elseif {"$shi"=="xuan"} {#3 s;w;e;#4 n;e};
-  #elseif {"$shi"=="ma" || "$shi"=="chen"} {e}
+  #elseif {"$shi"=="ma" || "$shi"=="chen"} {e};
+  #elseif {"$shi"=="wen"} {e;nu;n;w;n};
+  #elseif {"$shi"=="tong"} {w;s};
   hp;
   #delay 1 {sleep}
 };
@@ -66,7 +68,9 @@
   #elseif {"$shi"=="zhi"} {out;w;n;nu;n;up};
   #elseif {"$shi"=="jinlun"} {d;w;#14 n};
   #elseif {"$shi"=="xuan"} {w;#4 s;w;n;n;e;n;s};
-  #elseif {"$shi"=="ma" || "$shi"=="chen"} {w}
+  #elseif {"$shi"=="ma" || "$shi"=="chen"} {w};
+  #elseif {"$shi"=="wen"} {s;e;s;sd;w};
+  #elseif {"$shi"=="tong"} {n;e};
 };
 
 

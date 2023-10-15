@@ -196,6 +196,9 @@
     #action {^你缓缓向上爬去。} {
         on_unbusy {clamber up}
     };
+    #action {^这里是没法爬上去的。} {
+        bl.continue;
+    };
     #action {^东面是一面悬崖，荆棘遍布，山腰似乎有个洞(hole)。} {
         #delay 0.5 {bl.walk}
     };

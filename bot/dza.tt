@@ -15,7 +15,7 @@
 };
 
 #act {你%*站了起来} {
-      #if {$gmcp_status[qi]<200} {
+      #if {$sklevel > 200 && $gmcp_status[qi]<200} {
             yun recover; 
       };
       eat liang;
@@ -32,11 +32,15 @@
 #act {你的内功还没有达到那个境界} {dzaa};
 
 #act {你现在气血严重不足，无法满足打坐最小要求} {
-      #if {$sklevel <200} {sleep};
+      #if {$sklevel <200} {
+            #delay 10 {dzaa};
+      };
       #else {yun recover}};
 
 #act {你现在的气太少了，无法产生内息} {
-      #if {$sklevel <200} {sleep};
+      #if {$sklevel <200} {
+            #delay 10 {dzaa};
+            };
       #else {yun recover}};
 
 #act {你现在精不够，无法控制内息的流动} {exert regenerate;#delay 2 {dzaa}};

@@ -2,7 +2,6 @@
 #class wata open;
 
 #tic {wata} {
-    #var oppo wushi;
     #untic wata;wataa;
     #showme <afa>¿ªÊ¼ÅÀËþ...;
 } {2};

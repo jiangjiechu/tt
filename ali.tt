@@ -240,6 +240,14 @@
 #alias {sna} {#class sna read bot/sna.tt;l snow;}
 #alias {snx} {#class sna kill};
 
+#nop 明教瞭望;
+#alias lwg {#class lwg read bot/lwg.tt};
+#alias lwgx {#class lwg kill};
+
+#nop 日月新手;
+#alias rya {#class rya read bot/rya.tt};
+#alias rya {#class rya kill};
+
 #nop 新人福利;
 #alias {nfuli} {pick guo;eat guo;up;ask lver about 月饼;#delay {5} {answer 咸月饼;eat yuebing;d}};
 
@@ -496,11 +504,9 @@
 };
 #nop 遍历
 #alias bla {
-  mld;
   #class bianli read bot/bianli.tin;
 };
 #alias blx {
-  mlo;
   #class bianli_data kill;
   #class bianli kill;
   #class war kill;
@@ -508,12 +514,12 @@
 };
 #alias wsa {
   n;n;n;nw;nw;w;
-  wu;wu;w;nw;nd;nw;n;
+  wu;wu;nd;nd;n;
   nw;nd;w
 };
 #alias wsb {
   e;su;se;
-  s;se;su;se;e;ed;ed;
+  s;su;su;ed;ed;
   e;se;se;s;s;s
 };
 
@@ -609,19 +615,21 @@
 #alias yj2 {halt;xia;s;se;se;enter};
 #alias yy1 {n;n;e;gu;qu %1;dm};
 #alias yy2 {halt;xia;w;s;s;};
-#ali {dl2} {
+#alias em1 {sd;sd;wd;w;s;e};
+#alias em2 {hx;w;n;e;eu;nu;nu};
+#ali {dls1} {
   gt dls;
   #var out_cmd {%1}2;
-  #class dl2.inner open;
+  #class dl1.inner open;
   #act {抵达目的地 ...} {
     e;gu;
     qu $yizhan1[%1];
     dm;
   };
   #act {大车停稳了下来，你可以下车(xia)了。} {
-    #class dl2.inner kill;
-    #if {"%2"==""} {#var dl2_end here};
-    #else {#var dl2_end %2};
+    #class dl1.inner kill;
+    #if {"%2"==""} {#var dl1_end here};
+    #else {#var dl1_end %2};
     $out_cmd;
   };
 };
@@ -675,4 +683,5 @@
     checkbusy;
 };
 #alias lc {look corpse};
+
 #class ali close;

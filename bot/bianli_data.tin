@@ -121,7 +121,7 @@
     bl.action.yhb;
     se;se;s;s;s;s;s;s;
     bl.comment {大殿向南到成都};
-    s;s;sd;ed;eu;e;w;wd;sd;sd;sd;s;wd;sd;sd;wd;n;s;w;enter;out;w;e;s;e;w;sd;sd;s;se;
+    s;s;sd;ed;eu;e;w;wd;sd;sd;sd;s;wd;sd;sd;wd;n;s;w;enter;out;w;bl.command{give banana to baiyuan}; bl.command{ tui stone};n;n;n;s;s;s;out;e;s;e;w;sd;sd;s;se;
     e;nd;nd;nd;n;n;s;s;su;sw;sw;s;n;ne;ne;su;su;w;nw;n;nu;nu;n;e;eu;nu;nu;eu;
     bl.clear_all {dizi};bl.clear_all {shitai};n;bl.clear_all {shitai};nu;nu;nu;wu;nu;n;n;
 };
@@ -298,13 +298,13 @@
     w;w;n;
 };
 #list bl_path_dls create {
-    bl.comment {大轮寺进去};
-    bl.command {knock gate};nu;w;w;e;n;w;e;n;w;e;n;bl.command {look w};eu;ed;e;w;s;e;w;s;e;e;w;w;s;e;w;w;nu;n;n;nd;enter;
-    bl.command {look w};e;enter;out;w;se;n;s;nw;n;w;n;e;nw;w;enter;out;e;se;n;u;d;s;e;s;w;s;out;su;s;s;sd;bl.command {pull gate};sd;
     bl.comment {大轮寺外};
     e;w;se;ed;ne;sw;se;nw;wu;wd;nw;sw;sd;w;e;ed;eu;ed;se;e;n;s;sw;se;e;n;s;e;e;e;w;s;w;e;e;w;s;w;e;e;enter;out;w;s;e;se;se;ed;ed;wu;wu;
-    nw;nw;w;n;n;n;e;w;n;e;w;w;e;n;n;eu;n;s;wd;nu;sd;s;ne;e;nd;w;n;w;s;e;e;e;n;s;w;n;w;e;e;w;n;e;ne;n;ne;sw;
+    nw;nw;w;n;n;n;e;w;n;e;w;w;e;n;n;eu;n;s;wd;nu;sd;s;ne;e;nd;w;n;w;s;e;e;e;n;s;w;n;w;e;e;w;n;e;ne;n;
     s;sw;w;s;s;su;w;sw;s;s;w;w;w;nw;ne;s;n;w;nw;wu;wd;wu;nu;ne;se;eu;nw;
+    bl.comment {大轮寺进去};
+    bl.command {knock gate};nu;w;w;e;n;w;e;n;w;e;n;bl.command {look w};eu;ed;e;w;s;e;w;s;e;e;w;w;s;e;w;w;nu;n;n;nd;bl.clear_all {lama};bl.clear_all{lama touling};enter;
+    bl.command {look w};bl.command {look e};se;n;s;nw;n;w;n;e;nw;w;enter;out;e;se;n;u;d;s;e;s;w;s;out;su;s;s;sd;bl.command {pull gate};sd;
 };
 
 #list bl_path_tt create {
@@ -427,7 +427,7 @@
     bl.comment {双鹤桥往西到五华楼和昆明，到十字路口};
     w;w;n;enter;n;s;w;u;w;enter;out;e;e;enter;out;e;enter;out;w;w;d;e;out;s;e;e;s;e;se;e;se;e;e;e;w;n;s;w;w;s;ed;wu;n;nw;w;nw;w;n;n;n;
     bl.comment {十字路口往北到天龙寺， 到王府大门};
-    n;w;e;e;u;d;w;n;w;w;e;e;e;e;w;s;n;n;s;w;n;e;s;s;n;w;e;n;n;s;w;n;n;n;n;ne;ne;ne;n;ne;ne;sw;sw;s;sw;ne;n;sw;ne;s;sw;sw;sw;s;s;s;s;w;
+    n;w;e;e;u;d;w;n;w;w;e;e;e;e;w;s;n;n;s;w;n;e;bl.command {clamber up};bl.wait; bl.command {leap south};s;n;bl.command {look west};bl.command {look east};n;n;s;w;n;n;n;n;ne;ne;ne;n;ne;ne;sw;sw;s;sw;ne;n;sw;ne;s;sw;sw;sw;s;s;s;s;w;
     bl.comment {王府};
     enter;sw;n;s;w;e;s;n;ne;n;w;n;s;e;n;nw;e;nw;se;n;se;nw;e;w;ne;sw;n;s;s;w;se;s;e;e;enter;nw;ne;se;nw;n;w;ne;se;w;s;sw;se;out;w;w;s;out;e;s;s;s;
 };
@@ -576,14 +576,19 @@
 };
 
 #list bl_path_cd create {
+    bl.comment {往东到岳阳};
+    se;n;s;ne;sw;se;n;e;w;s;e;e;se;eu;eu;ed;ed;wu;wu;wd;wd;nw;w;w;nw;nw;
+    bl.comment {往北到北门};
+    n;w;e;e;w;n;w;e;e;enter;out;w;n;
+    bl.comment {环城墙};
+    w;w;w;w;s;s;s;s;s;s;s;s;e;e;e;se;e;e;e;e;n;n;n;n;n;n;n;n;w;w;w;w;
+    bl.comment {北门外};
+    nw;w;nw;w;e;se;e;se;n;nu;nd;nw;ne;nd;nd;su;su;sw;se;su;sd;s;s;s;s;
     bl.comment {往南到天龙寺,峨眉};
-    s;s;w;nw;se;e;e;w;s;w;e;s;su;sw;sw;s;sw;ne;n;ne;ne;su;su;w;nw;n;s;se;e;nd;nd;nd;n;n;n;n;
+    s;s;w;enter;out;nw;e;se;se;se;e;n;s;s;n;e;e;w;w;w;s;w;e;s;e;w;su;sw;sw;s;sw;sw;ne;ne;n;ne;ne;
+    su;su;w;nw;n;nu;nu;sd;sd;s;se;e;ed;e;nd;e;ne;sw;w;su;w;wu;nd;nd;nd;n;n;n;n;
     bl.comment {往西到赞普};
     nw;n;s;nw;n;s;s;n;w;w;wu;wu;wu;nw;nw;w;e;se;se;ed;ed;ed;e;e;se;se;
-    bl.comment {往北到长安};
-    n;w;e;e;w;n;w;e;e;w;n;n;nu;nd;nw;ne;nd;e;e;ne;sw;w;w;nw;nu;nd;ne;sw;su;sd;se;su;sw;se;su;sd;s;s;s;s;
-    bl.comment {往东到岳阳};
-    se;n;s;se;n;s;e;e;ne;ne;nw;nw;ne;ed;e;n;s;su;sw;ne;nd;w;wu;sw;se;se;sw;sw;w;w;nw;nw;
 };
 
 #list bl_path_jyg create {
@@ -1037,4 +1042,14 @@
     nw;w;sw;wd;nu;w;w;w;w;w;wd;
 };
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;
+
+#list bl_path_yuz create {
+    bl.comment {小广场-城东};
+    e;w;ne;e;e;n;u;d;s;s;n;w;s;sw;sw;sw;w;sd;w;e;e;w;nu;n;e;w;wu;nw;nu;sd;se;ed;nw;e;e;n;w;ne;ne;bl.command {look enter};se;e;n;n;n;n;ne;sw;enter;sw;s;s;nw;n;s;nw;e;e;ne;sw;w;w;nd;su;sw;w;sw;s;enter;u;d;out;s;ne;n;s;ne;n;s;ne;e;w;sw;sw;sw;
+    bl.comment {城西};
+    se;w;e;se;s;w;nw;w;nw;ne;ne;n;e;
+    bl.comment {宝轮寺};
+    nw;w;w;wu;nw;ne;ne;ne;sw;w;enter;out;w;s;s;w;nw;w;e;se;e;e;s;s;e;se;se;sw;w;su;w;wu;nd;nd;su;su;w;nw;n;nu;nu;sd;sd;s;se;e;ed;e;nd;e;ne;e;e;
+    e;se;e;e;n;
+};
 #class bianli_data close

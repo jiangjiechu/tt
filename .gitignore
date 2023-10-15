@@ -7,3 +7,4 @@ refer/*
 *.png
 tmp.*
 *.txt
+*.php

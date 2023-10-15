@@ -19,7 +19,7 @@
 #list Route_zjc_kf create {s} {s} {s} {w} {w} {w} {w} {n} {se} {s};
 #list Route_kf_zjc create  {n} {nw} {s} {e} {e} {e} {e} {n} {n} {n};
 
-#list Route_bj_kf create  {unwield all} {n} {w}{n}{w}{n}{n}{n}{n}{n}{se}{s};
+#list Route_bj_kf create  {unwield $wp} {n} {w}{n}{w}{n}{n}{n}{n}{n}{se}{s};
 
 #list Route_kf_bj create  {n}{nw}{s}{s}{s}{s}{s}{e}{s}{e}{s};
 
@@ -29,9 +29,9 @@
 #list Route_taih_sz create {w}{w}{w}{w}{w}{s}{e}{s}{nw}{sw}{wu}{ne}{ne}{se}{se}{se}{se}{s}{se}{s}{s}{s}{s}{s}{s};
 
 #list Route_zjc_bj create {s;s;s;s;s;s;s;s};
-#list Route_bj_zjc create {unwield all} {n} {n} {n} {n} {n} {n} {n} {n};
+#list Route_bj_zjc create {unwield $wp} {n} {n} {n} {n} {n} {n} {n} {n};
 
-#list Route_bj_bjc create {unwield all} {n} {n} {n} {n} {n};
+#list Route_bj_bjc create {unwield $wp} {n} {n} {n} {n} {n};
 #list Route_bjc_bj create {s;s;s;s;s};
 
 #list Route_lanz_huangz create {w;w;w;w;nw;nw;w;w;w;s;s};
@@ -124,7 +124,7 @@
 #list Route_jz_nc create {w} {w} {s} {s} {s} {s} {su} {se} {s} {s} {s} {e} {n};
 #list Route_sdb_sdn create {sw} {busy1} {se} {busy1} {se} {busy1} {sw} {busy1} {sw} {busy1};
 #list Route_sdn_sdb create {ne} {busy1} {ne} {busy1} {nw} {busy1} {nw} {busy1} {ne} {busy1};
-#list Route_cd_em create {s} {s} {s} {s} {su} {su} {su} {w} {nw} {n} {nu} {unwield all} {nu} {wield all} {n} {e} {eu} {nu} {nu};
+#list Route_cd_em create {s} {s} {s} {s} {su} {su} {su} {w} {nw} {n} {nu} {unwield all} {nu} {wield $wp} {n} {e} {eu} {nu} {nu};
 #list Route_em_cd create {sd} {sd} {wd} {w} {s} {sd} {sd} {s} {se} {e} {nd} {nd} {nd} {n} {n} {n} {n};
 #list Route_cd_tls create {s} {s} {s} {s} {su} {sw} {sw} {busy1} {s} {busy1} {sw} {busy1} {sw} {busy1} {sw} {wu}{busy2};
 #list Route_tls_cd create {ed} {ne} {ne} {busy1} {ne} {busy1} {n} {busy1} {ne} {ne} {nd} {n} {n} {n} {n}{busy2};
@@ -138,8 +138,8 @@
 #list Route_km_dl create {s} {w} {w} {nw} {w} {nw} {w} {n} {n} {n};
 #list Route_km_px create {s} {e} {n} {n} {n} {n} {n} {n} {n} {ask tou about 自立为王};
 #list Route_px_km create {s} {s} {s} {s} {s} {s} {s} {w} {n};
-#list Route_zp_xs create {n} {n} {n} {nu} {ne} {nu} {nu} {n} {w} {w};
-#list Route_xs_zp create {e} {e} {s} {sd} {sd} {sw} {sd} {s} {s} {s};
+#list Route_zp_xs create {n;n;n;nu;ne;nu;nu;n;w;w};
+#list Route_xs_zp create {e;e;s;sd;sd;sw;sd;s;s;s};
 #list Route_xs_dls create {e} {e} {s} {sd} {sd} {e} {s} {enter dong} {se} {sw} {out} {sw} {wu} {nw};
 #list Route_dls_xs create {se} {ed} {ne} {enter dong} {ne} {nw} {out} {n} {w} {nu} {nu} {n} {w} {w};
 #list Route_xs_yz create {e} {e} {s} {sd} {sd} {e} {s} {enter dong} {se} {ne} {ne} {n} {ne} {e} {u} {out};
@@ -420,7 +420,7 @@
 #list Route_jb4_jzh create {e}{n}{nw}{n}{n}{w}{n}{n}{w}{n}{n};
 #list Route_xs_lxc create {yell bridge} {n} {sheng bridge} {stop} {n} {n} {n} {n} {nu} {n};
 #list Route_lxc_xs create {s} {sd} {s} {s} {s} {s} {jiang bridge} {s};
-#list Route_sl_fzl create {unwield all} {eu} {wield all} {nu} {nu} {nu} {n} {knock gate} {n} {n} {nu} {n} {n} {n} {nu} {n} {n};
+#list Route_sl_fzl create {unwield all} {eu} {wield $wp} {nu} {nu} {nu} {n} {knock gate} {n} {n} {nu} {n} {n} {n} {nu} {n} {n};
 #list Route_fzl_sl create {s} {s} {sd} {s} {s} {s} {sd} {s} {open gate} {s} {s} {sd} {sd} {sd} {wd};
 #list Route_gm_ha create {e} {ne} {ne} {e} {swim river} {n} {n} {e} {n} {n} {w} {w} {n} {n};
 #list Route_ha_gm create {s} {s} {s} {s} {out} {w} {sw} {sw} {w};
@@ -656,3 +656,10 @@
 
 #list Route_jning_fz create {w;w;w;w;sw;sw;s;se;e;se;e;e;e;e;n;n};
 #list Route_fz_jning create {s;s;w;w;w;w;nw;w;nw;n;ne;ne;e;e;e;e};
+
+#list Route_em_yuz create {sd;sd;wd;w;s;sd;sd;s;se;e;ed;e;nd;e;ne;e;e;e;se;e;e;n};
+#list Route_yuz_em create {s;w;w;nw;w;w;w;sw;w;su;w;wu;w;nw;n;nu;nu;n;e;eu;nu;nu};
+#list Route_yuz_yy create {ne;e;e;s}{guojiang2}{stop}{se;s;s;s};
+#list Route_yy_yuz create {n;n;n;nw}{guojiang2}{stop}{n;w;w;sw};
+#list Route_yuz_jzh create {ne;e;n;n;n;n;ne}{guojiang2}{stop}{ne;n;n;n;w;n;w;n;n};
+#list Route_jzh_yuz create {s;s;e;s;e;s;s;s;sw}{guojiang2}{stop}{sw;s;s;s;s;w;sw};

@@ -14,7 +14,7 @@
      #if {$t < 20} {
       #show <afa> $t;
       #math t {$t+1};
-      #delay 2 {
+      #delay 1 {
         #6 u;out;
       }
      };
@@ -64,7 +64,7 @@
 };
 #act {�㲻æ} {
   #if {$level >= $max_level || $halt==1} {
-    glw2j;
+    glw2;
   };
   #else {enter};
 }

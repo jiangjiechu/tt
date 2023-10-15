@@ -15,8 +15,10 @@
 
 #ali {ah} {
   #var in_battle 0;
+  #var i_sk 1;
   unset adv_quest;
   #if {"$myid"=="simontuixue"} {p.yy;yun shield};
+  #if {"$myid"=="jingirl"} {yun powerup; uw all; wi $wp};
   say $anhao};
 #ali {jt} {
   #untic dba1;#untic dba2;
@@ -26,6 +28,10 @@
 #act {^余玠%*说道：为了保护接头人的安全，%*，我只能告诉你某人在%*等着你。$} {
   #var db_outlook %4;
   #tic {dba1} {#echo {%c%h} {light yellow} {线人在%3，长相%4}} {5}
+};
+#ali {wm} {
+  #var db_outlook %1;
+  #show <afa> OK 长相：%1;
 };
 #act {^余玠%*说道：为了保护接头人的安全，%*，我只能告诉你某人在%*等着你。长相大致如下%*$} {
   #var db_outlook %4;
@@ -42,7 +48,7 @@
 #nop 陶咏娅在你的耳边悄声说道：有人在神龙岛的神龙岛留言板给你留下了下一步行动的步骤。;
 #act {%!*在你的耳边悄声说道：有人在%*的%*给你留下了下一步行动的步骤。} {
   #tic {dba2} {#echo {%c%h} {light yellow} {去%1的%2 read}} {5};
-  #var board %3;
+  #var board %2;
 };
 #nop 兰州内的演武场，暗号终须跟着皇帝，请找孙竹露;
 #act {%*内的%*，暗号%*，请找%*} {
@@ -90,7 +96,14 @@
 };
 
 #act {${board}(%*) [ %* 张留言，%* 张未读 ]} {
+  #var n_message %2;
   read %2;
+};
+#act {^不知何故，你无法阅读这篇留言。} {
+  #math n_message {$n_message - 1};
+  on_unbusy {
+    read %n_message;
+  };
 };
 
 #act {%*的%*，说出%*，%*会找你。} {
@@ -156,5 +169,37 @@
 #nop 明州★★★★★雁荡北坡★★★★★牛惠康★★★★★疗伤旧衣通吃岛;
 
 
+#action {你在攻击中不断积蓄攻势。(气势：%d%)} {
+  #var qi %1;
+  #if {"$myid"=="simontuixue" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk] $oppo;
+  };
+  #elseif {"$myid"=="jinger" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk] $oppo;
+  };
+  #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  };
+  #elseif {"$myid"=="dalabomba" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  }
+};
+#act {%*的作用时间还没过，请过一段时间再施展绝技。} {
+  #math i_sk {$i_sk+1};
+  #if {$i_sk>$n_sk} {
+    #var i_sk 1;
+  };
+  #if {$qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk];
+  }
+};
+#act {^眼前敌人尽去，你顺势圈转手中%*，轻轻吐出胸中浊气，心头大是畅快！} {
+  #var i_sk 1;
+};
+#act {^%*你终于完全从紧张地战斗氛围中解脱出来。} {
+  #var battle 0;
+  unset brief;
+  #var VERBOSE 1;
+};
 
 #class dba close;

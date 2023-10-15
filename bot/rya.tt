@@ -1,0 +1,159 @@
+#class rya open;
+
+#tic {ryaa} {
+  #untic ryaa;
+  ask di zi about help} {1};
+
+#act {^高风说道：「你去帮我把灶膛点着吧，我马上要做饭%*。} {
+  #var jobmod shenghuo;
+  get_chai;
+};
+
+#act {^看管竹篓的弟子说道：「上黑木崖的竹篓快坏掉了，你去把它换了吧，在竹林劈(pi)下竹子后，削(xiao)下竹条，在黑木崖下编(bian)成竹篓换上去就好了。」} {
+  on_unbusy {
+    s;s;s;e;e;
+    get_zt;
+  }
+};
+#act {还不快去做，等什么呢？} {
+  on_unbusy {
+    s;s;s;e;e;
+    get_zt;
+  }
+
+};
+#act {我这没别的什么活，你迟点再来吧。} {
+  de;
+  dza;
+  #delay 50 {
+    dzx;
+    halt;
+    ask di zi about help;
+  }
+};
+
+#ali {get_zt} {
+  #var n_zhutiao 0;
+  on_unbusy {
+    get kan dao;
+    wi kan dao;
+    pi;
+  };
+};
+
+#act {一棵大竹子轰然倒下，你满意的摆了个很帅的造型。} {
+  on_unbusy {
+    xiao;
+  }
+};
+
+#act {你削下了一段竹条。} {
+  #math n_zhutiao {$n_zhutiao + 1};
+  on_unbusy {
+    xiao;
+  }
+};
+
+#act {大竹子被你削得一丝不剩了。} {
+  #if {$n_zhutiao < 6} {
+    on_unbusy {
+      pi;
+    }
+  };#else {
+    on_unbusy {
+      drop kan dao;
+      w;w;n;n;n;n;
+      bian zhu lou;
+    }
+  }
+};
+
+#act {你身上有太多竹条，再多拿不动了。} {
+    on_unbusy {
+      drop kan dao;
+      w;w;n;n;n;n;
+      bian zhu lou;
+    }
+
+};
+
+#act {你笨手把竹篓编得彻底损坏，必须丢弃了。} {
+  s;s;s;s;e;e;
+  get_zt;
+};
+
+#act {高风说道：「我快忙不过来了，你去帮我在灶台上做个菜(zuocai)吧，没有食料可以跟我要，做好以后端(duan)进内厅。」} {
+  #var jobmod zuocai;
+  #delay 2 {
+    ask gao about food;
+  }
+};
+#act {你把竹篓给装好了。} {
+  on_unbusy {
+    s;
+    ask di zi about help;
+  }
+};
+#act {高风拿出一份%*交给你，你去帮我做好它吧。} {
+  #var material %1;
+  get_chai;
+};
+#act {你端出了一盘%*，十分诱人%*} {
+  #delay 1 {
+  w; duan;
+
+  };
+};
+#ali get_chai {
+  on_unbusy {
+    w;s;w;w;
+    get chai;
+    on_unbusy {
+      e;e;n;e;
+      add chai;
+    #delay 2 {
+      dianhuo;
+    }
+  }}
+};
+
+#act {你努力把灶台里的柴火点着，可惜没有成功。} {
+  on_unbusy {
+    dianhuo
+  }
+};
+#act {灶台里柴火不足，这时候是无论如何也无法点燃的。} {
+  #delay 2 {
+  get_chai;
+  }
+};
+
+#act {你努力点燃灶台里的柴火，终于成功了。} {
+  #if {"$jobmod"=="zuocai"} {
+    i2;
+    #show <afa> 请加菜！;
+    #delay 2 {
+      zuocai @lower{$material_code};
+    }
+  }
+};
+#act {^${material}(%*)} {
+  #var material_code %1;
+};
+#act {fjaiowjawo} {
+  #if {"$jobmod"=="shenghuo"} {
+    on_unbusy {
+      ask gao about 帮忙;
+    }
+  };
+  #else {
+    on_unbusy {
+      e; ask gao about 帮忙;
+    }
+  }
+
+};
+
+
+#class rya close;
+

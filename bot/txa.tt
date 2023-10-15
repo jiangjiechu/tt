@@ -49,7 +49,6 @@
 #alias {csk %0}  {#var skill %0};
 
 #alias {gosleep} {
-        #var lei 1;
         do 3 eat liang;
         hp;
         #delay 1 {do 3 drink ;
@@ -119,9 +118,9 @@
         }
     }
 };
-#action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {suxing; dazuo max;};
-#action {你慢慢的睁开眼睛%*$}        {suxing; dazuo max;};
-#action {慢慢地你%*$}        {suxing; dazuo max;};
+#action {你一觉醒来，精神抖擞地活动了几下手脚。$END}        {suxing; gofsk;};
+#action {你慢慢的睁开眼睛%*$}        {suxing; gofsk;};
+#action {慢慢地你%*$}        {suxing; gofsk;};
 
 #action {^%*你需要提高基本功，不然练得再多也没有用。$}  {
     #show $i;

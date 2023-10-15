@@ -3,10 +3,9 @@
 #var myname ÷ª“ÚΩ„;
 #var li2 0;
 #var li1 0;
-#var wp flute;
+#var wp dao;
 #var blade blade;
 #var bian whip;
-#var tq 2331;
 
 #var skills {
     {1} {fh}
@@ -42,6 +41,12 @@
 };
 #alias {p.an} {
     perform fulong-shou.an %0;
+};
+#alias {p.duan} {
+    perform wuhu-duanmendao.duan;
+};
+#alias {p.can} {
+    perform wuhu-duanmendao.canzhao;
 };
 #list sp_skills create {
     danxin-jian;
