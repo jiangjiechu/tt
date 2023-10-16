@@ -56,18 +56,18 @@
 #action {^%*在线发出红包，请到http://fullme.pkuxkx.net/robot.php?filename=%1查询口令。%*$} {
   #var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
   #nop mxp;
-  #system sh bot/fullme.sh %1;
+  #system bash bot/fullme.sh %1;
 };
 #action {^http://fullme.pkuxkx.net/robot.php?filename=%1} {
   #var link {http://fullme.pkuxkx.net/robot.php?filename=%1};
   #nop mxp;
-  #system sh bot/fullme.sh %1;
+  #system bash bot/fullme.sh %1;
 };
 
 #act {^http://fullme.pkuxkx.com/robot.php?filename=%1} {
 	#var link {http://fullme.pkuxkx.com/robot.php?filename=%1};
   #nop mxp;
-  #system sh bot/fullme.sh %1;
+  #system bash bot/fullme.sh %1;
 };
 
 #nop ==个人信息==sc,sk查看刷新;

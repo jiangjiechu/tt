@@ -1,0 +1,12 @@
+#class time open;
+#ticker watch_time {
+    time
+} 20;
+#act {☆侠纪年☆%*年%*月%*日%*时分 } {
+    #var now %4;
+    #show <afa> 现在是 %1年%2月%3日$now 分！;
+    #if {"$now" == "正午"} {
+        #system {notify-send ready!}
+    }
+};
+#class time close;

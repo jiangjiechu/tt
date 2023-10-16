@@ -1,0 +1,22 @@
+#class pfa open;
+#tick pfaa {
+    #untic pfaa;
+    pfaa $n_watch;
+} 1;
+#ali pfaa {
+    watch 牌坊 %1;
+};
+#act {你仔细看了一段时间奇怪的文字,似乎有些心得。} {
+    on_unbusy {
+        pfaa $n_watch;
+    }
+};
+#act {你精神不够集中，无法细看这段文字。} {
+    #delay 2 {
+        pfaa $n_watch;
+    }
+};
+#act {你略一凝神，精神看起来好多了。} {
+    pfaa $n_watch;
+};
+#class pfa close;

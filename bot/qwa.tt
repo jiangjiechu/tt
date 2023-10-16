@@ -1,0 +1,22 @@
+#class qwa open;
+#tic qwaa {
+    #untic qwaa;
+    qwaa;
+} 1;
+#ali qwaa {
+    qingwen;
+};
+#act {%*给你讲解书中的微言大义。} {
+    #delay 2 {
+        on_unbusy {qwaa};
+    }
+};
+#act {什么？} {
+    #delay 100 {
+        qwaa
+    }
+};
+
+#gag {^>};
+#gag {你正忙};
+#class qwa close;

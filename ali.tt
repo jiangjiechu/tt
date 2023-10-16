@@ -171,6 +171,16 @@
 #alias {cja} {#class cja read bot/cja.tt};
 #alias {cjx} {#class cja kill};
 
+#nop ÅÆ·»;
+#alias {pfa} {#var n_watch 2;#class pfa read bot/pfa.tt};
+#alias {pfx} {#class pfa kill};
+#nop °×»¢ÌÃÇëÎÊ;
+#alias {qwa} {#class qwa read bot/qwa.tt};
+#alias {qwx} {#class qwa kill};
+#nop °×»¢ÌÃÇëÎÊ;
+#alias {wta} {#class time read bot/time.tt};
+#alias {wtx} {#class time kill};
+
 #nop ³­¾­;
 #alias {cha1} {#class cha1 read bot/cha1.tt};
 #alias {chx1} {#class cha1 kill};
@@ -514,12 +524,12 @@
 };
 #alias wsa {
   n;n;n;nw;nw;w;
-  wu;wu;nd;nd;n;
+  nd;nu;wu;nw;n;
   nw;nd;w
 };
 #alias wsb {
   e;su;se;
-  s;su;su;ed;ed;
+  s;se;ed;sd;su;
   e;se;se;s;s;s
 };
 

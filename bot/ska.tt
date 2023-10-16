@@ -46,7 +46,7 @@
   #elseif {"$shi"=="xuan"} {#3 s;w;e;#4 n;e};
   #elseif {"$shi"=="ma" || "$shi"=="chen"} {e};
   #elseif {"$shi"=="wen"} {e;nu;n;w;n};
-  #elseif {"$shi"=="tong"} {w;s};
+  #elseif {"$shi"=="bao"} {s};
   hp;
   #delay 1 {sleep}
 };
@@ -70,7 +70,7 @@
   #elseif {"$shi"=="xuan"} {w;#4 s;w;n;n;e;n;s};
   #elseif {"$shi"=="ma" || "$shi"=="chen"} {w};
   #elseif {"$shi"=="wen"} {s;e;s;sd;w};
-  #elseif {"$shi"=="tong"} {n;e};
+  #elseif {"$shi"=="bao"} {n};
 };
 
 

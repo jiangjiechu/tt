@@ -1042,6 +1042,47 @@
     nw;w;sw;wd;nu;w;w;w;w;w;wd;
 };
 #nop 神龙岛, 桃花岛, 洛阳, wat, 梅庄;
+#list bl_path_hanz create {
+    bl.comment {汉中-北门};
+    n;w;e;n;w;e;e;w;n;nu;n;nu;
+    bl.comment {汉中北门外};
+    w;w;nw;nu;sd;se;e;e;ne;ne;ne;sw;sw;sw;sd;s;sd;
+    bl.comment {北门-汉中城墙-汉中};
+    w;w;w;s;s;s;wu;wu;wd;w;nw;se;su;nd;e;s;se;se;nu;sd;nw;nw;ne;sw;n;eu;ed;ed;e;
+    bl.comment {汉中-南门};
+    s;w;enter;out;e;e;w;s;w;e;e;w;s;w;e;ne;e;se;u;d;sw;w;nw;s;w;w;w;n;n;n;s;s;s;e;e;e;s;w;e;n;
+    bl.comment {南门-东门-北门-汉中};
+    e;e;e;n;n;n;n;n;n;w;w;w;s;s;s;
+    bl.comment {汉中-东门-东门外};
+    e;n;ne;sw;s;e;e;n;s;s;n;e;n;s;se;eu;su;s;su;nd;n;nd;wd;su;eu;e;w;wd;nd;nw;w;s;n;w;w;w;
+};
+#list bl_path_qinz create {
+    bl.comment {秦州-北门};
+    n;w;bl.clear {shi bing}; enter;out; e; e;e;s;s;n;n;w;se;enter;out;s;n;nw;s;s;w;n;
+    bl.comment {环城墙};
+    w;w;w;w;s;s;s;s;s;s;e;e;e;e;e;e;e;e;n;n;n;n;n;n;w;w;w;w;
+    bl.comment {北门-玉泉观};
+    n;nw;bl.command_halt {knock}; eu;
+    bl.comment {玉泉观内};
+    n;nu;n;nu;w;e;e;w;nu;nd;nw;se;n;nw;enter;out;s;n;se;ne;enter;out;s;n;sw;s;ne;sw;su;sd;sd;s;sd;bl.comment {enter qinglong};out; bl.comment {enter baihu};out;s
+    bl.comment {玉泉观东-山路};
+    ed;nw;nw;w;nu;nw;nw;se;se;sd;e;se;se;se;nw;wu;bl.command_halt {open door}; wd;wd;
+    bl.comment {山路-西门};
+    sd;sd;nw;nw;wu;wu;nw;se;ed;ed;se;se;
+    bl.comment {西门-中央};
+    e;n;s;s;n;e;n;s;s;n;e;n;s;s;n;e;
+    bl.comment {中央-南门};
+    sw;wu;ed;ne;su;su;sw;sw;sw;s;sw;s;w;e;sw;se;w;e;
+    bl.command_halt {ride east}; eu;ed;e;w;wu;wd; bl.command_halt {ride west}; nw;ne;
+    n;ne;n;ne;ne;ne;se;enter;out;nw;nd;ed;wu;nd;
+
+
+
+
+
+
+
+};
 
 #list bl_path_yuz create {
     bl.comment {小广场-城东};

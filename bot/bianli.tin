@@ -205,6 +205,12 @@
     #action {^那个洞黑乎乎的，不知道有什么。} {
         #delay 0.5 {bl.walk}
     };
+    #action {^大门被人打开了。} {
+        #delay 0.5 {bl.walk}
+    };
+    #action {^你从小船上跳了下来} {
+        #delay 0.5 {bl.walk}
+    };
 
     #action {^跑堂说道：「林知府府上预订了席面，我们这实在走不开，你可以帮我送去吗？} {
         give 1 gold to pao tang;

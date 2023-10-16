@@ -19,13 +19,17 @@
             yun recover; 
       };
       eat liang;
-      #delay 1 {
+      #delay 2 {
             drink;
             dzaa
 }};
 
 #act {你的内力增加了！！}  {
-      #if {$sklevel<100} {sleep};
+      #if {$sklevel<100} {
+            #delay 5 {
+                  dzaa;
+            }
+      };
       #else {dzaa}
 };
 
