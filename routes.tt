@@ -37,8 +37,8 @@
 #list Route_lanz_huangz create {w;w;w;w;nw;nw;w;w;w;s;s};
 #list Route_huangz_lanz create {n;n;e;e;e;se;se;e;e;e;e};
 
-#list Route_huangz_xx create {n;n;nw;w;wd;wd};
-#list Route_xx_huangz create {eu;eu;e;se;s;s};
+#list Route_huangz_xx create {w;s;s;s;s;sw;sw;sw;sd;wu;sw;s} {sheshui}{stop} {l jingji lin} {southwest}{se;w;sw;se;wd};
+#list Route_xx_huangz create {eu;eu;nw;ne;e;nw;ne}{sheshui}{stop} {n;ne;ed;nu;ne;ne;ne;n;n;n;n;e};
 
 #list Route_lanz_hb4 create {w;w;w;w;se;se};
 #list Route_hb4_lanz create {nw;nw;e;e;e;e};
@@ -157,8 +157,8 @@
 #list Route_lz_xz create {s} {s} {e} {e} {e} {e} {e} {s} {sd};
 #list Route_lj_lz create {sd} {sd} {s} {w} {w} {w} {w} {w} {n} {n};
 #list Route_lz_lj create {s} {s} {e} {e} {e} {e} {e} {n} {nu} {nu};
-#list Route_lz_hn3 create {s} {s} {w} {w} {nw} {nw};
-#list Route_hn3_lz create {se} {se} {e} {e} {n} {n};
+#list Route_lz_hn3 create {s} {s} {w} {w} {nw} {nw} {sw};
+#list Route_hn3_lz create {ne} {se} {se} {e} {e} {n} {n};
 #list Route_ca_ly create {s} {e} {e} {e} {e} {e} {e} {n} {se} {e} {e} {e} {e} {e} {ed} {e} {e} {e};
 #list Route_ly_ca create {w} {w} {w} {wu} {w} {w} {w} {w} {w} {nw} {s} {w} {w} {w} {w} {w} {w} {n};
 #list Route_ca_gm create {s} {s} {s} {s} {s} {s} {s} {se} {su} {sw} {sw} {w};
@@ -217,12 +217,14 @@
 #list Route_hn1_qf create {se} {se} {se} {s} {s} {s} {s} {w};
 #list Route_xiny_jb3 create {s} {s} {s} {s} {sd} {se} {s};
 #list Route_jb3_xiny create {n} {nw} {nu} {n} {n} {n} {n};
-#list Route_hb3_mj create {nw} {w} {w} {w} {n} {n} {w} {w} {w} {n} {n} {w} {w} {nw} {n} {nw} {nu};
+#list Route_hb3_mj create {ne} {nw} {w} {w} {w} {n} {n} {w} {w} {w} {n} {n} {w} {w} {nw} {n} {nw} {nu};
 #list Route_hb3_lanz create {sw}{n}{nw}{w}{w}{w}{w};
+#list Route_hb3_huangz create {w;w;nw;nw;w;w}{ride}{stop}{sw;s;s;s;s;s;s};
+#list Route_huangz_hb3 create {n;n;n;n;n;n;ne}{ride}{stop}{e;e;se;se;e;e};
 #list Route_lanz_hb3 create {e}{e}{e}{e}{se}{s}{ne};
 #list Route_mj_ll create {sd} {se} {s} {se} {sw} {w} {se};
 #list Route_ll_mj create {nw} {e} {ne} {nw} {n} {nw} {nu};
-#list Route_mj_hb3 create {sd} {se} {s} {se} {e} {e} {e} {e} {s} {s} {s} {e} {e} {e} {e} {se};
+#list Route_mj_hb3 create {sd} {se} {s} {se} {e} {e} {e} {e} {s} {s} {s} {e} {e} {e} {e} {se} {sw};
 #list Route_hb3_hb2 create {ne} {ne} {ne} {e} {se} {s} {sw} {s} {s} {se} {se} {se};
 #list Route_hb2_hb3 create {nw} {nw} {nw} {n} {n} {ne} {n} {nw} {w} {sw} {sw} {sw};
 #list Route_dt_zjk create {n}{n}{ne}{nu}{ne}{ne}{ride;dazuo max}{stop} {eu}{ne}{ne}{e}{n}{n}{n}{n}{n}{n};
@@ -276,6 +278,8 @@
 #list Route_hn1_hb1 create {guohe1} {stop};
 #list Route_hn2_hb2 create {guohe1} {stop};
 #list Route_hn3_hb3 create {guohe3s2n} {stop};
+#list Route_hn3_lanz create {su;se;e;e;e;e};
+#list Route_lanz_hn3 create {w;w;w;w;nw;nd};
 #list Route_yz_skf create {n} {n} {n} {e};
 #list Route_skf_yz create {w} {s} {s} {s};
 #list Route_ly_xf create {n} {w} {u};
@@ -292,6 +296,8 @@
 #list Route_hb4_hn4 create {guohe1} {stop};
 #list Route_hb4_hb3 create {ne} {ne} {ne};
 #list Route_hb3_hb4 create {sw} {sw} {sw};
+#list Route_hb4_huangz create {nw;w;w;sw};
+#list Route_huangz_hb4 create {ne;e;e;se};
 #list Route_hb4_mgk create {sw} {w} {w} {nw} {climb mount} {w} {enter hole};
 #list Route_mgk_hb4 create {n} {e} {ne} {se} {e} {e} {ne};
 #list Route_bj_zf create {e} {e} {e} {e} {e} {n} {n} {n} {n} {n} {n} {n} {e} {ne} {n} {n};
@@ -413,7 +419,7 @@
 #list Route_rz_sl create {w} {nu} {nu} {wu} {nu} {nu} {nu} {e};
 #list Route_sl_rz create {w} {sd} {sd} {sd} {ed} {sd} {sd} {e};
 #list Route_xy_jzh create {s}{e}{e}{s}{s}{s}{s}{s}{s}{s}{s}{s}{se}{sw}{s}{s}{s}{s};
-#list Route_jzh_xy create {n}{n}{n}{n}{ne}{nw}{n}{n}{n}{n}{n}{n}{n}{n}{n}{w}{w}{n};
+#list Route_jzh_xy create {n}{n}{n}{n}{ne}{nw}{n}{n}{n}{n}{n}{ask shou jiang about Í¶¾ü} {stop}{n}{n}{n}{n}{w}{w}{n};
 #list Route_jzh_xiny create {s}{e}{e}{e}{e}{e}{e}{e}{s}{eu}{e}{e}{ne}{ne}{ne}{e}{ne}{ne}{nu}{n}{n}{n}{n};
 #list Route_xiny_jzh create {s}{s}{s}{s}{sd}{sw}{sw}{w}{sw}{sw}{sw}{w}{w}{wd}{n}{w}{w}{w}{w}{w}{w}{w}{n};
 #list Route_jzh_jb4 create {s}{s}{e}{s}{s}{e}{s}{s}{se}{s}{w};
@@ -433,8 +439,8 @@
 #list Route_txg_xz create {s} {jump well} {se} {se} {se};
 #list Route_jmg_cd create {sd} {s} {s} {s} {s};
 #list Route_cd_jmg create {n} {n} {n} {n} {nu};
-#list Route_hanz_xz create {nw} {nu} {nd} {ne} {nu} {ne} {busy1} {nw} {busy1}{nw}{busy2};
-#list Route_xz_hanz create {se} {se} {busy1} {sw} {busy1} {sd} {sw} {su} {sd} {se}{busy2};
+#list Route_hanz_xz create {n;n;n;nu;n;nu;w;w;nw;nu;nd;ne;nu;ne;nw;nw};
+#list Route_xz_hanz create {se;se;sw;sd;sw;su;sd;se;e;e;sd;s;sd;s;s;s};
 #list Route_hanz_ca create {n;n;n;nu;n;nu;ne;ne;ne;ne;n;n} {n} {n} {n} {n} {n};
 #list Route_ca_hanz create {s} {s} {s} {s} {s} {s;s;sw;sw;sw;sw;sd;s;sd;s;s;s};
 #list Route_hn2_ca create {w} {nw} {sw} {s} {e} {e} {e} {s} {s} {s} {s} {w} {w} {w} {s} {s} {w} {w} {n};
@@ -650,6 +656,15 @@
 
 #list Route_fm_qinz create {n;w;w;w;w;w;sw;wd;w;w;w;w;w;w};
 #list Route_qinz_fm create {e;e;e;e;e;e;eu;ne;e;e;e;e;e;s};
+
+#list Route_qinz_xz create {e;e;e;e;e;e;eu;ne;e;ne;ne;nw;nw};
+#list Route_xz_qinz create {se;se;sw;sw;w;sw;wd;w;w;w;w;w;w};
+
+#list Route_qinz_lanz create {n;n;nw;ed;e;e;eu}{knock}{stop}{eu;ed}{nw;nw;w;nu;nw;nw;w;w;w;w};
+#list Route_lanz_qinz create {e;e;e;e;se;se;sd;e;se;se;wu}{open}{stop}{wd;wd;w;w;wu;se;s;s};
+
+#list Route_qinz_hn4 create {w;w;w;w;nw;nw;wu;wu;nw;ne};
+#list Route_hn4_qinz create {sw;se;ed;ed;se;se;e;e;e;e};
 
 #list Route_jning_wys create {w;w;w;n;n;n;n;nw;nw;nw;n;n}{ride;dazuo max}{stop}{n;nw};
 #list Route_wys_jning create {se;s}{ride;dazuo max}{stop}{s;s;se;se;se;s;s;s;s;e;e;e};

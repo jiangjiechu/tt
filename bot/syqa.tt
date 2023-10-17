@@ -65,6 +65,7 @@
   #act {~^\e\[0m%%s\e\[0m$} {
     #if {$match_n >= $pattern_n} {
       #show <afa> 发现房间！;
+      #var syq.pattern;
       bl.stop;
       #class bl.syq.inner kill;
     };

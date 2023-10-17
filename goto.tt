@@ -574,6 +574,31 @@
     #action {^你刚要前行，忽然发现江水决堤，不由暗自庆幸，还好没过去。$} {
        #0;
     };
+    #action {^守将给了你一块腰牌。} {
+        #delay 0.2 {walk};
+    };
+    #action {^襄阳守将说道：「你有一个腰牌就可以了。」} {
+        #delay 0.1 {walk};
+    };
+    #action {^大门被人打开了。} {
+        #delay 0.5 {walk}
+    };
+    #action {^你拉着门闩，把大门打开了。} {
+        #delay 0.1 {walk}
+    };
+    #action {^大门不是开着吗？} {
+        #delay 0.1 {walk}
+    };
+    #action {^你要打开什么？} {
+        #delay 0.1 {walk}
+    };
+    #action {^你从小船上跳了下来} {
+        #delay 0.5 {walk}
+    };
+    #action {你下水往对岸走去。} {
+        on_unbusy {walk}
+    };
+
     #action {^你反应迅速，急忙双手抱头，身体蜷曲。眼前昏天黑地，顺着山路直滚了下去。} {#class walk kill;#var CurrentPosition qbl};
     #action {^你从山上滚了下来，只觉得浑身无处不疼，还受了几处伤。} {#class walk kill;#var CurrentPosition dzf};
     #action {^不知过了多久，船终于靠岸了，你累得满头大汗。} {hnr;walk};
@@ -673,7 +698,7 @@
 #nop 地标房间信息;
 #list AreaPosition_list create {戈壁} {醉仙楼二楼} {永安门} {总督府门前} {丽春院密室} {十字路口} {千步岭} {大轮寺山门} {谢客亭} {龙门镖局} {玉女池} {千佛庵大殿} {发呆室} {福威镖局} {土地庙} {断龙石} {河岸} {密室} {小厅} {挂剑祠} {集市} {隐者居} {归云亭} {汉中} {大理寺} {成德殿} {杭州分舵大门} {高粱地} {玩家储物柜} {书房} {苍龙岭} {打谷场} {淮北} {[黄河北岸w㊣e黄河北岸]} {风陵渡[官道u㊣d黄河北岸]} {[沙漠边缘nw㊣ne黄河北岸]} {[大路nw㊣ne黄河北岸]} {[黄河南岸w㊣se青石大道]} {孟津渡[㊣sd洛水]} {[黄河南岸sw㊣se土路]} {[黄河南岸sw㊣ne黄河南岸]} {嘉兴城} {嘉峪关} {剑门关} {韩家} {萧府} {荆州} {神威镖局} {琅缳福地} {老林尽头} {老林边缘} {百丈涧} {独尊厅大门} {皇宫大门} {凌霄大厅} {陆家庄} {洛阳中心广场} {绿柳山庄大门} {小桥} {梅庄天井} {无} {苗岭西} {半山门} {莫高窟} {湖边} {春来茶馆} {白家} {南阳城} {平西王府大门} {鄱阳湖边} {濮阳} {岳飞家} {琴韵小居} {黄羊滩} {无} {孔庙} {荣昌交易行} {崇玄台} {泉州港} {小村庄} {荣宝斋} {汝州城} {万纶台} {沙漠绿洲} {山海关南门} {方丈楼} {少林寺} {海滩} {峰顶} {小回廊} {城北军营} {无} {无} {宝带桥} {太湖边} {南天门} {岱宗坊} {塘沽口} {海港} {桃园小路} {桃源驿站} {侧厅} {瑞鹤门} {天柱峰下} {小亭} {听香水榭} {万安塔} {万劫谷} {谷底} {崖间古松} {无量玉璧} {武当广场} {武当山门} {武庙} {武夷山路} {戏园子} {襄阳当铺} {望星楼二层} {小镇} {镇淮桥} {巨岩} {天秀宫} {许昌城} {桥头} {牙山湾中心} {燕子坞大门} {中央广场㊣大榕树} {驿站} {黑沼小屋} {墓前广场} {南门内大街} {赞普广场} {大境门} {荆西镖局} {朱雀门} {扬子津[扬子津w㊣e长江岸边]} {[长江岸边w㊣e长江渡口]} {[小池镇u㊣]} {陵矶[长江渡口w㊣e长江岸边]} {[西津渡口w㊣e长江岸边]} {采石矶[长江岸边w㊣e长江渡口]} {[长江岸边nw㊣se长江岸边]} {陵矶[长江渡口w㊣e长江岸边]} {梦溪园} {岳麓书院} {庄府大门} {提督府正门} {孤山} {大厅} {江南钱庄} {盛昌行临安府分店} {昌隆镖局} {厅堂} {望江亭} {王府大门} {殿前广场} {飞马镖局} {飞虎镖局} {后堂} {天福镖局} {丹陛桥} {洪水坛} {朝阳门} {神策门} {端门} {树洞内部} {客店} {中城} {府前广场} {宫城} {大厅} {扬州钱庄} {扬州当铺} {玄武湖畔} {建康南正阳门} {京兆府侧厅}{林间小屋洪七公} {归云蛇窟} {荒地}{春来茶馆}{甲午海战基地}{鼓楼小院}{珠都巴殿}{武门比武}{观海石} {苗岭东} {五毒教} {大理太和居} {静修庵} {北京荣宝斋}{小广场}{宋远桥};
 #nop 花括号对应该地所有直连，采用高级数据结构;
-#var {RouteConnection_list} { {1}{yz} {2}{yz} {3}{bjc;zjc;ry;zjk;tgk;hyd;zf;shg;bjbs;kf} {4}{em;tls;jmg;yj;zp} {5}{yz} {6}{tls;km;dlbs} {7}{dls;zp} {8}{qbl;xkt;bf} {9}{dls;bf;lh} {10}{ly} {11}{cd;qfa;yuz} {12}{em;jxa} {13}{yz} {14}{qz;wys;ydn;jning} {15}{yz;hq} {16}{qzh;ca;ha} {17}{ms;gm} {18}{xt} {19}{gm} {20}{jx} {21}{shg} {22}{taih} {23}{taih;lcf} {24}{ca;xz} {25}{huz;xh;wys;hhh;tdf;mz;hsz;hzbs;jnqz;jx;ywm} {26}{ry} {27}{xh;hz} {28}{dz;bj} {29}{yz} {30}{cll} {31}{xc;hs;ca;ly} {32}{yz;cll;ny;qzh} {33}{qf;yz;xch} {34}{py;hn1} {35}{jinz;hn2} {36}{lanz;mj;hn3} {37}{lanz;hn4;mgk;jyg} {38}{qf;dzf;hb1} {39}{ly;hb2} {40}{lz;hb3} {41}{hb4} {42}{hz;huz;gjc;wys;ljz;sz} {43}{hb4} {44}{cd} {45}{jn3;yy;nc;pyh;tf} {46}{dz;ry;gtz;jy} {47}{xy;xiny;hank;jb4;yuz} {48}{dl;px;mlx} {49}{wjg} {50}{tdf} {51}{nc} {52}{lz;xz;dzt} {53}{lj} {54}{lj;xz;qhb;hn3} {55}{xs} {56}{jx} {57}{ca;qlc;cll;rz;hn2;xf;wat;tdh;ddj;ny;bw} {58}{mj} {59}{qy} {60}{hz} {61}{nc;yy} {62}{km;mld} {63}{ll;hb3;hst} {64}{hb4} {65}{sz;qy} {66}{sz} {67}{jz;mlb;wys;llx;zx;fh} {68}{myr;ly;xch;xc;xy} {69}{km} {70}{jz} {71}{hb1;tgk;ry} {72}{ly;rz;yz} {73}{mr;tx;yzw;mt} {74}{lz} {75}{zp} {76}{hb;xzh;dzf;ta;hn1} {77}{yz} {78}{gm;xc} {79}{fz;wys;nsl} {80}{py;bj;jy;hmy} {81}{yz} {82}{yz;ly;sl;qlc;xch} {83}{yz;jb1} {84}{xz} {85}{gw;bj} {86}{sl;gl} {87}{rz;fzl} {88}{tgk;sy} {89}{sy} {90}{sld;fengd} {91}{yz} {92}{} {93}{} {94}{mrf;jx;mr;zj;xyz;zuo;cym;taih;yx} {95}{sk;gy;sz;yinz} {96}{dzf} {97}{tais;qf;hn1} {98}{py;bj;sld} {99}{mingz;ghs} {100}{wd} {101}{yy;tz;yg} {102}{ly} {103}{cd;dl;wl;wjg} {104}{wd} {105}{ty} {106}{yzw;qy} {107}{ly} {108}{tls} {109}{yb;fd} {110}{gd} {111}{gd} {112}{wdc;tzf;tyc;syq;ht} {113}{zz;wd} {114}{yz} {115}{fz;hz;jx;nc;qz;mingz;jning} {116}{sz}{117}{myr;ny;zz;xiny;jzh;hank;gsz} {118}{ly} {119}{ca;lj;lz;hanz} {120}{jzh;xy;yz;jb3;xch;jxf;haoz;hank} {121}{huangz;txg} {122}{xx} {123}{hb;ny;rz;xiny} {124}{zp;lxc} {125}{dengz;jd} {126}{tx;qy} {127}{bt;gb;hb;xzh;ssb;xiny;cg;xc;qlc;rz;xz;xs;dls;skf;bxs;cz;rbz;bs;fds;wm;qq;yiz;sd;kd;bk;dp;jxf;haoz;jb1;jb2} {128}{yz} {129}{ty} {130}{hz;xh} {131}{sdb;jz;mlb;ty;jn4;yuz} {132}{qbl;qhn;xs} {133}{bj;dt;ct} {134}{xy;wdc} {135}{ly;cll;gm;xz;hanz;fm;nj} {136}{yz;ssb;jn1;qiu} {137}{jn2;yz} {138}{xiny;jn3} {139}{jzh;jn4} {140}{zj;jb1} {141}{scm;jb2} {142}{jz;jb3} {143}{yy;jb4} {144}{sz;jn1;yx} {145}{nc} {146}{bj} {147}{hz;lld} {148}{hz;hhh;ywm} {149}{hz} {150}{hz} {151}{hz} {152}{sz} {153}{zjk} {154}{jb1} {155}{bj;tt;zjc} {156}{xkt;dls} {157}{ca;qinz} {158}{nc} {159}{wd} {160}{jz;tg} {161}{kf} {162}{mj} {163}{sz;scm;jk;mzj;yx} {164}{jn2;cym;jk;ytf;mzj} {165}{bj;kf} {166}{yz} {167}{yz} {168}{cym;scm;mzj;qlm} {169}{hb3;hb4;huangz} {170}{lanz;xx} {171}{gy} {172}{yz} {173}{yz} {174}{jn2;scm} {175}{mzj;huz;yx} {176}{ca} {177}{gb} {178}{taih} {179}{ny;xy} {180}{yz} {181}{whw} {182}{fzl} {183}{xkt} {184}{ly} {185}{th} {186}{mlx;wdj} {187}{mld} {188}{dl} {189}{qfa} {190}{bj} {191}{xbh;dt;hyd;hshxf} {192}{dz;zjk;ygsk;hengs;hshxf} {193}{hz;zym;jx;tg} {194}{nsl;gz} {195}{chzh;qz} {196}{wys;th;ydb} {197}{ta;dengz} {198}{whw;qingz} {199} {yz;xiny} {200} {yz;xiny;hb} {201} {xiny;jzh;xy} {202} {scm;cym;zym;jk} {203}{cd} {204}{chzh} {205} {xy} {206}{dt;dz;hengs} {207}{dt;hshxf}{208}{dt}{209}{ydn;mingz}{210}{ydb;fz}{211}{tf;qlm;huz}{212}{tg;jk}{213}{sz;cym;zym;zj}{214}{xbh;jinz}{215}{gtz;hb2}{216}{xbh;ry}{217}{bj}{218}{wys;fz}{219}{qf;qingz}{220}{yz;qf}{221}{fm;lz}{222}{em;yy;jzh}{223}{wd}};
+#var {RouteConnection_list} { {1}{yz} {2}{yz} {3}{bjc;zjc;ry;zjk;tgk;hyd;zf;shg;bjbs;kf} {4}{em;tls;jmg;yj;zp} {5}{yz} {6}{tls;km;dlbs} {7}{dls;zp} {8}{qbl;xkt;bf} {9}{dls;bf;lh} {10}{ly} {11}{cd;qfa;yuz} {12}{em;jxa} {13}{yz} {14}{qz;wys;ydn;jning} {15}{yz;hq} {16}{qzh;ca;ha} {17}{ms;gm} {18}{xt} {19}{gm} {20}{jx} {21}{shg} {22}{taih} {23}{taih;lcf} {24}{ca;xz} {25}{huz;xh;wys;hhh;tdf;mz;hsz;hzbs;jnqz;jx;ywm} {26}{ry} {27}{xh;hz} {28}{dz;bj} {29}{yz} {30}{cll} {31}{xc;hs;ca;ly} {32}{yz;cll;ny;qzh} {33}{qf;yz;xch} {34}{py;hn1} {35}{jinz;hn2} {36}{huangz;hn3;mj} {37}{huangz;hn4;mgk;jyg} {38}{qf;dzf;hb1} {39}{ly;hb2} {40}{lanz;hb3} {41}{hb4;qinz} {42}{hz;huz;gjc;wys;ljz;sz} {43}{hb4} {44}{cd} {45}{jn3;yy;nc;pyh;tf} {46}{dz;ry;gtz;jy} {47}{xy;xiny;hank;jb4;yuz} {48}{dl;px;mlx} {49}{wjg} {50}{tdf} {51}{nc} {52}{lz;xz;dzt} {53}{lj} {54}{lj;xz;qhb;hn3} {55}{xs} {56}{jx} {57}{ca;qlc;cll;rz;hn2;xf;wat;tdh;ddj;ny;bw} {58}{mj} {59}{qy} {60}{hz} {61}{nc;yy} {62}{km;mld} {63}{ll;hb3;hst} {64}{hb4} {65}{sz;qy} {66}{sz} {67}{jz;mlb;wys;llx;zx;fh} {68}{myr;ly;xch;xc;xy} {69}{km} {70}{jz} {71}{hb1;tgk;ry} {72}{ly;rz;yz} {73}{mr;tx;yzw;mt} {74}{lz} {75}{zp} {76}{hb;xzh;dzf;ta;hn1} {77}{yz} {78}{gm;xc} {79}{fz;wys;nsl} {80}{py;bj;jy;hmy} {81}{yz} {82}{yz;ly;sl;qlc;xch} {83}{yz;jb1} {84}{xz} {85}{gw;bj} {86}{sl;gl} {87}{rz;fzl} {88}{tgk;sy} {89}{sy} {90}{sld;fengd} {91}{yz} {92}{} {93}{} {94}{mrf;jx;mr;zj;xyz;zuo;cym;taih;yx} {95}{sk;gy;sz;yinz} {96}{dzf} {97}{tais;qf;hn1} {98}{py;bj;sld} {99}{mingz;ghs} {100}{wd} {101}{yy;tz;yg} {102}{ly} {103}{cd;dl;wl;wjg} {104}{wd} {105}{ty} {106}{yzw;qy} {107}{ly} {108}{tls} {109}{yb;fd} {110}{gd} {111}{gd} {112}{wdc;tzf;tyc;syq;ht} {113}{zz;wd} {114}{yz} {115}{fz;hz;jx;nc;qz;mingz;jning} {116}{sz}{117}{myr;ny;zz;xiny;jzh;hank;gsz} {118}{ly} {119}{ca;lj;lz;hanz;qinz} {120}{jzh;xy;yz;jb3;xch;jxf;haoz;hank} {121}{huangz;txg} {122}{xx} {123}{hb;ny;rz;xiny} {124}{zp;lxc} {125}{dengz;jd} {126}{tx;qy} {127}{bt;gb;hb;xzh;ssb;xiny;cg;xc;qlc;rz;xz;xs;dls;skf;bxs;cz;rbz;bs;fds;wm;qq;yiz;sd;kd;bk;dp;jxf;haoz;jb1;jb2} {128}{yz} {129}{ty} {130}{hz;xh} {131}{sdb;jz;mlb;ty;jn4;yuz} {132}{qbl;qhn;xs} {133}{bj;dt;ct} {134}{xy;wdc} {135}{ly;cll;gm;xz;hanz;fm;nj} {136}{yz;ssb;jn1;qiu} {137}{jn2;yz} {138}{xiny;jn3} {139}{jzh;jn4} {140}{zj;jb1} {141}{scm;jb2} {142}{jz;jb3} {143}{yy;jb4} {144}{sz;jn1;yx} {145}{nc} {146}{bj} {147}{hz;lld} {148}{hz;hhh;ywm} {149}{hz} {150}{hz} {151}{hz} {152}{sz} {153}{zjk} {154}{jb1} {155}{bj;tt;zjc} {156}{xkt;dls} {157}{ca;qinz} {158}{nc} {159}{wd} {160}{jz;tg} {161}{kf} {162}{mj} {163}{sz;scm;jk;mzj;yx} {164}{jn2;cym;jk;ytf;mzj} {165}{bj;kf} {166}{yz} {167}{yz} {168}{cym;scm;mzj;qlm} {169}{qinz;hn3} {170}{xx;hb3;hb4} {171}{gy} {172}{yz} {173}{yz} {174}{jn2;scm} {175}{mzj;huz;yx} {176}{ca} {177}{gb} {178}{taih} {179}{ny;xy} {180}{yz} {181}{whw} {182}{fzl} {183}{xkt} {184}{ly} {185}{th} {186}{mlx;wdj} {187}{mld} {188}{dl} {189}{qfa} {190}{bj} {191}{xbh;dt;hyd;hshxf} {192}{dz;zjk;ygsk;hengs;hshxf} {193}{hz;zym;jx;tg} {194}{nsl;gz} {195}{chzh;qz} {196}{wys;th;ydb} {197}{ta;dengz} {198}{whw;qingz} {199} {yz;xiny} {200} {yz;xiny;hb} {201} {xiny;jzh;xy} {202} {scm;cym;zym;jk} {203}{cd} {204}{chzh} {205} {xy} {206}{dt;dz;hengs} {207}{dt;hshxf}{208}{dt}{209}{ydn;mingz}{210}{ydb;fz}{211}{tf;qlm;huz}{212}{tg;jk}{213}{sz;cym;zym;zj}{214}{xbh;jinz}{215}{gtz;hb2}{216}{xbh;ry}{217}{bj}{218}{wys;fz}{219}{qf;qingz}{220}{yz;qf}{221}{fm;xz;lanz;hn4}{222}{em;yy;jzh}{223}{wd}};
 #nop 自动计算直连地点数目count;
 #list RouteConnection_count create {};
 #foreach *RouteConnection_list[] id {
@@ -908,12 +933,12 @@
 #action {^%s%s这里是长江南岸的渡口。南面就是江汉通黔贵的要冲——岳阳} {set_position {jn4}};
 #action {^%s%s这里是黄河北岸的渡口，往北通向濮阳。渡过河去就是山东地界了} {set_position {hb1}};
 #action {^%s%s这里是黄河北岸的渡口，东北通向晋阳，渡过黄河就是洛阳了} {set_position {hb2}};
-#action {^%s%s这里是黄河北岸的渡口，渡过河去通向灵州} {set_position {hb3}};
-#action {^%s%s这里是黄河北岸的渡口，西北通向兰州} {set_position {hb4}};
+#action {^赤套渡北渡口${SUF}$} {set_position {hb3}};
+#action {^赤套渡${SUF}$} {set_position {hn3}};
+#action {^%s%s这里是黄河北岸的渡口，西北通向湟中} {set_position {hb4}};
 #action {^%s%s这里是黄河南岸的渡口，往南通向曲阜。渡过黄河向北就是濮阳} {set_position {hn1}};
 #action {^%s%s这里是黄河南岸的渡口，南面通向洛阳。渡过河就进入晋阳了} {set_position {hn2}};
-#action {^%s%s这里是黄河南岸的渡口，东南面通向灵州} {set_position {hn3}};
-#action {^%s%s这里是黄河南岸的渡口，往东南通向长安。渡过河去就是兰州了} {set_position {hn4}};
+#action {^%s%s这里是黄河南岸的渡口，先向西南，再往东南可有秦州通向长安，渡过河去就是湟中了} {set_position {hn4}};
 
 #NOP 苗岭-五毒教
 #action {^%s%s这里是苗岭的边缘，东面是连成片的森林，似乎有瘴气，没事不要轻易进入。这里遍地是一种黄色的小草(grass)。} {set_position {mlx}};

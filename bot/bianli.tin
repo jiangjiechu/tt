@@ -208,8 +208,21 @@
     #action {^大门被人打开了。} {
         #delay 0.5 {bl.walk}
     };
+    #action {^大门不是开着吗？} {
+        #delay 0.1 {bl.walk}
+    };
+    #action {^你要打开什么？} {
+        #delay 0.1 {bl.walk}
+    };
+    #action {^你拉着门闩，把大门打开了。} {
+        #delay 0.1 {bl.walk}
+    };
     #action {^你从小船上跳了下来} {
         #delay 0.5 {bl.walk}
+    };
+    #action {^你在小路中仔细对照} {
+        #math bl_path_index ${bl_path_index}-1;
+        bl.wait 0.5;
     };
 
     #action {^跑堂说道：「林知府府上预订了席面，我们这实在走不开，你可以帮我送去吗？} {

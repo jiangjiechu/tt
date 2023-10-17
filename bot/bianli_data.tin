@@ -983,7 +983,7 @@
     bl.comment {一品堂分堂->兰州西门};
     n;n;n;w;
     bl.comment {兰州西门->湟中->兰州西门};
-    w;nw;nw;w;w;e;e;se;se;se;se;nw;nw;e;
+    w;nw;nd;n;s;su;se;e;
     bl.comment {兰州西城墙};
     nu;n;ne;sw;s;sd;su;s;n;nd;
     bl.comment {兰州西门->刺史府大门};
@@ -997,7 +997,7 @@
     bl.comment {玉佛寺门口->兰州东门};
     n;n;n;e;
     bl.comment {兰州东门->黄河渡口};
-    e;n;s;s;n;se;s;ne;sw;s;n;n;nw;w;
+    e;n;s;s;n;ne;ne;eu;e;w;wd;sw;eu;nu;n;s;sd;wd;sw;se;se;sd;e;se;se;nw;nw;w;nu;nw;nw;w;
     bl.comment {兰州东城墙};
     nu;n;s;sd;su;s;n;nd;
     bl.comment {兰州东门->府前广场};
@@ -1058,29 +1058,31 @@
 };
 #list bl_path_qinz create {
     bl.comment {秦州-北门};
-    n;w;bl.clear {shi bing}; enter;out; e; e;e;s;s;n;n;w;se;enter;out;s;n;nw;s;s;w;n;
+    n;w; bl.command {look enter}; e; e;e;s;s;n;n;w;se;enter;out;s;n;nw;s;s;w;n;n;
     bl.comment {环城墙};
     w;w;w;w;s;s;s;s;s;s;e;e;e;e;e;e;e;e;n;n;n;n;n;n;w;w;w;w;
     bl.comment {北门-玉泉观};
-    n;nw;bl.command_halt {knock}; eu;
+    nw;ed;e;e;eu;bl.command_halt {knock}; eu;
     bl.comment {玉泉观内};
-    n;nu;n;nu;w;e;e;w;nu;nd;nw;se;n;nw;enter;out;s;n;se;ne;enter;out;s;n;sw;s;ne;sw;su;sd;sd;s;sd;bl.comment {enter qinglong};out; bl.comment {enter baihu};out;s
+    n;nu;n;nu;w;e;e;w;nu;nd;nw;se;n;nw;enter;out;s;n;se;ne;enter;out;s;n;sw;s;ne;sw;su;sd;sd;s;sd;bl.command {enter qinglong};out; bl.command {enter baihu};out;s;
     bl.comment {玉泉观东-山路};
-    ed;nw;nw;w;nu;nw;nw;se;se;sd;e;se;se;se;nw;wu;bl.command_halt {open door}; wd;wd;
+    ed;nw;nw;w;nu;nw;nw;se;se;sd;e;se;se;se;nw;wu;bl.command_halt {open door};wd;wd;w;w;wu;
     bl.comment {山路-西门};
     sd;sd;nw;nw;wu;wu;nw;se;ed;ed;se;se;
     bl.comment {西门-中央};
     e;n;s;s;n;e;n;s;s;n;e;n;s;s;n;e;
     bl.comment {中央-南门};
+    s;w;e;e;w;s;w;e;e;w;s;
     sw;wu;ed;ne;su;su;sw;sw;sw;s;sw;s;w;e;sw;se;w;e;
     bl.command_halt {ride east}; eu;ed;e;w;wu;wd; bl.command_halt {ride west}; nw;ne;
     n;ne;n;ne;ne;ne;se;enter;out;nw;nd;ed;wu;nd;
-
-
-
-
-
-
+    bl.comment {南门-中央};
+    n;n;n;
+    bl.comment {中央-东门};
+    e;e;s;s;n;n;e;s;s;w;e;n;n;n;n;w;e;s;s;e;
+    e;se;enter;out;nw;e;eu;eu;wd;ne;e;ne;sd;w;
+    w;sw;wd;se;enter;out;eu;eu;u;d;wd;wd;nw;w;w;
+    w;w;w;w;
 
 };
 
