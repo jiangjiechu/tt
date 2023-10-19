@@ -10,6 +10,7 @@
   #var luck %1;
   #var bonus %2;
   #var i_sk 1;
+  #var i_wp 1;
   set wimpy 70;
   set hansz_new_mode 1;
   ask han about job;
@@ -34,16 +35,18 @@
 };
 #act {^你紧紧捏住手中的韩王兵符，令亲兵留在原地，自己单刀赴会。} {
   #delay 3 {
-    # set adv_quest 50;
-    special agile;
+    #nop  set adv_quest 50;
     #untic hsza1;
     wear mine;
     unwield all;
     #if {"$myid"=="dalabomba"} {
+      special agile;
       special ironskin;
       wield $lun;
     };
     #if {"$myid"=="simontuixue"} {
+      special agile;
+      special ironskin;
       yun shield;
       remove armet;
       remove belt;
@@ -58,10 +61,40 @@
       wear zhiyan;wear zhixin;
     };
     #if {"$myid"=="jinger"} {
+      special agile;
+      special ironskin;
+      yun powerup;
       wield $wp;
+      wield shield;
     }
   }
 };
+#alias io {
+  #var dir.i %1;
+  #var dir.o %2;
+};
+#alias tx {
+  #send ${dir.i};
+  hit %0;
+  #if {"$myid"=="simontuixue"} {
+    p.lm %0;
+  };
+  #elseif {"$myid"=="dalabomba"} {
+    p.dq $oppo_dq;
+  };
+  #elseif {"$myid"=="jingirl"} {
+    p.pf %0;
+  };
+  #elseif {"$myid"=="jinger"} {
+    p.jz %0;
+  };
+  on_unbusy {
+    halt;
+    #send ${dir.o};
+  }
+};
+
+
 #alias peace {
   #var battle 0;
   #var VERBOSE 1;
@@ -76,7 +109,9 @@
 #act {%*异族奸细 %*(%*)%*} {
   #if {$f1_set==0}{
     #var oppo @lower{%3};
-    zhuanzhu $oppo;
+    #if {"$myid"=="simontuixue"} {
+      zhuanzhu $oppo;
+    };
     #var f1_set 1;
   };
   #elseif {$f2_set==0}{
@@ -103,7 +138,6 @@
     #elseif {"$myid"=="simontuixue"} {
       #delay 2 {bm;}
     };
-    #else {yun powerup}
   };
 };
 
@@ -142,8 +176,8 @@
 };
 #act {%*死了。$} {
   #var f1_set 0;
+  l;
   #if {"$myid"=="simontuixue"} {
-    l;
     #delay 2 {bm;}
   }
 };
@@ -156,19 +190,6 @@
   #var oppo_dq {%1};
   #var f2_set 1;
 };
-#alias tx {
-  kill all;
-  #if {"$myid"=="simontuixue"} {
-    p.lm $oppo;
-  };
-  #elseif {"$myid"=="dalabomba"} {
-    p.dq $oppo_dq;
-  };
-  #elseif {"$myid"=="jingirl"} {
-    p.pf;
-  }
-};
-
 #alias jl {
   #var n_oppo %0;
   #showme <afa> OK, n_oppo has been set to $n_oppo;
@@ -178,8 +199,11 @@
   wear mine;
   remove belt;
   remove armet;
-  uw all;
-  wi $wp;
+  on_unbusy {
+    uw all;
+    wi $wp;
+
+  }
 };
 
 #alias hszLog {
@@ -232,6 +256,13 @@
 
 #act {你被%*「斗转星移」功夫所引导，招招击向自己！} {
   yield yes;
+};
+#act {%*卸除了你的兵器%*。} {
+  #math i_wp {$i_wp+1};
+  #if {$i_wp>2} {
+    #var i_wp 1;
+  }
+  wield $wp $i_wp;
 };
 #gag {^>%s$};
 #gag {^$};

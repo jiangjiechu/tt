@@ -1,18 +1,16 @@
 #var myid jinger;
 #var li 0;
 #var wp sword;
-#var zong qizong;
+#var zong jianzong;
 
 #var skills {
-    {1}{po}
-    {2}{jz}
-    {3}{tl}
+    {1}{tl}
+    {1}{jz}
 };
 
 #var qishi {
-    {1}{8}
-    {1}{14}
-    {1}{14}
+    {1}{12}
+    {2}{12}
 };
 #var i_sk 1;
 #var n_sk 2;
@@ -27,11 +25,15 @@
   perform yangwu-jian.yangwu %0;
 };
 #alias {p.tl} {
+    jiali max;
     #if {"$zong"=="qizong"} {perform yunushijiu-jian.sanqingfeng %0};
-    #elseif {"$zong"=="jianzong"} {perform kuangfeng-jianfa.lianhuan %0};
+    #elseif {"$zong"=="jianzong"} {perform kuangfeng-kuaijian.lianhuan %0};
+    jiali 0;
 };
 #alias {p.jz} {
-  perform huashan-jianfa.jianzhang %0;
+    jiali max;
+    perform huashan-jianfa.jianzhang %0;
+    jiali 0;
 };
 #list sp_skills create {
     hunyuan-zhang;
@@ -93,5 +95,18 @@
     };
     lx;
 };
+#ali {jqg} {
+   s;#6 w;
+   #delay 1 {northwest;enter;enter;
+   #delay 1 {move you;move hou;move zuo;move you;
+   #delay 1 {e;#5 n;
+}}}};
 
-pku;jinger;123abc;agree jinger
+#ali {jqgb} {
+   #5 s;w;enter;
+   #delay 1 {move you;move zuo;move hou;move you;
+   #delay 1 {out;se;#6 e;n;
+   walk
+}}};
+
+pku;jinger;123abc;y

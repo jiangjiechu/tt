@@ -593,7 +593,7 @@
         #delay 0.1 {walk}
     };
     #action {^你从小船上跳了下来} {
-        #delay 0.5 {walk}
+        #delay 0.5 {hnr;walk}
     };
     #action {你下水往对岸走去。} {
         on_unbusy {walk}
@@ -617,7 +617,6 @@
     #action {^不一会儿，小船划到了岸边。} {hnr;walk};
     #action {^不一会儿就到了神龙岛，你纵身跃上码头。} {hnr;walk};
     #action {^不一会儿就到了天津塘沽口，你走上码头。} {hnr;walk};
-    #action {^你从小船上跳了下来，到了%*。} {hnr;walk};
     #action {^你健步如飞，不一会就走到} {walk};
     #action {^六名雪山弟子一齐转动机关，吊桥便又升了起来。} {walk};
     #nop #action {^艄公把踏脚板收了起来，竹篙一点，扁舟向江心驶去。} {yell boat};

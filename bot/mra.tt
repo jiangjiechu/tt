@@ -1,7 +1,7 @@
 #class mra open;
 
 #tic {mra} {
-  #var i 1;
+  #var i_wp 1;
   #untic mra;mraa;
   #var i_sk 1;
 }{2};
@@ -46,11 +46,11 @@
   #echo {%c%h} {light yellow} {目标正在%1处} } {15}};
 
 #act {慕容%*卸除了你的兵器%*。} {
-  #math i {$i+1};
-  #if {i>3} {
-    #var i 1;
+  #math i_wp {$i_wp+1};
+  #if {$i_wp>3} {
+    #var i_wp 1;
   }
-  wield $wp $i;
+  wield $wp $i_wp;
 }
 
 #act {^%s$myname发现的%s慕容世家{家贼|内鬼}(@capital{$myid}'s murong jiazei)} {
@@ -77,8 +77,8 @@
   #if {"$myid"=="simontuixue" && $qi >= 50} {
     p.lm jiazei;
   };
-  #elseif {"$myid"=="jinger" && $qi >= 12} {
-    p.$skills[$i_sk];
+  #elseif {"$myid"=="jinger" && $qi >= $qishi[$i_sk]} {
+    p.$skills[$i_sk] jiazei;
   };
   #elseif {"$myid"=="jingirl" && $qi >= $qishi[$i_sk]} {
     p.$skills[$i_sk];

@@ -244,7 +244,7 @@
 #list Route_bj_ry create {s} {sw} {sw} {s} {s} {sw} {sw} {sw} {sw} {sw} {sw} {sw} {sw} {w} {wu} {sw} {sw} {w} {nu} {n} {ne} {nu} {nu};
 #list Route_bj_zjk create {w} {w} {w} {w} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {n} {ne} {nw} {nw} {nw} {w} {w} {w} {n} {n};
 #list Route_zjk_bj create {s} {s} {e} {e} {e} {se} {se} {se} {sw} {s} {s} {s} {s} {s} {s} {s} {s} {s} {s} {s} {s} {s} {e} {e} {e} {e};
-#list Route_bj_tgk create {s} {sw} {sw} {s} {s} {se} {se} {se} {e} {e} {e} {ne} {e}:
+#list Route_bj_tgk create {s} {sw} {sw} {s} {s} {se} {se} {se} {e} {e} {e} {ne} {e};
 #list Route_tgk_bj create {w} {sw} {w} {w} {w} {nw} {nw} {nw} {n} {n} {ne} {ne} {n};
 #list Route_bj_hyd create {s} {sw} {n};
 #list Route_hyd_bj create {s} {ne} {n};
@@ -474,7 +474,7 @@
 #list Route_huz_hz create {e}{s}{sw}{sw}{s}{s}{sw}{s}{s}{s}{s}{s};
 #list Route_hz_huz create {n}{n}{n}{n}{n}{ne}{n}{n}{ne}{ne}{n}{w};
 
-#list Route_hz_jx {create} {e}{e}{e}{e}{e}{e}{e}{ne}{ne}{n}{n}{n}{nw}{n}{n}:
+#list Route_hz_jx {create} {e}{e}{e}{e}{e}{e}{e}{ne}{ne}{n}{n}{n}{nw}{n}{n};
 #list Route_jx_hz {create} {s}{s}{se}{s}{s}{s}{sw}{sw}{w}{w}{w}{w}{w}{w}{w};
 #list Route_huz_jx {create} {e}{s}{e}{eu}{ed}{e}{e}{e}{e}{ed}{se}{se}{sd}{e};
 #list Route_jx_huz {create} {w}{nu}{nw}{nw}{wu}{w}{w}{w}{w}{wu}{wd}{w}{n}{w};
